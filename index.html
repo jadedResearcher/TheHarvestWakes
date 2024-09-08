@@ -1,0 +1,158 @@
+<html language="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Be safe, and don't get lost...">
+
+  <title>Lavinraca Corn Maze</title>
+  <link rel="stylesheet" href="sleeping-index.css">
+  <link rel="icon" href="favicon.ico" />
+
+  <script src="utils.js"></script>
+
+  <script src="SeededRandom.js"></script>
+  <script src="NPCSystem.js"></script>
+  <script src="sleeping-index.js"></script>
+
+</head>
+
+
+<body>
+
+  <a  style="display: none" class="hi-yes-if-you-can-read-this-you-are-doing-well" target="blank" href="http://knucklessux.com/Blog/" >http://knucklessux.com/Blog/</a>
+  <button  title="disabling music may make it run better" alt="disabling music may make it run better" aria-label="disabling music may make it run better" id ="mute"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></button>
+  <div id="content">
+    <button id="explore">Loading<div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div></button>
+  </div>
+  <div style="width: 100px; display: flex;">
+  <a href ='http://lavinraca.eyedolgames.com/Week1/' target="_blank"><button>Week 1 (October 1st, 2023)</button></a>
+  <a href ='http://lavinraca.eyedolgames.com/Week2/' target="_blank"><button>Week 2 (October 8th, 2023)</button></a>
+  <a href ='http://lavinraca.eyedolgames.com/Week3/' target="_blank"><button>Week 3 (October 15th, 2023)</button></a>
+  <a href ='http://lavinraca.eyedolgames.com/Week4/' target="_blank"><button>Week 4 (October 22th, 2023)</button></a>
+
+  <a href ='http://lavinraca.eyedolgames.com/XConByMediumOfThreads/' target="_blank"><button>Week X (Fan Maze by Medium of Threads)</button></a>
+
+</div>
+
+  <br><Br><Br>
+<div data-attr-jr-note="left for historical reasons :) :) :)" style="display:none">
+  <h2>JR TODO PILE: Reverse Dating Sim <a onclick="debugMaze()">(Sacrifice)</a></h2>
+  <h3>important tasks</h3>
+  <ul>
+    <li>finish wiring up gimmicks</li>
+    <li>note: might be useful, if a gimmick or blorbo is about to add a click event to itself, also add it as a button to the bar?    </li>
+    <li>scarecrow jumpscares (noise, flash of graphic)</li>
+    <li>if collect ALL masks, jumpscare and then new, glitched mask added (broken camera image, its you)</li>
+    <li>reverse dating sim sacrifice (with network recording, tattle to buttler bot)</li>
+    <li>disable debug travel (yes even for wastes)</li>
+  </ul>
+
+
+
+  <h3>old 5 minutes do this now plz</h3>
+  <ul>
+    #1 task: spawn in ticket taker area, gimmick is content warning
+    arrows on bottom for n,s,e,w (also keyboard controls)
+    reslurp maccus dialog
+    note: default audio to be off, prompt users to decide if their comp can handle fancy shit
+    next todo is cnosole scarecrow dialog
+    also need to wire in not!maccus to a 1/10 chance (and maccus 1/100)(checkdoc)
+    <li>if go procedural, set sound (scarecrowed)</li>
+    <li>if spend too much time in procedural bit (two minutes), jumpscare (smiley.png) (warn jonah) and kicked to entrance</li>
+    </li>
+    <li>scarecrow layer to blorbo dialog</li>
+    Normal Macci should have the normal sprite (1/100 chance)
+    And the Scarecrow eyes for Not!Maccus (1/10 chance) (says fucked up shit)
+    <li>hotel</li>
+    <li>you should spawn in entrance</li>
+    <li>one by one, wire up gimmicks to work correctly (and have special dialog)</li>
+    <li>hide cctv mode</li>
+
+  </ul>
+  <h3>medium term todo</h3>
+  <ul>
+    <li>when this maze is finished go back to northnorthnorthnorth and add a special seed leading here. 31? </li>
+    <li>if click on outhouse AND twig is in location, remove twig permanently from roster. mark bathroom as out of order</li>
+    <li>if have key and click on lock, teleport to pumpkin</li>
+    <li>if ring in inventory, and click on hand statue, links to jackelope (proposal)</li>
+    <li>wire drive thru to play a rabbitsim  video</li>
+    <li>first room is Entrance (not maze), gotta read the content warnings (including jump scares)</li>
+    <li>reskin ZWorld, link to it from maze</li>
+
+    <li>wire up the finger and ring puzzle first (putting ring on finger gets you to jackelope BUT not yet, not till after halloween)</li>
+    <li>slowly start wiring up the real map, placeholder assets, the map contains dialog options for each of the four
+      blorbos (eustace hopes twig finds the outhouse when he's there, etc) (two sets of dialog in corn mzze, regular and
+      "scarecrow took you here")</li>
+      <li>twig can be controlled in west, once in the outhouse</li>
+      <li>blorbos drive home theories of mind and personality (see notes), especially through how they change based on context (time and location)</li>
+      <li>if the scarecrow takes you, dread end (procedural mode)</li>
+    <li>candy only appears if you're out of bounds (if you're out of bounds small random chance of returning to any of
+      the edges of the map)</li>
+    <li>maze changes over time over the month, edit json, psyops</li>
+  </ul>
+  <h3>long term todo</h3>
+
+  <ul>
+    <li> * every time you go to a new maze location, random chance of blorbo</li>
+    <li> blorbo has things to say based on location</li>
+    <li>there are important locations in the maze and set, stable map</li>
+    <li>the edges of the map fray into zampanio and instanity both in location and in communcation</li>
+    <li>your goal is to sacrifice one of the blorbos in some way (can be more complex later)</li>
+    <li>a microserver watches to see who dies the most</li>
+    <li>you can feed the blorbos minoburgers or candy or something</li>
+    <li>the maze and blorbos are json data and can easily be extended with new maps (same structure but different
+      features) and new blorbos</li>
+    <li>goal is a reverse dating sim, you interact with the blorbos to decide who you should sacrifice. micro server
+      pays attention to who gets chosen the most and they get their backstories</li>
+    <li>gather all items, perform ritual, sacrifice thing?</li>
+    <li>in the stable maze, blorbos have set dialogue trees, in the procedurla maze they are corrupt and glitchy and
+      procedural</li>
+    <li>"you're lost. I can show you the way. just do as i say" scarecrow has them hack things ominously (first just
+      insert a lil phrase onto the page. then into local storage. then into cookies. then send via the network tab to
+      the ouija board server (butlerbot))</li>
+    <li>on each screen, random chance of a Spooky Event (sound, animation, whatever)
+      <ul>
+        <h3>Triggers</h3>
+        <li>time</li>
+        <li>day</li>
+        <li>local storage</li>
+        <li>random percent</li>
+        <li>map location</li>
+        <li>x seconds on current screen</li>
+      </ul>
+
+      <ul>
+        <h3>Effects</h3>
+        <li>shadows lengthen</li>
+        <li>moon's mixtype changes</li>
+        <li>corn rustles</li>
+        <li>sound plays (reverse, super slow, super fast, glitching between fast and slow), scrombled, muffled/filtered
+          (random start level and then random direction it moves over time)</li>
+        <ul>
+          <li>fire sounds</li>
+          <li>owls</li>
+          <li>distant fairground</li>
+          <li>crickets</li>
+          <li>wind</li>
+          <li>corn rustling</li>
+        </ul>
+        <li>img glitch</li>
+        <li>text displays faintly in the corn maze</li>
+      </ul>
+    </li>
+    <li>map mode, slowly turn map into data. data controls where dead ends are, what turns are available, etc </li>
+    <li>example of map: spawn in "hallway"
+      * click center of screen to move further down hallway
+      * see far dead end
+      * click center of screen
+      * see near dead end
+      * click bottom of screen
+      * see far dead end</li>
+  </ul>
+  </div>
+</body>
+
+</html>

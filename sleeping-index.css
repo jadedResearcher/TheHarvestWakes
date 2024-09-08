@@ -1,0 +1,1400 @@
+@font-face {
+  font-family: bloodscratch;
+  src: url("Fonts/BloodScratchPersonalUse.ttf");
+}
+
+@font-face {
+  font-family: paincircus;
+  src: url("Fonts/pain_circus/Pain\ Circus.ttf");
+}
+
+@font-face {
+  font-family: gameboy;
+  src: url("Fonts/early-gameboy/Early\ GameBoy.ttf");
+}
+
+
+@font-face {
+  font-family: ouija;
+  src: url("Fonts/ifc_los_banditos/IFC\ LOS\ BANDITOS.ttf");
+}
+
+
+@font-face {
+  font-family: cav;
+  src: url("Fonts/cavalier/Cavalier.ttf");
+}
+
+@font-face {
+  font-family: GT;
+  src: url("Fonts/GT-America/GT-America-Compressed-Regular-Trial.otf");
+}
+
+
+
+body {
+  --main-darker-color: #300111;
+  --main-dark-color: #450118;
+  --main-bg-color: #660022;
+  --main-font-color: #c40444;
+  --bright-font-color: #ff0055;
+  secret: "https://zampaniosim.fandom.com/wiki/Scarecrow";
+  secret2: "It's very scarecrow to be spotted then hide away immediately like a roach under light  ";
+  secret3: "The Scarecrow was something I'd have to hunt down in the maze. I'd see it, ban it, but it'd just come back  ";
+  background-color :rgba(31,31,31);
+  color: var(--main-font-color);
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  overflow: auto;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: paincircus;
+
+}
+
+::placeholder {
+  color: #677221;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #677221;
+}
+
+form{
+  display: flex;
+  gap: 31px;
+}
+
+input{
+  background-color: #8b9935;
+  color: black;
+  font-family: gameboy;
+  border: 2px solid black;
+  outline: none !important;
+  margin: 0px;
+  transform: none !important;
+}
+
+.chaos {
+  filter: sepia(0.19);
+}
+
+.layered-image-container img.breadcrumb {
+  width: 50px;
+  position: absolute;
+  top: 0px;
+  display: block;
+  right: 0px;
+  z-index: 1000;
+  left: auto;
+  z-index: 1000;
+}
+
+.layered-image-container img.candy {
+  width: 50px;
+  position: absolute;
+  top: 357px;
+  display: block;
+  left: 280px;
+  animation-name: wiggle;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-duration: 1.25s;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.candy:not(:hover) {
+  animation-name: none !important;
+  animation-timing-function: ease-in !important;
+  animation-fill-mode: both !important;
+  animation-duration: 0.75s !important;
+}
+
+.candy:hover {
+  animation-name: wiggle !important;
+  animation-timing-function: ease-in !important;
+  animation-fill-mode: both !important;
+  animation-duration: 1.25s !important;
+}
+
+@keyframes pumpkin-flicker {
+  0% {
+    height: 93%;
+    opacity: 1.0;
+  }
+
+  50% {
+    height: 91%;
+    opacity: 0.9;
+  }
+
+  0% {
+    height: 93%;
+    opacity: 1.0;
+  }
+}
+
+@keyframes god-flicker {
+  0% {
+    height: 101%;
+
+    opacity: 1.0;
+  }
+
+  50% {
+    height: 100%;
+    opacity: 0.9;
+  }
+
+  150% {
+    height: 101%;
+    opacity: 1.0;
+  }
+}
+
+
+@keyframes flicker {
+  0% {
+    transform: skewX(1deg);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: skewX(-1deg);
+    opacity: 0.05;
+
+  }
+
+  150% {
+    transform: skewX(1deg);
+    opacity: 0.01;
+
+  }
+}
+
+
+
+@keyframes wiggle {
+  0% {
+    transform: skewX(9deg);
+  }
+
+  10% {
+    transform: skewX(-8deg);
+  }
+
+  20% {
+    transform: skewX(7deg);
+  }
+
+  30% {
+    transform: skewX(-6deg);
+  }
+
+  40% {
+    transform: skewX(5deg);
+  }
+
+  50% {
+    transform: skewX(-4deg);
+  }
+
+  60% {
+    transform: skewX(3deg);
+  }
+
+  70% {
+    transform: skewX(-2deg);
+  }
+
+  80% {
+    transform: skewX(1deg);
+  }
+
+  90% {
+    transform: skewX(0deg);
+  }
+
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+.transition {
+  animation-iteration-count: 1;
+  animation: fade-to-black 1s linear 1;
+}
+
+@keyframes fade-to-black {
+  0% {
+    opacity: 1;
+  }
+
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+.north {
+  position: absolute;
+  top: 132px;
+  left: 359px;
+  width: 100px;
+  height: 100px;
+  background: none;
+  opacity: 0.5;
+  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.1);
+  z-index: 200;
+
+}
+
+.layered-image-container .gimmick-progress {
+  position: absolute;
+  top: auto;
+  bottom: 10px;
+  background: none;
+  left: 0px;
+  width: 100%;
+  height: 17px;
+  z-index: 199;
+}
+
+.layered-image-container .gimmick-progress-label {
+  margin-right: 10px;
+}
+
+.layered-image-container .gimmick-progress-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+  position: static;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 250px;
+  height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--main-dark-color);
+  border: var(--main-darker-color);
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--main-bg-color);
+  border-radius: 5px 0px 0px 5px;
+}
+
+
+.south {
+  position: absolute;
+  top: 342px;
+  background: none;
+  left: -10px;
+  width: 100%;
+  height: 100px;
+  opacity: 0.5;
+  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.069);
+  z-index: 200;
+}
+
+.east {
+  position: absolute;
+  top: 91px;
+  left: 510px;
+  background: none;
+  width: 135px;
+  height: 238px;
+  opacity: 0.5;
+  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.1);
+  z-index: 200;
+
+}
+
+.east:hover,
+.north:hover,
+.south:hover,
+.west:hover {
+  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.3);
+}
+
+.west {
+  position: absolute;
+  background: none;
+  top: 91px;
+  left: 179px;
+  width: 135px;
+  height: 238px;
+  opacity: 0.5;
+  box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.1);
+  z-index: 200;
+  jr-note: "Terrible. Disgusting. Why is west real?"
+
+
+}
+
+#debug-select {
+  display: none;
+}
+
+#mute {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: #47055d;
+}
+
+.layered-image-container .gimmick {
+  z-index: 70;
+}
+
+
+
+.layered-image-container .circus {
+  width: 150%;
+  top: -188px;
+  left: -213px;
+  cursor: pointer;
+}
+
+
+.ghost {
+  opacity: 0.1;
+  animation: flicker 10s ease-in infinite;
+  z-index: 331;
+
+}
+
+.sacrifice-container {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 31px;
+}
+
+.sacrifice {
+  cursor: pointer;
+  height: 300px;
+}
+
+.sacrifice img {
+  height: 200px;
+}
+
+.sacrifice-name {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.full-screen-dialog {
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  overflow-y: scroll;
+  background: black;
+  padding: 50px;
+}
+
+.ominous-bullshit{
+  text-align: center;
+  font-size: 31;
+  margin-top: 15px;
+  jr-note: "31 is the arc number of halloween and the scarecrow is the essence of halloween. let it in.";
+}
+
+.pumpkin {
+  height: 93%;
+  top: 0px;
+  margin-top: 50px;
+  left: 0px;
+  position: absolute;
+  z-index: 10000;
+  object-fit: contain;
+  animation: pumpkin-flicker 10s ease-in infinite;
+  width: 93%;
+  background: black;
+}
+
+
+
+.layered-image-container .jumpscare {
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  z-index: 1000;
+  object-fit: contain;
+  animation: pumpkin-flicker 10s ease-in infinite;
+  width: 100%;
+  background: black;
+}
+
+.layered-image-container .lock {
+  width: 67%;
+  top: -307px;
+  left: 149px;
+  cursor: pointer;
+}
+
+.layered-image-container .bookcase {
+  width: 33%;
+  top: 111px;
+  left: 149px;
+  cursor: pointer;
+}
+
+.layered-image-container .mass {
+  cursor: pointer;
+}
+
+.layered-image-container .hand {
+  width: 155px;
+  top: 54px;
+  left: 271px;
+  cursor: pointer;
+}
+
+
+.layered-image-container .god {
+  height: 100%;
+  bottom: 0px;
+  left: 219px;
+  cursor: pointer;
+  z-index: 99;
+  width: auto;
+  animation: god-flicker 1s ease-in infinite;
+
+}
+
+.id {
+  z-index: 9999;
+}
+
+
+
+@keyframes james-webb-telescope-mirrors-mirrored {
+  0% {
+    background-size: 200px 200px;
+
+  }
+
+  50% {
+    background-size: 211px 211px;
+
+  }
+
+  100% {
+    background-size: 200px 200px;
+
+  }
+}
+
+@keyframes james-webb-telescope-mirrors-mirrored-god {
+  0% {
+    background-size: 333px 450px;
+
+  }
+
+  50% {
+    background-size: 340px 460px;
+
+  }
+
+  100% {
+    background-size: 333px 450px;
+
+  }
+}
+
+
+.layered-image-container .ring {
+  width: 13px;
+  top: 300px;
+  left: 300px;
+  cursor: pointer;
+}
+
+.layered-image-container .balloon {
+  width: 150px;
+  top: 200px;
+  left: 300px;
+  cursor: pointer;
+}
+
+
+.layered-image-container .key {
+  width: 150px;
+  top: 300px;
+  left: 300px;
+  cursor: pointer;
+}
+
+.layered-image-container .garden {
+  width: 150px;
+  top: 300px;
+  left: 300px;
+  cursor: pointer;
+}
+
+.layered-image-container .honk {
+  width: 150px;
+  top: 300px;
+  left: 300px;
+  cursor: pointer;
+}
+
+.continue {
+  font-family: paincircus;
+  border: 1px solid red;
+  font-size: 21px;
+  padding: 3px;
+  border-radius: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.layered-image-container .tinkerbell {
+  width: 100px;
+  top: 292px;
+  left: 256px;
+  cursor: pointer;
+}
+
+
+.layered-image-container .eclair {
+  width: 150px;
+  top: 300px;
+  left: 300px;
+  cursor: pointer;
+}
+
+
+.layered-image-container .well {
+  width: 150px;
+  top: 138px;
+  left: 180px;
+  cursor: pointer;
+}
+
+.layered-image-container .manor {
+  width: 150%;
+  top: -363px;
+  left: -163px;
+  cursor: pointer;
+}
+
+
+
+.layered-image-container .outhouse {
+  top: -50px;
+  left: -100px;
+  cursor: pointer;
+}
+
+.dialog {
+  transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s;
+  direction: ltr;
+  will-change: transform;
+}
+
+.layered-image-container .dialog .glitched-ramble {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  animation: glitch-twitch 0.5s ease-in-out infinite;
+  animation-delay: calc(0.22s * var(--i));
+
+}
+
+
+@keyframes glitch-twitch {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  25% {
+    transform: translate(10px, 0px) skew(5deg);
+  }
+
+  50% {
+    transform: translate(10px, 10px);
+  }
+
+  75% {
+    transform: translate(0px, 10px) skew(50deg);
+  }
+
+  100% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+
+.glitch {
+  animation: glitch calc(1s * var(--i)) linear infinite;
+  display: inline-block;
+}
+
+@keyframes glitch {
+
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+
+#content .layered-image-container .split{
+  animation: split calc(500ms * var(--i)) linear infinite;
+}
+
+@keyframes split {
+
+  0%
+   {
+    opacity:100;
+    transform: translate(2px, 0) skew(0deg);
+    z-index:730;
+  }
+
+  50%
+   {
+    opacity:0;
+    transform: translate(-2px, 0) skew(1deg);
+    z-index:72;
+  }
+
+}
+
+
+
+.layered-image-container .dialog {
+  top: 20px;
+  left: 20px;
+  max-height: 375px;
+  width: 375px;
+  background-color: var(--main-bg-color);
+  color: #fbfbfa;
+  z-index: 1000;
+  border: 3px solid red;
+  border-color: var(--main-font-color);
+  border-radius: 7px;
+  padding: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-dark-color);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.layered-image-container .big-dialog {
+  top: 20px;
+  overflow-y: auto;
+  left: 20px;
+  max-height: 375px;
+  width: 730px;
+  background-color: var(--main-bg-color);
+  color: #fbfbfa;
+  z-index: 1000;
+  border: 3px solid red;
+  border-color: var(--main-font-color);
+  border-radius: 7px;
+  padding: 13px;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 75%;
+  color: white;
+}
+
+h2 {
+  font-family: paincircus;
+  font-size: 32px;
+}
+
+.layered-image-container .inventory span {
+  vertical-align: top;
+}
+
+.layered-image-container .inventory img {
+  width: 18px;
+  display: inline-block;
+  position: relative;
+}
+
+.layered-image-container .mask-inventory img {
+  width: 50px;
+  display: inline-block;
+  position: relative;
+}
+
+.well button {
+  display: block;
+  font-family: paincircus;
+  font-size: 31px;
+}
+
+
+.warning {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+.ramble {
+  font-size: 14px;
+  margin-bottom: 33px;
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+}
+
+.player-response {
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.player-response:hover {
+  text-decoration: underline;
+}
+
+.player-response::before {
+  content: "\003E ";
+  padding-right: 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.glitch .player-response::before {
+  content: "/U+003E";
+  font-family: paincircus;
+
+}
+
+.layered-image-container .dialog div {
+  position: static;
+}
+
+.layered-image-container .not-scarecrow-container {
+  width: 200px;
+  top: 10px;
+  z-index: 69;
+  nice: "didnt intend the meme number it but it turned out if i wanted it just under the near corn, here we are"
+}
+
+.layered-image-container .not-scarecrow-body {
+  width: 200px;
+
+}
+
+
+.layered-image-container .not-scarecrow-mask {
+  width: 200px;
+  cursor: pointer;
+}
+
+
+.layered-image-container .avatar {
+  width: 175px;
+  position: absolute;
+  top: 107px;
+  left: 430px;
+  cursor: pointer;
+  z-index: 72;
+}
+
+.layered-image-container .sass {
+  padding: 2px;
+  position: absolute;
+  top: -25px;
+  font-size: 12px;
+  width: 300px;
+  left: -75px;
+  color: black;
+  padding-left: 5px;
+  font-weight: bold;
+  padding-right: 5px;
+  opacity: 100;
+  margin: 5px;
+  background-color: var(--main-bg-color);
+  color: #fbfbfa;
+  z-index: 1000;
+  border: 3px solid red;
+  border-color: var(--main-font-color);
+  line-height: 17px;
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, .2);
+  transition: opacity 1s linear;
+}
+
+.huge-scary {
+  z-index: 999;
+}
+
+.summoned {
+  animation: summon 8s ease-in 1;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes summon {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    transform: rotate(0deg);
+    opacity: 100;
+  }
+}
+
+.spin {
+  animation: spin 1s linear 1;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+    opacity: 100;
+  }
+
+  to {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.sass.fadeout {
+  opacity: 0;
+}
+
+.neardeadend .avatar {
+  top: 252px;
+}
+
+.neardeadend .not-scarecrow-container {
+  top: 140px;
+}
+
+.fardeadend .avatar {
+  top: 155px;
+}
+
+.tjunction .avatar {
+  top: 155px;
+}
+
+.hallwaybutleft .avatar {
+  top: 178px;
+}
+
+.hallway .avatar {
+  top: 178px;
+}
+
+.sky {
+  z-index: 0;
+  pointer-events: none;
+  pointer-events: none;
+
+}
+
+.far-fog {
+  z-index: 10;
+  pointer-events: none;
+
+}
+
+.moon {
+  z-index: 20;
+  pointer-events: none;
+
+}
+
+.moon-glow {
+  z-index: 21;
+  pointer-events: none;
+
+}
+
+.ground {
+  z-index: 30;
+}
+
+
+.bg-fog {
+  z-index: 40;
+  pointer-events: none;
+
+}
+
+.close-dead-shadow {
+  z-index: 50;
+  pointer-events: none;
+
+}
+
+.close-dead {
+  z-index: 51;
+  pointer-events: none;
+
+}
+
+.bg-corn-right {
+  z-index: 50;
+  pointer-events: none;
+
+}
+
+
+
+.bg-corn-right {
+  z-index: 50;
+  pointer-events: none;
+
+}
+
+.bg-corn-left {
+  z-index: 50;
+  pointer-events: none;
+
+}
+
+
+
+.bg-corn-left {
+  z-index: 50;
+  pointer-events: none;
+
+}
+
+
+
+.mg-fog {
+  z-index: 60;
+  pointer-events: none;
+
+}
+
+
+.fg-corn-left-shadow {
+  z-index: 70;
+  pointer-events: none;
+
+}
+
+
+
+.fg-corn-left {
+  z-index: 71;
+  pointer-events: none;
+}
+
+
+
+.fg-corn-right-shadow {
+  z-index: 70;
+  pointer-events: none;
+
+}
+
+
+.fg-corn-right {
+  z-index: 71;
+  pointer-events: none;
+
+}
+
+
+
+.fg-fog-no {
+  z-index: 99;
+  pointer-events: none;
+}
+
+.layered-image-container .fg-fog {
+  z-index: 99;
+  pointer-events: none;
+  animation: scroll-bg 1113s linear infinite;
+
+}
+
+.layered-image-container .vignette {
+  z-index: 100;
+  pointer-events: none;
+}
+
+.layered-image-container .entrance {
+  z-index: 113;
+  pointer-events: none;
+}
+
+
+.layered-image-container .drivethrough {
+  z-index: 113;
+  pointer-events: none;
+}
+
+
+
+#ytplayer {
+  position: absolute;
+  top: 181px;
+  left: 353px;
+  width: 248px;
+  height: 150px;
+  mix-blend-mode: overlay;
+  transform: rotateY(-41deg) skewY(13deg);
+}
+
+
+
+
+
+button {
+  cursor: pointer;
+  background: var(--main-bg-color);
+  color: var(--main-font-color);
+  border: 0px;
+  padding: 10px;
+  margin: 10px;
+}
+
+button:disabled {
+  cursor: auto;
+  opacity: 0.5;
+  background: var(--main-bg-color);
+  color: var(--main-font-color);
+  border: 0px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 2px solid var(--main-font-color);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 0px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  4.9% {
+    top: 0px;
+    left: 0px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  5% {
+    top: 6px;
+    left: 6px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+    border: 1px solid var(--bright-font-color);
+
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--main-font-color);
+    opacity: 0;
+  }
+}
+
+
+#explore {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 5px;
+  font-family: paincircus;
+  position: absolute;
+  top: 25%;
+  left: 647px;
+}
+
+button:hover {
+  transform: translateY(2px);
+}
+
+button:active {
+  transform: translateY(5px);
+}
+
+#content {
+  width: 800px;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 1px 30px var(--main-bg-color);
+}
+
+.layered-image-container {
+  width: 800px;
+  height: 450px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.video-parent{
+  position: relative;
+  width: 800px;
+  font-family: gameboy;
+  font-size: 18px;
+  height: 480px;
+  background:black;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 31px;
+}
+
+.video-parent button{
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  border: 2px solid black;
+  margin: 0px;
+  transform: none !important;
+}
+
+.the-sacrifices-that-built-your-god{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  z-index: -1;
+}
+
+.bg-tile{
+  width: 175px;
+  filter: none;
+  height: 175px;
+  object-fit: contain;
+  background-color: #313131;
+  cursor: pointer;
+  border: 3px solid #131313;
+  border-radius: 31px;
+}
+
+.video-parent .god-dialog{
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  border: 2px solid black;
+  margin: 0px;
+  transform: none !important;
+  padding: 13px;
+}
+
+.inner-dialog{
+  font-size: 13px;
+}
+
+.god-dialog-button-holder{
+  display: flex;
+  background-color: #a1b234;
+  justify-content: space-between;
+  border: none;
+}
+
+.video-parent .button-parent{
+  border: 2px solid #a1b234;
+  width: fit-content;
+  height: fit-content;
+}
+
+.video-parent .dialog-parent{
+  border: 2px solid #a1b234;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  bottom: 10px;
+  width: 95%;
+  left: 2.3%;
+}
+
+video{
+  width: 640px;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.layered-image-container img {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.layered-image-container div {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.moon-glow {}
+
+.far-fog {}
+
+
+
+
+
+.dark {
+  display: none;
+}
+
+.bright {
+  display: block;
+}
+
+
+.mg-fog {}
+
+
+
+@keyframes glow {
+  0% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes scroll-bg {
+  0% {
+    background-position: 0px;
+
+
+  }
+
+  50% {
+    background-position: 3840px;
+    opacity: 0.55;
+  }
+
+  100% {
+    background-position: 0px;
+  }
+}
+
+@keyframes mg-fog {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.75;
+
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.debug-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  display: block;
+  color: var(--main-bg-color);
+}
+
+.debug-table td {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  text-align: center;
+  cursor: pointer;
+}
+
+.debug-table .debug-empty {
+  background-color: black;
+  cursor: default;
+}
