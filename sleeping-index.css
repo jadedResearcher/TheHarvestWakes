@@ -483,6 +483,7 @@ progress::-webkit-progress-value {
   bottom: 0px;
   left: 219px;
   cursor: pointer;
+  border: 3px solid red;
   z-index: 99;
   width: auto;
   animation: god-flicker 1s ease-in infinite;

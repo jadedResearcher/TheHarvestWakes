@@ -2,46 +2,29 @@ let ele;
 
 let how_long_well_let_them_explore = 500;
 
-const isItFriday = () => {
-  //midnight and fridays are wungle time
-  const date = new Date();
-  if (date.getHours() == 0 || date.getDay() === 5) {
+
+const intersects = (ele1, ele2) => {
+  const rect1 = ele1.getBoundingClientRect();
+  const rect2 = ele2.getBoundingClientRect();
+
+  if (rect1.bottom > rect2.top
+    && rect1.right > rect2.left
+    && rect1.top < rect2.bottom
+    && rect1.left < rect2.right) {
     return true;
   }
-  return false;
+
 }
 
-const isItMidnight = () => {
-  //midnight and fridays are wungle time
-  const date = new Date();
-  if (date.getHours() == 0) {
-    return true;
-  }
-  return false;
-}
-
-const shuffle = (array) => {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-  }
-
-  return array;
+const distance = (x1, y1, x2, y2) => {
+  const first = (x1 - x2) ** 2;
+  const second = (y1 - y2) ** 2;
+  return (first + second) ** 0.5
 }
 
 
 //from view-source:https://www.yyyyyyy.info/
-function animateTitle(i) {
+function animateTitle(i, functionToCheckIfStop) {
   var message = [
     '▁▂▃▄▅▆▇ `^^^^^~ ░ ui▀┳╲ ☺ .info ▓',
     '▂▁▂▃▄▅▆` ^^^^^~ ░ ui▀┳╲ ☺ .info ▓',
@@ -57,64 +40,51 @@ function animateTitle(i) {
     '▂▃▄▅▆▇▆` ^^^^^~ ░ ui▀┳╲ ☻ .info ▓'
   ]
 
+  const stopOrGo = () => {
+    if (functionToCheckIfStop && functionToCheckIfStop()) {
+      return;
+    } else {
+      return setTimeout(() => { animateTitle(i + 1) }, 200);
+    }
+  }
+
   i >= message.length - 1 ? (i = 0) : i++,
     (document.title = message[i]),
-    setTimeout(() => { animateTitle(i + 1) }, 200)
+    stopOrGo()
 }
 
-const chunkUpArray = (array, chunkSize) => {
-  if (chunkSize < 1) {
-    return array;
-  }
-  const ret = [];
-  for (let i = 0; i < array.length; i += chunkSize) {
-    ret.push(array.slice(i, i + chunkSize));
-    // do whatever
-  }
-  return ret;
-}
-
-
-//modified from jackElope
-const fuckShitUPMosaic = async (parent, clone) => {
-  await sleep(500); //wait for repaint
-  console.log("JR NOTE: making a fucked up masaic",{height:clone.offsetHeight, width:clone.offsetWidth })
-  let fucked_up_image_holder = createElementWithClassAndParent("div", parent);
-  fucked_up_image_holder.classList = clone.classList;
-  fucked_up_image_holder.style.pointerEvents = "none";
+//modified from jackElope/lavinraca/lavinraca
+//animps comes from parent, decides if it spawns animating or not
+turnImageIntoGrid = async (parent, imagesrc, gridSize, animation_name) => {
+  let fucked_up_image_holder = createElementWithClassAndParent("div", parent, "holder");
 
   fucked_up_image_holder.style.background = "black";
-  const size = Math.round(clone.offsetHeight/10);
-  if(size === 0){
-    return;
-  }
-
-  for (let y = 0; y < clone.offsetHeight; y += size) {
-    for (let x = 0; x < clone.offsetWidth; x += size) {
+  const size = gridSize;
+  let index = 0;
+  for (let y = 0; y < 475; y += size) {
+    for (let x = 0; x < 475; x += size) {
+      index ++;
+      //https://www.youtube.com/watch?v=7KTzcPmVZSY
       let box = createElementWithClassAndParent("div", fucked_up_image_holder, "box");
       box.style.pointerEvents = "none";
       box.style.position = "absolute";
       box.style.top = y + "px";
       box.style.left = x + "px";
-      box.style.backgroundPositionY = clone.offsetHeight + y + "px";
-      box.style.backgroundPositionX = clone.offsetWidth - x + "px";
-      box.style.backgroundImage = `url('${clone.src}')`;
+      box.style.opacity = Math.random();
+      box.style.backgroundPositionY = 475 - y + "px";
+      box.style.backgroundPositionX = 475 - x + "px";
+      box.style.backgroundImage = `url('${imagesrc}')`;
       box.style.width = size + "px";
       box.style.height = size + "px";
-      const odds = Math.random();
-      if (odds > 0.5) {
-        box.style.animation = `james-webb-telescope-mirrors-mirrored ${Math.random() * 4}s infinite linear 0s`
-      } else if (odds > 0.15) {
-        box.style.animation = `james-webb-telescope-mirrors-mirrored  ${Math.random() * 4}s infinite linear 2s`
-        box.style.backgroundImage = `url('${clone.src.replaceAll("/Corn","/Week1/Corn")}')`;
-      } else {
-        box.style.animation = `james-webb-telescope-mirrors-mirrored  ${Math.random() * 4}s infinite linear 1s`
-      }
+      box.style.setProperty("--animdel", `${index * Math.random()}ms`);
+      box.style.animation = `${animation_name} ${30*Math.random()}s infinite linear var(--animdel, 0s)`;
+      box.style.animationPlayState  = " var(--animps, paused)"
     }
 
   }
-  clone.style.display="none";
+  return fucked_up_image_holder;
 }
+
 
 
 const fuckShitUPAnimation = (ele) => {
@@ -153,46 +123,6 @@ const fuckShitUPAnimation = (ele) => {
   const timing_functions = ["ease", "ease-in", "ease-out", "ease-in-out", "linear", "step-start", "step-end"];
   const animation = `${animation_name} ${getRandomNumberBetween(1, 10) * Math.random()}s ${pickFrom(timing_functions)} ${Math.random() * getRandomNumberBetween(1, 10)}s infinite`;
   ele.style.animation = animation;
-}
-
-//from info token reader!
-const getBullshitCSSMaze = (allowFilters) => {
-  let css = "";
-  const filters = ["contrast(2)", "contrast(1.5)", "hue-rotate(45deg)", "hue-rotate(90deg)", "hue-rotate(180deg)", "hue-rotate(270deg)", "blur(1px)", "blur(5px)", "blur(10px)", "blur(15px)", "blur(25px)", "blur(20px)", "blur(30px)", "blur(35px)", "blur(40px)"];
-
-  for (let i = 0; i < 13; i++) {
-    filters.push(`contrast(${i / 5})`);
-    filters.push(`hue-rotate(${i * 10}deg)`);
-
-  }
-
-  var terribleCSSOptions = [["text-align", "center"], ["text-align", "right"], ["text-align", "left"], ["text-align", "justify"], ["position: ", "fixed"], ["float: ", "left"], ["float: ", "right"], ["transform: ", "scale(1.1)"], ["transform: ", "scale(0.9)"]];
-  var reallyRand = getRandomNumberBetween(1, 10);
-  const chosenFilters = [];
-  for (var i = 0; i < reallyRand; i++) {
-    var indexOfTerribleCSS = getRandomNumberBetween(0, terribleCSSOptions.length - 1)
-    if (Math.random() > 0.5) {
-      allowFilters && chosenFilters.push(pickFrom(filters));
-    }
-    var tin = terribleCSSOptions[indexOfTerribleCSS]
-    if (tin[1] == "????") {
-      tin[1] = getRandomNumberBetween(1, 100) + "%";
-    }
-    css += tin[0] + tin[1] + ";";
-  }
-  css += "min-width: 60px; min-height:60px; font-size: " + getRandomNumberBetween(10, 28) + "px;";
-  css += `position: absolute; bottom: ${getRandomNumberBetween(1, 100)}vh; right: ${getRandomNumberBetween(1, 100)}vw;`;
-
-  if (chosenFilters.length) {
-    css += `filter: ${chosenFilters.join(" ")};`
-  } else {
-    if (Math.random() > 0.75) {
-      css += `background-color: rgb(${getRandomNumberBetween(0, 255)},${getRandomNumberBetween(0, 255)},${getRandomNumberBetween(0, 255)});color:rgb( ${getRandomNumberBetween(0, 255)},${getRandomNumberBetween(0, 255)},${getRandomNumberBetween(0, 255)})`;
-    } else {
-      css += "background: none";
-    }
-  }
-  return css;
 }
 
 //from info token reader!
@@ -320,6 +250,7 @@ const incrementLocalStorageByOne = (KEY) => {
   if (!current) {
     current = 0;
   }
+  console.log("JR NOTE:", KEY, " was " + current)
 
   localStorage.setItem(KEY, parseInt(current) + 1)
 
@@ -346,32 +277,67 @@ const updateURLParams = (params) => {
 
 //key, value status
 const cachedImages = {}
-const cachedVideos = {}
-
-
-const videoExtensions = [
-  "mp4",
-
-];
-
+//key, value status
+const cachedAudio = {}
+//key, value status
+const cachedVideo = {}
 
 const imageExtendsions = [
   "png",
+  "PNG",
   "gif",
   "jpg",
-  "jpeg",
-  "PNG",
+  "jpeg"
 ];
 const filePattern = new RegExp('<a href="([^?]*?)">', 'g');
 
 const extensionPattern = new RegExp(`\\\.(${imageExtendsions.join("|")})\$`);
-const videoExtensionPattern = new RegExp(`\\\.(${videoExtensions.join("|")})\$`);
+
+const audioExtensions = [
+  "wav",
+];
+const filePatternAudio = new RegExp('<a href="([^?]*?)">', 'g');
+
+const extensionPatternAudio = new RegExp(`\\\.(${audioExtensions.join("|")})\$`);
 
 
-//returns a promise which resolves with the content, prevents network spam
-const getVideos = async (url) => {
-  if (cachedVideos[url]) {
-    return cachedVideos[url];
+const videoExtensions = [
+  "mp4",
+];
+const filePatternVideo = new RegExp('<a href="([^?]*?)">', 'g');
+
+const extensionPatternVideo = new RegExp(`\\\.(${videoExtensions.join("|")})\$`);
+
+function getTimeString(date) {
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  return h + ":" + m + ":" + s;
+}
+
+//https://stackoverflow.com/questions/18229022/how-to-show-current-time-in-javascript-in-the-format-hhmmss
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+const addImageProcess = (src) => {
+  return new Promise((resolve, reject) => {
+    let img = new Image()
+    img.onload = () => resolve(img)
+    img.onerror = reject
+    img.src = src
+  })
+}
+
+const getVideo = async (url) => {
+  if (cachedVideo[url]) {
+    return cachedVideo[url];
   }
 
   let promise = new Promise(async (resolve, reject) => {
@@ -379,16 +345,16 @@ const getVideos = async (url) => {
       const rawText = await httpGetAsync(url);
 
       let files = [];
-      const match = rawText.matchAll(filePattern);
+      const match = rawText.matchAll(filePatternVideo);
       const matches = Array.from(match, (res) => res);
       for (let m of matches) {
         const item = m[1];
-        if (item.match(videoExtensionPattern)) {
+        if (item.match(extensionPatternVideo)) {
           files.push(item);
         }
       }
-      cachedImages[url] = files;
-      console.log("JR NOTE: returned from network for", url)
+      cachedVideo[url] = files;
+      //console.log("JR NOTE: returned from network for", url)
       resolve(files);
     } catch (e) {
       console.log("JR NOTE: error", e)
@@ -396,7 +362,38 @@ const getVideos = async (url) => {
       return [];
     }
   })
-  cachedImages[url] = promise;
+  cachedVideo[url] = promise;
+  return promise;
+}
+
+const getAudio = async (url) => {
+  if (cachedAudio[url]) {
+    return cachedAudio[url];
+  }
+
+  let promise = new Promise(async (resolve, reject) => {
+    try {
+      const rawText = await httpGetAsync(url);
+
+      let files = [];
+      const match = rawText.matchAll(filePatternAudio);
+      const matches = Array.from(match, (res) => res);
+      for (let m of matches) {
+        const item = m[1];
+        if (item.match(extensionPatternAudio)) {
+          files.push(item);
+        }
+      }
+      cachedAudio[url] = files;
+      //console.log("JR NOTE: returned from network for", url)
+      resolve(files);
+    } catch (e) {
+      console.log("JR NOTE: error", e)
+      reject();
+      return [];
+    }
+  })
+  cachedAudio[url] = promise;
   return promise;
 }
 
@@ -422,7 +419,7 @@ const getImages = async (url) => {
         }
       }
       cachedImages[url] = files;
-      console.log("JR NOTE: returned from network for", url)
+      //console.log("JR NOTE: returned from network for", url)
       resolve(files);
     } catch (e) {
       console.log("JR NOTE: error", e)
@@ -495,3 +492,102 @@ const httpGetAsync = async (theUrl) => {
 }
 
 
+
+
+//https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
+
+//https://longesttextever.neocities.org/
+class SeededRandom {
+  internal_seed;
+  initial_seed;
+
+  constructor(seed) {
+    this.initial_seed = seed;
+    this.internal_seed = seed;
+  }
+
+  //default is zero and one, type is inferred to be a number from this
+  nextDouble = (min = 0, max = 1) => {
+    this.internal_seed = (this.internal_seed * 1664525 + 1013904223) % 4294967296;
+    const rnd = this.internal_seed / 4294967296;
+    return min + rnd * (max - min);
+  }
+
+  getRandomNumberBetween = (min, max) => {
+    return Math.floor(this.nextDouble() * (max - min + 1)) + min;
+  }
+
+  pickFrom = (array) => {
+    return array[this.getRandomNumberBetween(0, array.length - 1)];
+  }
+
+  //if you have say, a string "hello world my name is"
+  //and you have a chunk size of 3, you'd get something like
+  //"worhel na islo " etc
+  shuffleInChunks = (array, chunkSize) => {
+    const chunks = chunkUpArray(array, chunkSize);
+    this.shuffle(chunks);
+    return chunks.flat();
+  }
+
+  shuffle = (array) => {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(this.nextDouble() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+}
+
+
+const fuckShitUpVikStyle = () => {
+  const body = document.querySelector("body");
+  globalBGMusic.src = "audio/music/sometimes_you_have_fun.mp3";
+  globalBGMusic.play();
+  for(let i = 0; i<31; i++){
+    const censorship = createElementWithClassAndParent("div", body, "vik");
+    censorship.innerText = "THE CENSORSHIP WAS FOR YOUR PROTECTION";
+  }
+
+  const divs = document.querySelectorAll("div");
+
+
+  const paragraphs = document.querySelectorAll("p");
+  const spans = document.querySelectorAll("span");
+  for (let p of paragraphs) {
+    const css = getBullshitCSS();
+    p.setAttribute("style", css);
+    p.classList.add("visible");
+    p.classList.add("glitch");
+    p.title = p.innerText;
+  }
+
+  for (let p of spans) {
+    const css = getBullshitCSS();
+    p.setAttribute("style", css);
+    p.classList.add("visible");
+    p.classList.add("glitch");
+    p.title = p.innerText;
+  }
+
+  
+  for (let p of divs) {
+    const css = getBullshitCSS();
+    p.setAttribute("style", css);
+    p.classList.add("visible");
+    p.classList.add("glitch");
+    p.title = p.innerText;
+  }
+
+}
