@@ -1288,14 +1288,33 @@ button:active {
   bottom: 10px;
   width: 95%;
   left: 2.3%;
+  z-index: 2;
 }
 
-video{
+.shop{
   width: 640px;
   height: 480px;
   margin-left: auto;
   margin-right: auto;
   display: block;
+  position: relative;
+}
+
+.shop video{
+  width: 640px;
+  height: 480px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.shop img{
+  width: 400px;
+  position: absolute;
+  top: -1px;
+  left: 118px;
+  z-index: 1;
 }
 
 .layered-image-container img {
