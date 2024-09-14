@@ -1290,6 +1290,16 @@ button:active {
   text-decoration: underline;
 }
 
+.prayer-text{
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+.prayer-response{
+  font-size: 14px;
+  margin-top: 13px;
+}
+
 #commands{
   background-color: #a1b234;
   color: black;
@@ -1301,6 +1311,8 @@ button:active {
   width: 800px;
   font-size: 18px;
   margin-left: auto;
+  max-height: 500px;
+  overflow:auto;
   margin-right: auto;
 }
 

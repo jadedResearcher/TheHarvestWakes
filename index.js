@@ -69,11 +69,20 @@ const scarecrowLog = (text) => {
   console.log(`%c${text}`, scarecrowCSS);
 }
 
-const processOnePrayer = (commandEle, responseEle, command, response)=>{
+const processOnePrayer = (commandEle, responseEle, command, response, autoresponder=false)=>{
+  console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
   const container = createElementWithClassAndParent("li",commandEle,"prayer");
   container.innerText=command;
   container.onclick = ()=>{
-    responseEle.innerHTML=response;
+    const others = document.querySelectorAll(".prayer");
+    for(let other of others){
+      other.style.textDecoration = "none"
+    }
+    container.style.textDecoration = "underline"
+    responseEle.innerHTML=`<span class='prayer-text'>${command}</span><br><div class='prayer-response'>${response}</div>`;
+  }
+  if(autoresponder){
+    container.click();
   }
 }
 
@@ -149,11 +158,12 @@ const theHarvestWakes  =async ()=>{
   const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
   commandParent.id = "commands";
   commandEle.innerHTML = "Previous Prayers<br>"
-  const commands = await fetchInitialStory();
-  console.log("JR NOTE: commands are", commands)
-  //processOnePrayer(commandEle, responseEle, , command, reponse)
+  let commands = await fetchInitialStory();
+  commands = commands.reverse();
+  let responded = false;
   for(let c of commands){
-    processOnePrayer(commandEle, rant,c.command, c.response)
+    processOnePrayer(commandEle, rant,c.command, c.response, !responded)
+    responded = true;
   }
 
 
