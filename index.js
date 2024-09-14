@@ -19,7 +19,7 @@ const renderButton = ()=>{
   const button = createElementWithClassAndParent("button", parent, "enter-button");
   button.innerText = "Open Your Eyes";
   button.onclick = ()=>{
-    button.remove();
+    parent.remove();
     theHarvestWakes();
   }
 
