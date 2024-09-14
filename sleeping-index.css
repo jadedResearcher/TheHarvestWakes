@@ -719,11 +719,11 @@ progress::-webkit-progress-value {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--main-dark-color);
+  background: #a1b234;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 15px;
   height: 5px;
 }
 
@@ -1235,7 +1235,7 @@ button:active {
   width: 800px;
   font-family: gameboy;
   font-size: 18px;
-  height: 480px;
+  min-height: 480px;
   background: black;
   margin-left: auto;
   margin-right: auto;
@@ -1270,7 +1270,7 @@ button:active {
   border-radius: 31px;
 }
 
-.video-parent .god-dialog {
+.god-dialog {
   background-color: #a1b234;
   color: black;
   font-family: gameboy;
@@ -1278,6 +1278,30 @@ button:active {
   margin: 0px;
   transform: none !important;
   padding: 13px;
+}
+
+.prayer{
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 13px;
+}
+
+.prayer:hover{
+  text-decoration: underline;
+}
+
+#commands{
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  margin-top: 31px;
+  transform: none !important;
+  padding: 2px;
+  position: relative;
+  width: 800px;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .inner-dialog {
@@ -1301,11 +1325,13 @@ button:active {
   border: 2px solid #a1b234;
   width: fit-content;
   height: fit-content;
+  max-height: 255px;
   position: absolute;
   bottom: 10px;
   width: 95%;
   left: 2.3%;
   z-index: 4;
+  overflow: auto;
 }
 
 .video-parent .enter-button{
@@ -1324,7 +1350,7 @@ button:active {
 
 .shop {
   width: 640px;
-  height: 480px;
+  min-height: 480px;
   margin-left: auto;
   margin-right: auto;
   display: block;

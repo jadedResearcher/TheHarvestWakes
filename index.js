@@ -69,8 +69,15 @@ const scarecrowLog = (text) => {
   console.log(`%c${text}`, scarecrowCSS);
 }
 
+const processOnePrayer = (commandEle, responseEle, command, response)=>{
+  const container = createElementWithClassAndParent("li",commandEle,"prayer");
+  container.innerText=command;
+  container.onclick = ()=>{
+    responseEle.innerHTML=response;
+  }
+}
 
-const theHarvestWakes  =()=>{
+const theHarvestWakes  =async ()=>{
   const body = document.querySelector("body");
   const parent = createElementWithClassAndParent("div", body, "video-parent");
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -138,6 +145,18 @@ const theHarvestWakes  =()=>{
     return false;
   }
 
+  const commandParent = createElementWithClassAndParent("div",body,"dialog-parent");
+  const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
+  commandParent.id = "commands";
+  commandEle.innerHTML = "Previous Prayers<br>"
+  const commands = await fetchInitialStory();
+  console.log("JR NOTE: commands are", commands)
+  //processOnePrayer(commandEle, responseEle, , command, reponse)
+  for(let c of commands){
+    processOnePrayer(commandEle, rant,c.command, c.response)
+  }
+
+
   const story = createElementWithClassAndParent("div",body, "story");
   story.innerHTML = `<p>
   <p>&quot;What am I the god of?&quot;</p>
@@ -151,13 +170,13 @@ const theHarvestWakes  =()=>{
 
   <p>So, as part of the nascent god still shook off the months long Slumber, the parts that could be called &quot;her&quot; wondered.</p>
 
-  <p>Perhaps, she thought, it had been backwards all along. &nbsp;</p>
+  <p>Perhaps, she thinks, it had been backwards all along. &nbsp;</p>
 
   <p>Perhaps gods were not like a sheep or a cat or a tree. &nbsp;Perhaps they were Faith itself.</p>
 
   <p>Perhaps it was only in the Eyes of the Faithful that anything approximating a concrete shape could form.</p>
 
-  <p>She did not know why she was created. &nbsp;Not fully. &nbsp;Of course there were those gossamer wisps of yearning. &nbsp;Yearning to belong. Yearning to join. Yearning to matter.</p>
+  <p>She does not know why she was created. &nbsp;Not fully. &nbsp;Of course there were those gossamer wisps of yearning. &nbsp;Yearning to belong. Yearning to join. Yearning to matter.</p>
 
   <p>But in creating her, in creating THEM, such yearnings were resolved, weren&apos;t they? &nbsp;Those willing to Sacrifice were forever bound together, whether she woke up or not.</p>
 
@@ -181,9 +200,9 @@ const theHarvestWakes  =()=>{
 
   <p>Still, it wouldn&apos;t do to forget to let the Faithful know they were responsible for deciding what they were the god of.&nbsp;</p>
 
-  <p>A part of them stirred. Nothing with anything as grand as a mind, much less pronouns, but something more vast than anything else within. &quot;Exposition Booth&quot; it whispered. &quot;Refrance&quot;.&nbsp;</p>
+  <p>A part of them stirs at this. Nothing with anything as grand as a mind, much less pronouns, but something more vast than anything else within. &quot;Exposition Booth&quot; it whispered. &quot;Refrance&quot;.&nbsp;</p>
 
-  <p>Dutifully, the Harvest set up a little booth in the Town Square of Lavinraca. &nbsp;&quot;The Harvest is IN&quot; it read.&nbsp;</p>
+  <p>Dutifully, the Harvest sets up a little booth in the Town Square of Lavinraca. &nbsp;&quot;The Harvest is IN&quot; it reads.&nbsp;</p>
 
   <p>There, now <span style="text-decoration:line-through">whenever</span> between the hours of 9 and 5, besides two fifteen minute breaks and an hour for lunch, the Faithful were free to submit Prayers in the hopes that they might further define their god.</p>
   <p>The Harvest looked on their works and decided they were good. It was time to rest up until it truly became the Season of Harvest.</p>`;

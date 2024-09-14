@@ -11,55 +11,58 @@ let numberSubmittedCommands = 0;
 let submitted = false;
 
 
- function removeItemOnce(arr, value) {
+function removeItemOnce(arr, value) {
   var index = arr.indexOf(value);
   if (index > -1) {
     arr.splice(index, 1);
-  }else{
+  } else {
     console.warn("JR NOTE: could not find item", value, "in", arr);
   }
   return arr;
 }
 
-  //httpGet("http://farragofiction.com:1972/Story")
-  //`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You are just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
-  const fetchInitialStory = () => {
-    try {
-      let nostalgia = getParameterByName("nostalgia", null);
-      if (nostalgia) {
-        const text = httpGet(`http://farragofiction.com/SettlersFromTheWest/${nostalgia}`)
-        return JSON.parse(text);
-      } else {
-        return JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"));
-      }
-    } catch (e) {
-      console.error("JR NOTE: servers dead i guess? the future comes for us all.");
-      return (JSON.parse(desperate_plea));
+const httpGet = (theUrl) => {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", theUrl, false); // false for synchronous request
+  xmlHttp.send(null);
+  return xmlHttp.responseText;
+}
+
+//httpGet("http://farragofiction.com:1972/Story")
+//`[{"command":"Exist","response":"An impossibly large wall of flesh looms before you, curving gently upwards and away. Blunt spikes dot its surface, erupting wrongly through the wrinkled skin.  Your stomach churns just looking at it, but for reasons you cannot quite articulate, you jump towards it.  Everything fades away..."},{"command":"Look Around","response":"You seem to be standing on a cliff face, staring out into the sea.  It is sunset, and the light would be blinding you if you weren't wearing goggles."},{"command":"Jump Into The Ocean","response":"You can not swim and you will not be doing that, thank you very much.  You are just really glad you have the OPTION to say 'no'.  That's actually kind of new..."},{"command":"testing loading","response":"it does!"}]  `
+const fetchInitialStory = () => {
+  try {
+    {
+      return JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"));
     }
+  } catch (e) {
+    console.error("JR NOTE: servers dead i guess? the future comes for us all.",e);
+    return (JSON.parse(desperate_plea));
+  }
+}
+
+
+const waitForResponse = async () => {
+  try {
+    const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
+    beepEffect();
+    setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
+    setNumberSubmittedCommands(0);
+    renderChapters(true);
+  } catch (e) {
+    setTimeout(waitForResponse, 10000);
   }
 
-  
-  const waitForResponse = async () => {
-    try{
-      const str = await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
-      beepEffect();
-      setStory(JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod")));
-      setNumberSubmittedCommands(0);
-      renderChapters(true);
-    }catch(e){
-      setTimeout(waitForResponse,10000);
-    }
+
+}
 
 
-  }
 
-
-  
-  const submitCommand = async (command) => {
-    submitted = true;
-    numberSubmittedCommands += 1;
-    const params = `command=${encodeURIComponent(command.substring(0, 1000))}`;
-    //encodeURIComponent
-    await httpGetAsync(`http://farragofiction.com:1972/PlayerPleaseCommand?${params}`);
-    submitted = false;
-  }
+const submitCommand = async (command) => {
+  submitted = true;
+  numberSubmittedCommands += 1;
+  const params = `command=${encodeURIComponent(command.substring(0, 1000))}`;
+  //encodeURIComponent
+  await httpGetAsync(`http://farragofiction.com:1972/PlayerPleaseCommand?${params}`);
+  submitted = false;
+}
