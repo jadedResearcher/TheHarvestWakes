@@ -1175,6 +1175,24 @@ button:disabled {
   }
 }
 
+#console-shortcut{
+  position: fixed;
+  top: 13px;
+  left: 13px;
+  cursor: pointer;
+  opacity: 13%;
+}
+
+#mobileFriendlyConsole{
+  background: white; 
+  padding: 31px;
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
 
 #explore {
   display: block;

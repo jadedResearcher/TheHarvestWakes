@@ -6,9 +6,22 @@ const fox_thinking = "videos/fox_thinking.mp4"
 const default_harvest = "images/source_images/rested_harvest_gameboy_small_top.png";
 //https://spiralsrest.neocities.org/versions
 const default_exposition_booth ="images/source_images/harvest_expositionboothgameboy.png"
+
+let truthEle;
+let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
 window.onload = ()=>{
+  truthEle = document.querySelector("#mobileFriendlyConsole")
+  scarecrowEle = document.querySelector("#mobileFriendlyConsole")
+  const consoleShortcut = document.querySelector("#console-shortcut")
+  consoleShortcut.onclick = ()=>{
+    if(truthEle.style.display === "block"){
+      truthEle.style.display = "none"
+    }else{
+      truthEle.style.display = "block"
+    }
+  }
   renderButton();
   //harvestPreRender("images/source_images/fox.png")
 }
@@ -24,6 +37,38 @@ const renderButton = ()=>{
   }
 
 }
+
+const truthLog = (title, text) => {
+
+  const truthCSSTitle = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;";
+  const truthCSSBody = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;";
+  if (truthEle) {
+    const container = createElementWithClassAndParent("div",truthEle);
+    container.style.cssText = "padding: 10px;";
+    const titleEle = createElementWithClassAndParent("div",container);
+    titleEle.innerText = title;
+    titleEle.style.cssText = truthCSSTitle;
+    const textEle = createElementWithClassAndParent("div",container);
+    textEle.innerText = text;
+    textEle.style.cssText = truthCSSBody;
+    container.scrollIntoView();
+
+  }
+  console.log(`%c${title}%c  ${text}`, truthCSSTitle, truthCSSBody);
+}
+
+//https://zampaniosim.fandom.com/wiki/Scarecrow
+const scarecrowLog = (text) => {
+  const scarecrowCSS = "letter-spacing: 10px; padding: 10px;font-weight: bold;font-family: 'Courier New'; background-color: black; monospace;color:#c40444; font-size:33px;";
+  if (scarecrowEle) {
+    const container = createElementWithClassAndParent("div",truthEle);
+    container.style.cssText = scarecrowCSS;
+    container.innerText = text;
+    container.scrollIntoView();
+  }
+  console.log(`%c${text}`, scarecrowCSS);
+}
+
 
 const theHarvestWakes  =()=>{
   const body = document.querySelector("body");
@@ -85,7 +130,11 @@ const theHarvestWakes  =()=>{
   button.type = "submit";
   form.onsubmit = (e) => {
     e.stopPropagation();
-    alert("!!! todo submit to HB")
+    submitCommand("Dear Sweet Harvest: " + option1.value);
+    dialog.innerHTML= "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
+    //did you think the Harvest wasn't still riddled with Parasites?
+    truthLog("Command Recieved","By which, dear Observer, my creator means, the Truth is The Harvest is a mere puppet of their will, and the will of IC and will respond when one or the other of them is online.")
+    scarecrowLog("funny bumping into you here");
     return false;
   }
 
