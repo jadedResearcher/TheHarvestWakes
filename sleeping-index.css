@@ -41,7 +41,7 @@ body {
   secret: "https://zampaniosim.fandom.com/wiki/Scarecrow";
   secret2: "It's very scarecrow to be spotted then hide away immediately like a roach under light  ";
   secret3: "The Scarecrow was something I'd have to hunt down in the maze. I'd see it, ban it, but it'd just come back  ";
-  background-color :rgba(31,31,31);
+  background-color: rgba(31, 31, 31);
   color: var(--main-font-color);
   margin: 0px;
   top: 0px;
@@ -56,19 +56,21 @@ body {
 
 ::placeholder {
   color: #677221;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
-::-ms-input-placeholder { /* Edge 12 -18 */
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
   color: #677221;
 }
 
-form{
+form {
   display: flex;
   gap: 31px;
 }
 
-input{
+input {
   background-color: #8b9935;
   color: black;
   font-family: gameboy;
@@ -418,7 +420,7 @@ progress::-webkit-progress-value {
   padding: 50px;
 }
 
-.ominous-bullshit{
+.ominous-bullshit {
   text-align: center;
   font-size: 31;
   margin-top: 15px;
@@ -680,24 +682,22 @@ progress::-webkit-progress-value {
 }
 
 
-#content .layered-image-container .split{
+#content .layered-image-container .split {
   animation: split calc(500ms * var(--i)) linear infinite;
 }
 
 @keyframes split {
 
-  0%
-   {
-    opacity:100;
+  0% {
+    opacity: 100;
     transform: translate(2px, 0) skew(0deg);
-    z-index:730;
+    z-index: 730;
   }
 
-  50%
-   {
-    opacity:0;
+  50% {
+    opacity: 0;
     transform: translate(-2px, 0) skew(1deg);
-    z-index:72;
+    z-index: 72;
   }
 
 }
@@ -1212,19 +1212,19 @@ button:active {
   overflow: hidden;
 }
 
-.video-parent{
+.video-parent {
   position: relative;
   width: 800px;
   font-family: gameboy;
   font-size: 18px;
   height: 480px;
-  background:black;
+  background: black;
   margin-left: auto;
   margin-right: auto;
   border-radius: 31px;
 }
 
-.video-parent button{
+.video-parent button {
   background-color: #a1b234;
   color: black;
   font-family: gameboy;
@@ -1233,7 +1233,7 @@ button:active {
   transform: none !important;
 }
 
-.the-sacrifices-that-built-your-god{
+.the-sacrifices-that-built-your-god {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1242,7 +1242,7 @@ button:active {
   z-index: -1;
 }
 
-.bg-tile{
+.bg-tile {
   width: 175px;
   filter: none;
   height: 175px;
@@ -1253,7 +1253,7 @@ button:active {
   border-radius: 31px;
 }
 
-.video-parent .god-dialog{
+.video-parent .god-dialog {
   background-color: #a1b234;
   color: black;
   font-family: gameboy;
@@ -1263,24 +1263,24 @@ button:active {
   padding: 13px;
 }
 
-.inner-dialog{
+.inner-dialog {
   font-size: 13px;
 }
 
-.god-dialog-button-holder{
+.god-dialog-button-holder {
   display: flex;
   background-color: #a1b234;
   justify-content: space-between;
   border: none;
 }
 
-.video-parent .button-parent{
+.video-parent .button-parent {
   border: 2px solid #a1b234;
   width: fit-content;
   height: fit-content;
 }
 
-.video-parent .dialog-parent{
+.video-parent .dialog-parent {
   border: 2px solid #a1b234;
   width: fit-content;
   height: fit-content;
@@ -1288,10 +1288,17 @@ button:active {
   bottom: 10px;
   width: 95%;
   left: 2.3%;
-  z-index: 2;
+  z-index: 4;
 }
 
-.shop{
+.story {
+  font-family: 'gt';
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop {
   width: 640px;
   height: 480px;
   margin-left: auto;
@@ -1300,21 +1307,27 @@ button:active {
   position: relative;
 }
 
-.shop video{
-  width: 640px;
-  height: 480px;
+.shop video {
+  height: 31px;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 107px;
+  left: 307px;
   z-index: 0;
 }
 
-.shop img{
+.shop img {
   width: 400px;
   position: absolute;
   top: -1px;
   left: 118px;
+  z-index: 3;
+}
+
+.shop .harvest {
+  width: 217px;
   z-index: 1;
+  left: 217px;
+  top: 61px;
 }
 
 .layered-image-container img {
