@@ -1230,7 +1230,6 @@ button:active {
   font-family: gameboy;
   border: 2px solid black;
   margin: 0px;
-  transform: none !important;
 }
 
 .the-sacrifices-that-built-your-god {
@@ -1289,6 +1288,13 @@ button:active {
   width: 95%;
   left: 2.3%;
   z-index: 4;
+}
+
+.video-parent .enter-button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .story {

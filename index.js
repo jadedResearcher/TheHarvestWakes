@@ -9,8 +9,20 @@ const default_exposition_booth ="images/source_images/harvest_expositionboothgam
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
 window.onload = ()=>{
-  theHarvestWakes();
+  renderButton();
   //harvestPreRender("images/source_images/fox.png")
+}
+
+const renderButton = ()=>{
+  const body = document.querySelector("body");
+  const parent = createElementWithClassAndParent("div", body, "video-parent");
+  const button = createElementWithClassAndParent("button", parent, "enter-button");
+  button.innerText = "Open Your Eyes";
+  button.onclick = ()=>{
+    button.remove();
+    theHarvestWakes();
+  }
+
 }
 
 const theHarvestWakes  =()=>{
@@ -72,7 +84,9 @@ const theHarvestWakes  =()=>{
   button.innerText = "Submit";
   button.type = "submit";
   form.onsubmit = (e) => {
+    e.stopPropagation();
     alert("!!! todo submit to HB")
+    return false;
   }
 
   const story = createElementWithClassAndParent("div",body, "story");
@@ -138,3 +152,22 @@ const harvestPreRender = (img)=>{
   const ele = createElementWithClassAndParent("img",parent,"god");
   ele.src = img;
 }
+
+
+/*
+Last year I went out of my way to do the normal lavinraca/lavinraca (i will never let this bit die, maccus refuses to clarify how its pronounced)
+thing and void everythign as much as possible
+
+hid my dev work and had a strict No Spoiler policy
+
+I ALSO did my Absolute Best to create euclidean geometry that made sense
+
+both things were Very Hard and I do not want to do them again
+so
+
+hi, Personality, when you inevitably find this, and hi to any other wastes peaking ahead of time
+
+ive decided its better for my mental health to consider myself a fanwork of lavinraca/lavinraca, same as any butler/cirky/volunteer/fan
+
+cuz when i think im part of a team i... i get weird when theres not teamwork :( :( :(
+*/
