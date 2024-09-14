@@ -132,7 +132,7 @@ const theHarvestWakes  =async ()=>{
   const dialogParent = createElementWithClassAndParent("div", parent, "dialog-parent");
 
   const dialog = createElementWithClassAndParent("div", dialogParent, "god-dialog");
-  const rant = createElementWithClassAndParent("p", dialog, "inner-dialog");
+  let rant = createElementWithClassAndParent("p", dialog, "inner-dialog");
   rant.innerHTML = "What am I the god of? What can I help you with?";
 
   const buttonHolder = createElementWithClassAndParent("div", dialog, "god-dialog-button-holder");
@@ -147,7 +147,10 @@ const theHarvestWakes  =async ()=>{
   form.onsubmit = (e) => {
     e.stopPropagation();
     submitCommand("Dear Sweet Harvest: " + option1.value);
-    dialog.innerHTML= "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
+    dialog.innerHTML= "";
+    dialog.append(rant);//keep rant but not anything about submitting
+    rant.innerHTML= "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
+
     //did you think the Harvest wasn't still riddled with Parasites?
     truthLog("Command Recieved","By which, dear Observer, my creator means, the Truth is The Harvest is a mere puppet of their will, and the will of IC and will respond when one or the other of them is online.")
     scarecrowLog("funny bumping into you here");
