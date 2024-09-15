@@ -1,8 +1,31 @@
+/*
+The Harvest is available between 9pm and 5pm with an hour for lunch and two 15 minute breaks.
+
+This is, of course, local to your time, because the Harvest (unlike BB) is omnipresent. 
+
+You can still read past commands but you cannot submit commands (and when you read those past commands the Harvest will not be there to react)
+
+The part of the Harvest that was Eustace WANTS to have weekends off as well
+but the part that was Camellia insists that Gods are essential workers
+and cannot even one full day to ignore their worshippers.
+
+(While on OUR layer of Truth, its more that I am not about to be a dick
+and disable the harvest on the days people are most likely to be able to participate. 
+
+I'm already considering "between 9 and 5" to be PM and not AM. Just because we're all more likely to 
+celebrate after standard working hours. Night owl rights.)
+*/
+const lunchTime = false;
+const breakTime = false;
+const afterHours = false;
+
+
 
 const default_video = "videos/fox_clip.mp4";
 const happy_video = "videos/happy_fox_spin.mp4";
 const ominous_video = "videos/ominous_fox_zoom.mp4";
 const fox_thinking = "videos/fox_thinking.mp4"
+
 const default_harvest = "images/source_images/rested_harvest_gameboy_small_top.png";
 //https://spiralsrest.neocities.org/versions
 const default_exposition_booth ="images/source_images/harvest_expositionboothgameboy.png"
@@ -25,6 +48,12 @@ window.onload = ()=>{
   }
   renderButton();
   //harvestPreRender("images/source_images/fox.png")
+}
+
+isHarvestIn =()=>{
+  const date = new Date();
+  const hour = date.getHours();
+  console.log("JR NOTE: don't forget to let the harvest take breaks, hour is", hour)
 }
 
 /*
@@ -120,7 +149,18 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
   }
 }
 
+const handlePendingCommands = async (ele)=>{
+  console.log("JR NOTE: loading for pending commands")
+  let pendingCommands = await fetchPendingCommands(); //string[]
+  for(let c of pendingCommands){
+    const container = createElementWithClassAndParent("li",ele, "prayer");
+    container.innerText = c;
+  }
+
+}
+
 const theHarvestWakes  =async ()=>{
+  isHarvestIn();
   const body = document.querySelector("body");
   const parent = createElementWithClassAndParent("div", body, "video-parent");
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -191,10 +231,45 @@ const theHarvestWakes  =async ()=>{
     return false;
   }
 
+  const pendingParent = createElementWithClassAndParent("div",body,"dialog-parent");
+  pendingParent.id = "pending";
+
+  //we all are praying to it together and because the Harvest isn't real, or rather, is made of parts of all of us, we answer our own prayers
+  //thats why, unlike west, the pending commands are viewable
+  const pendingEle = createElementWithClassAndParent("div", pendingParent, "god-dialog");
+  pendingEle.innerText = "Pending Prayers";
+  const warning = "Warning: pending prayers have not yet been judged worthy by the Harvest, viewer discretion is advised.";
+  const warningEle = createElementWithClassAndParent("div", pendingEle,"prayer" );
+  warningEle.innerText = warning + " Click to view.";
+
+  const pendingContainer = createElementWithClassAndParent("div", pendingEle );
+  pendingContainer.style.display="none";
+  pendingContainer.innerText = "Loading..."
+
+  let pendingLoaded = false;
+
+  pendingEle.onclick = ()=>{
+    if(pendingContainer.style.display === "block"){
+      pendingContainer.style.display = "none"
+      warningEle.innerText = warning + " Click to View.";
+
+    }else{ //don't even load pending commands until you ask for them, just in case they're bad
+      if(!pendingLoaded){
+        handlePendingCommands(pendingContainer);//don't wait on this
+        pendingLoaded = true;
+      }
+      pendingContainer.style.display = "block"
+      warningEle.innerText = warning + " Click to Hide.";
+
+    }
+  }
+
+
+
   const commandParent = createElementWithClassAndParent("div",body,"dialog-parent");
   const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
-  const recentPrayers = createElementWithClassAndParent("div", commandEle );
-  const pastPrayers = createElementWithClassAndParent("div", commandEle);
+  const recentPrayers = createElementWithClassAndParent("div", commandEle,"prayer-container" );
+  const pastPrayers = createElementWithClassAndParent("div", commandEle,"prayer-container");
 
   commandParent.id = "commands";
   recentPrayers.innerHTML = "Recent Prayers"

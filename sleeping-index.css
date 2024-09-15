@@ -719,7 +719,7 @@ progress::-webkit-progress-value {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a1b234;
+  background: #4c560d;
 }
 
 ::-webkit-scrollbar {
@@ -1289,6 +1289,10 @@ button:active {
 .prayer:hover{
   text-decoration: underline;
 }
+.prayer-container{
+  padding: 0px;
+
+}
 
 .prayer-text{
   text-decoration: underline;
@@ -1298,6 +1302,22 @@ button:active {
 .prayer-response{
   font-size: 14px;
   margin-top: 13px;
+}
+
+#pending{
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  margin-top: 31px;
+  transform: none !important;
+  padding: 2px;
+  position: relative;
+  width: 800px;
+  font-size: 18px;
+  margin-left: auto;
+  max-height: 500px;
+  overflow:auto;
+  margin-right: auto;
 }
 
 #commands{

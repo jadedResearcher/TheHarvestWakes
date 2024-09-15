@@ -41,6 +41,18 @@ const fetchInitialStory = () => {
   }
 }
 
+//returns string array
+const fetchPendingCommands = () => {
+  try {
+    {
+      return JSON.parse(httpGet("http://farragofiction.com:1972/ListThePleaseCommandList"));
+    }
+  } catch (e) {
+    console.error("JR NOTE: servers dead i guess? the future comes for us all.",e);
+    return (["Obsession is a Dangerous Thing","Obsession is a Dangerous Thing","Obsession is a Dangerous Thing"]);
+  }
+}
+
 
 
 
