@@ -28,21 +28,21 @@ const fox_thinking = "videos/fox_thinking.mp4"
 
 const default_harvest = "images/source_images/rested_harvest_gameboy_small_top.png";
 //https://spiralsrest.neocities.org/versions
-const default_exposition_booth ="images/source_images/harvest_expositionboothgameboy.png"
+const default_exposition_booth = "images/source_images/harvest_expositionboothgameboy.png"
 
-const beep= new Audio("audio/fx/264828__cmdrobot__text-message-or-videogame-jump.mp3")
+const beep = new Audio("audio/fx/264828__cmdrobot__text-message-or-videogame-jump.mp3")
 let truthEle;
 let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
-window.onload = ()=>{
+window.onload = () => {
   truthEle = document.querySelector("#mobileFriendlyConsole")
   scarecrowEle = document.querySelector("#mobileFriendlyConsole")
   const consoleShortcut = document.querySelector("#console-shortcut")
-  consoleShortcut.onclick = ()=>{
-    if(truthEle.style.display === "block"){
+  consoleShortcut.onclick = () => {
+    if (truthEle.style.display === "block") {
       truthEle.style.display = "none"
-    }else{
+    } else {
       truthEle.style.display = "block"
     }
   }
@@ -50,7 +50,7 @@ window.onload = ()=>{
   //harvestPreRender("images/source_images/fox.png")
 }
 
-isHarvestIn =()=>{
+isHarvestIn = () => {
   const date = new Date();
   const hour = date.getHours();
   console.log("JR NOTE: don't forget to let the harvest take breaks, hour is", hour)
@@ -61,35 +61,58 @@ when you get a response:
 * beep
 * add the command to the most recent section of prayers (click and prepend true) processOnePrayer
 */
-const waitForResponse = async (commandEle, rantEle)=>{
+const waitForResponse = async (commandEle, rantEle) => {
 
-  try{
-  console.log("JR NOTE: waiting for response")
-  //dont care what it gives us, if it returns, fetch again
-  await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
-  if(commandEle.innerText === "None..."){
-    commandEle.innerText = "";
-  }
-  const jsonArray = (JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"))).reverse();
-  const json = jsonArray[0];
-  console.log("JR NOTE: got response", json)
+  try {
+    console.log("JR NOTE: waiting for response")
+    //dont care what it gives us, if it returns, fetch again
+    await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
+    if (commandEle.innerText === "None...") {
+      commandEle.innerText = "";
+    }
+    const jsonArray = (JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"))).reverse();
+    const json = jsonArray[0];
+    console.log("JR NOTE: got response", json)
 
 
-  processOnePrayer(commandEle, rantEle,json.command, json.response, true,true)
-  beep.play();
-  waitForResponse(commandEle, rantEle);
-  }catch(e){
+    processOnePrayer(commandEle, rantEle, json.command, json.response, true, true)
+    beep.play();
+    waitForResponse(commandEle, rantEle);
+  } catch (e) {
     console.error("JR NOTE: problem waiting for response, trying again in 10 seconds", e)
     setTimeout(waitForResponse, 10000);
   }
 }
 
-const renderButton = ()=>{
+const waitForFaithfulPrayers = async (commandEle) => {
+
+  try {
+    console.log("JR NOTE: waiting for prayers")
+    //dont care what it gives us, if it returns, fetch again
+    await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForCommand");
+    if (commandEle.innerText === "None...") {
+      commandEle.innerText = "";
+    }
+    const jsonArray = (JSON.parse(httpGet("http://farragofiction.com:1972/ListThePleaseCommandList"))).reverse();
+    const json = jsonArray[0];
+    console.log("JR NOTE: got response", json)
+    handleOnePendingPrayer(commandEle, json)
+
+    beep.play();
+    waitForFaithfulPrayers(commandEle);
+  } catch (e) {
+    console.error("JR NOTE: problem waiting for prayer, trying again in 10 seconds", e)
+    setTimeout(waitForResponse, 10000);
+  }
+}
+
+
+const renderButton = () => {
   const body = document.querySelector("body");
   const parent = createElementWithClassAndParent("div", body, "video-parent");
   const button = createElementWithClassAndParent("button", parent, "enter-button");
   button.innerText = "Open Your Eyes";
-  button.onclick = ()=>{
+  button.onclick = () => {
     parent.remove();
     theHarvestWakes();
   }
@@ -101,12 +124,12 @@ const truthLog = (title, text) => {
   const truthCSSTitle = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;";
   const truthCSSBody = "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;";
   if (truthEle) {
-    const container = createElementWithClassAndParent("div",truthEle);
+    const container = createElementWithClassAndParent("div", truthEle);
     container.style.cssText = "padding: 10px;";
-    const titleEle = createElementWithClassAndParent("div",container);
+    const titleEle = createElementWithClassAndParent("div", container);
     titleEle.innerText = title;
     titleEle.style.cssText = truthCSSTitle;
-    const textEle = createElementWithClassAndParent("div",container);
+    const textEle = createElementWithClassAndParent("div", container);
     textEle.innerText = text;
     textEle.style.cssText = truthCSSBody;
     container.scrollIntoView();
@@ -119,7 +142,7 @@ const truthLog = (title, text) => {
 const scarecrowLog = (text) => {
   const scarecrowCSS = "letter-spacing: 10px; padding: 10px;font-weight: bold;font-family: 'Courier New'; background-color: black; monospace;color:#c40444; font-size:33px;";
   if (scarecrowEle) {
-    const container = createElementWithClassAndParent("div",truthEle);
+    const container = createElementWithClassAndParent("div", truthEle);
     container.style.cssText = scarecrowCSS;
     container.innerText = text;
     container.scrollIntoView();
@@ -127,39 +150,49 @@ const scarecrowLog = (text) => {
   console.log(`%c${text}`, scarecrowCSS);
 }
 
-const processOnePrayer = (commandEle, responseEle, command, response, autoresponder=false, prepend = false)=>{
+const processOnePrayer = (commandEle, responseEle, command, response, autoresponder = false, prepend = false) => {
   console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
-  const container = createElementWithClass("li","prayer");
-  if(prepend){
+  const container = createElementWithClass("li", "prayer");
+  if (prepend) {
     commandEle.prepend(container);
-  }else{
+  } else {
     commandEle.append(container);
   }
-  container.innerText=command;
-  container.onclick = ()=>{
+  container.innerText = command;
+  container.onclick = () => {
     const others = document.querySelectorAll(".prayer");
-    for(let other of others){
+    for (let other of others) {
       other.style.textDecoration = "none"
     }
     container.style.textDecoration = "underline"
-    responseEle.innerHTML=`<span class='prayer-text'>${command}</span><br><div class='prayer-response'>${response}</div>`;
+    responseEle.innerHTML = `<span class='prayer-text'>${command}</span><br><div class='prayer-response'>${response}</div>`;
   }
-  if(autoresponder){
+  if (autoresponder) {
     container.click();
   }
 }
 
-const handlePendingCommands = async (ele)=>{
-  console.log("JR NOTE: loading for pending commands")
-  let pendingCommands = await fetchPendingCommands(); //string[]
-  for(let c of pendingCommands){
-    const container = createElementWithClassAndParent("li",ele, "prayer");
-    container.innerText = c;
+const handleOnePendingPrayer = async (ele, prayer, prepend) => {
+  const container = createElementWithClass("li", "prayer");
+  container.innerText = prayer;
+  if (prepend) {
+    ele.prepend(container);
+  } else {
+    ele.append(container);
   }
-
 }
 
-const theHarvestWakes  =async ()=>{
+const handlePendingCommands = async (ele) => {
+
+  let pendingCommands = await fetchPendingCommands(); //string[]
+  ele.innerHTML = "";
+  for (let c of pendingCommands) {
+    handleOnePendingPrayer(ele, c, false)
+  }
+  waitForFaithfulPrayers(ele);
+}
+
+const theHarvestWakes = async () => {
   isHarvestIn();
   const body = document.querySelector("body");
   const parent = createElementWithClassAndParent("div", body, "video-parent");
@@ -176,31 +209,31 @@ const theHarvestWakes  =async ()=>{
   }*/
 
   const tv = createElementWithClassAndParent("video", shop);
-  tv.src=default_video;
+  tv.src = default_video;
   tv.autoplay = true;
   tv.loop = true;
-  body.onclick = ()=>{
-    if(tv.paused){
+  body.onclick = () => {
+    if (tv.paused) {
       tv.play();
     }
   }
-  shop.onmouseenter=()=>{
-    tv.src=happy_video;
+  shop.onmouseenter = () => {
+    tv.src = happy_video;
   }
 
-  shop.onmouseleave=()=>{
-    tv.src=fox_thinking;
+  shop.onmouseleave = () => {
+    tv.src = fox_thinking;
   }
 
-  shop.onclick=()=>{
-    tv.src=default_video;
+  shop.onclick = () => {
+    tv.src = default_video;
   }
 
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
-  harvest.src=default_harvest;
+  harvest.src = default_harvest;
 
   const booth = createElementWithClassAndParent("img", shop);
-  booth.src=default_exposition_booth;
+  booth.src = default_exposition_booth;
 
 
   const dialogParent = createElementWithClassAndParent("div", parent, "dialog-parent");
@@ -221,17 +254,17 @@ const theHarvestWakes  =async ()=>{
   form.onsubmit = (e) => {
     e.stopPropagation();
     submitCommand("Dear Sweet Harvest: " + option1.value);
-    dialog.innerHTML= "";
+    dialog.innerHTML = "";
     dialog.append(rant);//keep rant but not anything about submitting
-    rant.innerHTML= "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
+    rant.innerHTML = "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
 
     //did you think the Harvest wasn't still riddled with Parasites?
-    truthLog("Command Recieved","By which, dear Observer, my creator means, the Truth is The Harvest is a mere puppet of their will, and the will of IC and will respond when one or the other of them is online.")
+    truthLog("Command Recieved", "By which, dear Observer, my creator means, the Truth is The Harvest is a mere puppet of their will, and the will of IC and will respond when one or the other of them is online.")
     scarecrowLog("funny bumping into you here");
     return false;
   }
 
-  const pendingParent = createElementWithClassAndParent("div",body,"dialog-parent");
+  const pendingParent = createElementWithClassAndParent("div", body, "dialog-parent");
   pendingParent.id = "pending";
 
   //we all are praying to it together and because the Harvest isn't real, or rather, is made of parts of all of us, we answer our own prayers
@@ -239,22 +272,22 @@ const theHarvestWakes  =async ()=>{
   const pendingEle = createElementWithClassAndParent("div", pendingParent, "god-dialog");
   pendingEle.innerText = "Pending Prayers";
   const warning = "Warning: pending prayers have not yet been judged worthy by the Harvest, viewer discretion is advised.";
-  const warningEle = createElementWithClassAndParent("div", pendingEle,"prayer" );
+  const warningEle = createElementWithClassAndParent("div", pendingEle, "prayer");
   warningEle.innerText = warning + " Click to view.";
 
-  const pendingContainer = createElementWithClassAndParent("div", pendingEle );
-  pendingContainer.style.display="none";
+  const pendingContainer = createElementWithClassAndParent("div", pendingEle);
+  pendingContainer.style.display = "none";
   pendingContainer.innerText = "Loading..."
 
   let pendingLoaded = false;
 
-  pendingEle.onclick = ()=>{
-    if(pendingContainer.style.display === "block"){
+  pendingEle.onclick = () => {
+    if (pendingContainer.style.display === "block") {
       pendingContainer.style.display = "none"
       warningEle.innerText = warning + " Click to View.";
 
-    }else{ //don't even load pending commands until you ask for them, just in case they're bad
-      if(!pendingLoaded){
+    } else { //don't even load pending commands until you ask for them, just in case they're bad
+      if (!pendingLoaded) {
         handlePendingCommands(pendingContainer);//don't wait on this
         pendingLoaded = true;
       }
@@ -266,10 +299,10 @@ const theHarvestWakes  =async ()=>{
 
 
 
-  const commandParent = createElementWithClassAndParent("div",body,"dialog-parent");
+  const commandParent = createElementWithClassAndParent("div", body, "dialog-parent");
   const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
-  const recentPrayers = createElementWithClassAndParent("div", commandEle,"prayer-container" );
-  const pastPrayers = createElementWithClassAndParent("div", commandEle,"prayer-container");
+  const recentPrayers = createElementWithClassAndParent("div", commandEle, "prayer-container");
+  const pastPrayers = createElementWithClassAndParent("div", commandEle, "prayer-container");
 
   commandParent.id = "commands";
   recentPrayers.innerHTML = "Recent Prayers"
@@ -281,8 +314,8 @@ const theHarvestWakes  =async ()=>{
   let commands = await fetchInitialStory();
   commands = commands.reverse();
   let responded = false;
-  for(let c of commands){
-    processOnePrayer(pastPrayers, rant,c.command, c.response, !responded)
+  for (let c of commands) {
+    processOnePrayer(pastPrayers, rant, c.command, c.response, !responded)
     responded = true;
   }
 
@@ -290,7 +323,7 @@ const theHarvestWakes  =async ()=>{
   waitForResponse(recentPrayersEle, rant);
 
 
-  const story = createElementWithClassAndParent("div",body, "story");
+  const story = createElementWithClassAndParent("div", body, "story");
   story.innerHTML = `<p>
   <p>&quot;What am I the god of?&quot;</p>
 
@@ -346,11 +379,11 @@ const theHarvestWakes  =async ()=>{
   renders an image lightly breathing so i can take a video screenshot of it
   then dither it
 */
-const harvestPreRender = (img)=>{
+const harvestPreRender = (img) => {
   //layered-image-container .god
-  const parent = createElementWithClassAndParent("div",document.querySelector("body"),"layered-image-container");
+  const parent = createElementWithClassAndParent("div", document.querySelector("body"), "layered-image-container");
 
-  const ele = createElementWithClassAndParent("img",parent,"god");
+  const ele = createElementWithClassAndParent("img", parent, "god");
   ele.src = img;
 }
 
