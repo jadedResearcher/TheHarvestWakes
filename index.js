@@ -7,6 +7,7 @@ const default_harvest = "images/source_images/rested_harvest_gameboy_small_top.p
 //https://spiralsrest.neocities.org/versions
 const default_exposition_booth ="images/source_images/harvest_expositionboothgameboy.png"
 
+const beep= new Audio("audio/fx/264828__cmdrobot__text-message-or-videogame-jump.mp3")
 let truthEle;
 let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
@@ -24,6 +25,34 @@ window.onload = ()=>{
   }
   renderButton();
   //harvestPreRender("images/source_images/fox.png")
+}
+
+/*
+when you get a response: 
+* beep
+* add the command to the most recent section of prayers (click and prepend true) processOnePrayer
+*/
+const waitForResponse = async (commandEle, rantEle)=>{
+
+  try{
+  console.log("JR NOTE: waiting for response")
+  //dont care what it gives us, if it returns, fetch again
+  await httpGetAsync("http://farragofiction.com:1972/WaitingISwearToPleaseForResponse");
+  if(commandEle.innerText === "None..."){
+    commandEle.innerText = "";
+  }
+  const jsonArray = (JSON.parse(httpGet("http://farragofiction.com:1972/StoryTimePleaseDearGod"))).reverse();
+  const json = jsonArray[0];
+  console.log("JR NOTE: got response", json)
+
+
+  processOnePrayer(commandEle, rantEle,json.command, json.response, true,true)
+  beep.play();
+  waitForResponse(commandEle, rantEle);
+  }catch(e){
+    console.error("JR NOTE: problem waiting for response, trying again in 10 seconds", e)
+    setTimeout(waitForResponse, 10000);
+  }
 }
 
 const renderButton = ()=>{
@@ -69,9 +98,14 @@ const scarecrowLog = (text) => {
   console.log(`%c${text}`, scarecrowCSS);
 }
 
-const processOnePrayer = (commandEle, responseEle, command, response, autoresponder=false)=>{
+const processOnePrayer = (commandEle, responseEle, command, response, autoresponder=false, prepend = false)=>{
   console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
-  const container = createElementWithClassAndParent("li",commandEle,"prayer");
+  const container = createElementWithClass("li","prayer");
+  if(prepend){
+    commandEle.prepend(container);
+  }else{
+    commandEle.append(container);
+  }
   container.innerText=command;
   container.onclick = ()=>{
     const others = document.querySelectorAll(".prayer");
@@ -159,15 +193,26 @@ const theHarvestWakes  =async ()=>{
 
   const commandParent = createElementWithClassAndParent("div",body,"dialog-parent");
   const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
+  const recentPrayers = createElementWithClassAndParent("div", commandEle );
+  const pastPrayers = createElementWithClassAndParent("div", commandEle);
+
   commandParent.id = "commands";
-  commandEle.innerHTML = "Previous Prayers<br>"
+  recentPrayers.innerHTML = "Recent Prayers"
+  const recentPrayersEle = createElementWithClassAndParent("div", recentPrayers, 'prayer');
+  recentPrayersEle.innerHTML = "None..."
+
+
+  pastPrayers.innerHTML = "<br><br>Previous Prayers<br>"
   let commands = await fetchInitialStory();
   commands = commands.reverse();
   let responded = false;
   for(let c of commands){
-    processOnePrayer(commandEle, rant,c.command, c.response, !responded)
+    processOnePrayer(pastPrayers, rant,c.command, c.response, !responded)
     responded = true;
   }
+
+  //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
+  waitForResponse(recentPrayersEle, rant);
 
 
   const story = createElementWithClassAndParent("div",body, "story");
