@@ -1276,6 +1276,7 @@ button:active {
   font-family: gameboy;
   border: 2px solid black;
   margin: 0px;
+  overflow-x: hidden;
   transform: none !important;
   padding: 13px;
 }
@@ -1358,6 +1359,7 @@ button:active {
   width: fit-content;
   height: fit-content;
   max-height: 255px;
+  min-height: 100px;
   position: absolute;
   bottom: 10px;
   width: 95%;

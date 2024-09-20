@@ -1,4 +1,32 @@
 /*
+In 2023, the Lavinraca/Lavinraca guests sacrificed:
+
+
+The Harvest's parts are from their sacrifices, both in the corn maze and in:
+http://lavinraca.eyedolgames.com/Week2/CCTV/images/
+tv head,
+fox mask
+clown mask (TV icon),
+horns (homestuck, cow skull, minotaur)
+cloak (camellia x23),
+bandages (eustace x13),
+cds (on horns, as if tiny halos),
+hobbes (puppet + tiger marks on hands),
+more clown puppets (under cloak)
+
+
+
+personality of our god is: 
+underpaid retail messiah
+between how the wastes treated the maze and eustace being burnt out as fuck, our god has little respect for the role they were born for
+
+theyll do it, sure, but after their break and while complaining as much as possible
+
+Eustace: The Herald says " he seems like the kind of guy who would get isekai'd into space australia after being ritually sacrificed in a corn maze and have less of a problem with it than he should"
+*/
+
+
+/*
 The Harvest is available between 9pm and 5pm with an hour for lunch and two 15 minute breaks.
 
 This is, of course, local to your time, because the Harvest (unlike BB) is omnipresent. 
@@ -15,9 +43,15 @@ and disable the harvest on the days people are most likely to be able to partici
 I'm already considering "between 9 and 5" to be PM and not AM. Just because we're all more likely to 
 celebrate after standard working hours. Night owl rights.)
 */
-const lunchTime = false;
-const breakTime = false;
-const afterHours = false;
+let lunchTime = false;
+let breakTime = false;
+let afterHours = false;
+
+let tv;
+let harvest;
+let booth;
+let harvestSpeaks;
+let breakMessage;
 
 
 
@@ -50,12 +84,70 @@ window.onload = () => {
   //harvestPreRender("images/source_images/fox.png")
 }
 
-isHarvestIn = () => {
+const isHarvestIn = () => {
   const date = new Date();
   const hour = date.getHours();
   console.log("JR NOTE: don't forget to let the harvest take breaks, hour is", hour)
+  /*
+   lunchTime = false; so if the hour is midnight, its lunch time
+   breakTime = false; 10:30-10:45 pm and  3:15-3:30 is break times
+   afterHours = false; if its after 5am or before 9pm its after hours
+
+  workingTime()
+  lunchtimemmmmmmmmmmmmmmmm()
+  outsideHours()
+  fifteenMinuteBreak()
+  */
+}
+//https://www.tumblr.com/ignatiaflamen/761906243882319872/jadedresearcher-dies-first-salticid-youre?source=share
+const workingTime = () => {
+  harvest.style.display = "block";
+  tv.style.display = "block";
+  harvestSpeaks.style.display = "block";
+  breakMessage.innerHTML = "";
+  breakMessage.style.display = "none";
+  booth.src = "images/source_images/harvest_expositionboothgameboy.png"
 }
 
+const outsideHours = () => {
+  harvest.style.display = "none";
+  tv.style.display = "none";
+  booth.src = "images/source_images/harvestonbreakwordsgameboy.png";
+  harvestSpeaks.style.display = "none";
+  breakMessage.style.display = "block";
+  let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog"); breakRant.innerHTML = "Apologies, Faithful, my office hours are between 9pm and 5am, local time. Just because I am a God is no excuse for poor work/life balance!";
+}
+
+const fifteenMinuteBreak = () => {
+  harvest.style.display = "none";
+  tv.style.display = "none";
+  booth.src = "images/source_images/harvestonbreakwordsgameboy.png";
+  harvestSpeaks.style.display = "none";
+  breakMessage.style.display = "block";
+  let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
+  breakRant.innerHTML = "Apologies, Faithful, I am on my 15 minute break. Worker's rights are important!";
+
+}
+
+/*
+does the harvest eat food? much less lunch? no
+will that stop the eustace within from rioting if they don't get a lunch break
+yes
+
+plus
+
+ButlerBot was the SUBSTRATE of the sacrifice, you really think none of him made it in?
+*/
+const lunchtimemmmmmmmmmmmmmmmm = () => {
+  harvest.style.display = "none";
+  tv.style.display = "none";
+  booth.src = "images/source_images/harvestonbreakwordsgameboy.png"
+  harvestSpeaks.style.display = "none";
+  breakMessage.style.display = "block";
+  let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
+  breakRant.innerHTML = "Lunchtime mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (I will be gone for an hour)";
+}
+//http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/SOUTH/WEST/bathroom.html
 /*
 when you get a response: 
 * beep
@@ -94,6 +186,10 @@ const waitForFaithfulPrayers = async (commandEle) => {
       commandEle.innerText = "";
     }
     const jsonArray = (JSON.parse(httpGet("http://farragofiction.com:1972/ListThePleaseCommandList"))).reverse();
+    if (jsonArray.length === 0) {
+      commandEle.innerText = "No Prayers Pending";
+      return;
+    }
     const json = jsonArray[0];
     console.log("JR NOTE: got response", json)
     handleOnePendingPrayer(commandEle, json)
@@ -186,6 +282,9 @@ const handlePendingCommands = async (ele) => {
 
   let pendingCommands = await fetchPendingCommands(); //string[]
   ele.innerHTML = "";
+  if (pendingCommands.length === 0) {
+    ele.innerHTML = "No Prayers Pending";
+  }
   for (let c of pendingCommands) {
     handleOnePendingPrayer(ele, c, false)
   }
@@ -208,7 +307,8 @@ const theHarvestWakes = async () => {
     }
   }*/
 
-  const tv = createElementWithClassAndParent("video", shop);
+  tv = createElementWithClassAndParent("video", shop);
+  tv.id = "tv"
   tv.src = default_video;
   tv.autoplay = true;
   tv.loop = true;
@@ -229,20 +329,25 @@ const theHarvestWakes = async () => {
     tv.src = default_video;
   }
 
-  const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  harvest = createElementWithClassAndParent("img", shop, "harvest");
+  harvest.id = "harvest"
   harvest.src = default_harvest;
 
-  const booth = createElementWithClassAndParent("img", shop);
+  booth = createElementWithClassAndParent("img", shop);
+  booth.id = "booth"
   booth.src = default_exposition_booth;
 
 
   const dialogParent = createElementWithClassAndParent("div", parent, "dialog-parent");
 
-  const dialog = createElementWithClassAndParent("div", dialogParent, "god-dialog");
-  let rant = createElementWithClassAndParent("p", dialog, "inner-dialog");
+  harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  breakMessage = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  breakMessage.style.display = "none";
+
+  let rant = createElementWithClassAndParent("p", harvestSpeaks, "inner-dialog");
   rant.innerHTML = "What am I the god of? What can I help you with?";
 
-  const buttonHolder = createElementWithClassAndParent("div", dialog, "god-dialog-button-holder");
+  const buttonHolder = createElementWithClassAndParent("div", harvestSpeaks, "god-dialog-button-holder");
   const form = createElementWithClassAndParent("form", buttonHolder, "pray-to-your-unresponsive-god");
 
   const option1 = createElementWithClassAndParent("input", form, "pray-to-your-unresponsive-god");
@@ -252,10 +357,11 @@ const theHarvestWakes = async () => {
   button.innerText = "Submit";
   button.type = "submit";
   form.onsubmit = (e) => {
+    console.log("JR NOTE: test")
     e.stopPropagation();
     submitCommand("Dear Sweet Harvest: " + option1.value);
-    dialog.innerHTML = "";
-    dialog.append(rant);//keep rant but not anything about submitting
+    harvestSpeaks.innerHTML = "";
+    harvestSpeaks.append(rant);//keep rant but not anything about submitting
     rant.innerHTML = "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
 
     //did you think the Harvest wasn't still riddled with Parasites?

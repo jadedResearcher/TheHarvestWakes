@@ -54,6 +54,34 @@ const fetchPendingCommands = () => {
 }
 
 
+/*
+JR: it occurs to me, btw, that butlerbot being HOW the sacrifice happene,d means probably a decent amoutn of him  got in
+which also explains the break time sand lunch time mmmmmmmm
+IC — Today at 6:16 PM
+thank you and congrats, butlerbot
+you're part of the combine
+JR — Today at 6:17 PM
+but because he serves irrlevancy he just
+faded into the background
+IC— Today at 6:18 PM
+he's the OS the harvest runs on
+literally tbh
+JR — Today at 6:18 PM
+literally
+camellia already had a service mindset so it just
+wasn't noticible
+any butler like type personality was because of camellia
+obviously
+any workers rights stuff was because of eustace
+equally obviously
+butlerbot was
+ironically
+ALWAYS a combination of the two of their values
+but no one would ever realize
+*/
+
+
+
 
 
 
