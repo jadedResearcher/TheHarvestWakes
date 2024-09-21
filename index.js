@@ -254,14 +254,14 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
   } else {
     commandEle.append(container);
   }
-  container.innerText = command;
+  container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"");
   container.onclick = () => {
     const others = document.querySelectorAll(".prayer");
     for (let other of others) {
       other.style.textDecoration = "none"
     }
     container.style.textDecoration = "underline"
-    responseEle.innerHTML = `<span class='prayer-text'>${command}</span><br><div class='prayer-response'>${response}</div>`;
+    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"")}</div>`;
   }
   if (autoresponder) {
     container.click();
@@ -270,7 +270,7 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
 
 const handleOnePendingPrayer = async (ele, prayer, prepend) => {
   const container = createElementWithClass("li", "prayer");
-  container.innerText = prayer;
+  container.innerText = prayer.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"");
   if (prepend) {
     ele.prepend(container);
   } else {
@@ -359,7 +359,7 @@ const theHarvestWakes = async () => {
   form.onsubmit = (e) => {
     console.log("JR NOTE: test")
     e.stopPropagation();
-    submitCommand("Dear Sweet Harvest: " + option1.value);
+    submitCommand(`Dear Sweet Harvest:  ${option1.value} [HIDE]${JSON.stringify(currentFeelings)}[/HIDE]`);
     harvestSpeaks.innerHTML = "";
     harvestSpeaks.append(rant);//keep rant but not anything about submitting
     rant.innerHTML = "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
