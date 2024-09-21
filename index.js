@@ -80,6 +80,8 @@ window.onload = () => {
       truthEle.style.display = "block"
     }
   }
+  loadPersonalFeelingsFromStorage(); //centralized feelings will come from getting prayers
+  initFeelingObjects();
   renderButton();
   //harvestPreRender("images/source_images/fox.png")
 }
@@ -248,6 +250,8 @@ const scarecrowLog = (text) => {
 
 const processOnePrayer = (commandEle, responseEle, command, response, autoresponder = false, prepend = false) => {
   console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
+  const videos = processFeelingsFromPrayer(command,response, false); //whether you view it or not she has feelings, because its her long term memory
+  console.log("JR NOTE: videos from feelings are", videos)
   const container = createElementWithClass("li", "prayer");
   if (prepend) {
     commandEle.prepend(container);
@@ -256,6 +260,11 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
   }
   container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"");
   container.onclick = () => {
+    if(videos.length > 0){
+      tv.src = pickFrom(videos);
+    }else{
+      tv.src = default_video;
+    }
     const others = document.querySelectorAll(".prayer");
     for (let other of others) {
       other.style.textDecoration = "none"
@@ -317,17 +326,6 @@ const theHarvestWakes = async () => {
       tv.play();
     }
   }
-  shop.onmouseenter = () => {
-    tv.src = happy_video;
-  }
-
-  shop.onmouseleave = () => {
-    tv.src = fox_thinking;
-  }
-
-  shop.onclick = () => {
-    tv.src = default_video;
-  }
 
   harvest = createElementWithClassAndParent("img", shop, "harvest");
   harvest.id = "harvest"
@@ -359,7 +357,10 @@ const theHarvestWakes = async () => {
   form.onsubmit = (e) => {
     console.log("JR NOTE: test")
     e.stopPropagation();
-    submitCommand(`Dear Sweet Harvest:  ${option1.value} [HIDE]${JSON.stringify(currentFeelings)}[/HIDE]`);
+    const prayer = `Dear Sweet Harvest:  ${option1.value} [HIDE]${JSON.stringify(currentFeelings)}[/HIDE]`;
+    submitCommand(prayer);
+    const videos = processFeelingsFromPrayer(prayer, "",true);
+    console.log("JR NOTE: vidoes from submitting a pryayer is",videos)
     harvestSpeaks.innerHTML = "";
     harvestSpeaks.append(rant);//keep rant but not anything about submitting
     rant.innerHTML = "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
@@ -424,6 +425,8 @@ const theHarvestWakes = async () => {
     processOnePrayer(pastPrayers, rant, c.command, c.response, !responded)
     responded = true;
   }
+  truthLog("The Truth Is: The Harvest Is Personal", `Your Personal Harvest responds to both how you have treated her, and how the memories from her Center make her feel. After syncing with her Center, she feels: ${JSON.stringify(currentFeelings)}`)
+
 
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
