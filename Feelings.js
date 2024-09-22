@@ -120,6 +120,8 @@ const initHappy = () => {
   const feeling = new FeelingsObject(HAPPY);
   feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
   feeling.keyWordsToVideos["harvest"] = "videos/happy_fox_spin.mp4";
+  feeling.keyWordsToVideos["maccus"] = "videos/maccus.mp4";
+  feeling.keyWordsToVideos["smile"] = "videos/maccus.mp4";
 
 }
 
@@ -146,13 +148,17 @@ const initFear = () => {
   feeling.keyWordsToVideos["funeral"] = "videos/meat.mp4";
 }
 
-//slacking off, mortality, being useless, overworking
+//slacking off, mortality, being useless, overworking, truth, lies, the scarecrow
+
 const initDisgust = () => {
   const feeling = new FeelingsObject(DISGUST);
   feeling.keyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
+  feeling.keyWordsToVideos["truth"] = "videos/paradise_and_parasite.mp4";
+  feeling.keyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
+
 }
 
-//the sacrifice, truth, Lies, the scarecrow
+//the sacrifice, 
 const initAnger = () => {
   const feeling = new FeelingsObject(ANGER);
   feeling.keyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
@@ -176,6 +182,12 @@ const initSurprise = () => {
 const initExhaustion = () => {
   const feeling = new FeelingsObject(EXHAUSTION);
   //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  feeling.keyWordsToVideos["eustace"] = "videos/eustace.mp4";
+  feeling.keyWordsToVideos["work"] = "videos/eustace.mp4";
+  feeling.keyWordsToVideos["overtime"] = "videos/eustace.mp4";
+  feeling.keyWordsToVideos["hard"] = "videos/eustace.mp4";
+
+
 }
 
 //camellia, being a god, being asked to do things
@@ -183,6 +195,7 @@ const initPride = () => {
   const feeling = new FeelingsObject(PRIDE);
   
   feeling.keyWordsToVideos["incredible"] = "videos/fox_thinking.mp4";
+  feeling.keyWordsToVideos["camellia"] = "videos/camellia.mp4";
 
   //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
 }

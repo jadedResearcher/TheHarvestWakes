@@ -361,6 +361,7 @@ const theHarvestWakes = async () => {
   }*/
 
   tv = createElementWithClassAndParent("video", shop);
+  tv.volume = 0.0;
   tv.id = "tv"
   tv.src = default_video;
   tv.autoplay = true;
