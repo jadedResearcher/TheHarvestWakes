@@ -146,6 +146,17 @@ const initSad = () => {
 const initFear = () => {
   const feeling = new FeelingsObject(FEAR);
   feeling.keyWordsToVideos["funeral"] = "videos/meat.mp4";
+  feeling.keyWordsToVideos["fear"] = "videos/fear.mp4";
+  feeling.keyWordsToVideos["death"] = "videos/fear.mp4";
+  feeling.keyWordsToVideos["die"] = "videos/fear.mp4";
+  feeling.keyWordsToVideos["capture"] = "videos/unsettled.mp4";
+  feeling.keyWordsToVideos["trap"] = "videos/unsettled.mp4";
+  feeling.keyWordsToVideos["spooky"] = "videos/unsettled.mp4";
+  feeling.keyWordsToVideos["scary"] = "videos/fear.mp4";
+  feeling.keyWordsToVideos["graveyard"] = "videos/fear.mp4";
+
+
+
 }
 
 //slacking off, mortality, being useless, overworking, truth, lies, the scarecrow
@@ -155,7 +166,12 @@ const initDisgust = () => {
   feeling.keyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
   feeling.keyWordsToVideos["truth"] = "videos/paradise_and_parasite.mp4";
   feeling.keyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
-
+  feeling.keyWordsToVideos["gross"] = "videos/handdrip.mp4";
+  feeling.keyWordsToVideos["disgust"] = "videos/disgust.mp4";
+  feeling.keyWordsToVideos["beneath"] = "videos/disgust_hum.mp4";
+  feeling.keyWordsToVideos["below"] = "videos/disgust_hum.mp4";
+  feeling.keyWordsToVideos["under"] = "videos/disgust_hum.mp4";
+  feeling.keyWordsToVideos["mortal"] = "videos/disgust_hum.mp4";
 }
 
 //the sacrifice, 
