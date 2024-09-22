@@ -168,10 +168,10 @@ const initDisgust = () => {
   feeling.keyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
   feeling.keyWordsToVideos["gross"] = "videos/handdrip.mp4";
   feeling.keyWordsToVideos["disgust"] = "videos/disgust.mp4";
-  feeling.keyWordsToVideos["beneath"] = "videos/disgust_hum.mp4";
-  feeling.keyWordsToVideos["below"] = "videos/disgust_hum.mp4";
-  feeling.keyWordsToVideos["under"] = "videos/disgust_hum.mp4";
-  feeling.keyWordsToVideos["mortal"] = "videos/disgust_hum.mp4";
+  feeling.keyWordsToVideos["beneath"] = "videos/digust_hum.mp4";
+  feeling.keyWordsToVideos["below"] = "videos/digust_hum.mp4";
+  feeling.keyWordsToVideos["under"] = "videos/digust_hum.mp4";
+  feeling.keyWordsToVideos["mortal"] = "videos/digust_hum.mp4";
 }
 
 //the sacrifice, 
@@ -212,6 +212,15 @@ const initPride = () => {
   
   feeling.keyWordsToVideos["incredible"] = "videos/fox_thinking.mp4";
   feeling.keyWordsToVideos["camellia"] = "videos/camellia.mp4";
+  feeling.keyWordsToVideos["faith"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["guests"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["observers"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["lavinraca"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["pray"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["love"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["remember"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["cherish"] = "videos/pride_in_faithful.mp4";
+  feeling.keyWordsToVideos["fan"] = "videos/pride_in_faithful.mp4";
 
   //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
 }
