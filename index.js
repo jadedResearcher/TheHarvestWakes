@@ -252,27 +252,37 @@ const scarecrowLog = (text) => {
 
 //ignores itself if some other command/response pair gets displayed
 //text already has its HIDE stuff hidden
-const syncTVToClipsInOrder = (videos, textEle, text) => {
-  console.log("JR NOTE:syncTVToClipsInOrder ", videos, "is tv looping", tv.loop)
+const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
+
+  //console.log("JR NOTE:syncTVToClipsInOrder ", videos)
   const playNextVideo = () => {
-    console.log("JR NOTE: video ended, trying to play next", videos);
-    const isLast = videos.length ===0; //its the last if it was called empty (not became empty) (want to go one more after running out so you can set default)
+    //console.log("JR NOTE: play next video");
+    tv.removeEventListener("ended", playNextVideo);
+
+    let isLast = false; 
     if (videos.length > 0) {
       tv.src = videos.shift();
     } else {
-      tv.src = default_video; //nothing left to play
-      tv.loop = true;//don't ever be still, so when done, loop the last one you had, or maybe go back to default
+      isLast = true;
+      tv.src = default_video; //nothing left to play, pause before looping again
     }
-    tv.removeEventListener("ended", this);
-    console.log("JR NOTE: changed src, going to play", tv.src)
+    //console.log("JR NOTE: changed src, going to play", tv.src)
     tv.play();
-    !isLast && syncTVToClipsInOrder(videos, textEle, text)
+    if(isLast){
+      //loop back to the start
+      console.log("JR NOTE: going back to the start", originalVideos)
+      syncTVToClipsInOrder([...originalVideos], textEle, text, originalVideos)
+    }else{
+      syncTVToClipsInOrder(videos, textEle, text,originalVideos)
+    }
   }
-  console.log("JR NOTE: am i allowed to play?", { length: videos.length, canPlay: textEle.innerHTML === text, textEle: textEle.innerHTML, text })
+  //console.log("JR NOTE: am i allowed to play?", { length: videos.length, canPlay: textEle.innerHTML === text, textEle: textEle.innerHTML, text })
 
   if (textEle.innerHTML === text) {
-    console.log("JR NOTE: going to play the next video in this list when current ends", videos)
+    //console.log("JR NOTE: going to play the next video in this list when current ends", videos)
     tv.addEventListener("ended", playNextVideo);
+  }else{
+    //console.log("JR NOTE: stop looping video, new looper will handle it")
   }
 }
 
@@ -298,8 +308,8 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
     if (videos.length > 0) {
       tv.loop = false;
       tv.src = videos[0];
-      videos.shift();//first was already played
-      syncTVToClipsInOrder(videos, responseEle, `${responseEle.innerHTML}`);
+      const first = videos.shift();//first was already played
+      syncTVToClipsInOrder(videos, responseEle, `${responseEle.innerHTML}`, [first, ...videos]);
     } else {
       tv.src = default_video;
       tv.loop = true;
