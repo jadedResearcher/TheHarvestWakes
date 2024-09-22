@@ -84,12 +84,10 @@ const processFeelingsFromPrayer = (command, response, personal) => {
  for(let feeling of allFeelingsObjects){
   const processedCommand = feeling.checkPhraseForKeyWordsReturnVideo(command,personal);
   const processedResponse = feeling.checkPhraseForKeyWordsReturnVideo(response,personal);
-  console.log("JR NOTE: processedCommand and processedResponse ", processedCommand,processedResponse)
 
   videosToChooseFrom = videosToChooseFrom.concat(processedCommand);
   videosToChooseFrom = videosToChooseFrom.concat(processedResponse);
  }
- console.log("JR NOTE: about to return videosToChooseFrom",command,videosToChooseFrom)
  return videosToChooseFrom;
 }
 
@@ -108,13 +106,86 @@ oh i am liking this
 const initFeelingObjects = () => {
   //const all_feelings_keys = [HAPPY,SAD,FEAR,DISGUST,ANGER,SURPRISE,EXHAUSTION,PRIDE]
   initHappy();
+  initSad();
+  initFear();
+  initDisgust();
+  initAnger();
+  initSurprise();
+  initExhaustion();
+  initPride();
 }
 
+//being useful, being praised, being good enough, being remembered
 const initHappy = () => {
   const feeling = new FeelingsObject(HAPPY);
   feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  feeling.keyWordsToVideos["harvest"] = "videos/happy_fox_spin.mp4";
+
 }
 
+//anyone else from the maze who was left behind. Trogdazorg, terry, twig, things being forgotten
+const initSad = () => {
+  const feeling = new FeelingsObject(SAD);
+  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  feeling.keyWordsToVideos["lavinraca"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["terri"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["TROGDAZORG"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["rava"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["twig"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["sam"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["guests"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["corn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["butler"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.keyWordsToVideos["candy"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+
+}
+
+//winter
+const initFear = () => {
+  const feeling = new FeelingsObject(FEAR);
+  feeling.keyWordsToVideos["funeral"] = "videos/meat.mp4";
+}
+
+//slacking off, mortality, being useless, overworking
+const initDisgust = () => {
+  const feeling = new FeelingsObject(DISGUST);
+  feeling.keyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
+}
+
+//the sacrifice, truth, Lies, the scarecrow
+const initAnger = () => {
+  const feeling = new FeelingsObject(ANGER);
+  feeling.keyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
+  feeling.keyWordsToVideos["skull"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.keyWordsToVideos["cow"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.keyWordsToVideos["horn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.keyWordsToVideos["twenty"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
+  feeling.keyWordsToVideos["20"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
+  feeling.keyWordsToVideos["clown"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4"
+  feeling.keyWordsToVideos["honk"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
+}
+
+// by definition this one will mostly be IC or me controlling
+const initSurprise = () => {
+  const feeling = new FeelingsObject(SURPRISE);
+  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  feeling.keyWordsToVideos["jr"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/LOVELOVELOVELOVE/videos/glitches/pd.mp4"
+}
+
+//eustace, being a god, being asked to do things
+const initExhaustion = () => {
+  const feeling = new FeelingsObject(EXHAUSTION);
+  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+}
+
+//camellia, being a god, being asked to do things
+const initPride = () => {
+  const feeling = new FeelingsObject(PRIDE);
+  
+  feeling.keyWordsToVideos["incredible"] = "videos/fox_thinking.mp4";
+
+  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+}
 
 
 //a given feeling has a NAME (like anger)

@@ -247,31 +247,65 @@ const scarecrowLog = (text) => {
   }
   console.log(`%c${text}`, scarecrowCSS);
 }
+//i keep getting spam emails addresed to
+//Jimmy Zamora
+
+//ignores itself if some other command/response pair gets displayed
+//text already has its HIDE stuff hidden
+const syncTVToClipsInOrder = (videos, textEle, text) => {
+  console.log("JR NOTE:syncTVToClipsInOrder ", videos, "is tv looping", tv.loop)
+  const playNextVideo = () => {
+    console.log("JR NOTE: video ended, trying to play next", videos);
+    const isLast = videos.length ===0; //its the last if it was called empty (not became empty) (want to go one more after running out so you can set default)
+    if (videos.length > 0) {
+      tv.src = videos.shift();
+    } else {
+      tv.src = default_video; //nothing left to play
+      tv.loop = true;//don't ever be still, so when done, loop the last one you had, or maybe go back to default
+    }
+    tv.removeEventListener("ended", this);
+    console.log("JR NOTE: changed src, going to play", tv.src)
+    tv.play();
+    !isLast && syncTVToClipsInOrder(videos, textEle, text)
+  }
+  console.log("JR NOTE: am i allowed to play?", { length: videos.length, canPlay: textEle.innerHTML === text, textEle: textEle.innerHTML, text })
+
+  if (textEle.innerHTML === text) {
+    console.log("JR NOTE: going to play the next video in this list when current ends", videos)
+    tv.addEventListener("ended", playNextVideo);
+  }
+}
 
 const processOnePrayer = (commandEle, responseEle, command, response, autoresponder = false, prepend = false) => {
   console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
-  const videos = processFeelingsFromPrayer(command,response, false); //whether you view it or not she has feelings, because its her long term memory
-  console.log("JR NOTE: videos from feelings are", videos)
+  const videos = processFeelingsFromPrayer(command, response, false); //whether you view it or not she has feelings, because its her long term memory
   const container = createElementWithClass("li", "prayer");
   if (prepend) {
     commandEle.prepend(container);
   } else {
     commandEle.append(container);
   }
-  container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"");
+  container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "");
   container.onclick = () => {
-    if(videos.length > 0){
-      tv.src = pickFrom(videos);
-    }else{
-      tv.src = default_video;
-    }
+
     const others = document.querySelectorAll(".prayer");
     for (let other of others) {
       other.style.textDecoration = "none"
     }
     container.style.textDecoration = "underline"
-    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"")}</div>`;
+    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</div>`;
+    tv.scrollIntoView();
+    if (videos.length > 0) {
+      tv.loop = false;
+      tv.src = videos[0];
+      videos.shift();//first was already played
+      syncTVToClipsInOrder(videos, responseEle, `${responseEle.innerHTML}`);
+    } else {
+      tv.src = default_video;
+      tv.loop = true;
+    }
   }
+
   if (autoresponder) {
     container.click();
   }
@@ -279,7 +313,7 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
 
 const handleOnePendingPrayer = async (ele, prayer, prepend) => {
   const container = createElementWithClass("li", "prayer");
-  container.innerText = prayer.replaceAll(/\[HIDE\].*\[\/HIDE\]/g,"");
+  container.innerText = prayer.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "");
   if (prepend) {
     ele.prepend(container);
   } else {
@@ -359,8 +393,8 @@ const theHarvestWakes = async () => {
     e.stopPropagation();
     const prayer = `Dear Sweet Harvest:  ${option1.value} [HIDE]${JSON.stringify(currentFeelings)}[/HIDE]`;
     submitCommand(prayer);
-    const videos = processFeelingsFromPrayer(prayer, "",true);
-    console.log("JR NOTE: vidoes from submitting a pryayer is",videos)
+    const videos = processFeelingsFromPrayer(prayer, "", true);
+    console.log("JR NOTE: vidoes from submitting a pryayer is", videos)
     harvestSpeaks.innerHTML = "";
     harvestSpeaks.append(rant);//keep rant but not anything about submitting
     rant.innerHTML = "Thank you, Faithful. I will think on this and respond to all prayers throughout the day."
