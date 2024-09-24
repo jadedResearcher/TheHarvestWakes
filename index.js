@@ -43,9 +43,6 @@ and disable the harvest on the days people are most likely to be able to partici
 I'm already considering "between 9 and 5" to be PM and not AM. Just because we're all more likely to 
 celebrate after standard working hours. Night owl rights.)
 */
-let lunchTime = false;
-let breakTime = false;
-let afterHours = false;
 
 let tv;
 let harvest;
@@ -89,18 +86,20 @@ window.onload = () => {
 const isHarvestIn = () => {
   const date = new Date();
   const hour = date.getHours();
-  console.log("JR NOTE: don't forget to let the harvest take breaks, hour is", hour)
-  /*
-   lunchTime = false; so if the hour is midnight, its lunch time
-   breakTime = false; 10:30-10:45 pm and  3:15-3:30 is break times
-   afterHours = false; if its after 5am or before 9pm its after hours
+  const minutes = date.getMinutes();
 
-  workingTime()
-  lunchtimemmmmmmmmmmmmmmmm()
-  outsideHours()
-  fifteenMinuteBreak()
-  */
+  if(hour== 0){//so if the hour is midnight, its lunch time
+    lunchtimemmmmmmmmmmmmmmmm();
+  }else if(hour >5 && hour <21){ //hours are 9pm to 5am (inverted from capitalism cuz spooooooky~)
+    outsideHours();
+  }else if((hours === 22 || hours ===3) && (minutes >15 && minutes <30)){
+    //breaks are at 10pm and 3am between x:15 and x:30 
+    fifteenMinuteBreak();
+  }else{
+    workingTime();
+  }
 }
+
 //https://www.tumblr.com/ignatiaflamen/761906243882319872/jadedresearcher-dies-first-salticid-youre?source=share
 const workingTime = () => {
   harvest.style.display = "block";
@@ -349,7 +348,6 @@ const handlePendingCommands = async (ele) => {
 }
 
 const theHarvestWakes = async () => {
-  isHarvestIn();
   const body = document.querySelector("body");
   const parent = createElementWithClassAndParent("div", body, "video-parent");
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -530,6 +528,10 @@ const theHarvestWakes = async () => {
 
   <p>There, now <span style="text-decoration:line-through">whenever</span> between the hours of 9 and 5, besides two fifteen minute breaks and an hour for lunch, the Faithful were free to submit Prayers in the hopes that they might further define their god.</p>
   <p>The Harvest looked on their works and decided they were good. It was time to rest up until it truly became the Season of Harvest.</p>`;
+
+  isHarvestIn();
+
+  setTimeout(isHarvestIn, 60*1000);
 
 }
 
