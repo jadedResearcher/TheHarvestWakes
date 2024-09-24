@@ -117,15 +117,18 @@ const outsideHours = () => {
   booth.src = "images/source_images/harvestonbreaknowordsgameboy.png";
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
-  let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog"); breakRant.innerHTML = "Apologies, Faithful, my office hours are between 9pm and 5am, local time. Just because I am a God is no excuse for poor work/life balance!";
+  breakMessage.innerHTML="";
+  let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
+   breakRant.innerHTML = "Apologies, Faithful, my office hours are between 9pm and 5am, local time. Just because I am a God is no excuse for poor work/life balance!";
 }
 
 const fifteenMinuteBreak = () => {
   harvest.style.display = "none";
   tv.style.display = "none";
-  booth.src = "images/source_images/harvestonbreakwordsgameboy.png";
+  booth.src = "images/source_images/harveston15nowordsgameboy.png";
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
+  breakMessage.innerHTML="";
   let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
   breakRant.innerHTML = "Apologies, Faithful, I am on my 15 minute break. Worker's rights are important!";
 
@@ -146,6 +149,7 @@ const lunchtimemmmmmmmmmmmmmmmm = () => {
   booth.src = "images/source_images/lunchtimemmm.png"
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
+  breakMessage.innerHTML="";
   let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
   breakRant.innerHTML = "Lunchtime mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (I will be gone for an hour)";
 }
