@@ -84,18 +84,25 @@ window.onload = () => {
 }
 
 const isHarvestIn = () => {
+  //come on wastes, at LEAST manipulate the harvest into setting this herself, yeah?
+  //why leave her seething in rage and exhaustion yet forced to work anyways???
+  //just as easy to hack her to be happy, isn't it?
+  if (youAreADickIfAnyoneButHarvestSetsThis) {
+    return true;
+  }
+
   const date = new Date();
   const hour = date.getHours();
   const minutes = date.getMinutes();
 
-  if(hour== 0){//so if the hour is midnight, its lunch time
+  if (hour == 0) {//so if the hour is midnight, its lunch time
     lunchtimemmmmmmmmmmmmmmmm();
-  }else if(hour >5 && hour <21){ //hours are 9pm to 5am (inverted from capitalism cuz spooooooky~)
+  } else if (hour > 5 && hour < 21) { //hours are 9pm to 5am (inverted from capitalism cuz spooooooky~)
     outsideHours();
-  }else if((hours === 22 || hours ===3) && (minutes >15 && minutes <30)){
+  } else if ((hours === 22 || hours === 3) && (minutes > 15 && minutes < 30)) {
     //breaks are at 10pm and 3am between x:15 and x:30 
     fifteenMinuteBreak();
-  }else{
+  } else {
     workingTime();
   }
 }
@@ -116,9 +123,9 @@ const outsideHours = () => {
   booth.src = "images/source_images/harvestonbreaknowordsgameboy.png";
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
-  breakMessage.innerHTML="";
+  breakMessage.innerHTML = "";
   let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
-   breakRant.innerHTML = "Apologies, Faithful, my office hours are between 9pm and 5am, local time. Just because I am a God is no excuse for poor work/life balance!";
+  breakRant.innerHTML = "Apologies, Faithful, my office hours are between 9pm and 5am, local time. Just because I am a God is no excuse for poor work/life balance!";
 }
 
 const fifteenMinuteBreak = () => {
@@ -127,7 +134,7 @@ const fifteenMinuteBreak = () => {
   booth.src = "images/source_images/harveston15nowordsgameboy.png";
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
-  breakMessage.innerHTML="";
+  breakMessage.innerHTML = "";
   let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
   breakRant.innerHTML = "Apologies, Faithful, I am on my 15 minute break. Worker's rights are important!";
 
@@ -148,7 +155,7 @@ const lunchtimemmmmmmmmmmmmmmmm = () => {
   booth.src = "images/source_images/lunchtimemmm.png"
   harvestSpeaks.style.display = "none";
   breakMessage.style.display = "block";
-  breakMessage.innerHTML="";
+  breakMessage.innerHTML = "";
   let breakRant = createElementWithClassAndParent("p", breakMessage, "inner-dialog");
   breakRant.innerHTML = "Lunchtime mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm (I will be gone for an hour)";
 }
@@ -262,7 +269,7 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
     //console.log("JR NOTE: play next video");
     tv.removeEventListener("ended", playNextVideo);
 
-    let isLast = false; 
+    let isLast = false;
     if (videos.length > 0) {
       tv.src = videos.shift();
     } else {
@@ -271,12 +278,12 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
     }
     //console.log("JR NOTE: changed src, going to play", tv.src)
     tv.play();
-    if(isLast){
+    if (isLast) {
       //loop back to the start
       console.log("JR NOTE: going back to the start", originalVideos)
       syncTVToClipsInOrder([...originalVideos], textEle, text, originalVideos)
-    }else{
-      syncTVToClipsInOrder(videos, textEle, text,originalVideos)
+    } else {
+      syncTVToClipsInOrder(videos, textEle, text, originalVideos)
     }
   }
   //console.log("JR NOTE: am i allowed to play?", { length: videos.length, canPlay: textEle.innerHTML === text, textEle: textEle.innerHTML, text })
@@ -284,7 +291,7 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
   if (textEle.innerHTML === text) {
     //console.log("JR NOTE: going to play the next video in this list when current ends", videos)
     tv.addEventListener("ended", playNextVideo);
-  }else{
+  } else {
     //console.log("JR NOTE: stop looping video, new looper will handle it")
   }
 }
@@ -531,7 +538,7 @@ const theHarvestWakes = async () => {
 
   isHarvestIn();
 
-  setTimeout(isHarvestIn, 60*1000);
+  setTimeout(isHarvestIn, 60 * 1000);
 
 }
 
@@ -565,3 +572,14 @@ ive decided its better for my mental health to consider myself a fanwork of lavi
 
 cuz when i think im part of a team i... i get weird when theres not teamwork :( :( :(
 */
+
+
+/*
+if you ask her to work during off hours AND
+if her happiness and pride is high, and  her sadness, fear, anger, disgust and exhaustion
+are low OR her surprise is low and a random chance happens (she's bored)
+she will override isHarvestIn to always say true
+  
+  */
+
+let youAreADickIfAnyoneButHarvestSetsThis = false;
