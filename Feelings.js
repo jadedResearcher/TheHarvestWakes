@@ -71,7 +71,7 @@ const loadPersonalFeelingsFromStorage = () => {
 }
 
 const savePersonalFeelingsToStorage = () => {
-  localStorage.setItem(HARVEST_KEY, personalFeelings.stringify())
+  localStorage.setItem(HARVEST_KEY, JSON.stringify(personalFeelings))
 }
 
 const processFeelingsFromPrayer = (command, response, personal) => {
@@ -87,6 +87,9 @@ const processFeelingsFromPrayer = (command, response, personal) => {
 
   videosToChooseFrom = videosToChooseFrom.concat(processedCommand);
   videosToChooseFrom = videosToChooseFrom.concat(processedResponse);
+ }
+ if(personal){
+  savePersonalFeelingsToStorage();
  }
  return videosToChooseFrom;
 }

@@ -1192,6 +1192,8 @@ button:disabled {
   margin-left: auto;
   margin-right: auto;
   display: none;
+  position: fixed;
+  z-index: 113; /* my arc number*/
 }
 
 #explore {
