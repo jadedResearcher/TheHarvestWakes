@@ -99,7 +99,7 @@ const isHarvestIn = () => {
     lunchtimemmmmmmmmmmmmmmmm();
   } else if (hour > 5 && hour < 21) { //hours are 9pm to 5am (inverted from capitalism cuz spooooooky~)
     outsideHours();
-  } else if ((hours === 22 || hours === 3) && (minutes > 15 && minutes < 30)) {
+  } else if ((hour === 22 || hour === 3) && (minutes > 15 && minutes < 30)) {
     //breaks are at 10pm and 3am between x:15 and x:30 
     fifteenMinuteBreak();
   } else {

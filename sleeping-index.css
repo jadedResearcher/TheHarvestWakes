@@ -1181,6 +1181,7 @@ button:disabled {
   left: 13px;
   cursor: pointer;
   opacity: 13%;
+  z-index: 999;
 }
 
 #mobileFriendlyConsole{

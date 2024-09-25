@@ -29,17 +29,14 @@ const saveData = JSON.parse(localStorage.getItem(HARVEST_KEY));
 
 //list of Feelings objects.
 const allFeelingsObjects = [];
-const HAPPY = "HAPPY";
-const SAD = "SAD";
-const FEAR = "FEAR";
-const DISGUST = "DISGUST";
-const ANGER = "ANGER";
-const SURPRISE = "SURPRISE";
-//the above i just grabbed from a basic list, cuz i could go forever: https://www.verywellmind.com/an-overview-of-the-types-of-emotions-4163976
-const EXHAUSTION = "EXHAUSTION"; //eustace
-const PRIDE = "PRIDE"; //camellia
+const HAPPY = "HAPPY"; //negative is SAD
+const ENERGETIC = "ENERGETIC"; //negative is EXHAUSTED
+const PRIDEFUL = "PRIDEFUL"; //negative is DISGUSTED
+const CURIOUS = "CURIOUS"; //negative is AFRAID
+const COMPASSIONATE = "COMPASSIONATE"; //negative is ANGRY
 
-const all_feelings_keys = [HAPPY, SAD, FEAR, DISGUST, ANGER, SURPRISE, EXHAUSTION, PRIDE]
+
+const all_feelings_keys = [HAPPY, ENERGETIC, PRIDEFUL, CURIOUS, COMPASSIONATE]
 
 
 //how has she been feeling about you, personally
@@ -56,7 +53,17 @@ const loadPersonalFeelingsFromStorage = () => {
   if (tmp) {
     personalFeelings = JSON.parse(tmp);
   } else {
-    //initial feelings, week1
+    //initial feelings, no influence from you
+    //const all_feelings_keys = [HAPPY, ENERGETIC, PRIDEFUL, CURIOUS, COMPASSIONATE]
+    personalFeelings[HAPPY] = 3; //its good to be awake
+    personalFeelings[ENERGETIC] = 13; //eustace has never been so rested in his life
+    personalFeelings[PRIDEFUL] = 13; //camellia's so so proud you all remembered her while she was asleep, she IS special, thank you for noticing
+    personalFeelings[CURIOUS] = -3; // a little afraid because what if you've forgotten The Harvest after all
+    personalFeelings[COMPASSIONATE] = 3; //The Harvest is trying to be a a good god
+
+
+
+    /* REFACTORED HER FEELINGS RIP
     personalFeelings[HAPPY] = 13; //she is so happy you all kept thinking of her while she slept
     personalFeelings[SAD] = 0;
     personalFeelings[FEAR] = 3; //she is a little afraid about what is going to happen to her
@@ -64,7 +71,7 @@ const loadPersonalFeelingsFromStorage = () => {
     personalFeelings[ANGER] = 0;
     personalFeelings[SURPRISE] = 3; //she is a little surprised she even woke up
     personalFeelings[EXHAUSTION] = -13; //she is so so rested
-    personalFeelings[PRIDE] = 13; //she is so proud what everyone created her to be
+    personalFeelings[PRIDE] = 13; //she is so proud what everyone created her to be*/
   }
   currentFeelings = {...personalFeelings}
   truthLog("The Truth Is: The Harvest Does Not Forget", `She remembers how you have been treating your Personal Harvest: ${JSON.stringify(currentFeelings)}`)
@@ -107,131 +114,140 @@ oh i am liking this
 
 
 const initFeelingObjects = () => {
-  //const all_feelings_keys = [HAPPY,SAD,FEAR,DISGUST,ANGER,SURPRISE,EXHAUSTION,PRIDE]
+ //const all_feelings_keys = [HAPPY, ENERGETIC, PRIDEFUL, CURIOUS, COMPASSIONATE]
+
   initHappy();
-  initSad();
-  initFear();
-  initDisgust();
-  initAnger();
-  initSurprise();
-  initExhaustion();
+  initEnergetic();
   initPride();
+  initCurious();
+  initCompassion();
 }
 
-//being useful, being praised, being good enough, being remembered
 const initHappy = () => {
   const feeling = new FeelingsObject(HAPPY);
-  feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
-  feeling.keyWordsToVideos["harvest"] = "videos/happy_fox_spin.mp4";
-  feeling.keyWordsToVideos["maccus"] = "videos/maccus.mp4";
-  feeling.keyWordsToVideos["smile"] = "videos/maccus.mp4";
+  //positive
+  //being useful, being praised, being good enough, being remembered
+  feeling.positiveKeyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["harvest"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["maccus"] = "videos/maccus.mp4";
+  feeling.positiveKeyWordsToVideos["smile"] = "videos/maccus.mp4";
+  //negative
+  //anyone else from the maze who was left behind. Trogdazorg, terry, twig, things being forgotten
+  feeling.negativeKeyWordsToVideos["lavinraca"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["terri"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["TROGDAZORG"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["rava"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["twig"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["sam"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["guests"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["corn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["butler"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
+  feeling.negativeKeyWordsToVideos["candy"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
 
 }
 
-//anyone else from the maze who was left behind. Trogdazorg, terry, twig, things being forgotten
-const initSad = () => {
-  const feeling = new FeelingsObject(SAD);
-  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
-  feeling.keyWordsToVideos["lavinraca"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["terri"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["TROGDAZORG"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["rava"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["twig"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["sam"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["guests"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["corn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["butler"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
-  feeling.keyWordsToVideos["candy"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
 
-}
 
 //winter
-const initFear = () => {
-  const feeling = new FeelingsObject(FEAR);
-  feeling.keyWordsToVideos["funeral"] = "videos/meat.mp4";
-  feeling.keyWordsToVideos["fear"] = "videos/fear.mp4";
-  feeling.keyWordsToVideos["death"] = "videos/fear.mp4";
-  feeling.keyWordsToVideos["die"] = "videos/fear.mp4";
-  feeling.keyWordsToVideos["capture"] = "videos/unsettled.mp4";
-  feeling.keyWordsToVideos["trap"] = "videos/unsettled.mp4";
-  feeling.keyWordsToVideos["spooky"] = "videos/unsettled.mp4";
-  feeling.keyWordsToVideos["scary"] = "videos/fear.mp4";
-  feeling.keyWordsToVideos["graveyard"] = "videos/fear.mp4";
+const initCurious = () => {
+  const feeling = new FeelingsObject(CURIOUS);
+  feeling.positiveKeyWordsToVideos["curious"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["jr"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/LOVELOVELOVELOVE/videos/glitches/pd.mp4"
 
-
-
-}
-
-//slacking off, mortality, being useless, overworking, truth, lies, the scarecrow
-
-const initDisgust = () => {
-  const feeling = new FeelingsObject(DISGUST);
-  feeling.keyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
-  feeling.keyWordsToVideos["truth"] = "videos/paradise_and_parasite.mp4";
-  feeling.keyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
-  feeling.keyWordsToVideos["gross"] = "videos/handdrip.mp4";
-  feeling.keyWordsToVideos["disgust"] = "videos/disgust.mp4";
-  feeling.keyWordsToVideos["beneath"] = "videos/digust_hum.mp4";
-  feeling.keyWordsToVideos["below"] = "videos/digust_hum.mp4";
-  feeling.keyWordsToVideos["under"] = "videos/digust_hum.mp4";
-  feeling.keyWordsToVideos["mortal"] = "videos/digust_hum.mp4";
-}
-
-//the sacrifice, 
-const initAnger = () => {
-  const feeling = new FeelingsObject(ANGER);
-  feeling.keyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
-  feeling.keyWordsToVideos["skull"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
-  feeling.keyWordsToVideos["cow"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
-  feeling.keyWordsToVideos["horn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
-  feeling.keyWordsToVideos["twenty"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
-  feeling.keyWordsToVideos["20"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
-  feeling.keyWordsToVideos["clown"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4"
-  feeling.keyWordsToVideos["honk"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
-}
-
-// by definition this one will mostly be IC or me controlling
-const initSurprise = () => {
-  const feeling = new FeelingsObject(SURPRISE);
-  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
-  feeling.keyWordsToVideos["jr"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/LOVELOVELOVELOVE/videos/glitches/pd.mp4"
-}
-
-//eustace, being a god, being asked to do things
-const initExhaustion = () => {
-  const feeling = new FeelingsObject(EXHAUSTION);
-  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
-  feeling.keyWordsToVideos["eustace"] = "videos/eustace.mp4";
-  feeling.keyWordsToVideos["work"] = "videos/eustace.mp4";
-  feeling.keyWordsToVideos["overtime"] = "videos/eustace.mp4";
-  feeling.keyWordsToVideos["hard"] = "videos/eustace.mp4";
-
+  //negative
+  //winter, being forgotten, sleeping again
+  feeling.negativeKeyWordsToVideos["funeral"] = "videos/meat.mp4";
+  feeling.negativeKeyWordsToVideos["fear"] = "videos/fear.mp4";
+  feeling.negativeKeyWordsToVideos["death"] = "videos/fear.mp4";
+  feeling.negativeKeyWordsToVideos["die"] = "videos/fear.mp4";
+  feeling.negativeKeyWordsToVideos["capture"] = "videos/unsettled.mp4";
+  feeling.negativeKeyWordsToVideos["trap"] = "videos/unsettled.mp4";
+  feeling.negativeKeyWordsToVideos["spooky"] = "videos/unsettled.mp4";
+  feeling.negativeKeyWordsToVideos["scary"] = "videos/fear.mp4";
+  feeling.negativeKeyWordsToVideos["graveyard"] = "videos/fear.mp4";
 
 }
 
-//camellia, being a god, being asked to do things
+
+
 const initPride = () => {
-  const feeling = new FeelingsObject(PRIDE);
+  const feeling = new FeelingsObject(PRIDEFUL);
+  //positive
+  //camellia, being a god, being asked to do things
   
-  feeling.keyWordsToVideos["incredible"] = "videos/fox_thinking.mp4";
-  feeling.keyWordsToVideos["camellia"] = "videos/camellia.mp4";
-  feeling.keyWordsToVideos["faith"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["guests"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["observers"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["lavinraca"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["pray"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["love"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["remember"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["cherish"] = "videos/pride_in_faithful.mp4";
-  feeling.keyWordsToVideos["fan"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["incredible"] = "videos/fox_thinking.mp4";
+  feeling.positiveKeyWordsToVideos["camellia"] = "videos/camellia.mp4";
+  feeling.positiveKeyWordsToVideos["faith"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["guests"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["observers"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["lavinraca"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["pray"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["love"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["remember"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["cherish"] = "videos/pride_in_faithful.mp4";
+  feeling.positiveKeyWordsToVideos["fan"] = "videos/pride_in_faithful.mp4";
 
-  //feeling.keyWordsToVideos["dear"] = "videos/happy_fox_spin.mp4";
+  //negative
+  //slacking off, mortality, being useless, overworking, truth, lies, the scarecrow
+
+  feeling.negativeKeyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
+  feeling.negativeKeyWordsToVideos["truth"] = "videos/paradise_and_parasite.mp4";
+  feeling.negativeKeyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
+  feeling.negativeKeyWordsToVideos["gross"] = "videos/handdrip.mp4";
+  feeling.negativeKeyWordsToVideos["disgust"] = "videos/disgust.mp4";
+  feeling.negativeKeyWordsToVideos["beneath"] = "videos/digust_hum.mp4";
+  feeling.negativeKeyWordsToVideos["below"] = "videos/digust_hum.mp4";
+  feeling.negativeKeyWordsToVideos["under"] = "videos/digust_hum.mp4";
+  feeling.negativeKeyWordsToVideos["mortal"] = "videos/digust_hum.mp4";
 }
+
+
+const initCompassion = () => {
+  const feeling = new FeelingsObject(COMPASSIONATE);
+  //positive
+  feeling.positiveKeyWordsToVideos["help"] = "videos/fox_thinking.mp4";
+
+  //negative
+  //the sacrifice
+  feeling.negativeKeyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
+  feeling.negativeKeyWordsToVideos["skull"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.negativeKeyWordsToVideos["cow"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.negativeKeyWordsToVideos["horn"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
+  feeling.negativeKeyWordsToVideos["twenty"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
+  feeling.negativeKeyWordsToVideos["20"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/twentydither.mp4"
+  feeling.negativeKeyWordsToVideos["clown"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4"
+  feeling.negativeKeyWordsToVideos["honk"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
+}
+
+
+const initEnergetic = () => {
+  const feeling = new FeelingsObject(ENERGETIC);
+
+  //positive
+  //resting, breaks, vacation
+  feeling.positiveKeyWordsToVideos["rest"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["break"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["vacation"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["sleep"] = "videos/happy_fox_spin.mp4";
+
+  //negative
+  //eustace, being a god, being asked to do things
+  feeling.negativeKeyWordsToVideos["eustace"] = "videos/eustace.mp4";
+  feeling.negativeKeyWordsToVideos["work"] = "videos/eustace.mp4";
+  feeling.negativeKeyWordsToVideos["overtime"] = "videos/eustace.mp4";
+  feeling.negativeKeyWordsToVideos["hard"] = "videos/eustace.mp4";
+  feeling.negativeKeyWordsToVideos["pray"] = "videos/pride_in_faithful.mp4";
+
+
+}
+
 
 
 //a given feeling has a NAME (like anger)
 class FeelingsObject {
-  keyWordsToVideos = {}
+  positiveKeyWordsToVideos = {}
+  negativeKeyWordsToVideos = {}
+
   name = "BOREDOM"
 
   constructor(name){
@@ -241,12 +257,11 @@ class FeelingsObject {
 
   //if personal modify personal, otherwise centralized, both modify current as well tho
   checkPhraseForKeyWordsReturnVideo=(phrase, personal)=>{
-    console.log(`JR NOTE: ${this.name}is checking ${phrase} out`, this.keyWordsToVideos)
     const ret = [];
-    for(const [key, value] of Object.entries(this.keyWordsToVideos)){
+    for(const [key, value] of Object.entries(this.positiveKeyWordsToVideos)){
       if(phrase.toUpperCase().includes(key.toUpperCase())){
         ret.push(value);
-        console.log("JR NOTE: pushing value into video list", value)
+        console.log("JR NOTE: pushing value into positive video list", value)
         if(personal){
           personalFeelings[this.name] += 1;
         }else{
@@ -255,11 +270,38 @@ class FeelingsObject {
         currentFeelings[this.name] += 1;
       }
     }
+
+    for(const [key, value] of Object.entries(this.negativeKeyWordsToVideos)){
+      if(phrase.toUpperCase().includes(key.toUpperCase())){
+        ret.push(value);
+        console.log("JR NOTE: pushing value into negative video list", value)
+        if(personal){
+          personalFeelings[this.name] += -1;
+        }else{
+          centralizedFeelings[this.name] += -1;
+        }
+        currentFeelings[this.name] += -1;
+      }
+    }
     console.log("JR NOTE: returning",ret)
     return ret;
   }
 
 
 
+}
+
+/*
+if you click on ANYTHING whiel the harvest is on break
+she checks all her emotions
+* if they are all positive, she'll take on some exhaustion and 
+ she will override isHarvestIn to always say true
+ and she will be VERY LARGE and explain what she's doing for you while playing videos from all her positive emotions
+ if she decides NOT to she will pick a random video from each emotion that is preventing her
+
+*/
+const giantWoman= ()=>{
+
+  alert("TODO")
 }
 
