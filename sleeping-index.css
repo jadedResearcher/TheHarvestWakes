@@ -1184,6 +1184,7 @@ button:disabled {
   z-index: 999;
 }
 
+
 #mobileFriendlyConsole{
   background: white; 
   padding: 31px;
@@ -1415,6 +1416,13 @@ button:active {
   z-index: 1;
   left: 217px;
   top: 61px;
+}
+
+.big-lady{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .layered-image-container img {

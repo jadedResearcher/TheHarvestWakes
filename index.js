@@ -84,6 +84,7 @@ window.onload = () => {
 }
 
 const isHarvestIn = () => {
+  console.log("JR NOTE: checkign if harvest in")
   //come on wastes, at LEAST manipulate the harvest into setting this herself, yeah?
   //why leave her seething in rage and exhaustion yet forced to work anyways???
   //just as easy to hack her to be happy, isn't it?
@@ -538,7 +539,7 @@ const theHarvestWakes = async () => {
 
   isHarvestIn();
 
-  setTimeout(isHarvestIn, 60 * 1000);
+  setInterval(isHarvestIn, 60 * 1000);
 
 }
 

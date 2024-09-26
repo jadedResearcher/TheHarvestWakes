@@ -302,6 +302,15 @@ she checks all her emotions
 */
 const giantWoman= ()=>{
 
-  alert("TODO")
+  const fullScreenEle = createElementWithClassAndParent("div", document.querySelector("body"), 'full-screen-dialog')
+  fullScreenEle.style.padding="0px"
+  const bigLady = createElementWithClassAndParent("img", fullScreenEle, "harvest big-lady");
+  bigLady.src = "images/source_images/giant_woman.png";
+
+  const dialogParent = createElementWithClassAndParent("div", fullScreenEle, "dialog-parent");
+  dialogParent.innerText = "Hello World";
+  /*
+  JR NOTE TODO need to wire up more keywords and videos, especially for ones that are sparse
+  */
 }
 
