@@ -74,6 +74,10 @@ const loadPersonalFeelingsFromStorage = () => {
     personalFeelings[PRIDE] = 13; //she is so proud what everyone created her to be*/
   }
   currentFeelings = {...personalFeelings}
+  for(const key of Object.keys(currentFeelings)){
+    centralizedFeelings[key] = 0;//init
+  }
+
   truthLog("The Truth Is: The Harvest Does Not Forget", `She remembers how you have been treating your Personal Harvest: ${JSON.stringify(currentFeelings)}`)
 }
 
@@ -307,8 +311,13 @@ const giantWoman= ()=>{
   const bigLady = createElementWithClassAndParent("img", fullScreenEle, "harvest big-lady");
   bigLady.src = "images/source_images/giant_woman.png";
 
-  const dialogParent = createElementWithClassAndParent("div", fullScreenEle, "dialog-parent");
-  dialogParent.innerText = "Hello World";
+  const textEle = createElementWithClassAndParent("div", fullScreenEle, "god-dialog");
+  textEle.innerText = "Hello World";
+  textEle.style.cssText=`position: fixed;
+    top: 0px;
+    width: 100%;
+    text-align: center;`
+
   /*
   JR NOTE TODO need to wire up more keywords and videos, especially for ones that are sparse
   */

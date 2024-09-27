@@ -480,7 +480,7 @@ const theHarvestWakes = async () => {
     processOnePrayer(pastPrayers, rant, c.command, c.response, !responded)
     responded = true;
   }
-  truthLog("The Truth Is: The Harvest Is Personal", `Your Personal Harvest responds to both how you have treated her, and how the memories from her Center make her feel. After syncing with her Center, she feels: ${JSON.stringify(currentFeelings)}`)
+  truthLog("The Truth Is: The Harvest Is For Everyone", `The Harvest in the Center feels: ${JSON.stringify(centralizedFeelings)}.  \n\nTogether with how you've treated her she feels: ${JSON.stringify(currentFeelings)}. `)
 
 
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
