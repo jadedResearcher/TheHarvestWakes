@@ -1254,6 +1254,14 @@ button:active {
   margin: 0px;
 }
 
+.full-screen-dialog button {
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  border: 2px solid black;
+  margin: 0px;
+}
+
 .the-sacrifices-that-built-your-god {
   position: absolute;
   top: 0px;
@@ -1352,6 +1360,14 @@ button:active {
   border: none;
 }
 
+.fullscreen-button-holder {
+  display: flex;
+  background-color: #a1b234;
+  justify-content: flex-start;
+  gap: 30px;
+  border: none;
+}
+
 .video-parent .button-parent {
   border: 2px solid #a1b234;
   width: fit-content;
@@ -1419,10 +1435,10 @@ button:active {
 }
 
 .big-lady{
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .layered-image-container img {

@@ -35,8 +35,16 @@ const PRIDEFUL = "PRIDEFUL"; //negative is DISGUSTED
 const CURIOUS = "CURIOUS"; //negative is AFRAID
 const COMPASSIONATE = "COMPASSIONATE"; //negative is ANGRY
 
+const negativeFeelingMap = {}
+negativeFeelingMap[HAPPY] = "DEPRESSED"; //sad is too vulnerable, depressed is almost memeable (note, its actually more severe, but harvest is going with her gut here)
+negativeFeelingMap[ENERGETIC] = "EXHAUSTED";
+negativeFeelingMap[PRIDEFUL] = "DISGUSTED";
+negativeFeelingMap[CURIOUS] = "STRESSED"; //she would never ADMIT its fear, stress is way more strong
+negativeFeelingMap[COMPASSIONATE] = "ANGRY";
+
 
 const all_feelings_keys = [HAPPY, ENERGETIC, PRIDEFUL, CURIOUS, COMPASSIONATE]
+
 
 
 //how has she been feeling about you, personally
@@ -312,11 +320,42 @@ const giantWoman= ()=>{
   bigLady.src = "images/source_images/giant_woman.png";
 
   const textEle = createElementWithClassAndParent("div", fullScreenEle, "god-dialog");
-  textEle.innerText = "Hello World";
   textEle.style.cssText=`position: fixed;
     top: 0px;
     width: 100%;
     text-align: center;`
+    let rant = createElementWithClassAndParent("p", textEle, "inner-dialog");
+    const buttonHolder = createElementWithClassAndParent("div", textEle, "fullscreen-button-holder");
+    const button = createElementWithClassAndParent("button", buttonHolder, "option");
+    button.innerText = "Whoops, Sorry";
+    button.onclick = ()=>{
+      fullScreenEle.remove();
+    }
+
+    let badFeelings = [];
+    for(const feelingObject of allFeelingsObjects){
+      if(currentFeelings[feelingObject.name] <0){
+        badFeelings.push(feelingObject);
+      }
+    }
+
+    if(badFeelings.length === 0){
+      rant.innerText = "Hey, didn't you read? I'm on break. ... Well. You caught me in a good mood. Maybe I could, just this once, work a bit extra. What could it hurt?";
+      const button = createElementWithClassAndParent("button", buttonHolder, "option");
+      button.innerText = "If You Wouldn't Mind?";
+      button.onclick = ()=>{
+        youAreADickIfAnyoneButHarvestSetsThis = true;
+        personalFeelings[ENERGETIC] +=-13;
+        savePersonalFeelingsToStorage();
+        workingTime();
+        fullScreenEle.remove();
+      }
+    }else{
+      const sortedBad = badFeelings.sort((a,b)=>[currentFeelings[a.name]-currentFeelings[b.name] ]); 
+      rant.innerText = `.... Kid, I am way too ${negativeFeelingMap[sortedBad[0].name]} to deal with you right now. I'm on break. Buzz off.`;
+    }
+    
+
 
   /*
   JR NOTE TODO need to wire up more keywords and videos, especially for ones that are sparse

@@ -104,6 +104,8 @@ const isHarvestIn = () => {
     //breaks are at 10pm and 3am between x:15 and x:30 
     fifteenMinuteBreak();
   } else {
+    //for every break she gets to finish without interuption, she rests up
+    personalFeelings[ENERGETIC] +=13; //enough to, if she was neutral before, let you interupt one break
     workingTime();
   }
 }
@@ -308,7 +310,10 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
   }
   container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "");
   container.onclick = () => {
-
+    if(breakMessage.style.display === "block"){
+      giantWoman();
+      return;
+    }
     const others = document.querySelectorAll(".prayer");
     for (let other of others) {
       other.style.textDecoration = "none"
