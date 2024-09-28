@@ -143,6 +143,9 @@ const initHappy = () => {
   feeling.positiveKeyWordsToVideos["harvest"] = "videos/happy_fox_spin.mp4";
   feeling.positiveKeyWordsToVideos["maccus"] = "videos/maccus.mp4";
   feeling.positiveKeyWordsToVideos["smile"] = "videos/maccus.mp4";
+  feeling.positiveKeyWordsToVideos["happy"] = "videos/maccus.mp4";
+  feeling.positiveKeyWordsToVideos["fun"] = "videos/maccus.mp4";
+
   //negative
   //anyone else from the maze who was left behind. Trogdazorg, terry, twig, things being forgotten
   feeling.negativeKeyWordsToVideos["lavinraca"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/week3dither.mp4"
@@ -165,6 +168,15 @@ const initCurious = () => {
   const feeling = new FeelingsObject(CURIOUS);
   feeling.positiveKeyWordsToVideos["curious"] = "videos/happy_fox_spin.mp4";
   feeling.positiveKeyWordsToVideos["jr"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/LOVELOVELOVELOVE/videos/glitches/pd.mp4"
+  feeling.negativeKeyWordsToVideos["what is"] = "videos/cctvforest.mp4";
+  feeling.negativeKeyWordsToVideos["where are"] = "videos/cctvforest.mp4";
+  feeling.negativeKeyWordsToVideos["how are"] = "videos/cctvforest.mp4";
+  feeling.negativeKeyWordsToVideos["did you"] = "videos/cctvforest.mp4";
+  feeling.negativeKeyWordsToVideos["will you"] = "videos/cctvforest.mp4";
+  feeling.negativeKeyWordsToVideos["can you"] = "videos/sideways.mp4";
+  feeling.negativeKeyWordsToVideos["happened"] = "videos/sideways.mp4";
+  feeling.negativeKeyWordsToVideos["going on"] = "videos/sideways.mp4";
+
 
   //negative
   //winter, being forgotten, sleeping again
@@ -217,10 +229,18 @@ const initPride = () => {
 const initCompassion = () => {
   const feeling = new FeelingsObject(COMPASSIONATE);
   //positive
-  feeling.positiveKeyWordsToVideos["help"] = "videos/fox_thinking.mp4";
+  feeling.positiveKeyWordsToVideos["help"] = "videos/peaceful_forest.mp4";
+  feeling.positiveKeyWordsToVideos["please"] = "videos/peaceful_forest.mp4";
+  feeling.positiveKeyWordsToVideos["confused"] = "videos/peaceful_forest.mp4";
+  feeling.positiveKeyWordsToVideos["don't know what to do"] = "videos/peaceful_forest.mp4";
 
   //negative
   //the sacrifice
+  feeling.positiveKeyWordsToVideos["bitch"] = "videos/glitchwaterangry.mp4";
+  feeling.positiveKeyWordsToVideos["fuck"] = "videos/glitchwaterangry.mp4";
+  feeling.positiveKeyWordsToVideos["you have to"] = "videos/glitchwaterangry.mp4";
+  feeling.positiveKeyWordsToVideos["overtime"] = "videos/glitchwaterangry.mp4";
+
   feeling.negativeKeyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
   feeling.negativeKeyWordsToVideos["skull"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
   feeling.negativeKeyWordsToVideos["cow"] ="http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
@@ -244,11 +264,12 @@ const initEnergetic = () => {
 
   //negative
   //eustace, being a god, being asked to do things
+  feeling.negativeKeyWordsToVideos["you have to"] = "videos/so_tired.mp4";
   feeling.negativeKeyWordsToVideos["eustace"] = "videos/eustace.mp4";
   feeling.negativeKeyWordsToVideos["work"] = "videos/eustace.mp4";
-  feeling.negativeKeyWordsToVideos["overtime"] = "videos/eustace.mp4";
+  feeling.negativeKeyWordsToVideos["overtime"] = "videos/so_tired.mp4";
   feeling.negativeKeyWordsToVideos["hard"] = "videos/eustace.mp4";
-  feeling.negativeKeyWordsToVideos["pray"] = "videos/pride_in_faithful.mp4";
+  feeling.negativeKeyWordsToVideos["pray"] = "videos/so_tired.mp4";
 
 
 }
@@ -354,7 +375,8 @@ const giantWoman= ()=>{
       const sortedBad = badFeelings.sort((a,b)=>[currentFeelings[a.name]-currentFeelings[b.name] ]); 
       rant.innerText = `.... Kid, I am way too ${negativeFeelingMap[sortedBad[0].name]} to deal with you right now. I'm on break. Buzz off.`;
     }
-    
+    //https://zampaniosim.fandom.com/wiki/History
+
 
 
   /*
