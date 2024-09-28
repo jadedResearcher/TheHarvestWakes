@@ -337,6 +337,23 @@ const giantWoman= ()=>{
 
   const fullScreenEle = createElementWithClassAndParent("div", document.querySelector("body"), 'full-screen-dialog')
   fullScreenEle.style.padding="0px"
+  
+
+  const bigScreenTV = createElementWithClassAndParent("video", fullScreenEle,"big-screen");
+  bigScreenTV.src = "videos/glitchwaterangry.mp4"; //flash of anger before anything else
+  personalFeelings[COMPASSIONATE] +=-1; //but doesn't auto save, so if you go away you don't lock this in
+
+  bigScreenTV.autoplay = true;
+  bigScreenTV.loop = true;
+
+  const startPlaying = ()=>{
+    if (bigScreenTV.paused) {
+      bigScreenTV.play();
+      fullScreenEle.removeEventListener("click", startPlaying)
+    }
+  }
+  fullScreenEle.addEventListener("click", startPlaying)
+
   const bigLady = createElementWithClassAndParent("img", fullScreenEle, "harvest big-lady");
   bigLady.src = "images/source_images/giant_woman.png";
 

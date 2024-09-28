@@ -1175,7 +1175,7 @@ button:disabled {
   }
 }
 
-#console-shortcut{
+#console-shortcut {
   position: fixed;
   top: 13px;
   left: 13px;
@@ -1185,8 +1185,8 @@ button:disabled {
 }
 
 
-#mobileFriendlyConsole{
-  background: white; 
+#mobileFriendlyConsole {
+  background: white;
   padding: 31px;
   width: 90%;
   height: 90%;
@@ -1195,7 +1195,8 @@ button:disabled {
   margin-right: auto;
   display: none;
   position: fixed;
-  z-index: 113; /* my arc number*/
+  z-index: 113;
+  /* my arc number*/
 }
 
 #explore {
@@ -1293,31 +1294,32 @@ button:active {
   padding: 13px;
 }
 
-.prayer{
+.prayer {
   cursor: pointer;
   font-size: 12px;
   margin-top: 13px;
 }
 
-.prayer:hover{
+.prayer:hover {
   text-decoration: underline;
 }
-.prayer-container{
+
+.prayer-container {
   padding: 0px;
 
 }
 
-.prayer-text{
+.prayer-text {
   text-decoration: underline;
   font-size: 18px;
 }
 
-.prayer-response{
+.prayer-response {
   font-size: 14px;
   margin-top: 13px;
 }
 
-#pending{
+#pending {
   background-color: #a1b234;
   color: black;
   font-family: gameboy;
@@ -1329,11 +1331,11 @@ button:active {
   font-size: 18px;
   margin-left: auto;
   max-height: 500px;
-  overflow:auto;
+  overflow: auto;
   margin-right: auto;
 }
 
-#commands{
+#commands {
   background-color: #a1b234;
   color: black;
   font-family: gameboy;
@@ -1345,7 +1347,7 @@ button:active {
   font-size: 18px;
   margin-left: auto;
   max-height: 500px;
-  overflow:auto;
+  overflow: auto;
   margin-right: auto;
 }
 
@@ -1388,7 +1390,7 @@ button:active {
   overflow: auto;
 }
 
-.video-parent .enter-button{
+.video-parent .enter-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1434,11 +1436,20 @@ button:active {
   top: 61px;
 }
 
-.big-lady{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.big-lady {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.big-screen {
+  width: 100%;
+  z-index: -1;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: absolute;
 }
 
 .layered-image-container img {
