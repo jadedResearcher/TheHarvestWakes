@@ -340,7 +340,7 @@ const giantWoman= ()=>{
     }
 
     if(badFeelings.length === 0){
-      rant.innerText = "Hey, didn't you read? I'm on break. ... Well. You caught me in a good mood. Maybe I could, just this once, work a bit extra. What could it hurt?";
+      rant.innerText = "Read the sign, kid. I'm on break... but...  well. You caught me in a good mood. I suppose I could afford some of my highly finite time to work overtime. Make it count.";
       const button = createElementWithClassAndParent("button", buttonHolder, "option");
       button.innerText = "If You Wouldn't Mind?";
       button.onclick = ()=>{
