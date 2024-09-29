@@ -377,7 +377,7 @@ const giantWoman = () => {
 
   const textEle = createElementWithClassAndParent("div", fullScreenEle, "god-dialog");
   textEle.style.cssText = `position: fixed;
-    top: 0px;
+    bottom: 0px;
     width: 100%;
     text-align: center;`
   let rant = createElementWithClassAndParent("p", textEle, "inner-dialog");
@@ -402,6 +402,8 @@ const giantWoman = () => {
     for(let feeling of allFeelingsObjects){
       video_options = video_options.concat(getUniqueVideosForFeeling(feeling, true));
     }
+    bigScreenTV.addEventListener("ended", pickRandomVideoForNext);
+
 
     rant.innerText = "Read the sign, kid. I'm on break... but...  well. You caught me in a good mood. I suppose I could afford some of my highly finite time to work overtime. Make it count.";
     const button = createElementWithClassAndParent("button", buttonHolder, "option");
