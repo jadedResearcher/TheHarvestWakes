@@ -360,7 +360,7 @@ const giantWoman = () => {
 
 
   const bigScreenTV = createElementWithClassAndParent("video", fullScreenEle, "big-screen");
-  bigScreenTV.playsinline; //so ios doesn't cry
+  bigScreenTV.playsinline = true; //so ios doesn't cry
   const pickRandomVideoForNext = () => {
     bigScreenTV.src = pickFrom(video_options);
     bigScreenTV.play();
