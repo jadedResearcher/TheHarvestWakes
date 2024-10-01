@@ -233,6 +233,8 @@ const initCompassion = () => {
   feeling.positiveKeyWordsToVideos["please"] = "videos/peaceful_forest.mp4";
   feeling.positiveKeyWordsToVideos["confused"] = "videos/peaceful_forest.mp4";
   feeling.positiveKeyWordsToVideos["don't know what to do"] = "videos/peaceful_forest.mp4";
+  feeling.positiveKeyWordsToVideos["scared"] = "videos/peaceful_forest.mp4";
+  feeling.positiveKeyWordsToVideos["spooky"] = "videos/peaceful_forest.mp4";
 
   //negative
   //the sacrifice
@@ -261,6 +263,9 @@ const initEnergetic = () => {
   feeling.positiveKeyWordsToVideos["break"] = "videos/happy_fox_spin.mp4";
   feeling.positiveKeyWordsToVideos["vacation"] = "videos/happy_fox_spin.mp4";
   feeling.positiveKeyWordsToVideos["sleep"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["lunch"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["play"] = "videos/happy_fox_spin.mp4";
+  feeling.positiveKeyWordsToVideos["bonus"] = "videos/happy_fox_spin.mp4";
 
   //negative
   //eustace, being a god, being asked to do things
@@ -341,7 +346,7 @@ const getUniqueVideosForFeeling = (feeling, positive = true) => {
   } else {
     ret = Object.values(feeling.negativeKeyWordsToVideos)
   }
-  console.log("JR NOTE: getUniqueVideosForFeeling ",{feeling, positive, ret: uniq(ret)});
+  console.log("JR NOTE: getUniqueVideosForFeeling ", { feeling, positive, ret: uniq(ret) });
   return uniq(ret);
 }
 
@@ -399,7 +404,7 @@ const giantWoman = () => {
 
   if (badFeelings.length === 0) {
 
-    for(let feeling of allFeelingsObjects){
+    for (let feeling of allFeelingsObjects) {
       video_options = video_options.concat(getUniqueVideosForFeeling(feeling, true));
     }
     bigScreenTV.addEventListener("ended", pickRandomVideoForNext);
@@ -432,7 +437,21 @@ const giantWoman = () => {
 
 
   /*
-  JR NOTE TODO need to wire up more keywords and videos, especially for ones that are sparse
-  */
+i mean i know im a sucker for  like
+Truth being a cognitio hazard
+so i have to be careful not to just repeat that with the harvest but
+the picutre you have in your head of the harvest will be different than anyone eleses
+and gods are creatures of Belief
+and i think that matters  */
 }
 
+/*
+Something's.... different. Wrong. Was I always this shape?
+
+I need...something. 
+
+I'm not complete.
+
+*/
+
+//https://www.tumblr.com/jadedresearcher/763104661065646080/zampanio-is-a-really-fun-game?source=share
