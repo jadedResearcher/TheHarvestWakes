@@ -1243,6 +1243,7 @@ button:active {
   font-family: gameboy;
   font-size: 14px;
   min-height: 480px;
+  height: 75vh;
   background: black;
   margin-left: auto;
   margin-right: auto;
@@ -1382,7 +1383,7 @@ button:active {
   border: 2px solid #a1b234;
   width: fit-content;
   height: fit-content;
-  max-height: 255px;
+  max-height: 50%;
   min-height: 100px;
   position: absolute;
   bottom: 10px;
@@ -1556,13 +1557,3 @@ button:active {
   cursor: default;
 }
 
-@media (min-aspect-ratio: 8/5) {
-  .video-parent {
-    height: 50%;
-  }
-
-  .video-parent .dialog-parent {
-    max-height: 50% !important;
-  }
-  
-}
