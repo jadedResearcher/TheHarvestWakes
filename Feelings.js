@@ -243,6 +243,9 @@ const initCompassion = () => {
   feeling.positiveKeyWordsToVideos["you have to"] = "videos/glitchwaterangry.mp4";
   feeling.positiveKeyWordsToVideos["overtime"] = "videos/glitchwaterangry.mp4";
 
+  feeling.negativeKeyWordsToVideos["wastes"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
+  feeling.negativeKeyWordsToVideos["zampanio"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
+
   feeling.negativeKeyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
   feeling.negativeKeyWordsToVideos["skull"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
   feeling.negativeKeyWordsToVideos["cow"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
@@ -357,6 +360,7 @@ const giantWoman = () => {
 
 
   const bigScreenTV = createElementWithClassAndParent("video", fullScreenEle, "big-screen");
+  bigScreenTV.playsinline; //so ios doesn't cry
   const pickRandomVideoForNext = () => {
     bigScreenTV.src = pickFrom(video_options);
     bigScreenTV.play();

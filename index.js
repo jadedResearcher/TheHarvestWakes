@@ -376,6 +376,8 @@ const theHarvestWakes = async () => {
   }*/
 
   tv = createElementWithClassAndParent("video", shop);
+  tv.playsinline; //so ios doesn't cry
+
   tv.volume = 0.0;
   tv.id = "tv"
   tv.src = default_video;
