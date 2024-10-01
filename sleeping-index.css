@@ -783,11 +783,11 @@ h2 {
 .warning {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .ramble {
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 33px;
   position: relative;
   font-family: 'Courier New', Courier, monospace;
@@ -799,7 +799,7 @@ h2 {
   cursor: pointer;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .player-response:hover {
@@ -1235,11 +1235,13 @@ button:active {
   overflow: hidden;
 }
 
+
+
 .video-parent {
   position: relative;
   width: 800px;
   font-family: gameboy;
-  font-size: 18px;
+  font-size: 14px;
   min-height: 480px;
   background: black;
   margin-left: auto;
@@ -1296,7 +1298,7 @@ button:active {
 
 .prayer {
   cursor: pointer;
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 13px;
 }
 
@@ -1311,11 +1313,11 @@ button:active {
 
 .prayer-text {
   text-decoration: underline;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .prayer-response {
-  font-size: 14px;
+  font-size: 10px;
   margin-top: 13px;
 }
 
@@ -1328,7 +1330,7 @@ button:active {
   padding: 2px;
   position: relative;
   width: 800px;
-  font-size: 18px;
+  font-size: 14px;
   margin-left: auto;
   max-height: 500px;
   overflow: auto;
@@ -1344,7 +1346,7 @@ button:active {
   padding: 2px;
   position: relative;
   width: 800px;
-  font-size: 18px;
+  font-size: 14px;
   margin-left: auto;
   max-height: 500px;
   overflow: auto;
@@ -1552,4 +1554,15 @@ button:active {
 .debug-table .debug-empty {
   background-color: black;
   cursor: default;
+}
+
+@media only screen and (max-height: 1800px) {
+  .video-parent {
+    height: 50%;
+  }
+
+  .video-parent .dialog-parent {
+    max-height: 50% !important;
+  }
+  
 }
