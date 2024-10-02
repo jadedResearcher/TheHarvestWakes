@@ -319,7 +319,7 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
       other.style.textDecoration = "none"
     }
     container.style.textDecoration = "underline"
-    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</div>`;
+    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "").replaceAll("\n","<br>")}</div>`;
     tv.scrollIntoView();
     if (videos.length > 0) {
       tv.loop = false;
