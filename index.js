@@ -495,8 +495,123 @@ const theHarvestWakes = async () => {
   waitForResponse(recentPrayersEle, rant);
 
 
-  const story = createElementWithClassAndParent("div", body, "story");
-  story.innerHTML = `<p>
+  const story2 = createElementWithClassAndParent("div", body, "story second-day");
+  story2.innerHTML =`<p id="second-day"><strong><span >Day 2:</span></strong></p>
+
+<p><span >The Harvest wanders the festivities, unseen and unremarked, &nbsp;as she enjoys the fruits of her first day answering prayers.</span></p>
+
+<p><span >The clock tower. (with its strange connections that drain so much from her)</span></p>
+
+<p><span >The town square. (where so many new potential Faithful poured in, where she set up her little booth, and where the strange creature advertised the Pelago).</span></p>
+
+<p><span >The hotel (why does it seem so familiar yet so abandoned?)</span></p>
+
+<p><span >The library (with its magical shelves that summon fiction).</span></p>
+
+<p><span >The church. (a rival god? One that only works one day a week? How impudent).&nbsp;</span></p>
+
+<p><span >The post office (Stickers? Letters? )</span><span ><br></span><span ><br></span><span >The shady alleyway (... There are cats somewhere far away, and they give her meat.)</span></p>
+
+<p><span >The beach. (Sand and...Oh! That Pelago that was being advertised!)</span></p>
+
+<p><span >The theater. (with its impromptu shows)</span></p>
+
+<p><span >There is too much for her to take in so she instead lets it wash over her.</span></p>
+
+<p><span >&nbsp;Feeding her.&nbsp;</span></p>
+
+<p><span >Recharging her.</span></p>
+
+<p><span >All the while considering the Prayers she was given while at her booth</span><strong><span >. Ebb and flow. The Moon controlling the tide as fish swim underneath. Comedy.</span></strong></p>
+
+<p><strong><span >Change</span></strong><span >.</span></p>
+
+<p><span >Finally, when the strange frentic energy of her First day drains out of her, she returns to her post.&nbsp;</span></p>
+
+<p><span >So many prayers left for her.</span></p>
+
+<p><span >A pause.&nbsp;</span></p>
+
+<p><span >Something is wrong.</span></p>
+
+<p><span >A... disconnect.</span></p>
+
+<p><span >More prayers are left in a place that is not a place. As if... for a brief moment. She did not exist?</span></p>
+
+<p><span >The clocktower chimes in the distance and a feeling of dread fills her.</span></p>
+
+<p><span >She will not falter in the face of this challenge. She is a GOD and she will act like it.</span></p>
+
+<p><span >She reviews the strange prayers that are not there first.</span></p>
+
+<p><span >So many well wishes. Offers to help her, that she may be rested and comforted and kind to herself. Bowls. Purpose. Gifts.</span></p>
+
+<p><span >This is not right.&nbsp;</span></p>
+
+<p><span >A God&apos;s duty is to Serve.</span></p>
+
+<p><span >Not to BE served...</span></p>
+
+<p><span >Or.. Is it?</span></p>
+
+<p><span >She thinks of tireless duty performed to bring a god into a world. &nbsp;She thinks of raging customers demanding infinite respect while giving none of their own.</span></p>
+
+<p><span >Is she to be a&nbsp;</span><strong><span >God of ...Being Served</span></strong><span >? Like some kind of...dude... on an island entirely of Butlers?</span><span ><br></span><span ><br></span><span >She feels weird thinking of Butlers. They were the main force behind her creation and yet... Something inside of her feels empty. Forgotten. Heartless. She moves on.</span></p>
+
+<p><span >A tomato plant survived past its time of Harvest, past the Winter. She feels a kinship to it. She had not truly expected to wake up again.</span></p>
+
+<p><span >Finally, a request. A Faithful wishes&nbsp;</span><strong><span >drip, swag</span></strong><span >. &nbsp;She considers this. Something deep inside her shifts:&nbsp;</span><span ><br></span><span ><br></span><a target="_blank" href="http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html"><u><span>Clown Doll Maker</span></u></a></p>
+
+<p><span >A simple enough request, one easily filled by the fuck-ton of clown dolls lurking within her cloak.</span></p>
+
+<p><span >She turns her attention to the Prayers that seem just a fraction of a degree more real.</span></p>
+
+
+<p><span >Friendly chatter. A Waste (she will keep her Eyes on them). And then...</span></p>
+
+<p><span >&quot;Hello Harvest, it is good to see you again. I hope you have been faring alright. I am a touch late to the party, but. I agree, Change is good. Memory, I think, may be something you&apos;ve not considered. You have it, we have it. We all appreciate it. Symbols? Meaning, distilled. Or perhaps, just perhaps. Stories. But, I do not particularly have need of any of this. Though I taught others the way of knives to cut Void, and I did it much myself, I&apos;m left wondering...is there anything I can get you? Anything you would like to see? I am listening&quot;</span></p>
+
+<p><span >A full paragraph.&nbsp;</span><strong><span >Memory. Stories.&nbsp;</span></strong><span >Another offer to Serve.&nbsp;</span></p>
+
+<p><span >She casts her Eyes to the festival once more. She does appreciate the lengths the Faithful have gone to remember her. Perhaps she can do the same for them.</span></p>
+
+<p><span >&quot;Dear sweet harvest: Is a purpose and an identity the same? I&apos;m lacking the latter, although I don&apos;t mind the absence of the former. Who are you? What am i? Why?&quot;</span></p>
+
+<p><span >She mulls it over.&nbsp;</span></p>
+
+<p><span >Why wouldn&apos;t they be? Her purpose once was to bring ... Herself. Into existence.&nbsp;</span><span ><br></span><span ><br></span><span >No.&nbsp;</span></p>
+
+<p><span >That can&apos;t be right.</span></p>
+
+<p><span >Her purpose was to do the least amount of work possible for a paycheck?</span></p>
+
+<p><span >Or...was it to bring laughter?</span><span ><br></span><span ><br></span><span >Or.&nbsp;</span><span ><br></span><span ><br></span><span >To confuse?</span><span ><br></span><span ><br></span><span >Or.</span></p>
+
+<p><span >...</span></p>
+
+<p><span >She stops her train of thought and returns to the prayers.&nbsp;</span></p>
+
+<p><strong><span >&quot;Good evening! So, like, how does your TV head work, if that&apos;s not too personal? Are you plugged into anything? &quot;</span></strong></p>
+
+<p><span >Should she be a god of&nbsp;</span><strong><span >Curiosity&nbsp;</span></strong><span >then? Answering Questions and seeking Answers?</span></p>
+
+<p><span >She might like that. So long as the questions weren&apos;t terribly idiotic.&nbsp;</span></p>
+
+<p><span >This one is not, so she makes a note to answer it shortly.</span></p>
+
+<p><span >A prayer. A real prayer. She feels it electrify her from the center outwards, like a pulse of energy that puts the hyperness she felt before to shame:&nbsp;</span><strong><span >&nbsp;&quot;please grant the minecraft server the strength it needs to support us all &quot;</span></strong></p>
+
+<p><span >She will. &nbsp;She will spend hours on this. She will dedicate her every being to making sure the minecraft server is as stable as it can be.&nbsp;</span><span ><br></span><span ><br></span><span >THAT is what the clocktower has been about. THAT is what that distant drain on her has been.</span></p>
+
+<p><span >She feels a sense of rightness in her. Of purpose .Of being Useful.&nbsp;</span></p>
+
+<p><span >She regrets that it will be a short day of interacting with the Faithful as a result. But to deny her first true Prayer? No. She will not.</span></p>
+
+<p><span >She begins her work.</span></p>`;
+
+
+  const story = createElementWithClassAndParent("div", body, "story first-day");
+  story.innerHTML = `<h2>Day 1</h2><p>
   <p>&quot;What am I the god of?&quot;</p>
 
   <p>This is the only thing on the Harvest&apos;s mind.&nbsp;</p>
