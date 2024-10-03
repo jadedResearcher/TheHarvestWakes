@@ -307,13 +307,17 @@ class FeelingsObject {
     const ret = [];
     for (const [key, value] of Object.entries(this.positiveKeyWordsToVideos)) {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
+        let numberToAdd = 1;
+        if(this.name === CURIOUS){
+          numberToAdd = 2; //she keeps thinking about becoming a god of Curiosity with all these prayers along this theme
+        }
         ret.push(value);
         if (personal) {
-          personalFeelings[this.name] += 1;
+          personalFeelings[this.name] += numberToAdd;
         } else {
-          centralizedFeelings[this.name] += 1;
+          centralizedFeelings[this.name] += numberToAdd;
         }
-        currentFeelings[this.name] += 1;
+        currentFeelings[this.name] += numberToAdd;
       }
     }
 

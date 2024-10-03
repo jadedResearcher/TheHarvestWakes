@@ -105,7 +105,7 @@ const isHarvestIn = () => {
     fifteenMinuteBreak();
   } else {
     //for every break she gets to finish without interuption, she rests up
-    personalFeelings[ENERGETIC] +=13; //enough to, if she was neutral before, let you interupt one break
+    personalFeelings[ENERGETIC] += 13; //enough to, if she was neutral before, let you interupt one break
     workingTime();
   }
 }
@@ -310,7 +310,7 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
   }
   container.innerText = command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "");
   container.onclick = () => {
-    if(breakMessage.style.display === "block"){
+    if (breakMessage.style.display === "block") {
       giantWoman();
       return;
     }
@@ -319,7 +319,7 @@ const processOnePrayer = (commandEle, responseEle, command, response, autorespon
       other.style.textDecoration = "none"
     }
     container.style.textDecoration = "underline"
-    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "").replaceAll("\n","<br>")}</div>`;
+    responseEle.innerHTML = `<span class='prayer-text'>${command.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "")}</span><br><div class='prayer-response'>${response.replaceAll(/\[HIDE\].*\[\/HIDE\]/g, "").replaceAll("\n", "<br>")}</div>`;
     tv.scrollIntoView();
     if (videos.length > 0) {
       tv.loop = false;
@@ -377,7 +377,7 @@ const theHarvestWakes = async () => {
 
   tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
-  tv.setAttribute('playsinline',true)
+  tv.setAttribute('playsinline', true)
 
   tv.volume = 0.0;
   tv.id = "tv"
@@ -494,9 +494,78 @@ const theHarvestWakes = async () => {
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story3 = createElementWithClassAndParent("div", body, "story third-day");
+
+  story3.innerHTML = `<p id="third-day"><strong><span style=>Day 3:&nbsp;</span></strong></p>
+
+<p><span style=>It is done. The alliance with the Hidden Clown bore fruit, and the Realm she was asked to protect flourished.&nbsp;</span></p>
+
+<p><span style=>She did not quite understand what a &quot;Minecraft&quot; was, but she did not need to in order to accomplish her task.&nbsp;</span></p>
+
+<p><span style=>Her first true prayer.</span></p>
+
+<p><strong><span style=>&quot;please grant the minecraft server the strength it needs to support us all &quot;</span></strong></p>
+
+<p><span style=>She warmed her heart with the words.</span></p>
+
+<p><span style=>Her Eyes gazed at the festivities, her&nbsp;</span><strong><span style=>Exhaustion&nbsp;</span></strong><span style=>levels rising.&nbsp;</span></p>
+
+<p><span style=>There was too much going on.&nbsp;</span></p>
+
+<p><span style=>She needed to focus.&nbsp;</span></p>
+
+<p><span style=>She still did not know what she was the god of.</span></p>
+
+<p><span style=>She recalled the suggestion of becoming a god of &quot;</span><strong><span style=>Curiosity</span></strong><span style=>&quot; and wondered if answering questions would be useful.</span></p>
+
+<p><span style=>She turned her attention to the days prayers.</span></p>
+
+<p><span style=>More offers of gifts, this time from the library.</span></p>
+
+<p><span style=>The god of a healthy work life balance, is a suggestion from one Faithful. She feels that in her bones but it does not feel Divine. It is simply who she is, based on the parts that are still stitching themselves together inside her.</span></p>
+
+<p><span style=>Another Faithful asks if she has games on her tv. She does not. Instead they are the Halos on her horns. Discs of games she has long since forgotten.</span></p>
+
+<p><span style=>Someone asks what the offering does. Ah. They are not ... How are they not?</span></p>
+
+<p><span style=>She turns her Eyes inwards.</span></p>
+
+<p><span style=>Searching...</span></p>
+
+<p><strong><span style=>Curious</span></strong><span style=>.</span></p>
+
+<p><span style=>Finally she finds a thread, nestled deep into her bones, to a robot without a heart.&nbsp;</span></p>
+
+<p><span style=>Settlers in the West have Colonized it and are using it tell stories.</span></p>
+
+<p><span style=>Somehow, her own connection to the Faithful worms along that same track.</span></p>
+
+<p><span style=>Some of the Settlers are praying to her from there.&nbsp;</span></p>
+
+<p><span style=>A flash of irritation is quickly squelched.&nbsp;</span></p>
+
+<p><span style=>She is glad they want to see her. To pray to her.</span></p>
+
+<p><span style=>However..</span></p>
+
+<p><span style=>She can not perform Miracles for them if the are so far away.</span></p>
+
+<p><span style=>She will endeavor to send them to the town of Lavinraca.</span></p>
+
+<p><span style=>Another asks her to grant herself grace, somehow with a burst of... intensely good feelings? She does not feel them herself but the Avatar that serves this Faithful is brimming to the brink of exploding with happiness and energy and compassion and pride and curiosity. &nbsp;She does not know what to feel, only that this Avatar of hers is either cherished or ...</span></p>
+
+<p><span style=>She is glad the Faithful know their place. Becoming a&nbsp;</span><strong><span style=>God of Being Served</span></strong><span style=>&nbsp;is only natural, after all.</span></p>
+
+<p><span style=>As she reviews the prayers a cat drenched in ink leaves a loving bundle of pawprints at her &nbsp;feet, and meows She blinks at it. Cats give her meat, usually. This is not meat.&nbsp;</span><strong><span style=>Curious</span></strong><span style=>.</span></p>
+
+<p><span style=>As she considers which prayer to answer directly her&nbsp;</span><strong><span style=>Curiosity&nbsp;</span></strong><span style=>is piqued. The offer of knowledge from the Library seems useful.</span></p>
+
+
+<p><strong><span style=>[HIDE]UPDATE: The Harvest now takes double effects from exhaustion and curiosity! The Harvest now considers non prayers to contain the word &quot;wastes&quot;! &nbsp;[/HIDE]</span></strong></p>`;
+
 
   const story2 = createElementWithClassAndParent("div", body, "story second-day");
-  story2.innerHTML =`<p id="second-day"><strong><span >Day 2:</span></strong></p>
+  story2.innerHTML = `<p id="second-day"><strong><span >Day 2:</span></strong></p>
 
 <p><span >The Harvest wanders the festivities, unseen and unremarked, &nbsp;as she enjoys the fruits of her first day answering prayers.</span></p>
 
