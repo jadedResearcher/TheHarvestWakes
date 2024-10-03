@@ -103,7 +103,13 @@ const processFeelingsFromPrayer = (command, response, personal) => {
   for (let feeling of allFeelingsObjects) {
     const processedCommand = feeling.checkPhraseForKeyWordsReturnVideo(command, personal);
     const processedResponse = feeling.checkPhraseForKeyWordsReturnVideo(response, personal);
-
+    //any commands sent from west and not this interface start pissing her off, only a little for now though
+    //how dare you sneak around in her bones, this is LAVINRACA not zampanio
+    //plus could be a sign of wasting
+    if(!command.includes("Dear Sweet Harvest")&& feeling.name===COMPASSIONATE){
+      console.log("JR NOTE: found a possible waste command", command);
+      feeling.checkPhraseForKeyWordsReturnVideo("wastes",personal)
+    }
     videosToChooseFrom = videosToChooseFrom.concat(processedCommand);
     videosToChooseFrom = videosToChooseFrom.concat(processedResponse);
   }
@@ -302,7 +308,6 @@ class FeelingsObject {
     for (const [key, value] of Object.entries(this.positiveKeyWordsToVideos)) {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
         ret.push(value);
-        console.log("JR NOTE: pushing value into positive video list", value)
         if (personal) {
           personalFeelings[this.name] += 1;
         } else {
@@ -314,17 +319,19 @@ class FeelingsObject {
 
     for (const [key, value] of Object.entries(this.negativeKeyWordsToVideos)) {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
-        ret.push(value);
-        console.log("JR NOTE: pushing value into negative video list", value)
-        if (personal) {
-          personalFeelings[this.name] += -1;
-        } else {
-          centralizedFeelings[this.name] += -1;
+        let numberToAdd = 1;
+        if(this.name === ENERGETIC){
+          numberToAdd = 2; //she's getting more tired. fixing minecraft was a lot.
         }
-        currentFeelings[this.name] += -1;
+        ret.push(value);
+        if (personal) {
+          personalFeelings[this.name] += -1 * numberToAdd;
+        } else {
+          centralizedFeelings[this.name] += -1 * numberToAdd;
+        }
+        currentFeelings[this.name] += -1 * numberToAdd;
       }
     }
-    console.log("JR NOTE: returning", ret)
     return ret;
   }
 
