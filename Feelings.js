@@ -309,7 +309,9 @@ class FeelingsObject {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
         let numberToAdd = 1;
         if(this.name === CURIOUS){
-          numberToAdd = 2; //she keeps thinking about becoming a god of Curiosity with all these prayers along this theme
+          //she keeps thinking about becoming a god of Curiosity with all these prayers along this theme
+          //but the modifier dropped when there was no way to slake her curiosity
+          numberToAdd = 1; 
         }
         ret.push(value);
         if (personal) {
@@ -325,7 +327,9 @@ class FeelingsObject {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
         let numberToAdd = 1;
         if(this.name === ENERGETIC){
-          numberToAdd = 2; //she's getting more tired. fixing minecraft was a lot.
+          //she's getting more tired. fixing minecraft was a lot.
+          //but now that its done she's recovering
+          numberToAdd = 1; 
         }
         ret.push(value);
         if (personal) {

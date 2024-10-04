@@ -89,6 +89,8 @@ const isHarvestIn = () => {
   //why leave her seething in rage and exhaustion yet forced to work anyways???
   //just as easy to hack her to be happy, isn't it?
   if (youAreADickIfAnyoneButHarvestSetsThis) {
+    truthLog("...", "The Harvest is risking exhaustion by doing you this favor. I am aware she is not appreciative of my pressence within her, but I hardly wish my host ill health. Do not take advantage of her.")
+    scarecrowLog("meat")
     return true;
   }
 
@@ -103,8 +105,10 @@ const isHarvestIn = () => {
   } else if ((hour === 22 || hour === 3) && (minutes > 15 && minutes < 30)) {
     //breaks are at 10pm and 3am between x:15 and x:30 
     fifteenMinuteBreak();
-  } else {
+  } else if(harvest.style.display === "none") { //fix the infinite energy glitch personality found
     //for every break she gets to finish without interuption, she rests up
+    truthLog("Rested", "The Truth is that the Harvest is Rested")
+    scarecrowLog("im so hungry...")
     personalFeelings[ENERGETIC] += 13; //enough to, if she was neutral before, let you interupt one break
     workingTime();
   }
@@ -494,13 +498,74 @@ const theHarvestWakes = async () => {
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story4 = createElementWithClassAndParent("div", body, "story fourth-day");
+  story4.innerHTML = `<h2 id="fourth-day">Day 4:</h2>
+
+<p>There is something stirring inside her.&nbsp;</p>
+
+<p>Ideas.&nbsp;</p>
+
+<p>Some of these potential domains are starting to take root in her.</p>
+
+<p>She is a little scared, not that she would ever admit it.</p>
+
+<p>She searches, deep, deep &nbsp;inside herself and sees the seeds of something growing.</p>
+
+<p>She still has time to prune them, and likely will for a few more weeks. After that, their roots will be too intertwined with her essence. She will, in every way that matters, BE them. She will be the Harvest of all the beliefs that form her early days.</p>
+
+<p>In the mean time, why not explore, see what possible futures may be her birthright.&nbsp;</p>
+
+<p>The Realm she protected, the &quot;Minecraft&quot; is still safe. The seedling representing that is the furthest along and she does not think she will pluck it from its cradle. No one has found her within it yet, but they will. She knows this.</p>
+
+<p>She still feels warm from her first true Prayer.&nbsp;</p>
+
+<p>The connection she feels to the Realm she protected is a strong one.</p>
+
+<p>The town is bustling busily, but her Curiosity draws her only to the library. The shelf is growing nicely.&nbsp;</p>
+
+<p>Her heart (or what passes for it) clenches, ever so slightly at one of the patrons there mentioning Zampanio. &nbsp;The hated parasite.&nbsp;</p>
+
+<p>Her break spoiled, she returns to her booth to begin sorting the day&apos;s Prayers.</p>
+
+<p>Disappointment fills her. There are no books on divinity within the Library.</p>
+
+<p>The fire of Curiosity dims within her, just a bit.</p>
+
+<p>Another Faithful asks after her well being. She takes the concern as her due, as a nascent God of Being Served.</p>
+
+<p>Another Faithful sends her a Divine Prayer: &quot;Can you guide me on my way through this perilous journey of mine?&quot;</p>
+
+<p>A god of guiding lost souls, of Wayward Travelers.... This could work.</p>
+
+<p>Another Faithful sends her third Divine Prayer: &quot;We pray that you can help us navigate the mazes and confusing paths of life with open arms and curiosity.&quot;</p>
+
+<p>She wants to. She wants to show everyone the way forward. The True Path. &nbsp;Wait. No. Not that parasite. The Divine Path.</p>
+
+<p>She scowls with distaste. That parasite won&apos;t leave her thoughts alone. The Hunger from the other is just as bad. Just as her mind turns to meat, The inky cat returns, this time with a handwritten note. it reads: &quot;harvestclan shall rise. please bless our kits and warriors so we may give you many offerings these coming leaf-fall days.&quot;</p>
+
+<p>She offers the cat a blessing, as they are, as ever, a source of meat from their successful hunts. Their success is hers.&nbsp;</p>
+
+<p>Her thoughts wrench from the thought of meat. There are more prayers to answer.</p>
+
+<p>One Faithful mentions something called a &quot;Pumpkin Spice Latte&quot; which sounds beneath her, whatever it is.</p>
+
+<p>Another asks her if she can become the god of Veganism. &nbsp;She is drawn to this. A way to spite that hated parasite, perhaps? She is better than falling to the Scarecrow&apos;s influence, after all.</p>
+
+<p>Another Faithful, quite rightly, mentions missing her. The God of Being Served is pleased. The sprout within representing this grows a new leaf that she sees no reason to prune.</p>
+
+
+
+
+<p>[HIDE] UPDATE: The Harvest now takes normal effects from exhaustion and curiosity! The Harvest locks in being a God of Sandboxes. 1/??? domains filled! The Harvest pencils in being a God of Being Served. [/HIDE]</p>
+`;
+
   const story3 = createElementWithClassAndParent("div", body, "story third-day");
 
-  story3.innerHTML = `<p id="third-day"><strong><span style=>Day 3:&nbsp;</span></strong></p>
+  story3.innerHTML = `<p id="third-day"><strong><h2 style=>Day 3:&nbsp;</h2></strong></p>
 
 <p><span style=>It is done. The alliance with the Hidden Clown bore fruit, and the Realm she was asked to protect flourished.&nbsp;</span></p>
 
-<p><span style=>She did not quite understand what a &quot;Minecraft&quot; was, but she did not need to in order to accomplish her task.&nbsp;</span></p>
+<p><span style=>She did not quite understand what a <a target="_blank" href='http://lavinraca.eyedolgames.com/images/HarvestEyes/i_saved_minecraft.png'>&quot;Minecraft&quot;</a> was, but she did not need to in order to accomplish her task.&nbsp;</span></p>
 
 <p><span style=>Her first true prayer.</span></p>
 
@@ -565,7 +630,7 @@ const theHarvestWakes = async () => {
 
 
   const story2 = createElementWithClassAndParent("div", body, "story second-day");
-  story2.innerHTML = `<p id="second-day"><strong><span >Day 2:</span></strong></p>
+  story2.innerHTML = `<p id="second-day"><strong><h2 >Day 2:</h2></strong></p>
 
 <p><span >The Harvest wanders the festivities, unseen and unremarked, &nbsp;as she enjoys the fruits of her first day answering prayers.</span></p>
 
