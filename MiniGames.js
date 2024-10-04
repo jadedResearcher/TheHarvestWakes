@@ -2,9 +2,10 @@
 Current Game Ideas:
 
 god of being served = praise game  (do this first, v simple just press button to praise her, or offer her carrots)
-god of change= text adventure corn maze json 
 god of Travelers = worlds shitties map of corn maze from json (it MIGHT not work in minecraft but it will in the corn maze she was born in)
-god of curiosity/stories/memories= info dump on philosophy
+god of change= text adventure corn maze json 
+
+god of curiosity/stories/memories= info dump on whats going on with twig/rava/terry/trogdazorg/etc while commenting on the stories
 
 
 
