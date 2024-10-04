@@ -1,0 +1,706 @@
+[
+  {
+    "humanLabel": "close-deadend",
+    "id": 1,
+    "south": 2
+  },
+  {
+    "humanLabel": "straight-or-left-or-back",
+    "id": 2,
+    "north": 4,
+    "west": 3,
+    "south": 1
+  },
+  {
+    "humanLabel": "only-right",
+    "id": 3,
+    "south": 2,
+    "gimmickID": "ring"
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 4,
+    "west": 5,
+    "south": 2
+  },
+  {
+    "humanLabel": "anywhere-but-up",
+    "id": 5,
+    "east": 4,
+    "west": 18,
+    "south": 6
+  },
+  {
+    "humanLabel": "anywhere-but-right",
+    "id": 6,
+    "north": 5,
+    "south": 7,
+    "west": 28
+  },
+  {
+    "humanLabel": "anywhere-but-right",
+    "id": 7,
+    "north": 6,
+    "west": 8,
+    "south": 9
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 8,
+    "south": 7
+  },
+  {
+    "humanLabel": "anywhere-but-right",
+    "id": 9,
+    "north": 7,
+    "south": 10,
+    "west": 31,
+    "gimmickID": "balloon"
+  },
+  {
+    "humanLabel": "all",
+    "id": 10,
+    "north": 9,
+    "east": 11,
+    "south": 48,
+    "west": 74
+  },
+  {
+    "humanLabel": "everywhere but south",
+    "id": 11,
+    "north": 12,
+    "west": 10,
+    "east": 16
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 12,
+    "west": 17,
+    "east": 13,
+    "south": 11
+  },
+  {
+    "humanLabel": "everywhere but south",
+    "id": 13,
+    "west": 12,
+    "east": 15,
+    "north": 14
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 14,
+    "south": 13,
+    "gimmickID": "circus"
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 15,
+    "south": 13,
+    "gimmickID": "well"
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 16,
+    "south": 11
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 17,
+    "south": 12
+  },
+  {
+    "humanLabel": "everywhere but south",
+    "id": 18,
+    "west": 19,
+    "east": 5,
+    "north": 20
+  },
+
+  {
+    "humanLabel": "close-deadend",
+    "id": 19,
+    "south": 18
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 20,
+    "west": 21,
+    "south": 18
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 21,
+    "west": 22,
+    "east": 20,
+    "south": 23
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 22,
+    "south": 21,
+    "gimmickID": "outhouse"
+  },
+  {
+    "humanLabel": "everywhere but east",
+    "id": 23,
+    "west": 24,
+    "north": 21,
+    "south": 27
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 24,
+    "west": 25,
+    "east": 23,
+    "south": 26
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 25,
+    "south": 24,
+    "gimmickID": "candy"
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 26,
+    "south": 24
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 27,
+    "south": 23
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 28,
+    "west": 29,
+    "east": 6,
+    "south": 30
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 29,
+    "south": 28,
+    "gimmickID": "well"
+  },
+  {
+    "humanLabel": "anywhere-but-right",
+    "id": 30,
+    "north": 28,
+    "south": 31,
+    "west": 35
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 31,
+    "west": 30,
+    "east": 9,
+    "south": 32
+  },
+  {
+    "humanLabel": "anywhere-but-right",
+    "id": 32,
+    "north": 31,
+    "south": 33,
+    "west": 34
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 33,
+    "south": 32
+  },
+  {
+    "humanLabel": "everywhere but south",
+    "id": 34,
+    "west": 46,
+    "east": 32,
+    "north": 35,
+    "gimmickID": "cat"
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 35,
+    "west": 36,
+    "east": 30,
+    "south": 34
+  },
+  {
+    "humanLabel": "bottom-left-corner",
+    "id": 36,
+    "north": 37,
+    "east": 35
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 37,
+    "south": 36,
+    "west": 38
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 38,
+    "south": 39,
+    "east": 37
+  },
+  {
+    "humanLabel": "left-and-right-only",
+    "id": 39,
+    "west": 40,
+    "south": 44,
+    "north": 38
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 40,
+    "north": 41,
+    "south": 42,
+    "east": 39
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 41,
+    "south": 40,
+    "gimmickID": "well"
+  },
+  {
+    "humanLabel": "everything and infinite loop to south",
+    "id": 42,
+    "north": 40,
+    "south": 42,
+    "east": 43,
+    "west": 47
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 43,
+    "west": 42,
+    "north": 44,
+    "east": 46
+  },
+  {
+    "humanLabel": "everything but right",
+    "id": 44,
+    "north": 39,
+    "south": 43,
+    "west": 45
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 45,
+    "south": 44,
+    "gimmickID": "manor"
+  },
+
+  {
+    "humanLabel": "close-deadend",
+    "id": 131,
+    "south": 46
+  },
+  {
+    "humanLabel": "all",
+    "id": 46,
+    "north": 131,
+    "east": 34,
+    "west": 43,
+    "south": 77
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 47,
+    "south": 42,
+    "gimmickID": "candy"
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 48,
+    "west": 51,
+    "north": 10,
+    "east": 49
+  },
+  {
+    "humanLabel": "bottom-right-corner",
+    "id": 49,
+    "north": 50,
+    "west": 48
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 50,
+    "south": 49,
+    "gimmickID": "candy"
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 51,
+    "east": 48,
+    "south": 52
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 52,
+    "north": 51,
+    "south": 54,
+    "east": 53
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 53,
+    "south": 52,
+    "gimmickID": "garden"
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 54,
+    "north": 52,
+    "south": 55,
+    "east": 57
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 55,
+    "west": 56,
+    "north": 54,
+    "east": 59
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 56,
+    "south": 55
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 57,
+    "east": 58,
+    "south": 59,
+    "west": 54
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 58,
+    "south": 57
+  },
+  {
+    "humanLabel": "all",
+    "id": 59,
+    "north": 57,
+    "south": 60,
+    "west": 55
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 60,
+    "south": 59,
+    "east":61
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 61,
+    "west": 60,
+    "north": 62,
+    "east": 72,
+    "gimmickID": "black_mass"
+  },
+  {
+    "humanLabel": "hallway",
+    "id": 62,
+    "south": 61,
+    "north": 63
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 63,
+    "north": 64,
+    "south": 62,
+    "east": 75
+  },
+  {
+    "humanLabel": "everything but right",
+    "id": 64,
+    "north": 66,
+    "south": 63,
+    "west": 65
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 65,
+    "south": 64,
+    "gimmickID": "key"
+  },
+  {
+    "humanLabel": "upper-left-corner",
+    "id": 66,
+    "east": 68,
+    "south": 64
+  },
+  {
+    "humanLabel": "bottom-left-corner",
+    "id": 67,
+    "east": 70,
+    "north": 68
+  },
+  {
+    "humanLabel": "everything but right",
+    "id": 68,
+    "north": 69,
+    "south": 67,
+    "west": 66
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 69,
+    "south": 68,
+    "gimmickID": "drivethrough"
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 70,
+    "west": 67,
+    "south": 71
+  },
+  {
+    "humanLabel": "everything but right",
+    "id": 71,
+    "north": 70,
+    "south": 72,
+    "west": 73
+  },
+  {
+    "humanLabel": "bottom-right-corner",
+    "id": 72,
+    "north": 71,
+    "west": 61
+  },
+  {
+    "humanLabel": "left-and-right-only",
+    "id": 73,
+    "east": 71,
+    "west": 75
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 74,
+    "south": 10
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 75,
+    "west": 63,
+    "north": 76,
+    "east": 73
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 76,
+    "south": 75,
+    "gimmickID": "well"
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 77,
+    "west": 79,
+    "north": 46,
+    "east": 78
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 78,
+    "south": 77
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 79,
+    "west": 90,
+    "east": 77,
+    "south": 80
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 80,
+    "north": 79,
+    "south": 108,
+    "east": 81
+  },
+  {
+    "humanLabel": "left-and-right-only",
+    "id": 81,
+    "west": 80,
+    "gimmickID": "bookcase"
+  },
+  {
+    "humanLabel": "left-and-right-only",
+    "id": 82,
+    "west": 81,
+    "east": 83,
+    "gimmickID": "lock"
+  },
+  {
+    "humanLabel": "bottom-right-corner",
+    "id": 83,
+    "north": 80,
+    "west": 84
+  },  {
+    "humanLabel": "bottom-right-corner",
+    "id": 108,
+    "north": 80,
+    "west": 84
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 84,
+    "north": 85,
+    "east": 108,
+    "west":103
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 85,
+    "west": 86,
+    "south": 84
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 86,
+    "north": 87,
+    "east": 85,
+    "west": 104
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 87,
+    "west": 88,
+    "south": 86
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 88,
+    "east": 87,
+    "north": 89,
+    "west": 92
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 89,
+    "west": 91,
+    "east": 90,
+    "south": 88
+  },
+  {
+    "humanLabel": "left-and-right-only",
+    "id": 90,
+    "west": 89,
+    "east": 79,
+    "gimmickID": "hand"
+  },
+  {
+    "humanLabel": "upper-left-corner",
+    "id": 91,
+    "east": 89,
+    "south": 92
+  },
+  {
+    "humanLabel": "everything but left",
+    "id": 92,
+    "north": 91,
+    "south": 93,
+    "east": 88
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 93,
+    "east": 95,
+    "north": 92,
+    "west": 94
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 94,
+    "south": 93
+  },
+  {
+    "humanLabel": "everywhere but north",
+    "id": 95,
+    "west": 93,
+    "east": 107,
+    "south": 96
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 107,
+    "south": 95
+  },
+  {
+    "humanLabel": "everything but right",
+    "id": 96,
+    "north": 95,
+    "south": 98,
+    "west": 97
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 97,
+    "south": 96,
+    "north": 96,
+    "gimmickID": "entrance"
+  },
+  {
+    "humanLabel": "everything but south",
+    "id": 98,
+    "east": 100,
+    "north": 96,
+    "west": 99
+  },
+  {
+    "humanLabel": "close-deadend",
+    "id": 99,
+    "south": 98
+  },
+  {
+    "humanLabel": "upper-right-corner",
+    "id": 100,
+    "west": 98,
+    "south": 101
+  },
+  {
+    "humanLabel": "bottom-left-corner",
+    "id": 101,
+    "north": 100,
+    "east": 102,
+    "gimmickID": "scarecrows"
+  },
+  {
+    "humanLabel": "bottom-right-corner",
+    "id": 102,
+    "north": 103,
+    "west": 101
+  },
+  {
+    "humanLabel": "top-left-corner",
+    "id": 103,
+    "south": 102,
+    "east": 84
+  },
+  {
+    "humanLabel": "top-left-corner",
+    "id": 104,
+    "south": 105,
+    "east": 86
+  },{
+    "humanLabel": "bottom-left-corner",
+    "id": 105,
+    "north": 104,
+    "east": 106
+  },
+
+  {
+    "humanLabel": "close-deadend",
+    "id": 106,
+    "south": 105,
+    "gimmickID": "well"
+  },
+
+  {
+    "humanLabel": "what pumpkin how are you supposed to get here",
+    "id": 113,
+    "gimmickID": "pumpkin"
+  }
+]

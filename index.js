@@ -107,7 +107,7 @@ const isHarvestIn = () => {
     fifteenMinuteBreak();
   } else if(harvest.style.display === "none") { //fix the infinite energy glitch personality found
     //for every break she gets to finish without interuption, she rests up
-    truthLog("Rested", "The Truth is that the Harvest is Rested")
+    truthLog("Rested", "The Truth is that the Harvest is Rested.")
     scarecrowLog("im so hungry...")
     personalFeelings[ENERGETIC] += 13; //enough to, if she was neutral before, let you interupt one break
     workingTime();
