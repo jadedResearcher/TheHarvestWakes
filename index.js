@@ -49,7 +49,9 @@ let harvest;
 let booth;
 let harvestSpeaks;
 let breakMessage;
-let parent; //video-parent, used to be procedural, 
+let pageTitle;
+let container;
+
 const bgMusic = new Audio();
 
 
@@ -69,7 +71,9 @@ let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
 window.onload = () => {
-  parent = document.querySelector(".video-parent");
+  pageTitle = document.querySelector("#page-title")
+  container = document.querySelector("#container")
+
   truthEle = document.querySelector("#mobileFriendlyConsole")
   scarecrowEle = document.querySelector("#mobileFriendlyConsole")
   const consoleShortcut = document.querySelector("#console-shortcut")
@@ -226,9 +230,12 @@ const waitForFaithfulPrayers = async (commandEle) => {
 
 
 const renderButton = () => {
+  const body = document.querySelector("body");
+  const parent = createElementWithClassAndParent("div", body, "video-parent");
   const button = createElementWithClassAndParent("button", parent, "enter-button");
   button.innerText = "Open Your Eyes";
   button.onclick = () => {
+    parent.remove();
     theHarvestWakes();
   }
 
@@ -366,10 +373,10 @@ const handlePendingCommands = async (ele) => {
 
 const theHarvestWakes = async () => {
   bgMusic.pause();
-  const body = document.querySelector("body")
-
-
-  parent.innerHTML = "";
+  const body = document.querySelector("body");
+  container.innerHTML="";
+  const parent = createElementWithClassAndParent("div", container, "video-parent");
+  pageTitle.innerText = "Pray To Her, Define Her";
   const shop = createElementWithClassAndParent("div", parent, "shop");
 
   /*const video = createElementWithClassAndParent("video", shop);
@@ -441,7 +448,7 @@ const theHarvestWakes = async () => {
     return false;
   }
 
-  const pendingParent = createElementWithClassAndParent("div", body, "dialog-parent");
+  const pendingParent = createElementWithClassAndParent("div", container, "dialog-parent");
   pendingParent.id = "pending";
 
   //we all are praying to it together and because the Harvest isn't real, or rather, is made of parts of all of us, we answer our own prayers
@@ -476,7 +483,7 @@ const theHarvestWakes = async () => {
 
 
 
-  const commandParent = createElementWithClassAndParent("div", body, "dialog-parent");
+  const commandParent = createElementWithClassAndParent("div", container, "dialog-parent");
   const commandEle = createElementWithClassAndParent("div", commandParent, "god-dialog");
   const recentPrayers = createElementWithClassAndParent("div", commandEle, "prayer-container");
   const pastPrayers = createElementWithClassAndParent("div", commandEle, "prayer-container");

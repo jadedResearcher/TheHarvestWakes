@@ -66,14 +66,15 @@ entirely helpless without the people praising her and giving her little treats
 
 
   GodOfBeingServed = () => {
-    const body = document.querySelector("body");
-    body.append(truthEle)
-    body.innerHTML = "";
-    const parent = createElementWithClassAndParent("div", body, "video-parent");
+    container.innerHTML = "";
+    pageTitle.innerText = "The God Of Being Served";
+    const parent = createElementWithClassAndParent("div", container, "video-parent");
+
     const shop = createElementWithClassAndParent("div", parent, "shop");
     harvest = createElementWithClassAndParent("img", shop, "harvest");
     harvest.src = default_harvest;
     harvest.id = "harvest";
+    harvest.style.cssText = `width: 314px; left:171px;`;
     bgMusic.src ="http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
     bgMusic.play();
     //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
@@ -91,7 +92,7 @@ entirely helpless without the people praising her and giving her little treats
     const fishButton = createElementWithClassAndParent("button", buttonHolder);
     fishButton.innerText = "Feed Her Fish";
 
-    //lowers compassion, raises curioius (she tried out veganism but did not like it, still, trying new things is interesting)
+    //raises compassion, lowers pride (she tried out veganism but did not like it (disguting), still, this lets her understand others better)
     const carrotButton = createElementWithClassAndParent("button", buttonHolder);
     carrotButton.innerText = "Feed Her Carrots";
 
