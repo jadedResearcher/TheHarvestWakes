@@ -95,22 +95,55 @@ entirely helpless without the people praising her and giving her little treats
     //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
     const buttonHolder = createElementWithClassAndParent("div", parent, "god-dialog-button-holder");
 
+
+    const frame1 = ()=>{
+      harvest.src = "images/source_images/chibi_harvest1.png";
+      tv.style.cssText = `height: 70px; top: 156px; left: 267px;`;
+    }
+
+    const frame2 = ()=>{
+      harvest.src = "images/source_images/chibi_harvest2.png";
+      tv.style.cssText = `height: 70px; top: 180px; left: 280px;`;
+
+    }
+
+    const frame3 = ()=>{
+      harvest.src = "images/source_images/chibi_harvest3.png";
+      tv.style.cssText = `height: 70px; top: 168px; left: 267px;`;
+
+    }
+
+    const wireHover = (button)=>{
+        button.onmouseenter = ()=>{
+         frame2();
+        }
+
+        button.onmouseleave = ()=>{
+          frame3();
+        }
+    }
     
     //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
     const meatButton = createElementWithClassAndParent("button", buttonHolder);
     meatButton.innerText = "Feed Her Meat";
+    wireHover(meatButton)
 
     //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
     const fishButton = createElementWithClassAndParent("button", buttonHolder);
     fishButton.innerText = "Feed Her Fish";
+    fishButton(meatButton)
+
 
     //raises compassion, lowers pride (she tried out veganism but did not like it (disguting), still, this lets her understand others better)
     const carrotButton = createElementWithClassAndParent("button", buttonHolder);
     carrotButton.innerText = "Feed Her Carrots";
+    carrotButton(meatButton)
 
     //GREATLY raises energy and happiness, lowers pride (she shouldn't need this but she craves it so much. )
     const ramButton = createElementWithClassAndParent("button", buttonHolder);
     ramButton.innerText = "Feed Her Ram";
+    ramButton(meatButton)
+
 
 
 
@@ -118,6 +151,8 @@ entirely helpless without the people praising her and giving her little treats
     //GREATLY raises pride,slightly raises happiness,  at the expense of everything else
     const happyButton = createElementWithClassAndParent("button", buttonHolder);
     happyButton.innerText = "Praise Her";
+    happyButton(meatButton)
+
 
 
   }
