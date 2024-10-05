@@ -67,6 +67,7 @@ entirely helpless without the people praising her and giving her little treats
 
   GodOfBeingServed = () => {
     const body = document.querySelector("body");
+    body.append(truthEle)
     body.innerHTML = "";
     const parent = createElementWithClassAndParent("div", body, "video-parent");
     const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -79,6 +80,38 @@ entirely helpless without the people praising her and giving her little treats
     //oh god she's stealing the firefox ram for minecraft
     //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
     //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
+    const fishButton = createElementWithClassAndParent("button", parent, "enter-button");
+    button.innerText = "Feed Her Fish";
+
+    const carrotButton = createElementWithClassAndParent("button", parent, "enter-button");
+    button.innerText = "Feed Her Carrots";
+
+    const ramButton = createElementWithClassAndParent("button", parent, "enter-button");
+    button.innerText = "Feed Her Ram";
   }
 
 
+
+
+  /*
+do you remember last years rambles about identity, dear Guest?
+
+the Harvest is experimenting with her own. 
+
+what aspects of her self are useful to her? 
+
+and how does one even define use?
+
+does she ENJOY being the god of being served? 
+
+does she GROW as it?
+
+or does she rot into place.
+
+the same is true for you, dear Guest. 
+
+
+You can try on identities and roles and selves and keep what works for you and discard the rest like an illfitting suit. 
+
+"you" are a collection of decisions you've made about habits to build up
+  */

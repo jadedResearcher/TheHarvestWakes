@@ -49,7 +49,7 @@ let harvest;
 let booth;
 let harvestSpeaks;
 let breakMessage;
-
+let parent; //video-parent, used to be procedural, 
 const bgMusic = new Audio();
 
 
@@ -69,6 +69,7 @@ let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
 window.onload = () => {
+  parent = document.querySelector(".video-parent");
   truthEle = document.querySelector("#mobileFriendlyConsole")
   scarecrowEle = document.querySelector("#mobileFriendlyConsole")
   const consoleShortcut = document.querySelector("#console-shortcut")
@@ -225,12 +226,9 @@ const waitForFaithfulPrayers = async (commandEle) => {
 
 
 const renderButton = () => {
-  const body = document.querySelector("body");
-  const parent = createElementWithClassAndParent("div", body, "video-parent");
   const button = createElementWithClassAndParent("button", parent, "enter-button");
   button.innerText = "Open Your Eyes";
   button.onclick = () => {
-    parent.remove();
     theHarvestWakes();
   }
 
@@ -368,9 +366,10 @@ const handlePendingCommands = async (ele) => {
 
 const theHarvestWakes = async () => {
   bgMusic.pause();
-  const body = document.querySelector("body");
-  body.innerHTML = "";
-  const parent = createElementWithClassAndParent("div", body, "video-parent");
+  const body = document.querySelector("body")
+
+
+  parent.innerHTML = "";
   const shop = createElementWithClassAndParent("div", parent, "shop");
 
   /*const video = createElementWithClassAndParent("video", shop);
