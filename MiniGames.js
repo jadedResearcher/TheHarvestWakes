@@ -65,103 +65,129 @@ entirely helpless without the people praising her and giving her little treats
 */
 
 
-  GodOfBeingServed = () => {
-    container.innerHTML = "";
-    pageTitle.innerText = "The God Of Being Served";
-    const parent = createElementWithClassAndParent("div", container, "video-parent");
+GodOfBeingServed = () => {
+  container.innerHTML = "";
+  pageTitle.innerText = "The God Of Being Served";
+  const parent = createElementWithClassAndParent("div", container, "video-parent");
 
-    const shop = createElementWithClassAndParent("div", parent, "shop");
-    const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  const shop = createElementWithClassAndParent("div", parent, "shop");
+  const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  harvest.src = "images/source_images/chibi_harvest1.png";
+  harvest.style.cssText = `width: 439px; left:102px;`;
+
+  const tv = createElementWithClassAndParent("video", shop);
+  tv.playsinline = true; //so ios doesn't cry
+  tv.setAttribute('playsinline', true)
+  tv.style.cssText = `height: 70px; top: 156px; left: 267px;`;
+
+  tv.volume = 0.0;
+  tv.id = "tv"
+  tv.src = "videos/happy_fox_spin.mp4";
+  tv.autoplay = true;
+  tv.loop = true;
+
+
+  bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
+  bgMusic.play();
+  //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
+  //oh god she's stealing the firefox ram for minecraft
+  //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
+  //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
+  const buttonHolder = createElementWithClassAndParent("div", parent, "god-dialog-button-holder");
+
+
+  const frame1 = () => {
     harvest.src = "images/source_images/chibi_harvest1.png";
-    harvest.style.cssText = `width: 439px; left:102px;`;
+    tv.style.cssText = `width: 101px;
+    height: 76px;
+    top: 163px;
+    left: 278px;`;
+  }
 
-    const tv = createElementWithClassAndParent("video", shop);
-    tv.playsinline = true; //so ios doesn't cry
-    tv.setAttribute('playsinline', true)
-    tv.style.cssText = `height: 70px; top: 156px; left: 267px;`;
-  
-    tv.volume = 0.0;
-    tv.id = "tv"
-    tv.src = "videos/happy_fox_spin.mp4";
-    tv.autoplay = true;
-    tv.loop = true;
+  const frame2 = () => {
+    harvest.src = "images/source_images/chibi_harvest2.png";
+    tv.style.cssText = `width: 101px;
+    height: 76px;
+    top: 173px;
+    left: 288px;`;
 
+  }
 
-    bgMusic.src ="http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
-    bgMusic.play();
-    //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
-    //oh god she's stealing the firefox ram for minecraft
-    //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
-    //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
-    const buttonHolder = createElementWithClassAndParent("div", parent, "god-dialog-button-holder");
-
-
-    const frame1 = ()=>{
-      harvest.src = "images/source_images/chibi_harvest1.png";
-      tv.style.cssText = `height: 70px; top: 156px; left: 267px;`;
-    }
-
-    const frame2 = ()=>{
-      harvest.src = "images/source_images/chibi_harvest2.png";
-      tv.style.cssText = `height: 70px; top: 180px; left: 280px;`;
-
-    }
-
-    const frame3 = ()=>{
-      harvest.src = "images/source_images/chibi_harvest3.png";
-      tv.style.cssText = `height: 70px; top: 168px; left: 267px;`;
-
-    }
-
-    const wireHover = (button)=>{
-        button.onmouseenter = ()=>{
-         frame2();
-        }
-
-        button.onmouseleave = ()=>{
-          frame3();
-        }
-    }
-    
-    //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
-    const meatButton = createElementWithClassAndParent("button", buttonHolder);
-    meatButton.innerText = "Feed Her Meat";
-    wireHover(meatButton)
-
-    //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
-    const fishButton = createElementWithClassAndParent("button", buttonHolder);
-    fishButton.innerText = "Feed Her Fish";
-    fishButton(meatButton)
-
-
-    //raises compassion, lowers pride (she tried out veganism but did not like it (disguting), still, this lets her understand others better)
-    const carrotButton = createElementWithClassAndParent("button", buttonHolder);
-    carrotButton.innerText = "Feed Her Carrots";
-    carrotButton(meatButton)
-
-    //GREATLY raises energy and happiness, lowers pride (she shouldn't need this but she craves it so much. )
-    const ramButton = createElementWithClassAndParent("button", buttonHolder);
-    ramButton.innerText = "Feed Her Ram";
-    ramButton(meatButton)
-
-
-
-
-
-    //GREATLY raises pride,slightly raises happiness,  at the expense of everything else
-    const happyButton = createElementWithClassAndParent("button", buttonHolder);
-    happyButton.innerText = "Praise Her";
-    happyButton(meatButton)
-
-//the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
-//so no, she will not being doing that
+  const frame3 = () => {
+    harvest.src = "images/source_images/chibi_harvest3.png";
+    tv.style.cssText = `width: 101px;
+    height: 76px;
+    top: 163px;
+    left: 278px;`;
 
   }
 
 
 
+  const wireHover = (button) => {
+    button.onmouseenter = () => {
+      frame2();
+    }
 
-  /*
+    button.onmouseleave = () => {
+      frame3();
+    }
+  }
+
+  //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
+  const meatButton = createElementWithClassAndParent("button", buttonHolder);
+  meatButton.innerText = "Feed Her Meat";
+  wireHover(meatButton)
+  meatButton.onclick = () => {
+    tv.src = "videos/meat.mp4"
+  }
+
+  //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
+  const fishButton = createElementWithClassAndParent("button", buttonHolder);
+  fishButton.innerText = "Feed Her Fish";
+  wireHover(fishButton)
+  fishButton.onclick = () => {
+    tv.src = "videos/fish.mp4"
+  }
+
+
+  //raises compassion, lowers pride (she tried out veganism but did not like it (disguting), still, this lets her understand others better)
+  const carrotButton = createElementWithClassAndParent("button", buttonHolder);
+  carrotButton.innerText = "Feed Her Carrots";
+  wireHover(carrotButton)
+  carrotButton.onclick = () => {
+    tv.src = "videos/carrot.mp4"
+  }
+
+  //GREATLY raises energy and happiness, lowers pride (she shouldn't need this but she craves it so much. )
+  const ramButton = createElementWithClassAndParent("button", buttonHolder);
+  ramButton.innerText = "Feed Her Ram"; //i am really glad i went with 'feed her x' and not 'x her' or 'x'
+  wireHover(ramButton)
+  ramButton.onclick = () => {
+    tv.src = "videos/ram.mp4"
+  }
+
+
+
+
+
+  //GREATLY raises pride,slightly raises happiness,  at the expense of everything else
+  const happyButton = createElementWithClassAndParent("button", buttonHolder);
+  happyButton.innerText = "Praise Her";
+  wireHover(happyButton)
+  happyButton.onclick = () => {
+    tv.src = "videos/heart.mp4"
+  }
+
+  //the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
+  //so no, she will not being doing that
+
+}
+
+
+
+
+/*
 do you remember last years rambles about identity, dear Guest?
 
 the Harvest is experimenting with her own. 
@@ -182,4 +208,17 @@ the same is true for you, dear Guest.
 You can try on identities and roles and selves and keep what works for you and discard the rest like an illfitting suit. 
 
 "you" are a collection of decisions you've made about habits to build up
-  */
+*/
+
+
+/*
+i think its so funny that everyone (not just in zampanio)
+ hates camellia on sight but the HARVEST is loved
+
+i think the key is that eustace's more passive demeneor
+ is more palatable to people than cemellias desire to take charge and tell ppl what to do
+
+ plus camellias inner monologue wasn't really known while the Harvest's is
+
+
+*/
