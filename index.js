@@ -502,8 +502,8 @@ const theHarvestWakes = async () => {
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
-  const story5 = createElementWithClassAndParent("div", body, "story fourth-day");
-  story5.innerHTML = `<h2 id="fourth-day"><strong><span >Day 5:&nbsp;</span></strong></h2>
+  const story5 = createElementWithClassAndParent("div", body, "story");
+  story5.innerHTML = `<h2 id="fifth-day"><strong><span >Day 5:&nbsp;</span></strong></h2>
 
 <p><span >Demons.</span></p>
 
