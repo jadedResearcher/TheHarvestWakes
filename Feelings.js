@@ -330,6 +330,8 @@ class FeelingsObject {
           //she's getting more tired. fixing minecraft was a lot.
           //but now that its done she's recovering
           numberToAdd = 1; 
+        }else if(this.name === COMPASSIONATE){
+          numberToAdd += 2; //she's so fucking pissed about those griefers in minecraft
         }
         ret.push(value);
         if (personal) {

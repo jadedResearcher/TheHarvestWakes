@@ -50,6 +50,8 @@ let booth;
 let harvestSpeaks;
 let breakMessage;
 
+const bgMusic = new Audio();
+
 
 
 const default_video = "videos/fox_clip.mp4";
@@ -365,7 +367,9 @@ const handlePendingCommands = async (ele) => {
 }
 
 const theHarvestWakes = async () => {
+  bgMusic.pause();
   const body = document.querySelector("body");
+  body.innerHTML = "";
   const parent = createElementWithClassAndParent("div", body, "video-parent");
   const shop = createElementWithClassAndParent("div", parent, "shop");
 
