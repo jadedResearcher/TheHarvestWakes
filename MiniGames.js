@@ -80,14 +80,33 @@ entirely helpless without the people praising her and giving her little treats
     //oh god she's stealing the firefox ram for minecraft
     //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
     //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
-    const fishButton = createElementWithClassAndParent("button", parent, "enter-button");
-    button.innerText = "Feed Her Fish";
+    const buttonHolder = createElementWithClassAndParent("div", parent, "god-dialog-button-holder");
 
-    const carrotButton = createElementWithClassAndParent("button", parent, "enter-button");
-    button.innerText = "Feed Her Carrots";
+    
+    //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
+    const meatButton = createElementWithClassAndParent("button", buttonHolder);
+    meatButton.innerText = "Feed Her Meat";
 
-    const ramButton = createElementWithClassAndParent("button", parent, "enter-button");
-    button.innerText = "Feed Her Ram";
+    //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
+    const fishButton = createElementWithClassAndParent("button", buttonHolder);
+    fishButton.innerText = "Feed Her Fish";
+
+    //lowers compassion, raises curioius (she tried out veganism but did not like it, still, trying new things is interesting)
+    const carrotButton = createElementWithClassAndParent("button", buttonHolder);
+    carrotButton.innerText = "Feed Her Carrots";
+
+    //GREATLY raises energy and happiness, lowers pride (she shouldn't need this but she craves it so much. )
+    const ramButton = createElementWithClassAndParent("button", buttonHolder);
+    ramButton.innerText = "Feed Her Ram";
+
+
+
+
+    //GREATLY raises pride,slightly raises happiness,  at the expense of everything else
+    const happyButton = createElementWithClassAndParent("button", buttonHolder);
+    happyButton.innerText = "Praise Her";
+
+
   }
 
 
