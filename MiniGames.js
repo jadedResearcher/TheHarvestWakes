@@ -71,10 +71,22 @@ entirely helpless without the people praising her and giving her little treats
     const parent = createElementWithClassAndParent("div", container, "video-parent");
 
     const shop = createElementWithClassAndParent("div", parent, "shop");
-    harvest = createElementWithClassAndParent("img", shop, "harvest");
-    harvest.src = default_harvest;
-    harvest.id = "harvest";
-    harvest.style.cssText = `width: 314px; left:171px;`;
+    const harvest = createElementWithClassAndParent("img", shop, "harvest");
+    harvest.src = "images/source_images/chibi_harvest1.png";
+    harvest.style.cssText = `width: 439px; left:102px;`;
+
+    const tv = createElementWithClassAndParent("video", shop);
+    tv.playsinline = true; //so ios doesn't cry
+    tv.setAttribute('playsinline', true)
+    tv.style.cssText = `height: 70px; top: 156px; left: 267px;`;
+  
+    tv.volume = 0.0;
+    tv.id = "tv"
+    tv.src = "videos/happy_fox_spin.mp4";
+    tv.autoplay = true;
+    tv.loop = true;
+
+
     bgMusic.src ="http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
     bgMusic.play();
     //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
