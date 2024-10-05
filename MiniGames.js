@@ -64,7 +64,7 @@ when not, this means turning into a pet god
 entirely helpless without the people praising her and giving her little treats
 */
 
-
+//yes its all a big dumb function, deal with it
 GodOfBeingServed = () => {
   container.innerHTML = "";
   pageTitle.innerText = "The God Of Being Served";
@@ -89,6 +89,7 @@ GodOfBeingServed = () => {
 
   bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
   bgMusic.play();
+  bgMusic.volume=0.31;//halloween number
   //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
   //oh god she's stealing the firefox ram for minecraft
   //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
@@ -117,10 +118,22 @@ GodOfBeingServed = () => {
     harvest.src = "images/source_images/chibi_harvest3.png";
     tv.style.cssText = `width: 101px;
     height: 76px;
-    top: 163px;
+    top: 170px;
     left: 278px;`;
 
   }
+
+  setInterval(()=>{
+    frame1()
+  },500)
+
+  setInterval(()=>{
+    frame2()
+  },1000)
+
+  setInterval(()=>{
+    frame3()
+  },1500)
 
 
 
@@ -134,12 +147,28 @@ GodOfBeingServed = () => {
     }
   }
 
+  const restoreDefaultVideo = ()=>{
+    tv.loop=true;
+    tv.src = "videos/happy_fox_spin.mp4";
+    tv.removeEventListener("ended", restoreDefaultVideo);
+  }
+
+
+  const temporaryNewVideo = (src)=>{
+    tv.loop = false;
+    tv.src = src;
+    tv.addEventListener("ended", restoreDefaultVideo);
+
+  }
+
   //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
   const meatButton = createElementWithClassAndParent("button", buttonHolder);
   meatButton.innerText = "Feed Her Meat";
   wireHover(meatButton)
   meatButton.onclick = () => {
-    tv.src = "videos/meat.mp4"
+    temporaryNewVideo("videos/meat.mp4")
+    tv.loop = false;
+
   }
 
   //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
@@ -147,7 +176,7 @@ GodOfBeingServed = () => {
   fishButton.innerText = "Feed Her Fish";
   wireHover(fishButton)
   fishButton.onclick = () => {
-    tv.src = "videos/fish.mp4"
+    temporaryNewVideo("videos/fish.mp4");
   }
 
 
@@ -156,7 +185,7 @@ GodOfBeingServed = () => {
   carrotButton.innerText = "Feed Her Carrots";
   wireHover(carrotButton)
   carrotButton.onclick = () => {
-    tv.src = "videos/carrot.mp4"
+    temporaryNewVideo("videos/carrot.mp4");
   }
 
   //GREATLY raises energy and happiness, lowers pride (she shouldn't need this but she craves it so much. )
@@ -164,7 +193,7 @@ GodOfBeingServed = () => {
   ramButton.innerText = "Feed Her Ram"; //i am really glad i went with 'feed her x' and not 'x her' or 'x'
   wireHover(ramButton)
   ramButton.onclick = () => {
-    tv.src = "videos/ram.mp4"
+    temporaryNewVideo("videos/ram.mp4");
   }
 
 
@@ -176,7 +205,7 @@ GodOfBeingServed = () => {
   happyButton.innerText = "Praise Her";
   wireHover(happyButton)
   happyButton.onclick = () => {
-    tv.src = "videos/heart.mp4"
+    temporaryNewVideo("videos/heart.mp4");
   }
 
   //the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
