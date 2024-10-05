@@ -153,7 +153,8 @@ entirely helpless without the people praising her and giving her little treats
     happyButton.innerText = "Praise Her";
     happyButton(meatButton)
 
-
+//the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
+//so no, she will not being doing that
 
   }
 

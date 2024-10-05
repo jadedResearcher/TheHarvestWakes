@@ -480,7 +480,17 @@ const theHarvestWakes = async () => {
 
     }
   }
+/*
+camellia hated being in the corn maze because she just trying to get back to her home universe (she hoped making a sacrifice would help with that)
+eustace hated being in the corn maze because he was just trying to get home after a long ass shift
 
+together they are the god of
+checks notes
+
+'....corn
+
+yeah no the harvest hates it
+*/
 
 
   const commandParent = createElementWithClassAndParent("div", container, "dialog-parent");
