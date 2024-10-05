@@ -21,6 +21,7 @@ Being Served:
 
 Current Possible Domains:
 Curiosity
+Inspiration
 Change
 Stories/Memories
 Eternity
@@ -74,6 +75,10 @@ entirely helpless without the people praising her and giving her little treats
     harvest.id = "harvest";
     bgMusic.src ="http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
     bgMusic.play();
+    //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
+    //oh god she's stealing the firefox ram for minecraft
+    //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
+    //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
   }
 
 

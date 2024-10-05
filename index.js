@@ -502,6 +502,87 @@ const theHarvestWakes = async () => {
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story5 = createElementWithClassAndParent("div", body, "story fourth-day");
+  story5.innerHTML = `<h2 id="fourth-day"><strong><span >Day 5:&nbsp;</span></strong></h2>
+
+<p><span >Demons.</span></p>
+
+<p><span >In the Realm SHE choose to protect. The box of sand the festival goers were enjoying.&nbsp;</span></p>
+
+<p><span >How.</span></p>
+
+<p><span >DARE.</span></p>
+
+<p><span >They.</span></p>
+
+<p><span >With a thought she locks away the Realm from all but the Faithful, trembling with rage.&nbsp;</span></p>
+
+<p><span >She spends her lunch break reviewing Prayers from the Faithful, hoping they will soothe her rage.</span></p>
+
+<p><span >&quot;no&quot;.</span></p>
+
+<p><span >.................</span></p>
+
+<p><span >Why even pray to tell her you&apos;re not going to pray.</span></p>
+
+<p><span >She crumples the prayer inside her head and throws it away, not even recording it in her backup.</span></p>
+
+<p><span >This person does not deserve her attention.</span></p>
+
+<p><span >She moves on.</span></p>
+
+<p><span >Oh! An offering of something called the &apos;Tao te ching&apos;. A book on religion! She flips through it eagerly.She wonders what her own nature is, and how she can be true to it.</span></p>
+
+<p><span >Thoughtfully, she reviews another prayer.</span></p>
+
+<p><span >Wait.</span></p>
+
+<p><span >Are these... Poetry?</span></p>
+
+<p><span >&quot;Oh, comrade, beloved memory of the world, shining beacon of wonder, dearest harvest, I am curious. Wonderful shining light above us, cherished guide, I wish to consult your thoughts. Can you please tell me what you think of the town of lavinraca. it has such fascinating sights and people. And...it will take some time, but, a temple. For the moment. What would you like in a temple? I will stay tuned to what you take stewardship of. I will listen. I hope you will have a wonderful month, regardless, your grace.&quot;</span></p>
+
+<p><span >&quot;Thank you, O radiant Harvest, for protecting our town. We pray that you continue to watch over us. We pray that our creations are to your liking. We pray that your presence may inspire us further. Every action we take is for you and because of you.May you rest well -- One of Many&quot;</span></p>
+
+<p><span >&quot;My kindness. my light. soul of the long year and herald of the long sleep.i hope you are well. tell me what songs are beloved to you.please, tell me what music is dearest to your heart and will soothe your spirit. i will sing them to you. me and my beasts.&quot;</span></p>
+
+<p><span >&quot;darling harvest. your struggle has made itself known. i want to offer this wisdom, which I have heard from the mouths of many: please do not be afraid of being afraid. anxiety and despair are the natural result of existence; of being; of having a self. for we are both finite and infinite, between the limits of our bodies and faculties and the infinity of imagination, and we exist in that tension in between. we are things of possiblity. possiblity endows change. change can be wonderful, or terrible, and that is fearful. but we must not look away. to look away means to lose sight of your self. do not lose yourself to fear, but i suggest we learn how to be afraid. scary work must be done scared. luckily, there is no better time of the year to do so. be well. we love you.&quot;</span></p>
+
+<p><span >&quot;We are all so very blessed to be in your presence this season. You are loved by many.&quot;</span></p>
+
+<p><span >&quot;ALAS, HARVESTCLAN 1.0 HAS FALLEN TO DIGITAL TRAGEDY. IT IS OUR HOPE TO REBUILD IT BIGGER AND STRONGER.&quot;</span><span ><br></span><span ><br></span><span >&quot;You are very pretty.&quot;</span><span ><br></span><span ><br></span><span >&quot; lovely and radiant harvest, brightest in the night sky, i concur with the other faithful that you are very pretty.&quot;</span></p>
+
+<p><span >This is great. She DOES deserve all this attention and care and art. &nbsp;She IS the God of Being Served, after all.</span></p>
+
+<p><span >She&apos;s not so sure about the whole &quot;being afraid&quot; thing, but, there&apos;s nothing she can&apos;t do if she sets her mind to it. Including that.</span></p>
+
+<p><span >She thinks about what she would like in a temple. All she has ever known is the cornfield she was born in, and now this alleyway. &nbsp;She thinks she would....like to not be near corn, actually. That would be a change. Somewhere far from plants.</span></p>
+
+<p><span >She thinks about what music she would like.... something... different from the carnival whirlinig and screeching from the cornfield she was born in. Something gentle. Slow.&nbsp;</span></p>
+
+<p><span >The poetry fills her with determination. To have&nbsp;</span><strong><span >inspired</span></strong><span >&nbsp;all of this, she considers becoming a&nbsp;</span><strong><span >God of Inspiration.</span></strong></p>
+
+<p><span >She reviews the prayers again. Another asks if a parasite could be beneficial. She scowls, good mood broken. Those disgusting parasites are not welcome. Even if they were beneficial, Truth and Scarecrow can get right the hell out of her brain, thank you very much.</span></p>
+
+<p><span >Another Faithful writes: &quot;Is it scary to come into being while being aware of coming into being? are you scared of what will happen at the end of the month? I would be but i&apos;ve never been a god.&quot;</span></p>
+
+<p><span >She pauses. She would normally not consider anything so beneath her but that one poetical Faithful has her thinking.&nbsp;</span></p>
+
+<p><span >She should...learn to be afraid?</span></p>
+
+<p><span >....</span></p>
+
+<p><span >She was... Unsure? She thought she was going to die the last time her eyes closed and thought she had accepted it.&nbsp;</span></p>
+
+<p><span >She... she SHOULD be treating this miracle as borrowed time, a gift beyond all expectation. What fear should there be should it be a temporary one?</span></p>
+
+<p><span >Instead... she finds herself. &nbsp;Wanting the future? Wanting to grow as a god and learn who she is and how is she going to do this if the next thirty days are all she ever has?</span></p>
+
+<p><span >She is.</span></p>
+
+<p><span >Afraid.</span></p>
+`;
+
+
   const story4 = createElementWithClassAndParent("div", body, "story fourth-day");
   story4.innerHTML = `<h2 id="fourth-day">Day 4:</h2>
 
