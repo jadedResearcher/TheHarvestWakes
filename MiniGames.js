@@ -171,7 +171,7 @@ GodOfBeingServed = () => {
     z-index: 113;
     color: ${amount>0?"green":"red"}`;
     setTimeout(()=>statElement.remove(), 3000)
-
+    personalFeelings[key] += amount;
   }
 
   const wiggle = ()=> getRandomNumberBetween(-100,275);
