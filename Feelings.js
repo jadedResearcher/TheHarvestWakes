@@ -334,8 +334,9 @@ class FeelingsObject {
           numberToAdd = 1; 
         }else if(this.name === COMPASSIONATE){
           numberToAdd += 1; //she's so fucking pissed about those griefers in minecraft
+          //but has calmed down a bit
         }else if(this.name === CURIOUS){
-          numberToAdd += 2; //you guys taught her to be afraid
+          numberToAdd += 2; //you guys taught her to be afraid and then hammered it home
         }
 
         if(key ==="zampanio" || key==="truth" || key ==="scarecrow"){
