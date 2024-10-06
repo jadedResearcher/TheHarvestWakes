@@ -222,6 +222,7 @@ const initPride = () => {
 
   feeling.negativeKeyWordsToVideos["bathroom"] = "videos/bathroom.mp4";
   feeling.negativeKeyWordsToVideos["truth"] = "videos/paradise_and_parasite.mp4";
+  feeling.negativeKeyWordsToVideos["zampanio"] = "videos/paradise_and_parasite.mp4";
   feeling.negativeKeyWordsToVideos["scarecrow"] = "videos/paradise_and_parasite.mp4";
   feeling.negativeKeyWordsToVideos["gross"] = "videos/handdrip.mp4";
   feeling.negativeKeyWordsToVideos["disgust"] = "videos/disgust.mp4";
@@ -251,6 +252,7 @@ const initCompassion = () => {
 
   feeling.negativeKeyWordsToVideos["wastes"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
   feeling.negativeKeyWordsToVideos["zampanio"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
+  feeling.negativeKeyWordsToVideos["truth"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/clown.mp4";
 
   feeling.negativeKeyWordsToVideos["sacrifice"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/sacrifices2.mp4";
   feeling.negativeKeyWordsToVideos["skull"] = "http://lavinraca.eyedolgames.com/images/HATEHATEHATEHATE/glitches/cowskull.mp4"
@@ -331,9 +333,13 @@ class FeelingsObject {
           //but now that its done she's recovering
           numberToAdd = 1; 
         }else if(this.name === COMPASSIONATE){
-          numberToAdd += 2; //she's so fucking pissed about those griefers in minecraft
+          numberToAdd += 1; //she's so fucking pissed about those griefers in minecraft
         }else if(this.name === CURIOUS){
           numberToAdd += 2; //you guys taught her to be afraid
+        }
+
+        if(key ==="zampanio" || key==="truth" || key ==="scarecrow"){
+          numberToAdd += numberToAdd+2;//double it at LEAST, she's pissed at the cognitive parasite you guys seem to love so much
         }
         ret.push(value);
         if (personal) {

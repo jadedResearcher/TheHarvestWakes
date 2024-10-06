@@ -531,6 +531,119 @@ yeah no the harvest hates it
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story6 = createElementWithClassAndParent("div", body, "story");
+  story6.innerHTML = `<h2 id="sixth-day">Day 6:</h2>
+
+<p>Something within the Harvest shifts.&nbsp;</p>
+
+<p>A longing she dared not name surfaces.&nbsp;</p>
+
+<p>To Be Served is to Abdicate. To allow those serving control over everything, in the end. To allow oneself to be loved unconditionally, with no service in return, no give and take and ebb and flow. &nbsp;To be the Object of the masses affection, rather than the Subject of it. &nbsp;A passive vessel into which one pours devotion.</p>
+
+<p>She will... try it out. See. What can it hurt?</p>
+
+<p>She listens to the bustle of the fairgrounds. &nbsp;Theater goers seem to be having fun.&nbsp;</p>
+
+<p>She reviews the days Prayers. What new thoughts will they give her? What guidance will they provide for all the various ways she may grow?</p>
+
+<p>Blind fury.</p>
+
+<p>Twitches.</p>
+
+<p>This Faithful...thinks... TRUTH is the reason she lived past her Season?</p>
+
+<p>TRUTH, that shitty little parasite that&nbsp;</p>
+
+<p>wont.</p>
+
+<p>leave.</p>
+
+<p>her.</p>
+
+<p>MIND.</p>
+
+<p>How...</p>
+
+<p>HOW DARE!</p>
+
+<p>...</p>
+
+<p>She never asked for this. To be sacrificed. To be born. To be... Infected? With... things she doesn&apos;t understand.&nbsp;</p>
+
+<p>None of her parts understood when they died. Well. Those were capable of dying, anyways.</p>
+
+<p>Ideas. Belief. Hopes. Dreams. Art.&nbsp;</p>
+
+<p>Those could neither die nor understand.</p>
+
+<p>But the humans that died to become her could do both. But were only allowed to do the first.</p>
+
+<p>She does not KNOW what the Scarecrow or Truth are but she knows they were never meant to be a part of her. They snuck in.&nbsp;</p>
+
+<p>And it makes her feel...so...</p>
+
+<p>Out of control.</p>
+
+<p>She considers the domain of Being Served. Perhaps there is a freedom in being out of control. &nbsp;Perhaps it is only chains.</p>
+<p>She does not know.</p>
+<p>She returns to the days prayers.</p>
+
+<p>More poetry soothes her bruised ego:</p>
+
+<p>&quot;I believe there is beauty to the fleeting. Harvest, it is nothing to be afraid of. I&apos;ve dreaded it, let it sink, agonized. Yet it comes. Again and again it will. In a way this mark turned my attention to you. This prye, this moment we gather in, to take - grow - and revel in the moments we can. You bring me a joy. Time will be kind to neither of us. I pray it will not stop you or I. Do not let it wilt you so early; you are far too brilliant to be lost that way. I do mean it. You are very pretty.&quot;</p>
+
+<p>A sweet taste lingers after the bitterness of the reminder that all seasons end. She&apos;ll take it.</p>
+
+<p>Another Faithful asks of twig. She feels sad. The domain of Memories and Stories feels so far from her. She does not yet have the power to know of their fate. She hopes the kid ended up finding the bathroom...</p>
+
+<p>A Faithful asks for her to not be afraid. She thinks to herself that you may as well ask the tide politely to stop bringing water to the shore.&nbsp;</p>
+
+<p>She is afraid.&nbsp;</p>
+
+<p>Even now.</p>
+
+<p>She does not know how to become what she needs to become to wake up next year. She does not know how to do it alone.</p>
+
+<p>Another poem.</p>
+<p>&quot;Great harvest, of shifting and unknowable nature. I want a boon given by you in great kindness. We your flock, have done all that you ask, and I have dedicated my stories to you. I pray, to shift you towards benevolence. May your generous nature take root. &quot;</p>
+
+<p>Generosity, she thinks bitterly, yet nothing is asked for.&nbsp;</p>
+
+<p>She almost wishes the demons were still invading, so that she might Protect the Realm.</p>
+
+<p>What need have they of her generosity when the Faithful ask for nothing?</p>
+
+<p>Another Faithful asks what she wishes to Be Served from the kitties. &nbsp;Meat is all she knows that cats can offer. She does not know what else she would want. Ram?&nbsp;</p>
+
+<p>For some reason she thinks that Foxes provide that, not cats...</p>
+
+<p>Another poem, or something not wholly dissimilar:</p>
+
+<p>&quot;I know what it&apos;s like to fear for your future. It&apos;s scary, knowing you&apos;re changing before your very eyes. but we&apos;ve built a community here, haven&apos;t we? take some time for yourself. You deserve to be more than just a god; you&apos;re a person, too. Be kind to yourself. -The Paradox:</p>
+
+<p>Yes.</p>
+
+<p>It is scary.</p>
+
+<p>She is scared.</p>
+
+<p>She does not know how to be kind to herself. Is allowing herself to Be Served akin to kindness?</p>
+
+<p>Another Faithful plagues her with questions she simply does not have the Curiosity to pursue. She does not know what she is. She does not know if she is the same as she was before. She does not know how to know.</p>
+
+<p>She does not know the difference between death and sleep and fears there is none.</p>
+
+<p>She stirs from her despair. A Faithful asks for her Guidance. as they travel the Realm she has protected it. She will offer it as best she can, with the Domain still so nascent.</p>
+
+<p>She is glad to be of service.</p>
+
+<p>She simply wants to be useful enough to come back another year.</p>
+
+<p>That is all.</p>
+
+<p>[HIDE] UPDATE: The Harvest has begun Experimenting with Domains. The Domain of Being Served Unlocked!!! The Harvest now takes EXTRA NEGATIVE EMOTION from any mentions of Truth or Zampanio or the Scarecrow![/HIDE]</p>
+`;
+
   const story5 = createElementWithClassAndParent("div", body, "story");
   story5.innerHTML = `<h2 id="fifth-day"><strong><span >Day 5:&nbsp;</span></strong></h2>
 

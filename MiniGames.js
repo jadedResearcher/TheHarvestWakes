@@ -66,6 +66,12 @@ entirely helpless without the people praising her and giving her little treats
 
 //yes its all a big dumb function, deal with it
 GodOfBeingServed = () => {
+  if(!personalFeelings["BEINGSERVED"]){
+    personalFeelings["BEINGSERVED"] = 0;
+  }
+  personalFeelings["BEINGSERVED"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  truthLog("The God of Being Served","The Truth is...the Camellia within fears the stagnation of no longer being of use even as she craves the validation. Alone, she would never become a Pet God for you, Guest... but the Eustace within craves to do as litle as possible and does not see the problem. The Harvest is happy like this, but is that her highest purpose?")
+  scarecrowLog("... feed her. feed us. im so hungry...")
   container.innerHTML = "";
   pageTitle.innerText = "The God Of Being Served";
   const parent = createElementWithClassAndParent("div", container, "video-parent");
