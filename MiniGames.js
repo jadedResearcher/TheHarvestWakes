@@ -182,28 +182,36 @@ GodOfBeingServed = () => {
   wireHover(meatButton)
   meatButton.onclick = () => {
     temporaryNewVideo("videos/meat.mp4")
-    tv.loop = false;
-    handleStatChange(100+wiggle(),40,COMPASSIONATE,-13);
-    handleStatChange(115+wiggle(),60,CURIOUS,-13);
-    handleStatChange(130+wiggle(),80,ENERGETIC,13);
-    handleStatChange(145+wiggle(),100,HAPPY,13);
+    handleStatChange(130+wiggle(),40,ENERGETIC,13);
+    handleStatChange(145+wiggle(),60,HAPPY,13);
+    handleStatChange(100+wiggle(),80,COMPASSIONATE,-13);
+    handleStatChange(115+wiggle(),100,CURIOUS,-13);
+
     savePersonalFeelingsToStorage();
   }
 
-  //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
+  //raises happy, raises curious, lowers compassion (she feels entitled to meat from cats) (what ARE fish, what is the ocean??? all she knows is corn, this is ) 
   const fishButton = createElementWithClassAndParent("button", buttonHolder);
   fishButton.innerText = "Feed Her Fish";
   wireHover(fishButton)
   fishButton.onclick = () => {
     temporaryNewVideo("videos/fish.mp4");
+    handleStatChange(130+wiggle(),40,HAPPY,13);
+    handleStatChange(115+wiggle(),60,CURIOUS,13);
+    handleStatChange(115+wiggle(),80,COMPASSIONATE,-13);
+
+    savePersonalFeelingsToStorage();
   }
 
 
-  //raises compassion, lowers pride (she tried out veganism but did not like it (disguting), still, this lets her understand others better)
+  //raises compassion, lowers pride (she tried out veganism but did not like it (disgusting, camellia and eustace both disliked being outside in the corn maze), still, this lets her understand others better)
   const carrotButton = createElementWithClassAndParent("button", buttonHolder);
   carrotButton.innerText = "Feed Her Carrots";
   wireHover(carrotButton)
   carrotButton.onclick = () => {
+    handleStatChange(130+wiggle(),40,COMPASSIONATE,26);
+    handleStatChange(115+wiggle(),60,PRIDEFUL,-26);
+    savePersonalFeelingsToStorage();
     temporaryNewVideo("videos/carrot.mp4");
   }
 
@@ -213,6 +221,10 @@ GodOfBeingServed = () => {
   wireHover(ramButton)
   ramButton.onclick = () => {
     temporaryNewVideo("videos/ram.mp4");
+    handleStatChange(130+wiggle(),40,ENERGETIC,113);
+    handleStatChange(130+wiggle(),60,HAPPY,113);
+    handleStatChange(115+wiggle(),80,PRIDEFUL,-13);
+    savePersonalFeelingsToStorage();
   }
 
 
@@ -224,6 +236,12 @@ GodOfBeingServed = () => {
   happyButton.innerText = "Praise Her";
   wireHover(happyButton)
   happyButton.onclick = () => {
+    handleStatChange(130+wiggle(),40,PRIDEFUL,113);
+    handleStatChange(130+wiggle(),60,HAPPY,13);
+    handleStatChange(130+wiggle(),80,CURIOUS,-13);
+    handleStatChange(130+wiggle(),100,ENERGETIC,-13);
+    handleStatChange(130+wiggle(),120,COMPASSIONATE,-13);
+
     temporaryNewVideo("videos/heart.mp4");
   }
 
