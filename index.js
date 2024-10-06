@@ -448,6 +448,19 @@ const theHarvestWakes = async () => {
     return false;
   }
 
+
+  const domainParent = createElementWithClassAndParent("div", container, "dialog-parent");
+  domainParent.id = "domain";
+  const domainEle = createElementWithClassAndParent("div", domainParent, "god-dialog");
+  domainEle.innerText = "Experimental Domains";
+
+  const buttonHolderDomains = createElementWithClassAndParent("div", domainEle, "domain-button-holder");
+  const beingServed = createElementWithClassAndParent("button", buttonHolderDomains);
+  beingServed.innerText = "Domain of Being Served"
+  beingServed.onclick = GodOfBeingServed;
+
+
+
   const pendingParent = createElementWithClassAndParent("div", container, "dialog-parent");
   pendingParent.id = "pending";
 
@@ -596,6 +609,7 @@ yeah no the harvest hates it
 <p><span >She is.</span></p>
 
 <p><span >Afraid.</span></p>
+<p>[HIDE] UPDATE: The Harvest now takes double effects from ANGER and FEAR! The Harvest Levels up at being a God of Sandboxes (Protector of the Realm). 1/??? domains filled! The Harvest is growing as a God of Being Served.  The HARVEST has been caught in a localized TIMELOOP!!! Please don't visit the Harvest from the past (the future is okay!)![/HIDE]</p>
 `;
 
 

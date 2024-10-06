@@ -1357,6 +1357,13 @@ button:active {
   font-size: 13px;
 }
 
+.domain-button-holder {
+  display: flex;
+  background-color: #a1b234;
+  justify-content: space-between;
+  border: none;
+}
+
 .god-dialog-button-holder {
   display: flex;
   background-color: #a1b234;
@@ -1405,6 +1412,13 @@ button:active {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+
+}
+
+.domain-button-holder {
+  display: flex;
+  justify-content: space-between;
+  border: none;
 }
 
 .shop {
@@ -1415,6 +1429,31 @@ button:active {
   display: block;
   position: relative;
 }
+
+
+#domain {
+  background-color: #a1b234;
+  color: black;
+  font-family: gameboy;
+  margin-top: 31px;
+  transform: none !important;
+  padding: 2px;
+  position: relative;
+  width: 800px;
+  font-size: 14px;
+  margin-left: auto;
+  max-height: 500px;
+  overflow: auto;
+  margin-right: auto;
+  button{
+    background-color: black;
+    color: #a1b234;
+    font-family: gameboy;
+    border: 2px solid #a1b234;
+    margin: 0px;
+  }
+}
+
 
 .shop video {
   height: 31px;

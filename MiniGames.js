@@ -245,6 +245,16 @@ GodOfBeingServed = () => {
     temporaryNewVideo("videos/heart.mp4");
   }
 
+  const domainParent = createElementWithClassAndParent("div", container, "dialog-parent");
+  domainParent.id = "domain";
+  domainParent.style.marginTop="100px"
+  const domainEle = createElementWithClassAndParent("div", domainParent, "god-dialog");
+
+  const returnButton = createElementWithClassAndParent("button", domainEle);
+  returnButton.innerText = "Stop Experiment";
+  returnButton.onclick=theHarvestWakes;
+
+
   //the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
   //so no, she will not being doing that
 
