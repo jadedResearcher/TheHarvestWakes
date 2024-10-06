@@ -227,8 +227,7 @@ input {
 }
 
 .transition {
-  animation-iteration-count: 1;
-  animation: fade-to-black 1s linear 1;
+  animation: fade-to-black 7s ease-in 1;
 }
 
 @keyframes fade-to-black {
@@ -242,7 +241,7 @@ input {
   }
 
   100% {
-    opacity: 1.0;
+    opacity: 0.0;
   }
 }
 

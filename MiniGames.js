@@ -161,6 +161,21 @@ GodOfBeingServed = () => {
 
   }
 
+  const handleStatChange = (x,y,key,amount)=>{
+    const statElement = createElementWithClassAndParent("div", shop, "transition");
+    statElement.innerText = `${amount>0?"+":""}${amount} ${key}`;
+    statElement.style.cssText = `
+    position: absolute;
+    left: ${x}px;
+    top: ${y}px;
+    z-index: 113;
+    color: ${amount>0?"green":"red"}`;
+    setTimeout(()=>statElement.remove(), 3000)
+
+  }
+
+  const wiggle = ()=> getRandomNumberBetween(-100,275);
+
   //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
   const meatButton = createElementWithClassAndParent("button", buttonHolder);
   meatButton.innerText = "Feed Her Meat";
@@ -168,7 +183,11 @@ GodOfBeingServed = () => {
   meatButton.onclick = () => {
     temporaryNewVideo("videos/meat.mp4")
     tv.loop = false;
-
+    handleStatChange(100+wiggle(),40,COMPASSIONATE,-13);
+    handleStatChange(115+wiggle(),60,CURIOUS,-13);
+    handleStatChange(130+wiggle(),80,ENERGETIC,13);
+    handleStatChange(145+wiggle(),100,HAPPY,13);
+    savePersonalFeelingsToStorage();
   }
 
   //raises energy, lowers curious (what ARE fish, what is the ocean??? all she knows is corn) 
