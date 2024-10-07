@@ -40,6 +40,219 @@ Comedy
 */
 
 
+/*
+this counts for change, guiding and curiosity
+depending on which domain gets enough points to pop first i'll
+layer themes and dialog on to reflect that
+
+explore last years corn maze but in a new form
+*/
+GodOfMazes = ()=>{
+  console.error("JR NOTE: change this key to its final domain, if i see this in anyones save i know they're wastes")
+  if(!personalFeelings["MAZE"]){
+    personalFeelings["MAZE"] = 0;
+  }
+  personalFeelings["MAZE"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  container.innerHTML = "";
+  pageTitle.innerText = "The God Of Curiosity/Guiding/Change???";
+
+  truthLog("The God of ???","The Truth is this is a WIP and JR does not yet know which of three domains this might be. If you see this and its supposed to be live, tell JR they forgot to update this.")
+  scarecrowLog("funny meeting you here...")
+
+  const parent = createElementWithClassAndParent("div", container, "video-parent");
+
+  const shop = createElementWithClassAndParent("div", parent, "shop");
+  const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  harvest.src = default_harvest;
+
+  const tv = createElementWithClassAndParent("video", shop);
+  tv.playsinline = true; //so ios doesn't cry
+  tv.setAttribute('playsinline', true)
+
+  tv.volume = 0.0;
+  tv.id = "tv"
+  tv.src = "videos/happy_fox_spin.mp4";
+  tv.autoplay = true;
+  tv.loop = true;
+
+
+  bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
+  bgMusic.play();
+  bgMusic.volume=0.31;
+
+  const debugMaze = async ()=>{
+    const maze = await slurpFromNetwork();
+    console.log("JR NOTE: maze",maze)
+    
+    const table = createElementWithClassAndParent("table", parent, "debug-table");
+    const tr1 = createElementWithClassAndParent("tr", table);
+    const tr2 = createElementWithClassAndParent("tr", table);
+    const tr3 = createElementWithClassAndParent("tr", table);
+  
+    const makePlaceholder = ()=>{
+      return createElementWithClassAndParent("td", parent, "debug debug-empty")
+    }
+    const center = createElementWithClassAndParent("td", table, "debug debug-center");
+    const north = createElementWithClassAndParent("td", table, "debug debug-north");
+    const east = createElementWithClassAndParent("td", table, "debug debug-east");
+    const south = createElementWithClassAndParent("td", table, "debug debug-south");
+    //gross, imagine west being a real direction
+    const west = createElementWithClassAndParent("td", table, "debug debug-west");
+  
+  
+    parent.append(table);
+    table.append(tr1);
+    table.append(tr2);
+    table.append(tr3);
+  
+    tr1.append(makePlaceholder());
+    tr1.append(north);
+    tr1.append(makePlaceholder());
+  
+    tr2.append(west);
+    tr2.append(center);
+    tr2.append(east);
+  
+  
+    tr3.append(makePlaceholder());
+    tr3.append(south);
+    tr3.append(makePlaceholder());
+  
+    const renderOneLocation =(loc, ele)=>{
+      ele.innerHTML ="";
+      ele.dataset.id = loc.id; //holy shit im actually using datasets correctly? instead of using them for lore or jokes? truly lavinraca is the gift that keeps on giving
+  
+      const title = createElementWithClassAndParent("div", ele, "debug-title");
+      title.innerText = `${loc.id}:${loc.humanLabel}`;
+      
+      const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
+      dirs.innerText = `N:${loc.north?loc.north:"_"}, S: ${loc.south?loc.south:"_"}, E: ${loc.east?loc.east:"_"}, W: ${loc.west?loc.west:"_"}`;
+  
+  
+      const gimmick = createElementWithClassAndParent("div", ele, "debug-gimmick");
+      gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
+  
+    }
+  
+    const clearOneLocation =(ele)=>{
+      ele.innerHTML = "";
+      ele.dataset.id =-1; //invalidate it for clicking
+    }
+    
+    const all_locs = [center, north, south, east, west];
+    for(let loc of all_locs){
+      loc.onclick = ()=>{
+        loc.dataset.id > 0 && syncToCenter(all_maze_locations[loc.dataset.id])
+      }
+    }
+  
+    const syncToCenter = (centerLocation)=>{
+      renderOneLocation(centerLocation, center)
+  
+      centerLocation.north ? renderOneLocation(all_maze_locations[centerLocation.north], north):clearOneLocation(north);
+      centerLocation.south ? renderOneLocation(all_maze_locations[centerLocation.south], south):clearOneLocation(south);
+      centerLocation.east ? renderOneLocation(all_maze_locations[centerLocation.east], east):clearOneLocation(east);
+      // :( :( :(
+      centerLocation.west ? renderOneLocation(all_maze_locations[centerLocation.west], west):clearOneLocation(west);
+  
+  
+    }
+  
+    syncToCenter(maze[0])
+  
+    /*
+      render five boxes (NSEW and center), some can be empty
+      for each box that exists, render it (same rendering algorithm, pass where to render to)
+      on click box, load it as center (yes even if center, i don't give a fuckcare)
+    */
+  }
+
+  debugMaze();
+  
+  
+  
+}
+
+
+
+/*
+God of Memory/Stories
+
+emphasize the Harvest's Eyes (which includes the fanart section) here and also last years fanart,
+
+PLUS
+
+little micro fiction about each of last years blorbos:
+
+Terri:
+
+presumably back at eeydol games hq
+peewee hasn't been very active
+so wandas the only one really left causing chaos
+she's probably making games about her horrible experience in a euclidean maze
+corn simulator 3000
+where the joke is its NOT an infinite liminal space of warping geometry
+
+i mean it WAS her job
+she was the one eyedol games employee
+and all they do is either pre-steal games (wanda and the quotidians) or get suspicious amounts of money to do literlaly anything they want if they call it zampanio
+the thing is, SHEs not looping either
+so its less she remembers her time and more
+zampanio flanderizes her to have weird nightmares about corn a lot
+ever since she was a little kid she was afraid of corn mazes, and how ....NORMAL they were
+when she discovers zampanio in her teens its a relief, like reality makes SENSE again by not making sense and she has a weapon against her nightmares
+
+
+eustace:
+eustace gets the same treatment but i feel like it does not even put a dent in him
+like
+corn pun i guess (dent corn)
+but like
+its hard to get MORE burnt out, you know
+maybe it kicks in a little earlier after the corn maze?
+he already hated corn and mazes and halloween and jobs and everything else
+just
+so tired
+the weird dreams about dying over and over don't HELP but its not like he was sleeping well before lavinraca
+eustace is both incredibly powerful and also...
+not gonna do shit with that power
+
+
+
+twig/sam/rava:
+we know twig is having weird dog adventures and getting increasingly likely to ghost rava
+and sam is literally puppeting the comatose body of their big brother around
+i think this would be a fun excuse to dig into that
+and not just have it through johns eyes again and again
+
+
+Camellia: 
+the harvest will have such a WEIRD take on camellia and her cult activities in zampanio
+wow, look how dumb this fake version of me is ,falling for zampanio
+lol
+
+no piper has ever thought any other piper was right about anything ever
+
+eye killer thinks they're all so stupid for not hiding in a hole and stabbing anyone who gets too close
+the innocent thinks they're all so stupid for not just trying to live a normal life
+camellia (aka the Cultist) thinks they're all so stupid for abandoning their cult where they can be the Most Special
+
+and the Harvest thinks they're all so stupid for still being mortals
+slash being inside zampanio
+
+time players, am i right?
+
+the harvest might not actually BE a piper but also she's clearly the best piper
+davepetasprite eat your heart out
+
+
+maccus:
+what about the maccus within the corn maze? the one that was actually puppetted around by tthe scarecrow?
+/*
+
+
+
+
 /*God Of Being Served
 
 https://www.tumblr.com/geryone/691796581599559680?source=share
@@ -62,6 +275,11 @@ when in  balance that means working hard but having strong work life balance
 when not, this means turning into a pet god
 
 entirely helpless without the people praising her and giving her little treats
+*/
+
+/*
+mini games don't care about break time HOWEVER if a command comes thru while she's on break she 
+WILL get all pissy about it, no matter what domain she was practicing
 */
 
 //yes its all a big dumb function, deal with it
@@ -98,6 +316,7 @@ GodOfBeingServed = () => {
   bgMusic.volume=0.31;//halloween number
   //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
   //oh god she's stealing the firefox ram for minecraft
+  //makes god of memory have a whole new meaning
   //caroot is sad face, vegan for only one day, did not enjoy, eustace hates teh corn
   //TODO buttons underneath for raising all of her emotions and also feeding her a lil carrot or a lil fish or a lil ram
   const buttonHolder = createElementWithClassAndParent("div", parent, "god-dialog-button-holder");
@@ -233,6 +452,11 @@ GodOfBeingServed = () => {
     savePersonalFeelingsToStorage();
   }
 
+  /*
+i just realized that Truth hates foxes (doesn't work in firefox)
+while the harvest literally has a fox face for a main screen
+and foxes feed her lots of yummy yummy ram
+  */
 
 
 
