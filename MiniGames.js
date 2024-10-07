@@ -47,16 +47,15 @@ layer themes and dialog on to reflect that
 
 explore last years corn maze but in a new form
 */
-GodOfMazes = ()=>{
-  console.error("JR NOTE: change this key to its final domain, if i see this in anyones save i know they're wastes")
-  if(!personalFeelings["MAZE"]){
-    personalFeelings["MAZE"] = 0;
+GodOfChange = ()=>{
+  if(!personalFeelings["CHANGE"]){
+    personalFeelings["CHANGE"] = 0;
   }
-  personalFeelings["MAZE"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  personalFeelings["CHANGE"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
   container.innerHTML = "";
-  pageTitle.innerText = "The God Of Curiosity/Guiding/Change???";
+  pageTitle.innerText = "The God Of CHANGE";
 
-  truthLog("The God of ???","The Truth is this is a WIP and JR does not yet know which of three domains this might be. If you see this and its supposed to be live, tell JR they forgot to update this.")
+  truthLog("The God of Change, ", "The Truth is the Corn Maze appears again and again. As a discord bot. As a browser game. As a minecraft server. As a different browser game. Always changing, always returning.")
   scarecrowLog("funny meeting you here...")
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");

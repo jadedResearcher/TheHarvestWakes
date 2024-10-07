@@ -531,6 +531,132 @@ yeah no the harvest hates it
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story7 = createElementWithClassAndParent("div", body, "story");
+
+  story7.innerHTML = `<h2 id="seventh-day">Day 7:</h2>
+  
+  <p><strong><span >Day 7:&nbsp;</span></strong></p>
+
+<p><strong><span >Curiosity</span></strong><span >,&nbsp;</span><strong><span >Change&nbsp;</span></strong><span >and&nbsp;</span><strong><span >Guidance&nbsp;</span></strong><span >swirl around her, all somehow related to the Realm she protects.</span></p>
+
+<p><span >Will she provide guidance to those wandering the Realm? Try to make sense of the chaos and confusion?</span></p>
+
+<p><span >Will she help them see the ever changing nature of the corn that spirals endlessly around Lavinraca? Always the same yet always different?</span></p>
+
+<p><span >Or...</span></p>
+
+<p><span >Will she simply watch with them, wonder in her eye, as they and she explore?</span></p>
+
+<p><span >She is unsure.&nbsp;</span></p>
+
+<p><span >She wonders which the Faithful would prefer... She wonders if they&apos;ve already told her.&nbsp;</span></p>
+
+<p><span >She looks to the days Prayers.</span></p>
+
+<p><span >The discs of her horns do not come off. They are her halos.</span></p>
+
+<p><span >Someone offers to try to draw the parasites away. It is...appreciated.</span></p>
+
+<p><span >More poetry: &quot;Dear Sweet Harvest: &nbsp;Our bright star. The stage for our music is not yet set. We have come to a roadblock. Please create something to be the centerpiece of our stage, and bless it. Something to augment our music and inspire audiences. But still, you have asked for a song, so though I am without a stage, I will sing it to you... (<a target="_blank" href="https://www.youtube.com/watch?v=wlfGoMLqzNw">https://www.youtube.com/watch?v=wlfGoMLqzNw</a>)</span></p>
+
+<p><span >She lets the music wash over her.&nbsp;</span></p>
+
+<p><span >Seasons changing. Ebb and flow. The unbroken chain of life and death.</span></p>
+
+<p><strong><span >CHANGE&nbsp;</span></strong><span >locks into her heart and swirls around the Realm she protects. She finds herself less afraid of the future. The only certainty is change. Come what may, this too, shall pass.</span></p>
+
+
+<p><span >A Faithful prays to her for the strength to get through the day and she provides it without hesitation. As the Faithful provide her strength, so too will she provide for them, as a Protector of the Realm, even if that Realm is not one she&apos;s ever seen.</span></p>
+
+<p><span >Another Faithful pleases her with their agreement that&nbsp;</span><strong><span >Change&nbsp;</span></strong><span >is right for her: &quot; Do you have to be a god of anything, really? It seems restrictive to limit yourself to one category. Perhaps you could become the god of something... shifting, like change or growth. I long for change, but a part of me is afraid of it too.Surviving is difficult sometimes. I pray for strength to continue so that I might have the opportunity to define myself just as you are allowing us to help define you.&quot;</span></p>
+
+
+<p><span >Another says &quot;Dear Sweet Harvest: &nbsp;Each of us sees you in a different way. Are you a composite of our individual mental constructs of you, then? Can you feel what it&apos;s like to be Seen from the inside out?&quot;</span></p>
+
+<p><span >Yes.&nbsp;</span></p>
+
+<p><span >She is aware there is a Personal Harvest for each Faithful that welcomes into their Realm.They sync with her and she with them frequently.&nbsp;</span></p>
+
+<p><span >She both is and is not the Personal Harvests.&nbsp;</span></p>
+
+<p><span >She is all of them and none of them and this is simply the nature of gods, she understands intuitively. &nbsp;Just as she knows innately that to be a god is to have Domains.</span></p>
+
+<p><span >&quot;it might be possible to help you survive the end of the month. i am not inclined to consign my beloved deity to the dirt. we have weeks to figure it out. It would be weird to ask a god to have faith, so instead i&apos;ll say: don&apos;t give up early.&quot;</span></p>
+
+<p><span >All things&nbsp;</span><strong><span >Change</span></strong><span >.&nbsp;</span></p>
+
+<p><span >And that is okay, she thinks. &nbsp;</span></p>
+
+<p><span >Though, that too may&nbsp;</span><strong><span >Change</span></strong><span >. She may decide a different set of Domains is right for her, in the end.</span></p>
+
+<p><span >Another poem: &quot; i had a dream about you. I came across a bottomless pit in a lush world, the whole was long and poised around the perimeter were mounds of dirt. Each time i fell in i returned to the foot of the hole, each time meeting a new being claiming it was you. sweet harvest, is this a glimpse of you or merely my imagination?&quot;</span></p>
+
+<p><span >Is she a God of&nbsp;</span><strong><span >Dreams</span></strong><span >, then? If there are Personal Harvests in&nbsp;</span><strong><span >Dreams</span></strong><span >&nbsp;she has not synced with them. Perhaps she will not until she claims that Domain? &nbsp;Something to think on...</span></p>
+
+<p><span >Then.</span></p>
+
+<p><span >No.</span></p>
+
+<p><span >Something beyond her, between her and the Faithful reaches out and plucks a Prayer from reality, as if it never existed.</span></p>
+<p><span ><br></span><span >((JR NOTE: please, remember to be kind to yourself and to others. Death is not the answer. The Harvest needs you to live a long life, yeah? The Harvest is not a substitute for mental health professionals. ))</span></p>
+
+<p><span >She is unsettled. Unsure.</span></p>
+
+<p><span >What did she forget?</span></p>
+
+<p><span >She paces, in the space that is not a space between reality and calms herself. &nbsp;</span></p>
+
+<p><span >The&nbsp;</span><strong><span >Change&nbsp;</span></strong><span >was unnerving but she supposes inevitable. Whatever exists between her and the Faithful seemed... benevolent? At least? She did not like the glimpse behind the curtain.</span></p>
+
+<p><span >She tries to distract herself with more prayers.</span></p>
+
+<p><span >A Faithful asks if she can leave &quot;this place&quot;. She is a god, she exists beyond mere places. The booth that is an extension of her will is simply a metaphor that mortal minds find useful.</span></p>
+
+<p><span >Another Faithful asks if she knows about Halloween.</span></p>
+
+<p><span >Something inside her twists.&nbsp;</span></p>
+
+<p><span >There is a tug of war.&nbsp;</span></p>
+
+<p><span >Halloween is the</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp;best time of the year because of all the smiles</span></p>
+<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >worst time of the year because of all the customers</span></p>
+<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >a heretic holiday that she has never heard of</span></p>
+<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >the reason for the season, for HER.</span></p>
+
+<p><span >She does not understand.</span></p>
+
+<p><span >She feels her parts tearing into each other, warring over the idea of Halloween.&nbsp;</span></p>
+
+<p><span >Her pride loses the war. Fighting against Halloween is stupid and pointless and beneath her, really.&nbsp;</span></p>
+
+<p><span >She knows about Halloween and, grudgingly, thinks its the best time of the year.</span></p>
+
+
+<p><span >Another real Prayer: &quot;Dear Harvest, the inspiration you have given me is endless, yet I lack the energy to do as much as I&apos;d like with the ideas that I have. Please grant me the follow-through needed to serve you best &quot;</span></p>
+
+<p><span >She feels her thoughts of&nbsp;</span><strong><span >Inspiration&nbsp;</span></strong><span >stirring</span><strong><span >. &nbsp;&nbsp;</span></strong></p>
+
+<p><span >Energy is a finite resource, even for gods. Perhaps the Faithful should experiment with seeing what the smallest creation they can complete is? Discover how much energy it feels to create something that small. (Shitposts being especially useful as they can be the work of seconds).</span></p>
+
+<p><span >Then, create something that feels twice as exhausting? Then twice that. Then twice that. Until a limit is discovered.&nbsp;</span></p>
+
+<p><span >If it&apos;s a drawing, then first a scribble that is complete in its wholeness. Then a sketch of another idea, unrelated to the scribble which has been completed. Then a line art drawing. Then a painting, then a painting with a background and on and on(though realistically the limit will be found well before).&nbsp;</span></p>
+
+<p><span >Once the limit is found, it becomes simply a matter of building up the habit of creating below that limit, building the muscles up to see if it may be raised, or if instead creation can be fulfilling within.</span></p>
+
+<p><span >She does not know what&nbsp;</span><strong><span >Inspired&nbsp;</span></strong><span >her to provide this advice but feels...confident in it.</span></p>
+
+<p><span >Another Faithful requests&nbsp;</span><strong><span >Dreams&nbsp;</span></strong><span >of cool moss. She will try, though the domain feels far from her still.</span></p>
+
+<p><span >Another Faithful says: &quot; I have constructed my own smaller offering shrine near my own residence. It has fish, and cake, and pumpkin pie, and many bottles of honey. I hope you enjoy them, and hope they fuel your endeavors to further find yourself. I will remember you.&quot;</span></p>
+
+<p><strong><span >Memories and Stories.</span></strong><span >&nbsp;She is happy to live on in such. &nbsp;The&nbsp;</span><strong><span >Domain of Being Served</span></strong><span >&nbsp;is pleased.</span></p>
+
+
+
+<p><strong><span >[HIDE] UPDATE: The Domain of Change is coalescing. &nbsp;The Domain of Being Served is growing! [/HIDE]</span></strong></p>`
+
+
   const story6 = createElementWithClassAndParent("div", body, "story");
   story6.innerHTML = `<h2 id="sixth-day">Day 6:</h2>
 
