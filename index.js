@@ -618,11 +618,14 @@ yeah no the harvest hates it
 
 <p><span >There is a tug of war.&nbsp;</span></p>
 
-<p><span >Halloween is the</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp;best time of the year because of all the smiles</span></p>
-<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >worst time of the year because of all the customers</span></p>
-<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >a heretic holiday that she has never heard of</span></p>
-<p><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >the reason for the season, for HER.</span></p>
-
+<p><span >Halloween is the</span></p>
+<div style="position:relative">
+...
+<p style="position:absolute; top:-20px"><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >best time of the year because of all the smiles</span></p>
+<p style="position:absolute; top:-20px"><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >worst time of the year because of all the customers</span></p>
+<p style="position:absolute; top:-20px"><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >a heretic holiday that she has never heard of</span></p>
+<p style="position:absolute; top:-20px"><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >&nbsp; &nbsp;&nbsp;</span><span >the reason for the season, for HER.</span></p>
+</div>
 <p><span >She does not understand.</span></p>
 
 <p><span >She feels her parts tearing into each other, warring over the idea of Halloween.&nbsp;</span></p>

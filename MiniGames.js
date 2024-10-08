@@ -45,6 +45,8 @@ this counts for change, guiding and curiosity
 depending on which domain gets enough points to pop first i'll
 layer themes and dialog on to reflect that
 
+looks like change won!
+
 explore last years corn maze but in a new form
 */
 GodOfChange = ()=>{
@@ -59,10 +61,16 @@ GodOfChange = ()=>{
   scarecrowLog("funny meeting you here...")
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
+  parent.style.height="fit-content";
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
   harvest.src = default_harvest;
+
+  const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
+
+  harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  harvestSpeaks.innerText ="What's this? Familiar, yet different..."
 
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
