@@ -71,7 +71,7 @@ GodOfChange = () => {
 
   const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
   harvestSpeaks.innerText = "What's this? Familiar, yet different...What has changed?"
-  harvestSpeaks.style.minHeight="100px";
+  harvestSpeaks.style.minHeight = "100px";
 
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
@@ -156,20 +156,23 @@ GodOfChange = () => {
       // const gimmick = createElementWithClassAndParent("div", ele, "debug-gimmick");
       //gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
       if (loc.gimmickID && center) {
+        personalFeelings[CURIOUS] += 13; //she's glad you're feeding her curiosity
         harvestSpeaks.innerText = "I see..." + loc.gimmickID;
         console.log("JR NOTE: loc", loc)
         if (loc.video) {
           tv.src = "videos/protector_of_the_realm/" + loc.video;
           tv.play();
         }
-
         if (loc.quip) {
-          harvestSpeaks.innerText = loc.quip;
+          harvestSpeaks.innerHTML = loc.quip;
         } else {
           harvestSpeaks.innerText = "I see...JR2" + loc.gimmickID;
         }
       } else if (center) {
         harvestSpeaks.innerText = "...Getting tired of corn.";
+        tv.src = "videos/protector_of_the_realm/entrance.mp4";
+        tv.play();
+
       }
 
     }
@@ -217,22 +220,22 @@ GodOfChange = () => {
 
 /*
 God of Memory/Stories
-
+ 
 emphasize the Harvest's Eyes (which includes the fanart section) here and also last years fanart,
-
+ 
 PLUS
-
+ 
 little micro fiction about each of last years blorbos:
-
+ 
 Terri:
-
+ 
 presumably back at eeydol games hq
 peewee hasn't been very active
 so wandas the only one really left causing chaos
 she's probably making games about her horrible experience in a euclidean maze
 corn simulator 3000
 where the joke is its NOT an infinite liminal space of warping geometry
-
+ 
 i mean it WAS her job
 she was the one eyedol games employee
 and all they do is either pre-steal games (wanda and the quotidians) or get suspicious amounts of money to do literlaly anything they want if they call it zampanio
@@ -241,8 +244,8 @@ so its less she remembers her time and more
 zampanio flanderizes her to have weird nightmares about corn a lot
 ever since she was a little kid she was afraid of corn mazes, and how ....NORMAL they were
 when she discovers zampanio in her teens its a relief, like reality makes SENSE again by not making sense and she has a weapon against her nightmares
-
-
+ 
+ 
 eustace:
 eustace gets the same treatment but i feel like it does not even put a dent in him
 like
@@ -256,54 +259,54 @@ so tired
 the weird dreams about dying over and over don't HELP but its not like he was sleeping well before lavinraca
 eustace is both incredibly powerful and also...
 not gonna do shit with that power
-
-
-
+ 
+ 
+ 
 twig/sam/rava:
 we know twig is having weird dog adventures and getting increasingly likely to ghost rava
 and sam is literally puppeting the comatose body of their big brother around
 i think this would be a fun excuse to dig into that
 and not just have it through johns eyes again and again
-
-
+ 
+ 
 Camellia: 
 the harvest will have such a WEIRD take on camellia and her cult activities in zampanio
 wow, look how dumb this fake version of me is ,falling for zampanio
 lol
-
+ 
 no piper has ever thought any other piper was right about anything ever
-
+ 
 eye killer thinks they're all so stupid for not hiding in a hole and stabbing anyone who gets too close
 the innocent thinks they're all so stupid for not just trying to live a normal life
 camellia (aka the Cultist) thinks they're all so stupid for abandoning their cult where they can be the Most Special
-
+ 
 and the Harvest thinks they're all so stupid for still being mortals
 slash being inside zampanio
-
+ 
 time players, am i right?
-
+ 
 the harvest might not actually BE a piper but also she's clearly the best piper
 davepetasprite eat your heart out
-
-
+ 
+ 
 maccus:
 what about the maccus within the corn maze? the one that was actually puppetted around by tthe scarecrow?
 /*
-
-
-
-
+ 
+ 
+ 
+ 
 /*God Of Being Served
-
+ 
 https://www.tumblr.com/geryone/691796581599559680?source=share
-
-
+ 
+ 
 this
 this is what im thinking
 this is it
 the harvest rots if it is not put to use 
 like  corn or whatever, but our gurl too
-
+ 
 like
 its a trick question
 its both, if you dont stay in balance
@@ -313,7 +316,7 @@ i think
 eustace wants to do as little as possible and camellia wants to be praised
 when in  balance that means working hard but having strong work life balance 
 when not, this means turning into a pet god
-
+ 
 entirely helpless without the people praising her and giving her little treats
 */
 
