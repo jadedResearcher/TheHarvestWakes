@@ -49,8 +49,8 @@ looks like change won!
 
 explore last years corn maze but in a new form
 */
-GodOfChange = ()=>{
-  if(!personalFeelings["CHANGE"]){
+GodOfChange = () => {
+  if (!personalFeelings["CHANGE"]) {
     personalFeelings["CHANGE"] = 0;
   }
   personalFeelings["CHANGE"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
@@ -61,7 +61,7 @@ GodOfChange = ()=>{
   scarecrowLog("funny meeting you here...")
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
-  parent.style.height="fit-content";
+  parent.style.height = "fit-content";
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
@@ -70,7 +70,7 @@ GodOfChange = ()=>{
   const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
 
   harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
-  harvestSpeaks.innerText ="What's this? Familiar, yet different..."
+  harvestSpeaks.innerText = "What's this? Familiar, yet different..."
 
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
@@ -85,18 +85,18 @@ GodOfChange = ()=>{
 
   bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
   bgMusic.play();
-  bgMusic.volume=0.31;
+  bgMusic.volume = 0.31;
 
-  const debugMaze = async ()=>{
+  const debugMaze = async () => {
     const maze = await slurpFromNetwork();
-    console.log("JR NOTE: maze",maze)
-    
+    console.log("JR NOTE: maze", maze)
+
     const table = createElementWithClassAndParent("table", parent, "debug-table");
     const tr1 = createElementWithClassAndParent("tr", table);
     const tr2 = createElementWithClassAndParent("tr", table);
     const tr3 = createElementWithClassAndParent("tr", table);
-  
-    const makePlaceholder = ()=>{
+
+    const makePlaceholder = () => {
       return createElementWithClassAndParent("td", parent, "debug debug-empty")
     }
     const center = createElementWithClassAndParent("td", table, "debug debug-center");
@@ -105,68 +105,81 @@ GodOfChange = ()=>{
     const south = createElementWithClassAndParent("td", table, "debug debug-south");
     //gross, imagine west being a real direction
     const west = createElementWithClassAndParent("td", table, "debug debug-west");
-  
-  
+
+
     parent.append(table);
     table.append(tr1);
     table.append(tr2);
     table.append(tr3);
-  
+
     tr1.append(makePlaceholder());
     tr1.append(north);
     tr1.append(makePlaceholder());
-  
+
     tr2.append(west);
     tr2.append(center);
     tr2.append(east);
-  
-  
+
+
     tr3.append(makePlaceholder());
     tr3.append(south);
     tr3.append(makePlaceholder());
-  
-    const renderOneLocation =(loc, ele)=>{
-      ele.innerHTML ="";
-      ele.dataset.id = loc.id; //holy shit im actually using datasets correctly? instead of using them for lore or jokes? truly lavinraca is the gift that keeps on giving
-  
-      const title = createElementWithClassAndParent("div", ele, "debug-title");
-      title.innerText = `${loc.id}:${loc.humanLabel}`;
-      
-      const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
-      dirs.innerText = `N:${loc.north?loc.north:"_"}, S: ${loc.south?loc.south:"_"}, E: ${loc.east?loc.east:"_"}, W: ${loc.west?loc.west:"_"}`;
-  
-  
-      const gimmick = createElementWithClassAndParent("div", ele, "debug-gimmick");
-      gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
-  
-    }
-  
-    const clearOneLocation =(ele)=>{
+
+    const renderOneLocation = (loc, ele, center) => {
       ele.innerHTML = "";
-      ele.dataset.id =-1; //invalidate it for clicking
+      ele.dataset.id = loc.id; //holy shit im actually using datasets correctly? instead of using them for lore or jokes? truly lavinraca is the gift that keeps on giving
+
+      /*
+      since this is change not guidance, don't display whats in non central locations or 
+      even make it easy to get around
+      */
+      if (center) {
+        const title = createElementWithClassAndParent("div", ele, "debug-title");
+        let cornSass = ["More Corn", "Corn", "Corn", "Corn", "Corn", "Corn", "Guess What, Corn", "I dunno, Corn?", "Corn"]
+        title.innerText = `${loc.id}:${(loc.gimmickID ? loc.gimmickID : pickFrom(cornSass))}`;
+
+        //const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
+        //dirs.innerText = `N:${loc.north?loc.north:"_"}, S: ${loc.south?loc.south:"_"}, E: ${loc.east?loc.east:"_"}, W: ${loc.west?loc.west:"_"}`;
+
+      } else{
+        const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
+        dirs.innerText = "Click To Move Here"
+      }
+
+      // const gimmick = createElementWithClassAndParent("div", ele, "debug-gimmick");
+      //gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
+      if (loc.gimmickID) {
+        harvestSpeaks.innerText = "I see..." + loc.gimmickID;
+      }
+
     }
-    
+
+    const clearOneLocation = (ele) => {
+      ele.innerHTML = "";
+      ele.dataset.id = -1; //invalidate it for clicking
+    }
+
     const all_locs = [center, north, south, east, west];
-    for(let loc of all_locs){
-      loc.onclick = ()=>{
+    for (let loc of all_locs) {
+      loc.onclick = () => {
         loc.dataset.id > 0 && syncToCenter(all_maze_locations[loc.dataset.id])
       }
     }
-  
-    const syncToCenter = (centerLocation)=>{
-      renderOneLocation(centerLocation, center)
-  
-      centerLocation.north ? renderOneLocation(all_maze_locations[centerLocation.north], north):clearOneLocation(north);
-      centerLocation.south ? renderOneLocation(all_maze_locations[centerLocation.south], south):clearOneLocation(south);
-      centerLocation.east ? renderOneLocation(all_maze_locations[centerLocation.east], east):clearOneLocation(east);
+
+    const syncToCenter = (centerLocation) => {
+      renderOneLocation(centerLocation, center, true)
+
+      centerLocation.north ? renderOneLocation(all_maze_locations[centerLocation.north], north, false) : clearOneLocation(north);
+      centerLocation.south ? renderOneLocation(all_maze_locations[centerLocation.south], south, false) : clearOneLocation(south);
+      centerLocation.east ? renderOneLocation(all_maze_locations[centerLocation.east], east, false) : clearOneLocation(east);
       // :( :( :(
-      centerLocation.west ? renderOneLocation(all_maze_locations[centerLocation.west], west):clearOneLocation(west);
-  
-  
+      centerLocation.west ? renderOneLocation(all_maze_locations[centerLocation.west], west, false) : clearOneLocation(west);
+
+
     }
-  
+
     syncToCenter(maze[0])
-  
+
     /*
       render five boxes (NSEW and center), some can be empty
       for each box that exists, render it (same rendering algorithm, pass where to render to)
@@ -175,9 +188,9 @@ GodOfChange = ()=>{
   }
 
   debugMaze();
-  
-  
-  
+
+
+
 }
 
 
@@ -291,11 +304,11 @@ WILL get all pissy about it, no matter what domain she was practicing
 
 //yes its all a big dumb function, deal with it
 GodOfBeingServed = () => {
-  if(!personalFeelings["BEINGSERVED"]){
+  if (!personalFeelings["BEINGSERVED"]) {
     personalFeelings["BEINGSERVED"] = 0;
   }
   personalFeelings["BEINGSERVED"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
-  truthLog("The God of Being Served","The Truth is...the Camellia within fears the stagnation of no longer being of use even as she craves the validation. Alone, she would never become a Pet God for you, Guest... but the Eustace within craves to do as litle as possible and does not see the problem. The Harvest is happy like this, but is that her highest purpose?")
+  truthLog("The God of Being Served", "The Truth is...the Camellia within fears the stagnation of no longer being of use even as she craves the validation. Alone, she would never become a Pet God for you, Guest... but the Eustace within craves to do as litle as possible and does not see the problem. The Harvest is happy like this, but is that her highest purpose?")
   scarecrowLog("... feed her. feed us. im so hungry...")
   container.innerHTML = "";
   pageTitle.innerText = "The God Of Being Served";
@@ -320,7 +333,7 @@ GodOfBeingServed = () => {
 
   bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
   bgMusic.play();
-  bgMusic.volume=0.31;//halloween number
+  bgMusic.volume = 0.31;//halloween number
   //you can feed the harvest fish, carrots and ram (its the scarecrow in her, so hungry) (feed her all your firefox ram)
   //oh god she's stealing the firefox ram for minecraft
   //makes god of memory have a whole new meaning
@@ -355,17 +368,17 @@ GodOfBeingServed = () => {
 
   }
 
-  setInterval(()=>{
+  setInterval(() => {
     frame1()
-  },500)
+  }, 500)
 
-  setInterval(()=>{
+  setInterval(() => {
     frame2()
-  },1000)
+  }, 1000)
 
-  setInterval(()=>{
+  setInterval(() => {
     frame3()
-  },1500)
+  }, 1500)
 
 
 
@@ -379,34 +392,34 @@ GodOfBeingServed = () => {
     }
   }
 
-  const restoreDefaultVideo = ()=>{
-    tv.loop=true;
+  const restoreDefaultVideo = () => {
+    tv.loop = true;
     tv.src = "videos/happy_fox_spin.mp4";
     tv.removeEventListener("ended", restoreDefaultVideo);
   }
 
 
-  const temporaryNewVideo = (src)=>{
+  const temporaryNewVideo = (src) => {
     tv.loop = false;
     tv.src = src;
     tv.addEventListener("ended", restoreDefaultVideo);
 
   }
 
-  const handleStatChange = (x,y,key,amount)=>{
+  const handleStatChange = (x, y, key, amount) => {
     const statElement = createElementWithClassAndParent("div", shop, "transition");
-    statElement.innerText = `${amount>0?"+":""}${amount} ${key}`;
+    statElement.innerText = `${amount > 0 ? "+" : ""}${amount} ${key}`;
     statElement.style.cssText = `
     position: absolute;
     left: ${x}px;
     top: ${y}px;
     z-index: 113;
-    color: ${amount>0?"green":"red"}`;
-    setTimeout(()=>statElement.remove(), 3000)
+    color: ${amount > 0 ? "green" : "red"}`;
+    setTimeout(() => statElement.remove(), 3000)
     personalFeelings[key] += amount;
   }
 
-  const wiggle = ()=> getRandomNumberBetween(-100,275);
+  const wiggle = () => getRandomNumberBetween(-100, 275);
 
   //lowers compassion, lowers curious, raises energy, raises happy (reminds her of the Sacrifice that created her but also nourishes the scarecrow within (upsetting))
   const meatButton = createElementWithClassAndParent("button", buttonHolder);
@@ -414,10 +427,10 @@ GodOfBeingServed = () => {
   wireHover(meatButton)
   meatButton.onclick = () => {
     temporaryNewVideo("videos/meat.mp4")
-    handleStatChange(130+wiggle(),40,ENERGETIC,13);
-    handleStatChange(145+wiggle(),60,HAPPY,13);
-    handleStatChange(100+wiggle(),80,COMPASSIONATE,-13);
-    handleStatChange(115+wiggle(),100,CURIOUS,-13);
+    handleStatChange(130 + wiggle(), 40, ENERGETIC, 13);
+    handleStatChange(145 + wiggle(), 60, HAPPY, 13);
+    handleStatChange(100 + wiggle(), 80, COMPASSIONATE, -13);
+    handleStatChange(115 + wiggle(), 100, CURIOUS, -13);
 
     savePersonalFeelingsToStorage();
   }
@@ -428,9 +441,9 @@ GodOfBeingServed = () => {
   wireHover(fishButton)
   fishButton.onclick = () => {
     temporaryNewVideo("videos/fish.mp4");
-    handleStatChange(130+wiggle(),40,HAPPY,13);
-    handleStatChange(115+wiggle(),60,CURIOUS,13);
-    handleStatChange(115+wiggle(),80,COMPASSIONATE,-13);
+    handleStatChange(130 + wiggle(), 40, HAPPY, 13);
+    handleStatChange(115 + wiggle(), 60, CURIOUS, 13);
+    handleStatChange(115 + wiggle(), 80, COMPASSIONATE, -13);
 
     savePersonalFeelingsToStorage();
   }
@@ -441,8 +454,8 @@ GodOfBeingServed = () => {
   carrotButton.innerText = "Feed Her Carrots";
   wireHover(carrotButton)
   carrotButton.onclick = () => {
-    handleStatChange(130+wiggle(),40,COMPASSIONATE,26);
-    handleStatChange(115+wiggle(),60,PRIDEFUL,-26);
+    handleStatChange(130 + wiggle(), 40, COMPASSIONATE, 26);
+    handleStatChange(115 + wiggle(), 60, PRIDEFUL, -26);
     savePersonalFeelingsToStorage();
     temporaryNewVideo("videos/carrot.mp4");
   }
@@ -453,9 +466,9 @@ GodOfBeingServed = () => {
   wireHover(ramButton)
   ramButton.onclick = () => {
     temporaryNewVideo("videos/ram.mp4");
-    handleStatChange(130+wiggle(),40,ENERGETIC,113);
-    handleStatChange(130+wiggle(),60,HAPPY,113);
-    handleStatChange(115+wiggle(),80,PRIDEFUL,-13);
+    handleStatChange(130 + wiggle(), 40, ENERGETIC, 113);
+    handleStatChange(130 + wiggle(), 60, HAPPY, 113);
+    handleStatChange(115 + wiggle(), 80, PRIDEFUL, -13);
     savePersonalFeelingsToStorage();
   }
 
@@ -473,23 +486,23 @@ and foxes feed her lots of yummy yummy ram
   happyButton.innerText = "Praise Her";
   wireHover(happyButton)
   happyButton.onclick = () => {
-    handleStatChange(130+wiggle(),40,PRIDEFUL,113);
-    handleStatChange(130+wiggle(),60,HAPPY,13);
-    handleStatChange(130+wiggle(),80,CURIOUS,-13);
-    handleStatChange(130+wiggle(),100,ENERGETIC,-13);
-    handleStatChange(130+wiggle(),120,COMPASSIONATE,-13);
+    handleStatChange(130 + wiggle(), 40, PRIDEFUL, 113);
+    handleStatChange(130 + wiggle(), 60, HAPPY, 13);
+    handleStatChange(130 + wiggle(), 80, CURIOUS, -13);
+    handleStatChange(130 + wiggle(), 100, ENERGETIC, -13);
+    handleStatChange(130 + wiggle(), 120, COMPASSIONATE, -13);
 
     temporaryNewVideo("videos/heart.mp4");
   }
 
   const domainParent = createElementWithClassAndParent("div", container, "dialog-parent");
   domainParent.id = "domain";
-  domainParent.style.marginTop="100px"
+  domainParent.style.marginTop = "100px"
   const domainEle = createElementWithClassAndParent("div", domainParent, "god-dialog");
 
   const returnButton = createElementWithClassAndParent("button", domainEle);
   returnButton.innerText = "Stop Experiment";
-  returnButton.onclick=theHarvestWakes;
+  returnButton.onclick = theHarvestWakes;
 
 
   //the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its

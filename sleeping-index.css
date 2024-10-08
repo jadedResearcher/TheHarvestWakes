@@ -1578,17 +1578,23 @@ button:active {
 .debug-table {
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 300px;
   display: block;
   color: var(--main-bg-color);
 }
 
 .debug-table td {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-color: gray;
   text-align: center;
   cursor: pointer;
+
+  
+}
+
+.debug-table td [data-id="-1"] {
+  opacity: 0.1;
 }
 
 .debug-table .debug-empty {
