@@ -8,9 +8,10 @@ let unique_gimmicks = 0;
 //if you know how to navigate my code, that is
 //its mazes all the way down :) :) :)
 const slurpFromNetwork = async ()=>{ 
-  const url = 'http://lavinraca.eyedolgames.com/Corn/maze.json'  //stretch goal, multiple sources :) :) :)
+  const url = 'http://lavinraca.eyedolgames.com/maze.json'  //stretch goal, multiple sources :) :) :)
   const rawText = await httpGetAsync(url);
-  return JSON.parse(rawText).map((m)=>new MazeLocation(m.humanLabel, m.id, m.north, m.south, m.east, m.west, m.gimmickID));
+  console.log("JR NOTE: rawText", rawText)
+  return JSON.parse(rawText).map((m)=>new MazeLocation(m.humanLabel, m.id, m.north, m.south, m.east, m.west, m.gimmickID, m.quip, m.video));
   
 
 }
@@ -113,15 +114,19 @@ class MazeLocation{
   north;
   south;
   east;
+  quip;
+  video;
   west;//gross
   gimmickID; //TODO have a map of gimmic ids and functions to call
 
 
   //https://www.youtube.com/watch?v=Uo3cL4nrGOk <-- this is literally my day job, and yall wonder why i make cathartic spiralling labyrinths out of my code
   //coding is vent art for me
-  constructor(humanLabel,id,north,south,east,west,gimmickID){
+  constructor(humanLabel,id,north,south,east,west,gimmickID, quip, video){
     this.humanLabel = humanLabel;
     this.id = id;
+    this.quip = quip;
+    this.video = video;
     this.north = north;
     this.east = east;
     this.south = south;

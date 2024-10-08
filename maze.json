@@ -138,7 +138,9 @@
     "humanLabel": "close-deadend",
     "id": 22,
     "south": 21,
-    "gimmickID": "outhouse"
+    "gimmickID": "outhouse",
+    "quip":"... I wonder what happened to the Kid? Hope they found the bathroom...",
+    "video":"outhouse.mp4"
   },
   {
     "humanLabel": "everywhere but east",

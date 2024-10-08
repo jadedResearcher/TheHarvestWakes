@@ -1478,6 +1478,15 @@ button:active {
   top: 61px;
 }
 
+.shop .change-harvest {
+  width: 640px;
+  z-index: 1;
+  left: 0px;
+  height: 330px;
+  bottom: 0px;
+  background-size: cover;
+}
+
 .big-lady {
   width: 100%;
   margin-left: auto;
@@ -1580,20 +1589,20 @@ button:active {
   margin-right: auto;
   width: 300px;
   display: block;
-  color: var(--main-bg-color);
+  color: black;
 }
 
 .debug-table td {
   width: 100px;
   height: 100px;
-  background-color: gray;
+  background-color: #a1b234;
   text-align: center;
   cursor: pointer;
 
   
 }
 
-.debug-table td [data-id="-1"] {
+[data-id="-1"] {
   opacity: 0.1;
 }
 

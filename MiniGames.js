@@ -64,13 +64,14 @@ GodOfChange = () => {
   parent.style.height = "fit-content";
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
-  const harvest = createElementWithClassAndParent("img", shop, "harvest");
-  harvest.src = default_harvest;
+  const harvest = createElementWithClassAndParent("img", shop, "harvest change-harvest");
+  harvest.style.backgroundImage = "url(images/source_images/rested_harvest_clear.png)";
 
   const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
 
-  harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
-  harvestSpeaks.innerText = "What's this? Familiar, yet different..."
+  const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  harvestSpeaks.innerText = "What's this? Familiar, yet different...What has changed?"
+  harvestSpeaks.style.minHeight="100px";
 
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
@@ -81,6 +82,12 @@ GodOfChange = () => {
   tv.src = "videos/happy_fox_spin.mp4";
   tv.autoplay = true;
   tv.loop = true;
+  tv.style.cssText = `width: 216px;
+    sposition: absolute;
+    top: 174px;
+    left: 238px;
+    height: 133px;
+    z-index: 0;`;
 
 
   bgMusic.src = "http://farragofiction.com/CatalystsBathroomSim/EAST/SOUTH/EAST/NORTH/NORTH/NORTH/audio/music/get_it_because_pipe_organ.mp3";
@@ -135,21 +142,34 @@ GodOfChange = () => {
       */
       if (center) {
         const title = createElementWithClassAndParent("div", ele, "debug-title");
-        let cornSass = ["More Corn", "Corn", "Corn", "Corn", "Corn", "Corn", "Guess What, Corn", "I dunno, Corn?", "Corn"]
+        let cornSass = ["More Corn", "Corn", "Corn", "Corn", "Corn", "Corn", "Corn?", "Corn...", "Corn", "More Corn"]
         title.innerText = `${loc.id}:${(loc.gimmickID ? loc.gimmickID : pickFrom(cornSass))}`;
 
         //const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
         //dirs.innerText = `N:${loc.north?loc.north:"_"}, S: ${loc.south?loc.south:"_"}, E: ${loc.east?loc.east:"_"}, W: ${loc.west?loc.west:"_"}`;
 
-      } else{
+      } else {
         const dirs = createElementWithClassAndParent("div", ele, "debug-dirs");
         dirs.innerText = "Click To Move Here"
       }
 
       // const gimmick = createElementWithClassAndParent("div", ele, "debug-gimmick");
       //gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
-      if (loc.gimmickID) {
+      if (loc.gimmickID && center) {
         harvestSpeaks.innerText = "I see..." + loc.gimmickID;
+        console.log("JR NOTE: loc", loc)
+        if (loc.video) {
+          tv.src = "videos/protector_of_the_realm/" + loc.video;
+          tv.play();
+        }
+
+        if (loc.quip) {
+          harvestSpeaks.innerText = loc.quip;
+        } else {
+          harvestSpeaks.innerText = "I see...JR2" + loc.gimmickID;
+        }
+      } else if (center) {
+        harvestSpeaks.innerText = "...Getting tired of corn.";
       }
 
     }
