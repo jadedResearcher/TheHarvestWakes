@@ -66,7 +66,7 @@ GodOfChange = () => {
   container.innerHTML = "";
   pageTitle.innerText = "The God Of CHANGE";
 
-  truthLog("The God of Change, ", "The Truth is the Corn Maze appears again and again. As a discord bot. As a browser game. As a minecraft server. As a different browser game. Always changing, always returning.")
+  truthLog("The God of Change, ", "The Truth is the Corn Maze appears again and again. As a discord bot. As a browser game. As a minecraft server. As a different browser game. Always changing, always returning.\n\nThis mini game grows the Harvest's Curiosity.")
   scarecrowLog("funny meeting you here...")
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
@@ -360,7 +360,7 @@ GodOfBeingServed = () => {
     personalFeelings["BEINGSERVED"] = 0;
   }
   personalFeelings["BEINGSERVED"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
-  truthLog("The God of Being Served", "The Truth is...the Camellia within fears the stagnation of no longer being of use even as she craves the validation. Alone, she would never become a Pet God for you, Guest... but the Eustace within craves to do as litle as possible and does not see the problem. The Harvest is happy like this, but is that her highest purpose?")
+  truthLog("The God of Being Served", "The Truth is...the Camellia within fears the stagnation of no longer being of use even as she craves the validation. Alone, she would never become a Pet God for you, Guest... but the Eustace within craves to do as litle as possible and does not see the problem. The Harvest is happy like this, but is that her highest purpose?\n\nThis minigame grows all the Harvest's stats.")
   scarecrowLog("... feed her. feed us. im so hungry...")
   container.innerHTML = "";
   pageTitle.innerText = "The God Of Being Served";
