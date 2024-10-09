@@ -15,7 +15,9 @@
     "humanLabel": "only-right",
     "id": 3,
     "south": 2,
-    "gimmickID": "ring"
+    "gimmickID": "ring",
+    "video": "ring.mp4",
+    "quip": "Things change...<br><br>The ring that formed the basis of the browser corn maze is rotting away.s"
   },
   {
     "humanLabel": "upper-right-corner",
@@ -55,7 +57,9 @@
     "north": 7,
     "south": 10,
     "west": 31,
-    "gimmickID": "balloon"
+    "gimmickID": "balloon",
+    "quip": "The corn maze was first on discord.<br><Br>Then, in a browser game that birthed me through sacrifice.<br><br>Then, in the Realm I protect.<br><br>Now, a shadow of it is here.<br><br>Ever changing.<br>What will your corn maze be like, Faithful?",
+    "video": "balloon.mp4"
   },
   {
     "humanLabel": "all",
@@ -90,13 +94,17 @@
     "humanLabel": "close-deadend",
     "id": 14,
     "south": 13,
-    "gimmickID": "circus"
+    "gimmickID": "circus",
+    "quip": "What lies behind the Maccus mask is ever changing.<br><br>Is it me? The Scarecrow? You?<br><br>Only the Smile is constant.",
+    "video": "circus.mp4"
   },
   {
     "humanLabel": "close-deadend",
     "id": 15,
     "south": 13,
-    "gimmickID": "well"
+    "gimmickID": "well",
+    "quip": "It calls to me. Something that changes where you are, even as its hard to tell this is the case. <br><br>It does not do this here. But it does it in other places. <br><br>The past. <br><br>The Realm I protect.",
+    "video": "well.mp4"
   },
   {
     "humanLabel": "close-deadend",
@@ -115,7 +123,6 @@
     "east": 5,
     "north": 20
   },
-
   {
     "humanLabel": "close-deadend",
     "id": 19,
@@ -139,8 +146,8 @@
     "id": 22,
     "south": 21,
     "gimmickID": "outhouse",
-    "quip":"... I wonder what happened to the Kid? Hope they found the bathroom...<br><br>Twig...they changed, didn't they? Into a beast. Two kinds...",
-    "video":"outhouse.mp4"
+    "quip": "... I wonder what happened to the Kid? Hope they found the bathroom...<br><br>Twig...they changed, didn't they? Into a beast. Two kinds...",
+    "video": "outhouse.mp4"
   },
   {
     "humanLabel": "everywhere but east",
@@ -160,7 +167,9 @@
     "humanLabel": "close-deadend",
     "id": 25,
     "south": 24,
-    "gimmickID": "candy"
+    "gimmickID": "candy",
+    "quip": "The sweet taste...Repulsive to me, yet how I crave it. Am I changing?",
+    "video": "candy.mp4"
   },
   {
     "humanLabel": "close-deadend",
@@ -183,7 +192,9 @@
     "humanLabel": "close-deadend",
     "id": 29,
     "south": 28,
-    "gimmickID": "well"
+    "gimmickID": "well",
+    "quip": "It calls to me. Something that changes where you are, even as its hard to tell this is the case. <br><br>It does not do this here. But it does it in other places. <br><br>The past. <br><br>The Realm I protect.",
+    "video": "well.mp4"
   },
   {
     "humanLabel": "anywhere-but-right",
@@ -217,7 +228,9 @@
     "west": 46,
     "east": 32,
     "north": 35,
-    "gimmickID": "cat"
+    "gimmickID": "cat",
+    "quip": "The cats bring me meat in the Realm I protect.<br><br>Will even that Change, one day, I wonder?",
+    "video": "cats.mp4"
   },
   {
     "humanLabel": "everywhere but north",
@@ -262,7 +275,9 @@
     "humanLabel": "close-deadend",
     "id": 41,
     "south": 40,
-    "gimmickID": "well"
+    "gimmickID": "well",
+    "quip": "It calls to me. Something that changes where you are, even as its hard to tell this is the case. <br><br>It does not do this here. But it does it in other places. <br><br>The past. <br><br>The Realm I protect.",
+    "video": "well.mp4"
   },
   {
     "humanLabel": "everything and infinite loop to south",
@@ -290,9 +305,10 @@
     "humanLabel": "close-deadend",
     "id": 45,
     "south": 44,
-    "gimmickID": "manor"
+    "gimmickID": "manor",
+    "quip": "I was born outside in a field.<br><br>Now I am outside in an alleyway...<br><br>What a Change it would be to be inside a house large enough to fit me.",
+    "video": "mansion.mp4"
   },
-
   {
     "humanLabel": "close-deadend",
     "id": 131,
@@ -310,7 +326,9 @@
     "humanLabel": "close-deadend",
     "id": 47,
     "south": 42,
-    "gimmickID": "candy"
+    "gimmickID": "candy",
+    "quip": "The sweet taste...Repulsive to me, yet how I crave it. Am I changing?",
+    "video": "candy.mp4"
   },
   {
     "humanLabel": "everything but south",
@@ -329,7 +347,9 @@
     "humanLabel": "close-deadend",
     "id": 50,
     "south": 49,
-    "gimmickID": "candy"
+    "gimmickID": "candy",
+    "quip": "The sweet taste...Repulsive to me, yet how I crave it. Am I changing?",
+    "video": "candy.mp4"
   },
   {
     "humanLabel": "everywhere but north",
@@ -348,7 +368,9 @@
     "humanLabel": "close-deadend",
     "id": 53,
     "south": 52,
-    "gimmickID": "garden"
+    "gimmickID": "garden",
+    "quip":"Flowers for the dead...",
+    "video":"garden.mp4"
   },
   {
     "humanLabel": "everything but left",
@@ -392,7 +414,7 @@
     "humanLabel": "close-deadend",
     "id": 60,
     "south": 59,
-    "east":61
+    "east": 61
   },
   {
     "humanLabel": "everything but south",
@@ -400,7 +422,9 @@
     "west": 60,
     "north": 62,
     "east": 72,
-    "gimmickID": "black_mass"
+    "gimmickID": "black_mass",
+    "quip":"Where I was born. Where I remember dying dozens of times...<br><br>How it has changed.<br><br>Now things die in my name.",
+    "video":"ritual.mp4"
   },
   {
     "humanLabel": "hallway",
@@ -426,7 +450,8 @@
     "humanLabel": "close-deadend",
     "id": 65,
     "south": 64,
-    "gimmickID": "key"
+    "gimmickID": "key",
+    "quip":"Where did this lead to? <br><br>I knew once...<br><br>Now it is merely an echo."
   },
   {
     "humanLabel": "upper-left-corner",
@@ -451,7 +476,9 @@
     "humanLabel": "close-deadend",
     "id": 69,
     "south": 68,
-    "gimmickID": "drivethrough"
+    "gimmickID": "drivethrough",
+    "quip":"In the browser corn maze, this was an experiment that eventually lead to the video playing within me.<br><br>Time marches forward, ever changing, ever improving.",
+    "video":"drivethru"
   },
   {
     "humanLabel": "upper-right-corner",
@@ -494,7 +521,9 @@
     "humanLabel": "close-deadend",
     "id": 76,
     "south": 75,
-    "gimmickID": "well"
+    "gimmickID": "well",
+    "quip": "It calls to me. Something that changes where you are, even as its hard to tell this is the case. <br><br>It does not do this here. But it does it in other places. <br><br>The past. <br><br>The Realm I protect.",
+    "video": "well.mp4"
   },
   {
     "humanLabel": "everything but south",
@@ -526,21 +555,26 @@
     "humanLabel": "left-and-right-only",
     "id": 81,
     "west": 80,
-    "gimmickID": "bookcase"
+    "gimmickID": "bookcase",
+    "quip":"There was a secret here, wasn't there...",
+    "video":"bookshelf.mp4"
   },
   {
     "humanLabel": "left-and-right-only",
     "id": 82,
     "west": 81,
     "east": 83,
-    "gimmickID": "lock"
+    "gimmickID": "lock",
+    "quip":"This form of the corn maze has no locks nor keys.<br><br>An echo of what was and what is.",
+    "video":"gate.mp4"
   },
   {
     "humanLabel": "bottom-right-corner",
     "id": 83,
     "north": 80,
     "west": 84
-  },  {
+  },
+  {
     "humanLabel": "bottom-right-corner",
     "id": 108,
     "north": 80,
@@ -551,7 +585,7 @@
     "id": 84,
     "north": 85,
     "east": 108,
-    "west":103
+    "west": 103
   },
   {
     "humanLabel": "upper-right-corner",
@@ -591,7 +625,8 @@
     "id": 90,
     "west": 89,
     "east": 79,
-    "gimmickID": "hand"
+    "gimmickID": "hand",
+    "quip":"Ring onto the hand, that was the puzzle, in the browser game and the discord game... And in the West, though I do not know how I know this...<br><br> Wait. <br>Twig.<br> Twig...DID make it to the outhouse? Oh no... Oh no why did I not know this before. That poor kid... What happened to them..."
   },
   {
     "humanLabel": "upper-left-corner",
@@ -686,23 +721,26 @@
     "id": 104,
     "south": 105,
     "east": 86
-  },{
+  },
+  {
     "humanLabel": "bottom-left-corner",
     "id": 105,
     "north": 104,
     "east": 106
   },
-
   {
     "humanLabel": "close-deadend",
     "id": 106,
     "south": 105,
-    "gimmickID": "well"
+    "gimmickID": "well",
+    "quip": "It calls to me. Something that changes where you are, even as its hard to tell this is the case. <br><br>It does not do this here. But it does it in other places. <br><br>The past. <br><br>The Realm I protect.",
+    "video": "well.mp4"
   },
-
   {
     "humanLabel": "what pumpkin how are you supposed to get here",
     "id": 113,
-    "gimmickID": "pumpkin"
+    "gimmickID": "pumpkin",
+    "quip": "....What pumpkin?",
+    "video": "what_pumpkin.mp4"
   }
 ]
