@@ -566,7 +566,9 @@ yeah no the harvest hates it
 <p><span >She does not know.&nbsp;</span></p>
 <p><span >The fragments of memories and impressions she has from the parts of her that were once finite did not know what it was like to be finite.&nbsp;</span></p>
 <p><span >Some parts of ones nature is inherently unknowable, she supposes.</span></p>
-<p><span >She finds a Prayer to answer to directly, one about music, and moves forward.</span></p>`;
+<p><span >She finds a Prayer to answer to directly, one about music, and moves forward.</span></p>
+<br><br>
+[HIDE] UPDATE: A new Domain is coalescing! The Domain of Change is established!.  [/HIDE]`;
 
   const story7 = createElementWithClassAndParent("div", body, "story");
 

@@ -176,6 +176,7 @@ GodOfChange = () => {
       //gimmick.innerText = `Gimmick: ${loc.gimmickID?loc.gimmickID:"_"}`;
       if (loc.gimmickID && center) {
         personalFeelings[CURIOUS] += 13; //she's glad you're feeding her curiosity
+        savePersonalFeelingsToStorage();
         harvestSpeaks.innerText = "I see..." + loc.gimmickID;
         if (loc.video) {
           tv.src = "videos/protector_of_the_realm/" + loc.video;
