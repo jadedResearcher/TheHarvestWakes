@@ -63,6 +63,7 @@ GodOfChange = () => {
     personalFeelings["CHANGE"] = 0;
   }
   personalFeelings["CHANGE"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  savePersonalFeelingsToStorage();
   container.innerHTML = "";
   pageTitle.innerText = "The God Of CHANGE";
 
