@@ -109,12 +109,15 @@ GodOfChange = () => {
 
   const secretInput = createElementWithClassAndParent("input", parent);
   secretInput.type ="number"
+  secretInput.style.background="black";
+
 
 
   const debugMaze = async () => {
     const maze = await slurpFromNetwork();
 
     const table = createElementWithClassAndParent("table", parent, "debug-table");
+    
     const tr1 = createElementWithClassAndParent("tr", table);
     const tr2 = createElementWithClassAndParent("tr", table);
     const tr3 = createElementWithClassAndParent("tr", table);
@@ -230,6 +233,10 @@ GodOfChange = () => {
       for each box that exists, render it (same rendering algorithm, pass where to render to)
       on click box, load it as center (yes even if center, i don't give a fuckcare)
     */
+
+      const returnButton = createElementWithClassAndParent("button", parent);
+      returnButton.innerText = "Stop Experiment";
+      returnButton.onclick = theHarvestWakes;
   }
 
   debugMaze();
