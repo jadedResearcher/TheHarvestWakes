@@ -6,11 +6,20 @@ https://www.tumblr.com/jadedresearcher/763374544862019584?source=share
 Current Game Ideas:
 
 god of being served = praise game  (do this first, v simple just press button to praise her, or offer her carrots)
-god of Travelers = worlds shitties map of corn maze from json (it MIGHT not work in minecraft but it will in the corn maze she was born in)
-god of change= text adventure corn maze json 
+god of change= worlds shittiest corn maze emphasizing the changes 
 
-god of curiosity/stories/memories= info dump on whats going on with twig/rava/terry/trogdazorg/etc while commenting on the stories
+god of curiosity/stories/memories= 
+info dump on whats going on with twig/rava/terry/trogdazorg/etc while commenting on the stories
+ALSO display the prayers that were saved (that got collated)
+and the books in the Library
+and teh fan art/eyes
 
+also heralds stories about eustace:
+"He thinks having to ensure the safety of one of the most unbearable people he knows at two in the morning while completely covered in toilet paper pushed him over some sort of breaking point. Despite everything, he puts on his best customer service face and tries his best to pretend that nothing has ever gone wrong in his life."
+~~~~~~~~~~~~
+"He was there for a few hours at most, but it felt like a whole week of wandering around aimlessly and avoiding the other "guests" like the plague. If someone told him he had died and gone to hell during that time, he wouldn't have questioned it. The last thing he remembers is that little creature running at him in the creepy smiling mask, and then he was standing on a sidewalk in the dead of night and the Halloween lady - Terri - was screaming her head off about what she had seen in that maze. How he died. How she thought /she/ was going to die. She almost passed out right there on the sidewalk recounting it. He never wanted to see her again, but he also didn't want to be responsible for her getting kidnapped or worse if she wandered off by herself in that state, so he walked her home.
+
+He only ever saw Terri one more time after that, and if he didn't know any better, he'd think she was avoiding him. He guesses he should be thankful for that."
 
 
 Current Locked In Domains:
@@ -64,6 +73,10 @@ GodOfChange = () => {
   parent.style.height = "fit-content";
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
+  shop.style.maxHeight="700px";
+  shop.style.height="600px";
+
+
   const harvest = createElementWithClassAndParent("img", shop, "harvest change-harvest");
   harvest.style.backgroundImage = "url(images/source_images/rested_harvest_clear.png)";
 
@@ -94,9 +107,12 @@ GodOfChange = () => {
   bgMusic.play();
   bgMusic.volume = 0.31;
 
+  const secretInput = createElementWithClassAndParent("input", parent);
+  secretInput.type ="number"
+
+
   const debugMaze = async () => {
     const maze = await slurpFromNetwork();
-    console.log("JR NOTE: maze", maze)
 
     const table = createElementWithClassAndParent("table", parent, "debug-table");
     const tr1 = createElementWithClassAndParent("tr", table);
@@ -158,7 +174,6 @@ GodOfChange = () => {
       if (loc.gimmickID && center) {
         personalFeelings[CURIOUS] += 13; //she's glad you're feeding her curiosity
         harvestSpeaks.innerText = "I see..." + loc.gimmickID;
-        console.log("JR NOTE: loc", loc)
         if (loc.video) {
           tv.src = "videos/protector_of_the_realm/" + loc.video;
           tv.play();
@@ -166,7 +181,7 @@ GodOfChange = () => {
         if (loc.quip) {
           harvestSpeaks.innerHTML = loc.quip;
         } else {
-          harvestSpeaks.innerText = "I see...JR2" + loc.gimmickID;
+          harvestSpeaks.innerText = "I see..." + loc.gimmickID;
         }
       } else if (center) {
         harvestSpeaks.innerText = "...Getting tired of corn.";
@@ -174,7 +189,11 @@ GodOfChange = () => {
         tv.play();
 
       }
-
+//i got a sunburn and then i had to have two vaccines right after
+//needless to say i am absolutely *wracked* with uncontrollable shivering
+//the fact that any coherent code is coming out between naps and rest
+//is a miracle
+//praise the harvest
     }
 
     const clearOneLocation = (ele) => {
@@ -202,6 +221,9 @@ GodOfChange = () => {
     }
 
     syncToCenter(maze[0])
+    secretInput.oninput=()=>{
+      all_maze_locations[secretInput.value] &&syncToCenter(all_maze_locations[secretInput.value]);
+    }
 
     /*
       render five boxes (NSEW and center), some can be empty

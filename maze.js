@@ -10,7 +10,6 @@ let unique_gimmicks = 0;
 const slurpFromNetwork = async ()=>{ 
   const url = 'http://lavinraca.eyedolgames.com/maze.json'  //stretch goal, multiple sources :) :) :)
   const rawText = await httpGetAsync(url);
-  console.log("JR NOTE: rawText", rawText)
   return JSON.parse(rawText).map((m)=>new MazeLocation(m.humanLabel, m.id, m.north, m.south, m.east, m.west, m.gimmickID, m.quip, m.video));
   
 
@@ -20,7 +19,6 @@ const slurpFromNetwork = async ()=>{
 //https://lostinzampanio.neocities.org/  the Watcher made this
 const debugMaze = async ()=>{
   const maze = await slurpFromNetwork();
-  console.log("JR NOTE: maze",maze)
   const body = document.querySelector("body");
   body.innerHTML = "";
   const table = createElementWithClassAndParent("table", body, "debug-table");

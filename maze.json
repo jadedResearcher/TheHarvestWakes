@@ -17,7 +17,7 @@
     "south": 2,
     "gimmickID": "ring",
     "video": "ring.mp4",
-    "quip": "Things change...<br><br>The ring that formed the basis of the browser corn maze is rotting away.s"
+    "quip": "Things change...<br><br>The ring that formed the basis of the browser corn maze is rotting away."
   },
   {
     "humanLabel": "upper-right-corner",
@@ -168,7 +168,7 @@
     "id": 25,
     "south": 24,
     "gimmickID": "candy",
-    "quip": "The sweet taste...Repulsive to me, yet how I crave it. Am I changing?",
+    "quip": "The sweet taste...Repulsive to me, yet how I crave it.<br><br> Am I changing?",
     "video": "candy.mp4"
   },
   {
@@ -478,7 +478,7 @@
     "south": 68,
     "gimmickID": "drivethrough",
     "quip":"In the browser corn maze, this was an experiment that eventually lead to the video playing within me.<br><br>Time marches forward, ever changing, ever improving.",
-    "video":"drivethru"
+    "video":"drivethru.mp4"
   },
   {
     "humanLabel": "upper-right-corner",
@@ -626,6 +626,7 @@
     "west": 89,
     "east": 79,
     "gimmickID": "hand",
+    "video":"../disgust_hum.mp4",
     "quip":"Ring onto the hand, that was the puzzle, in the browser game and the discord game... And in the West, though I do not know how I know this...<br><br> Wait. <br>Twig.<br> Twig...DID make it to the outhouse? Oh no... Oh no why did I not know this before. That poor kid... What happened to them..."
   },
   {
@@ -677,7 +678,9 @@
     "id": 97,
     "south": 96,
     "north": 96,
-    "gimmickID": "entrance"
+    "gimmickID": "entrance",
+    "video":"entrance.mp4",
+    "quip":"Where it all began..."
   },
   {
     "humanLabel": "everything but south",
@@ -702,7 +705,9 @@
     "id": 101,
     "north": 100,
     "east": 102,
-    "gimmickID": "scarecrows"
+    "gimmickID": "scarecrows",
+    "quip": "But not THE Scarecrow. <br><br>Odd.",
+    "video": "what_pumpkin.mp4"
   },
   {
     "humanLabel": "bottom-right-corner",

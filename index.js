@@ -459,6 +459,10 @@ const theHarvestWakes = async () => {
   beingServed.innerText = "Domain of Being Served"
   beingServed.onclick = GodOfBeingServed;
 
+  const change = createElementWithClassAndParent("button", buttonHolderDomains);
+  change.innerText = "Domain of Change"
+  change.onclick = GodOfChange;
+
 
 
   const pendingParent = createElementWithClassAndParent("div", container, "dialog-parent");
