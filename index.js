@@ -535,6 +535,39 @@ yeah no the harvest hates it
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story9 = createElementWithClassAndParent("div", body, "story");
+  story9.innerHTML = `<h2 id='ninth-day'><strong><span >Day 8 + 9:&nbsp;</span></strong></h2>
+<p><span >And on the 8th day the Harvest rested for reasons she could not articulate.</span></p>
+<p><span >Her only clue was a vaguely smug sense of superiority and exhaustion that, honestly, was sort of her default state.</span></p>
+<p><span >She could feel another Domain snap into place:&nbsp;</span><strong><span >Change</span></strong><span >. All things changed, the cycle of death and rebirth, ebb and flow was the only constant in this world.</span></p>
+<p><span >She was a part of it, as were all things.</span></p>
+<p><span >Almost as if it were waiting in line, a third Domain began coalescing:&nbsp;</span><strong><span >Stories&nbsp;</span></strong><span >and&nbsp;</span><strong><span >Memories&nbsp;</span></strong><span >swirl around it, waiting for one to be drawn in. &nbsp;</span></p>
+<p><span >She reviewed the backlog of Prayers that had built up. Perhaps some of them would show her which would be most suited to her nascent Domain.</span></p>
+<p><span >&quot;dear sweet Harvest: Please help me find time to gain all the knowledge I long for &quot;</span></p>
+<p><span >She will do her best to grant this.</span></p>
+<p><span >&quot;May our days find their shore. I pray we never lose direction.Ever still do you inspire me on my travels. &quot;</span></p>
+<p><span >She feels&nbsp;</span><strong><span >Inspiration</span></strong><span >&nbsp;well within her and join&nbsp;</span><strong><span >Stories&nbsp;</span></strong><span >and&nbsp;</span><strong><span >Memories&nbsp;</span></strong><span >as a potential root of the next domain.</span></p>
+<p><span >Another Faithful asks if she loves them.</span></p>
+<p><span >She does, in the way that she imagines mortals love the air they breathe and the ground they stand upon.&nbsp;</span></p>
+<p><span >To lack the Faithful is to lack life.</span></p>
+<p><span >Another Faithful asks what is due...&nbsp;</span></p>
+<p><span >Library...books?</span></p>
+<p><span >Maybe?</span></p>
+<p><span >She is not sure.&nbsp;</span><span ><br></span><span ><br></span><span >She mostly spends her breaks in the Library and she knows books can be due...&nbsp;</span></p>
+<p><span >She is a little bit lost here.</span></p>
+<p><span >Another asks what the number is.</span></p>
+<p><span >She remembers reading a book in the Library about this!</span></p>
+<p><span >42.</span></p>
+<p><span >Another Faithful: &quot; the curator: hmm... well I do believe in art can bring people together. No matter who or what they are. Everyone has their own tastes and without it we would not be able to express ourselves&quot;</span></p>
+<p><span >She isn&apos;t sure yet what she feels about art. Her nascent Domain seems like it will give her a lens to form opinions on that.</span></p>
+<p><span >Another: &quot;lead, so that we might gollow&quot;</span></p>
+<p><span >She feels something muted. The Domain of &quot;</span><strong><span >Guidance</span></strong><span >&quot; has been blocked off by the domain of&nbsp;</span><strong><span >Change</span></strong><span >. There is something forever lost to her now.</span></p>
+<p><span >Another: &quot;What does it feel like to contain something infinite?&quot;</span></p>
+<p><span >She does not know.&nbsp;</span></p>
+<p><span >The fragments of memories and impressions she has from the parts of her that were once finite did not know what it was like to be finite.&nbsp;</span></p>
+<p><span >Some parts of ones nature is inherently unknowable, she supposes.</span></p>
+<p><span >She finds a Prayer to answer to directly, one about music, and moves forward.</span></p>`;
+
   const story7 = createElementWithClassAndParent("div", body, "story");
 
   story7.innerHTML = `<h2 id="seventh-day">Day 7:</h2>

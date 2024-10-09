@@ -8,7 +8,7 @@ Current Game Ideas:
 god of being served = praise game  (do this first, v simple just press button to praise her, or offer her carrots)
 god of change= worlds shittiest corn maze emphasizing the changes 
 
-god of curiosity/stories/memories= 
+god of stories/memories/inspiration= 
 info dump on whats going on with twig/rava/terry/trogdazorg/etc while commenting on the stories
 ALSO display the prayers that were saved (that got collated)
 and the books in the Library
@@ -187,7 +187,8 @@ GodOfChange = () => {
           harvestSpeaks.innerText = "I see..." + loc.gimmickID;
         }
       } else if (center) {
-        harvestSpeaks.innerText = "...Getting tired of corn.";
+        const quips = ["Corn...","Yup. Corn.","Getting tired of corn.","Did you know people make corn mazes because of a pun? <br><br>Maze of Maize.","Starting to get tired of corn...","Corn...","Oh hey, what's this?<br><br>More corn.","Corn...","Corn...","Corn...","Corn...","Corn...","Corn...","Still Corn","More corn...","Corn is starting to not even feel like a real word anymore..."]
+        harvestSpeaks.innerHTML = pickFrom(quips);
         tv.src = "videos/protector_of_the_realm/entrance.mp4";
         tv.play();
 
