@@ -1490,7 +1490,7 @@ button:active {
   font-family: 'Times New Roman', Times, serif;
   writing-mode: vertical-rl;
   background-color: #9db211;
-  border: 1px solid #677221;
+  border: 1px solid black;
   padding-top: 15px;
   padding-bottom: 15px;
   white-space: nowrap;

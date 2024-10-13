@@ -164,6 +164,33 @@ GodOfInspiration = () => {
 
   }
 
+  const renderBookCase = (items, bookCallback) => {
+    const ret = []; //all books
+    const chunkSize = 21;
+    for (let i = 0; i < items.length; i += chunkSize) {
+      const chunk = items.slice(i, i + chunkSize);
+      const shelf = createElementWithClassAndParent("div", shelves, "shelf");
+      const allowedColors = ["#4c560d", "#677221", "#a1b234", "#d5f40a", "#7a843d", "#9db211"];
+      for (let item of chunk) {
+        console.log("JR NOTE; making book from", item)
+        const book = createElementWithClassAndParent("div", shelf, "book");
+        book.innerText = item;
+        const padding = getRandomNumberBetween(3, 13);
+        book.style.cssText = `padding-left: ${padding}px;
+        padding-right: ${padding}px;
+        font-size: ${getRandomNumberBetween(10, 14)}px;
+        font-family: ${pickFrom(["Times New Roman", "Georgia", "Garamond", "serif"])};
+        background-color: ${pickFrom(allowedColors)};
+        height: ${getRandomNumberBetween(75, 150)}px`;
+        ret.push(book);
+        book.onclick = () => {
+          bookCallback(item);
+        }
+      }
+    }
+    return ret;
+  }
+
   const displayRealm = async () => {
     title.innerText = "The Protected Realm"
     const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/ProtectedRealm/";
@@ -172,62 +199,37 @@ GodOfInspiration = () => {
       console.log("JR NOTE: awaiin images", source)
       realmScreenshots = await getImages(source)
     }
-    const all_books = [];
     const randomButton = createElementWithClassAndParent("button", randomHolder);
     randomButton.innerText = "Random Book";
-    randomButton.onclick = ()=>{
+    randomButton.onclick = () => {
       pickFrom(all_books).click();
     }
+    const all_books = renderBookCase(realmScreenshots, (item) => {
+      call.innerText = `The Protected Realm is where the Faithful go to live and explore.<br><br>${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it?`;
+      display.innerHTML = `<img src="${source}${item}"></img>`
+      title.scrollIntoView(true);
+    });
+    pickFrom(all_books).click();
+}
 
-    const chunkSize = 21;
-    for (let i = 0; i < realmScreenshots.length; i += chunkSize) {
-      const chunk = realmScreenshots.slice(i, i + chunkSize);
-      const shelf = createElementWithClassAndParent("div", shelves, "shelf");
-      const allowedColors = ["#4c560d","#677221","#a1b234","#d5f40a","#7a843d","#9db211"];
-      for (let item of chunk) {
-        console.log("JR NOTE; making book from", item)
-        const book = createElementWithClassAndParent("div", shelf, "book");
-        book.innerText = item;
-        const padding = getRandomNumberBetween(3,13);
-        book.style.cssText = `padding-left: ${padding}px;
-        padding-right: ${padding}px;
-        font-size: ${getRandomNumberBetween(10,18)}px;
-        font-family: ${pickFrom(["Times New Roman","Georgia", "Garamond", "serif"])};
-        font-weight: ${pickFrom(["bolder","bold","normal","light"])};
-        background-color: ${pickFrom(allowedColors)};
-        height: ${getRandomNumberBetween(75,150)}px`;
-        all_books.push(book);
-        book.onclick = () => {
-          call.innerText = `${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it?`;
-          display.innerHTML = `<img src="${source}${item}"></img>`
-          title.scrollIntoView(true);
-        }
-      }
-      pickFrom(shelf.children).click();
-    }
+const displayAudio = () => {
+  title.innerText = "Audio"
 
+}
 
+const displayVideo = () => {
+  title.innerText = "Video"
 
-  }
+}
 
-  const displayAudio = () => {
-    title.innerText = "Audio"
+storiesButton.onclick = displayStories;
+offeringsButton.onclick = displayArt;
+screenshotsButton.onclick = displayEyes;
+audioButton.onclick = displayAudio;
+videoButton.onclick = displayVideo;
+realmButton.onclick = displayRealm;
 
-  }
-
-  const displayVideo = () => {
-    title.innerText = "Video"
-
-  }
-
-  storiesButton.onclick = displayStories;
-  offeringsButton.onclick = displayArt;
-  screenshotsButton.onclick = displayEyes;
-  audioButton.onclick = displayAudio;
-  videoButton.onclick = displayVideo;
-  realmButton.onclick = displayRealm;
-
-  displayStories();
+displayStories();
 
 }
 
