@@ -149,6 +149,9 @@ GodOfInspiration = () => {
 
   const displayStories = () => {
     title.innerText = "Stories"
+    display.innerHTML = "";
+    randomHolder.innerHTML = "";
+
     const all_books = renderBookCase(all_stories, (item) => {
       call.innerHTML = `Stories written about Lavinraca and the strange events that lead to and from me.<br><br><u>${item.title}</u> was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
       display.innerHTML = `<h3>${item.title}</h3><h4>by ${item.author}</h4><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n","<br>")}</div>`
@@ -161,6 +164,10 @@ GodOfInspiration = () => {
 
   const displayEyes = async () => {
     title.innerText = "Eyes"
+    display.innerHTML = "";
+    randomHolder.innerHTML = "";
+
+
     call.innerText = "Pending... (Eyes are Complex)"
 
 
@@ -168,6 +175,10 @@ GodOfInspiration = () => {
 
   const displayArt = async () => {
     title.innerText = "Art"
+    display.innerHTML = "";
+    randomHolder.innerHTML = "";
+
+
     const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/Offerings/";
     if (!arts) {
       arts = await getImages(source)
@@ -189,6 +200,8 @@ GodOfInspiration = () => {
   //items is EITHER a list of strings or a list of stories because i am sinning on purpose tonight
   const renderBookCase = (items, bookCallback) => {
     const ret = []; //all books
+    shelves.innerHTML = "";
+
     const chunkSize = 21;
     for (let i = 0; i < items.length; i += chunkSize) {
       const chunk = items.slice(i, i + chunkSize);
@@ -214,6 +227,9 @@ GodOfInspiration = () => {
   }
 
   const displayRealm = async () => {
+    display.innerHTML = "";
+    randomHolder.innerHTML = "";
+
     title.innerText = "The Protected Realm"
     const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/ProtectedRealm/";
     if (!realmScreenshots) {
@@ -234,10 +250,16 @@ GodOfInspiration = () => {
 
 const displayAudio = () => {
   title.innerText = "Audio"
+  display.innerHTML = "";
+  randomHolder.innerHTML = "";
+
   call.innerText = "Will you give us books for this, Faithful?"
 }
 
 const displayVideo = () => {
+  display.innerHTML = "";
+  randomHolder.innerHTML = "";
+
   title.innerText = "Video"
   call.innerText = "Will you give us books for this, Faithful?"
 
