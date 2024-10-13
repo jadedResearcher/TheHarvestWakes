@@ -85,27 +85,56 @@ GodOfInspiration = () => {
   //it'll be not many
   harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
   harvest.style.cssText = `width: 100%;
+  z-index: 1;
     left: 0px;`;
-
-
-  const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
-
-  const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
-  harvestSpeaks.innerText = "Where do you wish to take Inspiration from, Faithful?"
-  harvestSpeaks.style.minHeight = "100px";
-
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
   tv.setAttribute('playsinline', true)
-  tv.style.cssText = `    height: 30px;
-    top: 128px;
-    left: 125px;`;
+  tv.style.cssText = `height: 30px;
+      top: 128px;
+      left: 125px;`;
+  tv.style.zIndex="0"
 
   tv.volume = 0.0;
   tv.id = "tv"
   tv.src = "videos/happy_fox_spin.mp4";
   tv.autoplay = true;
   tv.loop = true;
+
+  const libraryHarvest = ()=>{
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
+    tv.style.cssText = `height: 30px;
+      top: 128px;
+      left: 125px;`;
+  }
+
+  const tricksterHarvest = ()=>{
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/HarvestGreeenbyCatalystVideoReady.png";
+    tv.style.cssText = `height: 127px;
+    top: 265px;
+    left: 194px;`;
+  }
+  
+
+  const paintedHarvest = ()=>{
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/lavinraca_harvest_copy_by_thereverend_VideoReady.png";
+    tv.style.cssText = `    height: 102px;
+    top: 324px;
+    left: 297px;
+    transform: skew(-8deg, -13deg);`;//shitty 3d effect
+  }
+
+  const possibleHarvests = [libraryHarvest, tricksterHarvest, paintedHarvest];
+  pickFrom(possibleHarvests)();
+
+
+  const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
+
+  const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  harvestSpeaks.innerHTML = "Where do you wish to take Inspiration from, Faithful?<br><br>Do you like my form? A fellow Faithful created it for me. "
+  harvestSpeaks.style.minHeight = "100px";
+
+
 
   //box with green outline, inside is shelves and a section for reading
   const library = createElementWithClassAndParent("div", parent, "library");
@@ -154,7 +183,7 @@ GodOfInspiration = () => {
 
     const all_books = renderBookCase(all_stories, (item) => {
       call.innerHTML = `Stories written about Lavinraca and the strange events that lead to and from me.<br><br><u>${item.title}</u> was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
-      display.innerHTML = `<h3>${item.title}</h3><h4>by ${item.author}</h4><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n","<br>")}</div>`
+      display.innerHTML = `<h3>${item.title}</h3><h4>by ${item.author}</h4><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
       title.scrollIntoView(true);
     });
     pickFrom(all_books).click();
@@ -166,6 +195,7 @@ GodOfInspiration = () => {
     title.innerText = "Eyes"
     display.innerHTML = "";
     randomHolder.innerHTML = "";
+    shelves.innerHTML = "";
 
 
     call.innerText = "Pending... (Eyes are Complex)"
@@ -209,7 +239,7 @@ GodOfInspiration = () => {
       const allowedColors = ["#4c560d", "#677221", "#a1b234", "#d5f40a", "#7a843d", "#9db211"];
       for (let item of chunk) {
         const book = createElementWithClassAndParent("div", shelf, "book");
-        book.innerText = item.title? item.title : item; //either string or object with author title text
+        book.innerText = item.title ? item.title : item; //either string or object with author title text
         const padding = getRandomNumberBetween(3, 13);
         book.style.cssText = `padding-left: ${padding}px;
         padding-right: ${padding}px;
@@ -220,6 +250,9 @@ GodOfInspiration = () => {
         ret.push(book);
         book.onclick = () => {
           bookCallback(item);
+          personalFeelings[HAPPY] += 13; //she's so happy she's inspiring you
+          personalFeelings[PRIDEFUL] += 13; //she's so proud that theres so much art of her
+          savePersonalFeelingsToStorage();
         }
       }
     }
@@ -246,33 +279,36 @@ GodOfInspiration = () => {
       title.scrollIntoView(true);
     });
     pickFrom(all_books).click();
-}
+  }
 
-const displayAudio = () => {
-  title.innerText = "Audio"
-  display.innerHTML = "";
-  randomHolder.innerHTML = "";
+  const displayAudio = () => {
+    title.innerText = "Audio"
+    display.innerHTML = "";
+    shelves.innerHTML = "";
 
-  call.innerText = "Will you give us books for this, Faithful?"
-}
+    randomHolder.innerHTML = "";
 
-const displayVideo = () => {
-  display.innerHTML = "";
-  randomHolder.innerHTML = "";
+    call.innerText = "Will you give us books for this, Faithful?"
+  }
 
-  title.innerText = "Video"
-  call.innerText = "Will you give us books for this, Faithful?"
+  const displayVideo = () => {
+    display.innerHTML = "";
+    randomHolder.innerHTML = "";
+    shelves.innerHTML = "";
 
-}
+    title.innerText = "Video"
+    call.innerText = "Will you give us books for this, Faithful?"
 
-storiesButton.onclick = displayStories;
-offeringsButton.onclick = displayArt;
-screenshotsButton.onclick = displayEyes;
-audioButton.onclick = displayAudio;
-videoButton.onclick = displayVideo;
-realmButton.onclick = displayRealm;
+  }
 
-displayStories();
+  storiesButton.onclick = displayStories;
+  offeringsButton.onclick = displayArt;
+  screenshotsButton.onclick = displayEyes;
+  audioButton.onclick = displayAudio;
+  videoButton.onclick = displayVideo;
+  realmButton.onclick = displayRealm;
+
+  displayStories();
 
 }
 
