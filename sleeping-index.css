@@ -1478,6 +1478,40 @@ button:active {
   top: 61px;
 }
 
+.shelf{
+  display: flex;
+  border: 13px solid #677221;
+  background-color: #212604;
+  width: 616px
+}
+
+.book{
+  font-family: 'Times New Roman', Times, serif;
+  writing-mode: vertical-rl;
+  background-color: #9db211;
+  border: 1px solid #677221;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  margin-top:auto;
+  cursor: pointer;
+}
+
+.book:hover{
+  border-width: 3px;
+}
+
+.library{
+  height: 800px;
+  width: 640px;
+  border: 3px solid #4c560d;
+  padding: 31px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .shop .change-harvest {
   width: 640px;
   z-index: 1;

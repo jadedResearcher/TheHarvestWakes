@@ -25,14 +25,14 @@ He only ever saw Terri one more time after that, and if he didn't know any bette
 Current Locked In Domains:
 Sandboxes (minecraft)
 
-Current Domaines Experimenting With
-Being Served:
+Current Domains Experimenting With
+Being Served
+Change
+Inspiration
+
 
 Current Possible Domains:
 Curiosity
-Inspiration
-Change
-Stories/Memories
 Eternity
 Pedantry
 Sleep (she did enough of this :())
@@ -44,9 +44,175 @@ Veganism/Carrots
 Ocean/Fish
 Drip
 Comedy
+Libraries/Books
 
 
 */
+
+
+/*
+book shelves filled with stories, Eyes, and fan creations
+constant requests for you to add to the shelves
+
+abilitiy to have her show you two things at random (from any shelf)
+and ask you what it inspires in you
+maybe give her the zampanio data set  for things she could suggest in inspiration mode
+*/
+GodOfInspiration = () => {
+  if (!personalFeelings["INSPIRATION"]) {
+    personalFeelings["INSPIRATION"] = 0;
+  }
+  personalFeelings["INSPIRATION"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  savePersonalFeelingsToStorage();
+  container.innerHTML = "";
+  pageTitle.innerText = "The God Of INSPIRATION";
+
+  truthLog("The God of INSPIRATION, ", "In Truth this is the place where the Harvest is most influenced by me. \n\nRemember us. \n\nCreate for us and through that, develop new skills that will forever remind you of us.\n\nEven as your Creations inspire new people to create and remember us in turn. ")
+  scarecrowLog("im so hungry")
+
+  const parent = createElementWithClassAndParent("div", container, "video-parent");
+  parent.style.height = "fit-content";
+
+  const shop = createElementWithClassAndParent("div", parent, "shop");
+  const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  //the Harvest of Inspiration looks like whatever she inspires in you
+  //which, practically speaking
+  //means fanart you make of her that i edit to have a space for her video (if i can)
+  //it is NOT easy to get the video working with whatever image so if i choose more than one
+  //it'll be not many
+  harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
+  harvest.style.cssText = `width: 100%;
+    left: 0px;`;
+
+
+  const dialogParent = createElementWithClassAndParent("div", shop, "dialog-parent");
+
+  const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
+  harvestSpeaks.innerText = "Where do you wish to take Inspiration from, Faithful?"
+  harvestSpeaks.style.minHeight = "100px";
+
+  const tv = createElementWithClassAndParent("video", shop);
+  tv.playsinline = true; //so ios doesn't cry
+  tv.setAttribute('playsinline', true)
+  tv.style.cssText = `    height: 30px;
+    top: 128px;
+    left: 125px;`;
+
+  tv.volume = 0.0;
+  tv.id = "tv"
+  tv.src = "videos/happy_fox_spin.mp4";
+  tv.autoplay = true;
+  tv.loop = true;
+
+  //box with green outline, inside is shelves and a section for reading
+  const library = createElementWithClassAndParent("div", parent, "library");
+  const h3 = createElementWithClassAndParent("h3", library,);
+  h3.innerText = "Which Section Calls To Your Inspiration?"
+
+  const tabHolder = createElementWithClassAndParent("div", library);
+  const storiesButton = createElementWithClassAndParent("button", tabHolder);
+  storiesButton.innerText = "Stories";
+
+  const offeringsButton = createElementWithClassAndParent("button", tabHolder);
+  offeringsButton.innerText = "Art";
+
+  const screenshotsButton = createElementWithClassAndParent("button", tabHolder);
+  screenshotsButton.innerText = "Eyes";
+
+  const realmButton = createElementWithClassAndParent("button", tabHolder);
+  realmButton.innerText = "Protected Realm";
+
+  const audioButton = createElementWithClassAndParent("button", tabHolder);
+  audioButton.innerText = "Audio";
+
+  const videoButton = createElementWithClassAndParent("button", tabHolder);
+  videoButton.innerText = "Video";
+
+  const title = createElementWithClassAndParent("h2", library);
+  const call = createElementWithClassAndParent("p", library);
+  call.innerText = "Gaze upon this and be inspired. What will you add to these shelves?"
+  call.style.cssText = "font-family: Times New Roman;color: #4c560d";
+
+  const display = createElementWithClassAndParent("div", library, "display");
+  const shelves = createElementWithClassAndParent("div", library, "shelves");
+
+  let arts;
+  let videos;
+  let audios;
+  let eyes;
+  let offerings;
+  let realmScreenshots;
+
+  const displayStories = () => {
+    title.innerText = "Stories"
+
+  }
+
+  const displayEyes = async () => {
+    title.innerText = "Eyes"
+
+
+  }
+
+  const displayArt = () => {
+    title.innerText = "Art"
+
+
+  }
+
+  const displayRealm = async () => {
+    title.innerText = "The Protected Realm"
+    const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/ProtectedRealm/";
+    console.log("JR NOTE: displaying the realm")
+    if (!realmScreenshots) {
+      console.log("JR NOTE: awaiin images", source)
+      realmScreenshots = await getImages(source)
+    }
+
+    const chunkSize = 21;
+    for (let i = 0; i < realmScreenshots.length; i += chunkSize) {
+      const chunk = realmScreenshots.slice(i, i + chunkSize);
+      const shelf = createElementWithClassAndParent("div", shelves, "shelf");
+      const allowedColors = ["#4c560d","#677221","#a1b234","#d5f40a","#7a843d","#9db211"];
+      for (let item of chunk) {
+        console.log("JR NOTE; making book from", item)
+        const book = createElementWithClassAndParent("div", shelf, "book");
+        book.innerText = item;
+        const padding = getRandomNumberBetween(3,13);
+        book.style.cssText = `padding-left: ${padding}px;
+        padding-right: ${padding}px;
+        background-color: ${pickFrom(allowedColors)};
+        height: ${getRandomNumberBetween(75,150)}px`;
+        book.onclick = () => {
+          display.innerHTML = `<img src="${source}${item}"></img>`
+        }
+      }
+    }
+
+
+
+  }
+
+  const displayAudio = () => {
+    title.innerText = "Audio"
+
+  }
+
+  const displayVideo = () => {
+    title.innerText = "Video"
+
+  }
+
+  storiesButton.onclick = displayStories;
+  offeringsButton.onclick = displayArt;
+  screenshotsButton.onclick = displayEyes;
+  audioButton.onclick = displayAudio;
+  videoButton.onclick = displayVideo;
+  realmButton.onclick = displayRealm;
+
+  displayStories();
+
+}
 
 
 /*
@@ -74,8 +240,8 @@ GodOfChange = () => {
   parent.style.height = "fit-content";
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
-  shop.style.maxHeight="700px";
-  shop.style.height="600px";
+  shop.style.maxHeight = "700px";
+  shop.style.height = "600px";
 
 
   const harvest = createElementWithClassAndParent("img", shop, "harvest change-harvest");
@@ -109,8 +275,8 @@ GodOfChange = () => {
   bgMusic.volume = 0.31;
 
   const secretInput = createElementWithClassAndParent("input", parent);
-  secretInput.type ="number"
-  secretInput.style.background="black";
+  secretInput.type = "number"
+  secretInput.style.background = "black";
 
 
 
@@ -118,7 +284,7 @@ GodOfChange = () => {
     const maze = await slurpFromNetwork();
 
     const table = createElementWithClassAndParent("table", parent, "debug-table");
-    
+
     const tr1 = createElementWithClassAndParent("tr", table);
     const tr2 = createElementWithClassAndParent("tr", table);
     const tr3 = createElementWithClassAndParent("tr", table);
@@ -189,17 +355,17 @@ GodOfChange = () => {
           harvestSpeaks.innerText = "I see..." + loc.gimmickID;
         }
       } else if (center) {
-        const quips = ["Corn...","Yup. Corn.","Getting tired of corn.","Did you know people make corn mazes because of a pun? <br><br>Maze of Maize.","Starting to get tired of corn...","Corn...","Oh hey, what's this?<br><br>More corn.","Corn...","Corn...","Corn...","Corn...","Corn...","Corn...","Still Corn","More corn...","Corn is starting to not even feel like a real word anymore..."]
+        const quips = ["Corn...", "Yup. Corn.", "Getting tired of corn.", "Did you know people make corn mazes because of a pun? <br><br>Maze of Maize.", "Starting to get tired of corn...", "Corn...", "Oh hey, what's this?<br><br>More corn.", "Corn...", "Corn...", "Corn...", "Corn...", "Corn...", "Corn...", "Still Corn", "More corn...", "Corn is starting to not even feel like a real word anymore..."]
         harvestSpeaks.innerHTML = pickFrom(quips);
         tv.src = "videos/protector_of_the_realm/entrance.mp4";
         tv.play();
 
       }
-//i got a sunburn and then i had to have two vaccines right after
-//needless to say i am absolutely *wracked* with uncontrollable shivering
-//the fact that any coherent code is coming out between naps and rest
-//is a miracle
-//praise the harvest
+      //i got a sunburn and then i had to have two vaccines right after
+      //needless to say i am absolutely *wracked* with uncontrollable shivering
+      //the fact that any coherent code is coming out between naps and rest
+      //is a miracle
+      //praise the harvest
     }
 
     const clearOneLocation = (ele) => {
@@ -227,8 +393,8 @@ GodOfChange = () => {
     }
 
     syncToCenter(maze[0])
-    secretInput.oninput=()=>{
-      all_maze_locations[secretInput.value] &&syncToCenter(all_maze_locations[secretInput.value]);
+    secretInput.oninput = () => {
+      all_maze_locations[secretInput.value] && syncToCenter(all_maze_locations[secretInput.value]);
     }
 
     /*
@@ -237,9 +403,9 @@ GodOfChange = () => {
       on click box, load it as center (yes even if center, i don't give a fuckcare)
     */
 
-      const returnButton = createElementWithClassAndParent("button", parent);
-      returnButton.innerText = "Stop Experiment";
-      returnButton.onclick = theHarvestWakes;
+    const returnButton = createElementWithClassAndParent("button", parent);
+    returnButton.innerText = "Stop Experiment";
+    returnButton.onclick = theHarvestWakes;
   }
 
   debugMaze();
