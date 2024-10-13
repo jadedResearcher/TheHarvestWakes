@@ -1505,7 +1505,7 @@ button:active {
 }
 
 .library {
-  height: 800px;
+  height: 100%;
   width: 640px;
   border: 3px solid #4c560d;
   padding: 31px;

@@ -73,7 +73,10 @@ GodOfInspiration = () => {
   const parent = createElementWithClassAndParent("div", container, "video-parent");
   parent.style.height = "fit-content";
 
+
   const shop = createElementWithClassAndParent("div", parent, "shop");
+  shop.style.maxHeight = "700px";
+  shop.style.height = "600px";
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
   //the Harvest of Inspiration looks like whatever she inspires in you
   //which, practically speaking
@@ -131,7 +134,8 @@ GodOfInspiration = () => {
   const title = createElementWithClassAndParent("h2", library);
   const call = createElementWithClassAndParent("p", library);
   call.innerText = "Gaze upon this and be inspired. What will you add to these shelves?"
-  call.style.cssText = "font-family: Times New Roman;color: #4c560d";
+  call.style.cssText = "font-family: Times New Roman";
+  const randomHolder = createElementWithClassAndParent("div", library);
 
   const display = createElementWithClassAndParent("div", library, "display");
   const shelves = createElementWithClassAndParent("div", library, "shelves");
@@ -168,6 +172,12 @@ GodOfInspiration = () => {
       console.log("JR NOTE: awaiin images", source)
       realmScreenshots = await getImages(source)
     }
+    const all_books = [];
+    const randomButton = createElementWithClassAndParent("button", randomHolder);
+    randomButton.innerText = "Random Book";
+    randomButton.onclick = ()=>{
+      pickFrom(all_books).click();
+    }
 
     const chunkSize = 21;
     for (let i = 0; i < realmScreenshots.length; i += chunkSize) {
@@ -183,7 +193,9 @@ GodOfInspiration = () => {
         padding-right: ${padding}px;
         background-color: ${pickFrom(allowedColors)};
         height: ${getRandomNumberBetween(75,150)}px`;
+        all_books.push(book);
         book.onclick = () => {
+          call.innerText = `${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it?`;
           display.innerHTML = `<img src="${source}${item}"></img>`
           title.scrollIntoView(true);
         }
