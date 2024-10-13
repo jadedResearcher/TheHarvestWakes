@@ -149,21 +149,44 @@ GodOfInspiration = () => {
 
   const displayStories = () => {
     title.innerText = "Stories"
+    const all_books = renderBookCase(all_stories, (item) => {
+      call.innerHTML = `Stories written about Lavinraca and the strange events that lead to and from me.<br><br><u>${item.title}</u> was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
+      display.innerHTML = `<h3>${item.title}</h3><h4>by ${item.author}</h4><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n","<br>")}</div>`
+      title.scrollIntoView(true);
+    });
+    pickFrom(all_books).click();
+
 
   }
 
   const displayEyes = async () => {
     title.innerText = "Eyes"
+    call.innerText = "Pending... (Eyes are Complex)"
 
 
   }
 
-  const displayArt = () => {
+  const displayArt = async () => {
     title.innerText = "Art"
-
+    const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/Offerings/";
+    if (!arts) {
+      arts = await getImages(source)
+    }
+    const randomButton = createElementWithClassAndParent("button", randomHolder);
+    randomButton.innerText = "Random Book";
+    randomButton.onclick = () => {
+      pickFrom(all_books).click();
+    }
+    const all_books = renderBookCase(arts, (item) => {
+      call.innerHTML = `This is the art that has been created by the Faithful.<br><br>${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
+      display.innerHTML = `<img src="${source}${item}"></img>`
+      title.scrollIntoView(true);
+    });
+    pickFrom(all_books).click();
 
   }
 
+  //items is EITHER a list of strings or a list of stories because i am sinning on purpose tonight
   const renderBookCase = (items, bookCallback) => {
     const ret = []; //all books
     const chunkSize = 21;
@@ -172,9 +195,8 @@ GodOfInspiration = () => {
       const shelf = createElementWithClassAndParent("div", shelves, "shelf");
       const allowedColors = ["#4c560d", "#677221", "#a1b234", "#d5f40a", "#7a843d", "#9db211"];
       for (let item of chunk) {
-        console.log("JR NOTE; making book from", item)
         const book = createElementWithClassAndParent("div", shelf, "book");
-        book.innerText = item;
+        book.innerText = item.title? item.title : item; //either string or object with author title text
         const padding = getRandomNumberBetween(3, 13);
         book.style.cssText = `padding-left: ${padding}px;
         padding-right: ${padding}px;
@@ -194,9 +216,7 @@ GodOfInspiration = () => {
   const displayRealm = async () => {
     title.innerText = "The Protected Realm"
     const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/ProtectedRealm/";
-    console.log("JR NOTE: displaying the realm")
     if (!realmScreenshots) {
-      console.log("JR NOTE: awaiin images", source)
       realmScreenshots = await getImages(source)
     }
     const randomButton = createElementWithClassAndParent("button", randomHolder);
@@ -205,7 +225,7 @@ GodOfInspiration = () => {
       pickFrom(all_books).click();
     }
     const all_books = renderBookCase(realmScreenshots, (item) => {
-      call.innerText = `The Protected Realm is where the Faithful go to live and explore.<br><br>${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it?`;
+      call.innerHTML = `The Protected Realm is where the Faithful go to live and explore.<br><br>${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
       display.innerHTML = `<img src="${source}${item}"></img>`
       title.scrollIntoView(true);
     });
@@ -214,11 +234,12 @@ GodOfInspiration = () => {
 
 const displayAudio = () => {
   title.innerText = "Audio"
-
+  call.innerText = "Will you give us books for this, Faithful?"
 }
 
 const displayVideo = () => {
   title.innerText = "Video"
+  call.innerText = "Will you give us books for this, Faithful?"
 
 }
 
