@@ -185,8 +185,10 @@ GodOfInspiration = () => {
         height: ${getRandomNumberBetween(75,150)}px`;
         book.onclick = () => {
           display.innerHTML = `<img src="${source}${item}"></img>`
+          title.scrollIntoView(true);
         }
       }
+      pickFrom(shelf.children).click();
     }
 
 

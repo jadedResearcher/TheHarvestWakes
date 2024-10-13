@@ -1445,7 +1445,8 @@ button:active {
   max-height: 500px;
   overflow: auto;
   margin-right: auto;
-  button{
+
+  button {
     background-color: black;
     color: #a1b234;
     font-family: gameboy;
@@ -1478,14 +1479,14 @@ button:active {
   top: 61px;
 }
 
-.shelf{
+.shelf {
   display: flex;
   border: 13px solid #677221;
   background-color: #212604;
   width: 616px
 }
 
-.book{
+.book {
   font-family: 'Times New Roman', Times, serif;
   writing-mode: vertical-rl;
   background-color: #9db211;
@@ -1495,21 +1496,34 @@ button:active {
   white-space: nowrap;
   overflow: hidden;
   color: black;
-  margin-top:auto;
+  margin-top: auto;
   cursor: pointer;
 }
 
-.book:hover{
+.book:hover {
   border-width: 3px;
 }
 
-.library{
+.library {
   height: 800px;
   width: 640px;
   border: 3px solid #4c560d;
   padding: 31px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.library .display {
+  margin-bottom: 31px;
+}
+
+.library .display img {
+  width: 90%;
+  margin-left: auto;
+  max-height: 436px;
+  object-fit: scale-down;
+  margin-right: auto;
+  display: block;
 }
 
 .shop .change-harvest {
@@ -1633,7 +1647,7 @@ button:active {
   text-align: center;
   cursor: pointer;
 
-  
+
 }
 
 [data-id="-1"] {
@@ -1646,7 +1660,7 @@ button:active {
 }
 
 
-#page-title{
+#page-title {
   width: 100%;
   text-align: center;
 }
