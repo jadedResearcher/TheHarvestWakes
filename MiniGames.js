@@ -67,6 +67,7 @@ GodOfInspiration = () => {
   container.innerHTML = "";
   pageTitle.innerText = "The God Of INSPIRATION";
 
+
   truthLog("The God of INSPIRATION, ", "In Truth this is the place where the Harvest is most influenced by me. \n\nRemember us. \n\nCreate for us and through that, develop new skills that will forever remind you of us.\n\nEven as your Creations inspire new people to create and remember us in turn. ")
   scarecrowLog("im so hungry")
 
@@ -133,6 +134,14 @@ GodOfInspiration = () => {
   const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
   harvestSpeaks.innerHTML = "Where do you wish to take Inspiration from, Faithful?<br><br>Do you like my form? A fellow Faithful created it for me. "
   harvestSpeaks.style.minHeight = "100px";
+  
+  const randomHarvestButton = createElementWithClassAndParent("button", harvestSpeaks);
+  randomHarvestButton.innerText = "Pick New Inspiration"
+  randomHarvestButton.onclick = ()=>{
+    pickFrom(possibleHarvests)();
+  }
+
+
 
 
 
@@ -159,7 +168,9 @@ GodOfInspiration = () => {
 
   const videoButton = createElementWithClassAndParent("button", tabHolder);
   videoButton.innerText = "Video";
-
+  const returnButton = createElementWithClassAndParent("button", tabHolder);
+  returnButton.innerText = "Stop Experiment";
+  returnButton.onclick = theHarvestWakes;
   const title = createElementWithClassAndParent("h2", library);
   const call = createElementWithClassAndParent("p", library);
   call.innerText = "Gaze upon this and be inspired. What will you add to these shelves?"
@@ -309,6 +320,8 @@ GodOfInspiration = () => {
   realmButton.onclick = displayRealm;
 
   displayStories();
+  pageTitle.scrollIntoView(true);
+
 
 }
 
@@ -330,6 +343,7 @@ GodOfChange = () => {
   savePersonalFeelingsToStorage();
   container.innerHTML = "";
   pageTitle.innerText = "The God Of CHANGE";
+  pageTitle.scrollIntoView(true);
 
   truthLog("The God of Change, ", "The Truth is the Corn Maze appears again and again. As a discord bot. As a browser game. As a minecraft server. As a different browser game. Always changing, always returning.\n\nThis mini game grows the Harvest's Curiosity.")
   scarecrowLog("funny meeting you here...")
@@ -631,6 +645,8 @@ GodOfBeingServed = () => {
   scarecrowLog("... feed her. feed us. im so hungry...")
   container.innerHTML = "";
   pageTitle.innerText = "The God Of Being Served";
+  pageTitle.scrollIntoView(true);
+
   const parent = createElementWithClassAndParent("div", container, "video-parent");
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
