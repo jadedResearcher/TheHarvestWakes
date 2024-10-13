@@ -191,6 +191,9 @@ GodOfInspiration = () => {
         const padding = getRandomNumberBetween(3,13);
         book.style.cssText = `padding-left: ${padding}px;
         padding-right: ${padding}px;
+        font-size: ${getRandomNumberBetween(10,18)}px;
+        font-family: ${pickFrom(["Times New Roman","Georgia", "Garamond", "serif"])};
+        font-weight: ${pickFrom(["bolder","bold","normal","light"])};
         background-color: ${pickFrom(allowedColors)};
         height: ${getRandomNumberBetween(75,150)}px`;
         all_books.push(book);

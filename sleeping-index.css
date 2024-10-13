@@ -1491,13 +1491,14 @@ button:active {
   writing-mode: vertical-rl;
   background-color: #9db211;
   border: 1px solid #677221;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   white-space: nowrap;
   overflow: hidden;
   color: black;
   margin-top: auto;
   cursor: pointer;
+  text-overflow: ellipsis;
 }
 
 .book:hover {
