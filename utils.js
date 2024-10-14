@@ -308,6 +308,58 @@ const filePatternVideo = new RegExp('<a href="([^?]*?)">', 'g');
 
 const extensionPatternVideo = new RegExp(`\\\.(${videoExtensions.join("|")})\$`);
 
+let base_location = window.location.href.includes("index")? window.location.href.split("index.html")[0] : window.location.href.split("?")[0];
+
+
+
+
+//finds subdirectories and files in an apache server
+const findEverythingInDirectory = async(url)=>{
+  const data = await getGopherData(url);
+  console.log("JR NOTE: data is", data)
+  return data;
+}
+
+
+//finds subdirectories in an apache server
+const findAllExitsFromGopherHoleLocation = async(url)=>{
+  const data = await getGopherData(url);
+  console.log("JR NOTE: data is", data)
+  let ret = [];
+  for(let d of data){
+    if(d.size && d.size.trim() ==="-"){
+      ret.push(url + d.href.replaceAll(base_location,''))
+    }
+  } 
+  return ret;
+}
+
+//if you give it an index file from the apache server it parses it out
+const getGopherData = async (url) => {
+  const rawText = await httpGetAsync(url);
+  console.log("JR NOTE: raw text is", rawText)
+  const virtualDom = document.createElement("div");
+  virtualDom.innerHTML = rawText;
+  const rows = virtualDom.querySelectorAll("tr");
+  let ret = [];
+  let index = 0;
+  for (let row of rows) {
+    console.log("JR NOTE: row")
+    const cells = row.querySelectorAll("td");
+    if (cells && cells.length) {
+      const href = cells[1].querySelector("a").href;
+      if (href) {
+        const size = cells[3].innerText;
+        ret[index] = { href, size };
+        index++;
+      }
+    }
+
+  }
+  return ret;
+
+}
+
 function getTimeString(date) {
   var h = date.getHours();
   var m = date.getMinutes();

@@ -94,7 +94,7 @@ GodOfInspiration = () => {
   tv.style.cssText = `height: 30px;
       top: 128px;
       left: 125px;`;
-  tv.style.zIndex="0"
+  tv.style.zIndex = "0"
 
   tv.volume = 0.0;
   tv.id = "tv"
@@ -102,22 +102,22 @@ GodOfInspiration = () => {
   tv.autoplay = true;
   tv.loop = true;
 
-  const libraryHarvest = ()=>{
+  const libraryHarvest = () => {
     harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
     tv.style.cssText = `height: 30px;
       top: 128px;
       left: 125px;`;
   }
 
-  const tricksterHarvest = ()=>{
+  const tricksterHarvest = () => {
     harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/HarvestGreeenbyCatalystVideoReady.png";
     tv.style.cssText = `height: 127px;
     top: 265px;
     left: 194px;`;
   }
-  
 
-  const paintedHarvest = ()=>{
+
+  const paintedHarvest = () => {
     harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/lavinraca_harvest_copy_by_thereverend_VideoReady.png";
     tv.style.cssText = `    height: 102px;
     top: 324px;
@@ -134,10 +134,10 @@ GodOfInspiration = () => {
   const harvestSpeaks = createElementWithClassAndParent("div", dialogParent, "god-dialog");
   harvestSpeaks.innerHTML = "Where do you wish to take Inspiration from, Faithful?<br><br>Do you like my form? A fellow Faithful created it for me. "
   harvestSpeaks.style.minHeight = "100px";
-  
+
   const randomHarvestButton = createElementWithClassAndParent("button", harvestSpeaks);
   randomHarvestButton.innerText = "Pick New Inspiration"
-  randomHarvestButton.onclick = ()=>{
+  randomHarvestButton.onclick = () => {
     pickFrom(possibleHarvests)();
   }
 
@@ -211,6 +211,47 @@ GodOfInspiration = () => {
 
     call.innerText = "Pending... (Eyes are Complex)"
 
+    const fetchDataAndMassage = async (url) => {
+      console.log("JR NOTE: fetchDataAndMassage", url)
+      const data = await findEverythingInDirectory(url)
+      const massagedData = data.map((d) => {
+        console.log("JR NOTE: d.href is", d.href, d.href.split("/"));
+        const split = d.href.split("/").reverse(0);
+        let title = split[0]; //last thing after the split
+        if (!title && split[1]) {
+          title = split[1]; //sometimes theres a trailing / 
+        }
+        console.log("JR NOTE: after split", title, d.href)
+        const text = d.href.replaceAll(base_location, '');
+        console.log("JR NOTE: text", text, d.href)
+
+        const isSubDirectory = d.size && d.size.trim() === "-";
+
+        return { title, text, isSubDirectory, originalURL:url }
+      });
+
+      return massagedData;
+    }
+
+    const initialData = await fetchDataAndMassage("http://lavinraca.eyedolgames.com/images/HarvestEyes/");
+
+    const clickOnBook = async (item) => {
+      console.log("JR NOTE:clicked on book ", item)
+      call.innerHTML = `<br><br>${item.title} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
+      if (item.isSubDirectory) {
+        const newData = await fetchDataAndMassage(item.text);
+        call.innerHTML("Oh. Um. My Eyes were not intended to be seen by Mortals. My apologies, Faithful, it may be confusing. I am ashamed to admit it may even be... a maze... That book was actually an entire bookshelf.")
+        renderBookCase(newData, clickOnBook); //start over from this new directory
+      } else {
+        display.innerHTML = `<img src="${item.originalURL}${item.text}"></img>`
+      }
+      title.scrollIntoView(true);
+
+    }
+
+    const all_books = renderBookCase(initialData, clickOnBook);
+    pickFrom(all_books).click();
+
 
   }
 
@@ -251,6 +292,9 @@ GodOfInspiration = () => {
       for (let item of chunk) {
         const book = createElementWithClassAndParent("div", shelf, "book");
         book.innerText = item.title ? item.title : item; //either string or object with author title text
+        if (item.isSubDirectory) {
+          book.innerText = "*" + book.innerText;
+        }
         const padding = getRandomNumberBetween(3, 13);
         book.style.cssText = `padding-left: ${padding}px;
         padding-right: ${padding}px;
