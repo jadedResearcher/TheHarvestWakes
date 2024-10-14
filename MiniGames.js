@@ -369,7 +369,7 @@ GodOfInspiration = () => {
   videoButton.onclick = displayVideo;
   realmButton.onclick = displayRealm;
 
-  displayStories();
+  displayRealm();
   pageTitle.scrollIntoView(true);
 
 
