@@ -223,16 +223,18 @@ GodOfInspiration = () => {
         let text = d.href.replaceAll(base_location, '');
         //sign its the back button
         if (index === 0 && isSubDirectory) { //the url this controls is shorter than where we are, which means its backwards
-          console.log("JR NOTE: found a back button, stuff is", {title, url, text, split});
           title = "*" + title;
-          const urlSplit = url.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
+          const urlSplit = url.split("/"); //i wanna get the final item and im too lazy to do length -1
 
-          if(!urlSplit[0]){
-            urlSplit.pop()//remove the empty trailing /
+          //last one is empty after "/"
+          //and one before is current directory
+          urlSplit.pop()
+          urlSplit.pop()
+
+          text = urlSplit.join("/")+"/";//add back in the ending /
+          if(!text.includes("http://lavinraca.eyedolgames.com/")){
+            text = "http://lavinraca.eyedolgames.com/"+text //it needs to always be absolute, never relative
           }
-          urlSplit.pop()//remove whatever the last one is (will be the current directory name since we know we're not a file)
-
-          text = urlSplit.reverse().join("/");
           console.log("JR NOTE:for back button,  then i turned text into",text)
         }
 

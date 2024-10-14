@@ -341,10 +341,9 @@ const getGopherData = async (url) => {
   let ret = [];
   let index = 0;
   for (let row of rows) {
-    console.log("JR NOTE: row")
     const cells = row.querySelectorAll("td");
     if (cells && cells.length) {
-      const href = url + cells[1].querySelector("a").href;
+      const href = url +cells[1].querySelector("a").href;
       if (href) {
         const size = cells[3].innerText;
         ret[index] = { href, size };
