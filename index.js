@@ -294,7 +294,7 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
     tv.play();
     if (isLast) {
       //loop back to the start
-      console.log("JR NOTE: going back to the start", originalVideos)
+      //console.log("JR NOTE: going back to the start", originalVideos)
       syncTVToClipsInOrder([...originalVideos], textEle, text, originalVideos)
     } else {
       syncTVToClipsInOrder(videos, textEle, text, originalVideos)
@@ -311,7 +311,7 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
 }
 
 const processOnePrayer = (commandEle, responseEle, command, response, autoresponder = false, prepend = false) => {
-  console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
+ // console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
   const videos = processFeelingsFromPrayer(command, response, false); //whether you view it or not she has feelings, because its her long term memory
   const container = createElementWithClass("li", "prayer");
   if (prepend) {
