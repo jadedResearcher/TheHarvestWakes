@@ -316,7 +316,6 @@ let base_location = window.location.href.includes("index")? window.location.href
 //finds subdirectories and files in an apache server
 const findEverythingInDirectory = async(url)=>{
   const data = await getGopherData(url);
-  console.log("JR NOTE: data is", data)
   return data;
 }
 
@@ -324,7 +323,6 @@ const findEverythingInDirectory = async(url)=>{
 //finds subdirectories in an apache server
 const findAllExitsFromGopherHoleLocation = async(url)=>{
   const data = await getGopherData(url);
-  console.log("JR NOTE: data is", data)
   let ret = [];
   for(let d of data){
     if(d.size && d.size.trim() ==="-"){
@@ -337,7 +335,6 @@ const findAllExitsFromGopherHoleLocation = async(url)=>{
 //if you give it an index file from the apache server it parses it out
 const getGopherData = async (url) => {
   const rawText = await httpGetAsync(url);
-  console.log("JR NOTE: raw text is", rawText)
   const virtualDom = document.createElement("div");
   virtualDom.innerHTML = rawText;
   const rows = virtualDom.querySelectorAll("tr");
@@ -347,7 +344,7 @@ const getGopherData = async (url) => {
     console.log("JR NOTE: row")
     const cells = row.querySelectorAll("td");
     if (cells && cells.length) {
-      const href = cells[1].querySelector("a").href;
+      const href = url + cells[1].querySelector("a").href;
       if (href) {
         const size = cells[3].innerText;
         ret[index] = { href, size };

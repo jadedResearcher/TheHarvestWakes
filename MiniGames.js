@@ -209,25 +209,33 @@ GodOfInspiration = () => {
     shelves.innerHTML = "";
 
 
-    call.innerText = "Pending... (Eyes are Complex)"
+    call.innerText = "There is no preview. Select a book to wander what the Eyes have seen."
 
     const fetchDataAndMassage = async (url) => {
-      console.log("JR NOTE: fetchDataAndMassage", url)
       const data = await findEverythingInDirectory(url)
-      const massagedData = data.map((d) => {
-        console.log("JR NOTE: d.href is", d.href, d.href.split("/"));
-        const split = d.href.split("/").reverse(0);
+      const massagedData = data.map((d, index) => {
+        console.log("JR NOTE: index", index)
+        const split = d.href.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
         let title = split[0]; //last thing after the split
         if (!title && split[1]) {
           title = split[1]; //sometimes theres a trailing / 
         }
-        console.log("JR NOTE: after split", title, d.href)
-        const text = d.href.replaceAll(base_location, '');
-        console.log("JR NOTE: text", text, d.href)
+        let text = d.href.replaceAll(base_location, '');
+        //sign its the back button
+        if (index === 0) { //the url this controls is shorter than where we are, which means its backwards
+          console.log("JR NOTE: text is", url, index, text);
+          title = "*" + title;
+          const textSplit = url.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
+          textSplit.pop(); //get rid of the last part
+
+          text = textSplit.reverse().join("/") //put it back together but missing the final item (i.e. make it be the back butotn instead of a glitched back button)
+
+        }
+
 
         const isSubDirectory = d.size && d.size.trim() === "-";
 
-        return { title, text, isSubDirectory, originalURL:url }
+        return { title, text, isSubDirectory, originalURL: url }
       });
 
       return massagedData;
@@ -239,18 +247,21 @@ GodOfInspiration = () => {
       console.log("JR NOTE:clicked on book ", item)
       call.innerHTML = `<br><br>${item.title} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
       if (item.isSubDirectory) {
+        title.innerText = item.title;
+        console.log("JR NOTE: its a subdirectory", item.text)
         const newData = await fetchDataAndMassage(item.text);
-        call.innerHTML("Oh. Um. My Eyes were not intended to be seen by Mortals. My apologies, Faithful, it may be confusing. I am ashamed to admit it may even be... a maze... That book was actually an entire bookshelf.")
+        display.innerHTML = "";
+        call.innerHTML = "Oh. Um. My Eyes were not intended to be seen by Mortals. My apologies, Faithful, it may be confusing. I am ashamed to admit it may even be... a maze... That book was actually an entire bookshelf."
         renderBookCase(newData, clickOnBook); //start over from this new directory
       } else {
-        display.innerHTML = `<img src="${item.originalURL}${item.text}"></img>`
+        display.innerHTML = `<img src="${item.text}"></img>`
       }
       title.scrollIntoView(true);
 
     }
 
     const all_books = renderBookCase(initialData, clickOnBook);
-    pickFrom(all_books).click();
+    //pickFrom(all_books).click();
 
 
   }
