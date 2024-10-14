@@ -211,9 +211,10 @@ GodOfInspiration = () => {
 
     call.innerText = "There is no preview. Select a book to wander what the Eyes have seen."
 
-    const fetchDataAndMassage = async (url, previousURL) => {
+    const fetchDataAndMassage = async (url) => {
       const data = await findEverythingInDirectory(url)
       const massagedData = data.map((d, index) => {
+        const isSubDirectory = d.size && d.size.trim() === "-";
         const split = d.href.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
         let title = split[0]; //last thing after the split
         if (!title && split[1]) {
@@ -221,22 +222,29 @@ GodOfInspiration = () => {
         }
         let text = d.href.replaceAll(base_location, '');
         //sign its the back button
-        if (index === 0) { //the url this controls is shorter than where we are, which means its backwards
-          console.log("JR NOTE: text is", {previousURL,url, text});
+        if (index === 0 && isSubDirectory) { //the url this controls is shorter than where we are, which means its backwards
+          console.log("JR NOTE: found a back button, stuff is", {title, url, text, split});
           title = "*" + title;
-          text = previousURL;
+          const urlSplit = url.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
+
+          if(!urlSplit[0]){
+            urlSplit.pop()//remove the empty trailing /
+          }
+          urlSplit.pop()//remove whatever the last one is (will be the current directory name since we know we're not a file)
+
+          text = urlSplit.reverse().join("/");
+          console.log("JR NOTE:for back button,  then i turned text into",text)
         }
 
 
-        const isSubDirectory = d.size && d.size.trim() === "-";
 
-        return { title, text, isSubDirectory, originalURL: url, previousURL }
+        return { title, text, isSubDirectory, originalURL: url }
       });
 
       return massagedData;
     }
 
-    const initialData = await fetchDataAndMassage("http://lavinraca.eyedolgames.com/images/HarvestEyes/","http://lavinraca.eyedolgames.com/images");
+    const initialData = await fetchDataAndMassage("http://lavinraca.eyedolgames.com/images/HarvestEyes/");
 
     const clickOnBook = async (item) => {
       console.log("JR NOTE:clicked on book ", item)
@@ -244,7 +252,7 @@ GodOfInspiration = () => {
       if (item.isSubDirectory) {
         title.innerText = item.title;
         console.log("JR NOTE: its a subdirectory", item.text)
-        const newData = await fetchDataAndMassage(item.text, item.originalURL);
+        const newData = await fetchDataAndMassage(item.text);
         display.innerHTML = "";
         call.innerHTML = "Oh. Um. My Eyes were not intended to be seen by Mortals. My apologies, Faithful, it may be confusing. I am ashamed to admit it may even be... a maze... That book was actually an entire bookshelf."
         renderBookCase(newData, clickOnBook); //start over from this new directory
@@ -257,6 +265,8 @@ GodOfInspiration = () => {
 
     const all_books = renderBookCase(initialData, clickOnBook);
     //pickFrom(all_books).click();
+    pageTitle.scrollIntoView(true);
+
 
 
   }
@@ -340,6 +350,8 @@ GodOfInspiration = () => {
       title.scrollIntoView(true);
     });
     pickFrom(all_books).click();
+    pageTitle.scrollIntoView(true);
+
   }
 
   const displayAudio = () => {

@@ -54,7 +54,7 @@ an accident
 
 sam doesn't even know if it was their fault
 
-but now sam's Big Brother is not responding, a thin trail of drool coming from his lips still twisted into an unfinished word midargument, lying in a heap on the plush carpet of his fancy office,, threads tight around his throat, blocking air
+but now sam's Big Brother is not responding, a thin trail of drool coming from his lips still twisted into an unfinished word mid-argument, lying in a heap on the plush carpet of his fancy office, threads tight around his throat, blocking air
 
 whose threads? sam's? Their Brother's?
 
@@ -66,7 +66,7 @@ and a  rival Family will be here within the hour....
 
 sam knows that they'll be like sharks scenting blood if they see this. 
 
-sam's Big Brother made sure they knew not to show even the tiniest hint of weakness to their rivals. A lesson Sam wasn't gonna forget after having to power thru fever delirium while hosting a party.for some spoiled rich heirs to Rival Families (not like their Best Friend, not like their Right Hand Man, no, he was somehow immune to the spoiling influence of growing up in wealth and corruption)
+sam's Big Brother made sure they knew not to show even the tiniest hint of weakness to their rivals. A lesson sam wasn't gonna forget after having to power thru fever delirium while hosting a party.for some spoiled rich heirs to Rival Families (not like their Best Friend, not like their Right Hand Man, no, he was somehow immune to the spoiling influence of growing up in wealth and corruption)
 
 focus.
 
@@ -76,7 +76,7 @@ no time.
 
 never enough time.
 
-it was FRUSTRATING. Why was San's bro being.....
+it was FRUSTRATING. Why was sam's bro being.....
 
 temporarily indisposed...
 
@@ -110,7 +110,7 @@ could this be...?
 
 sam careful tugged and twitched the threads running from their body to their brothers, the ties of blood, of family, the unbreakable bond
 
-it didn't matter if the threads originated from Sam and captured their brother or if it was the other way around. 
+it didn't matter if the threads originated from sam and captured their brother or if it was the other way around. 
 
 a leash tugged both ways, in the end
 
@@ -128,11 +128,11 @@ no time
 
 never enough time
 
-Sam sat their brother behind his big impressive desk and practiced writing....good... the body remembered his signature, small miracles
+sam sat their brother behind his big impressive desk and practiced writing....good... the body remembered his signature, small miracles
 
 it would be enough 
 
-only until Sam's Big Brother woke up, of course 
+only until sam's Big Brother woke up, of course 
 
 sam had no desire to be in charge, to be The Boss their brother was,  this was just for the good of the Family, like Big Bro always said. cant show weakness or they'll getcha, said he had learned that from a childhood friend....
 
@@ -140,7 +140,7 @@ sam had made that mantra their own. it was never enough to not show weakness, oh
 
 you had to keep everyone blind to what's really going on, its just common sense
 
-Sam took their place behind their brother, thankful for once that somehow no one ever noticed them  and prepared for the show to begin.
+sam took their place behind their brother, thankful for once that somehow no one ever noticed them  and prepared for the show to begin.
 
 
 The tennous thread snapped and the Harvest lost the connection, the information. 
@@ -148,6 +148,8 @@ The tennous thread snapped and the Harvest lost the connection, the information.
 The Spider was a very good Heir.
 
 The Harvest isn't sure if that is a good or a bad thing.
+
+
 
 `)
 
