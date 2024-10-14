@@ -211,10 +211,9 @@ GodOfInspiration = () => {
 
     call.innerText = "There is no preview. Select a book to wander what the Eyes have seen."
 
-    const fetchDataAndMassage = async (url) => {
+    const fetchDataAndMassage = async (url, previousURL) => {
       const data = await findEverythingInDirectory(url)
       const massagedData = data.map((d, index) => {
-        console.log("JR NOTE: index", index)
         const split = d.href.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
         let title = split[0]; //last thing after the split
         if (!title && split[1]) {
@@ -223,25 +222,21 @@ GodOfInspiration = () => {
         let text = d.href.replaceAll(base_location, '');
         //sign its the back button
         if (index === 0) { //the url this controls is shorter than where we are, which means its backwards
-          console.log("JR NOTE: text is", url, index, text);
+          console.log("JR NOTE: text is", {previousURL,url, text});
           title = "*" + title;
-          const textSplit = url.split("/").reverse(); //i wanna get the final item and im too lazy to do length -1
-          textSplit.pop(); //get rid of the last part
-
-          text = textSplit.reverse().join("/") //put it back together but missing the final item (i.e. make it be the back butotn instead of a glitched back button)
-
+          text = previousURL;
         }
 
 
         const isSubDirectory = d.size && d.size.trim() === "-";
 
-        return { title, text, isSubDirectory, originalURL: url }
+        return { title, text, isSubDirectory, originalURL: url, previousURL }
       });
 
       return massagedData;
     }
 
-    const initialData = await fetchDataAndMassage("http://lavinraca.eyedolgames.com/images/HarvestEyes/");
+    const initialData = await fetchDataAndMassage("http://lavinraca.eyedolgames.com/images/HarvestEyes/","http://lavinraca.eyedolgames.com/images");
 
     const clickOnBook = async (item) => {
       console.log("JR NOTE:clicked on book ", item)
@@ -249,7 +244,7 @@ GodOfInspiration = () => {
       if (item.isSubDirectory) {
         title.innerText = item.title;
         console.log("JR NOTE: its a subdirectory", item.text)
-        const newData = await fetchDataAndMassage(item.text);
+        const newData = await fetchDataAndMassage(item.text, item.originalURL);
         display.innerHTML = "";
         call.innerHTML = "Oh. Um. My Eyes were not intended to be seen by Mortals. My apologies, Faithful, it may be confusing. I am ashamed to admit it may even be... a maze... That book was actually an entire bookshelf."
         renderBookCase(newData, clickOnBook); //start over from this new directory
