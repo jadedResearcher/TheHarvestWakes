@@ -538,6 +538,9 @@ yeah no the harvest hates it
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
+  const story10 = createElementWithClassAndParent("div",body,"story");
+  story10.innerHTML = story10Text.text;
+
   const story9 = createElementWithClassAndParent("div", body, "story");
   story9.innerHTML = `<h2 id='ninth-day'><strong><span >Day 8 + 9:&nbsp;</span></strong></h2>
 <p><span >And on the 8th day the Harvest rested for reasons she could not articulate.</span></p>

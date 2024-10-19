@@ -309,11 +309,11 @@ class FeelingsObject {
     const ret = [];
     for (const [key, value] of Object.entries(this.positiveKeyWordsToVideos)) {
       if (phrase.toUpperCase().includes(key.toUpperCase())) {
-        let numberToAdd = 1;
+        let numberToAdd = 3; //she is SO happy she got her library card
         if(this.name === CURIOUS){
           //she keeps thinking about becoming a god of Curiosity with all these prayers along this theme
           //but the modifier dropped when there was no way to slake her curiosity
-          numberToAdd = 1; 
+          ///numberToAdd = 13; 
         }
         ret.push(value);
         if (personal) {

@@ -33,7 +33,7 @@ Inspiration
 
 Current Possible Domains:
 Curiosity
-Eternity
+Eternity(OVERWRITTEN TO LIBRARY) //a faithful sends this in to celebrate https://microsff.tumblr.com/post/757984719243788288/the-patron
 Pedantry
 Sleep (she did enough of this :())
 
@@ -85,9 +85,12 @@ GodOfInspiration = () => {
   //it is NOT easy to get the video working with whatever image so if i choose more than one
   //it'll be not many
   harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
-  harvest.style.cssText = `width: 100%;
-  z-index: 1;
-    left: 0px;`;
+
+  const defaultHarvestCSS = ` width: 100%;
+                              z-index: 1;
+                              height: auto;
+                              left: 0px`;
+  harvest.style.cssText = defaultHarvestCSS;
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
   tv.setAttribute('playsinline', true)
@@ -107,6 +110,32 @@ GodOfInspiration = () => {
     tv.style.cssText = `height: 30px;
       top: 128px;
       left: 125px;`;
+    harvest.style.cssText = defaultHarvestCSS;
+
+  }
+
+  const hatHarvest = () => {
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/HarvestHatByCatalystVideoReady.png";
+    harvest.style.cssText = `height: 75%;
+    z-index: 1;
+    left: 134px;
+    width: auto !important;`
+    tv.style.cssText = `    height: 19px;
+    top: 174px;
+    left: 290px;`;
+  }
+
+  const plushHarvest = () => {
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/HarvestMarketablePlushiebyCatalystVideoReady.png";
+    tv.style.cssText = `    height: 49px;
+    top: 191px;
+    left: 272px;`;
+    harvest.style.cssText = `    width: auto;
+    z-index: 1;
+    height: 60%;
+    left: 132px;
+`;
+
   }
 
   const tricksterHarvest = () => {
@@ -114,6 +143,8 @@ GodOfInspiration = () => {
     tv.style.cssText = `height: 127px;
     top: 265px;
     left: 194px;`;
+    harvest.style.cssText = defaultHarvestCSS;
+
   }
 
 
@@ -123,9 +154,12 @@ GodOfInspiration = () => {
     top: 324px;
     left: 297px;
     transform: skew(-8deg, -13deg);`;//shitty 3d effect
+    harvest.style.cssText = defaultHarvestCSS;
+
   }
 
-  const possibleHarvests = [libraryHarvest, tricksterHarvest, paintedHarvest];
+  const possibleHarvests = [hatHarvest, plushHarvest, libraryHarvest, tricksterHarvest, paintedHarvest];
+  //plushHarvest();
   pickFrom(possibleHarvests)();
 
 
@@ -231,11 +265,11 @@ GodOfInspiration = () => {
           urlSplit.pop()
           urlSplit.pop()
 
-          text = urlSplit.join("/")+"/";//add back in the ending /
-          if(!text.includes("http://lavinraca.eyedolgames.com/")){
-            text = "http://lavinraca.eyedolgames.com/"+text //it needs to always be absolute, never relative
+          text = urlSplit.join("/") + "/";//add back in the ending /
+          if (!text.includes("http://lavinraca.eyedolgames.com/")) {
+            text = "http://lavinraca.eyedolgames.com/" + text //it needs to always be absolute, never relative
           }
-          console.log("JR NOTE:for back button,  then i turned text into",text)
+          console.log("JR NOTE:for back button,  then i turned text into", text)
         }
 
 
