@@ -991,7 +991,7 @@ GodOfInspirationReal = () => {
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
   shop.style.maxHeight = "700px";
-  shop.style.height = "600px";
+  shop.style.height = "fit-content";
   //JR NOTE: todo have a dollsim version of harvest
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
   harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
@@ -1014,7 +1014,10 @@ GodOfInspirationReal = () => {
   tv.src = "videos/happy_fox_spin.mp4";
   tv.autoplay = true;
   tv.loop = true;
+  const dollContainer = createElementWithClassAndParent("div", parent);
+  dollContainer.style.position="relative"
 
+  initRandomDoll(dollContainer);
 }
 
 

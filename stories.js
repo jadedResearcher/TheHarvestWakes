@@ -456,3 +456,7 @@ She appears in his dreams, the glow of her screen warming his skin. He lays down
 He purrs.
 
 <img src='http://lavinraca.eyedolgames.com/images/HarvestEyes/Offerings/Dolls/herdingShorthairs.png'>`)
+
+new Story("theafungtwins (bbq sauce mite)","Algae",`Hey, this is the daycare, right? I have some business to attend to in the fields, and I can't take this little guy with me. Please take care of it until I get back, but please don't let it near the water.
+  <img src='images/HarvestEyes/Offerings/Dolls/algae.png'>
+  `)
