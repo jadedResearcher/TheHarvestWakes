@@ -294,7 +294,7 @@ const filePattern = new RegExp('<a href="([^?]*?)">', 'g');
 const extensionPattern = new RegExp(`\\\.(${imageExtendsions.join("|")})\$`);
 
 const audioExtensions = [
-  "wav",
+  "wav","mp3"
 ];
 const filePatternAudio = new RegExp('<a href="([^?]*?)">', 'g');
 
@@ -415,23 +415,29 @@ const getVideo = async (url) => {
 }
 
 const getAudio = async (url) => {
+  console.log("JR NOTE: getting audio")
   if (cachedAudio[url]) {
+    console.log("JR NOTE: its cached")
     return cachedAudio[url];
   }
 
   let promise = new Promise(async (resolve, reject) => {
     try {
       const rawText = await httpGetAsync(url);
+      console.log("JR NOTE: raw text is", rawText)
 
       let files = [];
+      console.log("JR NOTE: filePatternAudio is",filePatternAudio)
       const match = rawText.matchAll(filePatternAudio);
       const matches = Array.from(match, (res) => res);
+      console.log("JR NOTE: matches is", matches)
       for (let m of matches) {
         const item = m[1];
         if (item.match(extensionPatternAudio)) {
           files.push(item);
         }
       }
+      console.log("JR NOTE: files is", files)
       cachedAudio[url] = files;
       //console.log("JR NOTE: returned from network for", url)
       resolve(files);

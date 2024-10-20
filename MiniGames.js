@@ -59,6 +59,7 @@ and ask you what it inspires in you
 maybe give her the zampanio data set  for things she could suggest in inspiration mode
 */
 GodOfInspiration = () => {
+  document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
   if (!personalFeelings["INSPIRATION"]) {
     personalFeelings["INSPIRATION"] = 0;
   }
@@ -390,14 +391,29 @@ GodOfInspiration = () => {
 
   }
 
-  const displayAudio = () => {
+  const displayAudio = async() => {
     title.innerText = "Audio"
     display.innerHTML = "";
-    shelves.innerHTML = "";
-
     randomHolder.innerHTML = "";
 
-    call.innerText = "Will you give us books for this, Faithful?"
+
+    const source = "http://lavinraca.eyedolgames.com/images/HarvestEyes/Offerings/";
+    if (!audios) {
+      console.log("JR NOTE: getting audios")
+      audios = await getAudio(source)
+      console.log("JR NOTE: audios is", audios)
+    }
+    const randomButton = createElementWithClassAndParent("button", randomHolder);
+    randomButton.innerText = "Random Book";
+    randomButton.onclick = () => {
+      pickFrom(all_books).click();
+    }
+    const all_books = renderBookCase(audios, (item) => {
+      call.innerHTML = `This is the audio that has been created by the Faithful.<br><br>${item} was inspired by me.   Does it in turn inspire you, Faithful? Will you create something from it and add it to these shelves?`;
+      display.innerHTML = `<audio controls src="${source}${item}"></audio>`
+      title.scrollIntoView(true);
+    });
+    pickFrom(all_books).click();
   }
 
   const displayVideo = () => {
