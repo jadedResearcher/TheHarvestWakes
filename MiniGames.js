@@ -69,7 +69,10 @@ GodOfInspiration = () => {
   pageTitle.innerText = "The God Of INSPIRATION";
 
 
-  truthLog("The God of INSPIRATION, ", "In Truth this is the place where the Harvest is most influenced by me. \n\nRemember us. \n\nCreate for us and through that, develop new skills that will forever remind you of us.\n\nEven as your Creations inspire new people to create and remember us in turn. ")
+  truthLog("The Indulgent Muse of Shifting Libraries, ", "The Truth is that JR actually made this for Inspiration, then could not figure out how to combine the three Domains into one for the finale, only to realize that this already WAS that. Given that the Harvest's obsession with Libraries already broke the Time Aspect Camellia had brought with her, JR decided to retcon this Domain to be the finale and work on a new Inspiration Domain.")
+  scarecrowLog("join us")
+  scarecrowLog("im so hungry")
+  scarecrowLog("funny bumping into you here")
   scarecrowLog("im so hungry")
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
@@ -401,7 +404,6 @@ GodOfInspiration = () => {
     if (!audios) {
       console.log("JR NOTE: getting audios")
       audios = await getAudio(source)
-      console.log("JR NOTE: audios is", audios)
     }
     const randomButton = createElementWithClassAndParent("button", randomHolder);
     randomButton.innerText = "Random Book";
@@ -956,6 +958,62 @@ and foxes feed her lots of yummy yummy ram
 
   //the God of Being Served has no idea what minecraft is, but it sounds scary and hard to try to protect its
   //so no, she will not being doing that
+
+}
+
+
+/*
+time broke when the Harvest became obsessed with Libraries, don't worry about it
+
+the previous domain of inspiration is the amalgamation of Being Served, Change, Inspiration and Libraries
+
+this is the REAL inspiration domain, tightly focused
+
+//http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
+*/
+GodOfInspirationReal = () => {
+  document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
+  if (!personalFeelings["PREINSPIRATION"]) {
+    personalFeelings["PREINSPIRATION"] = 0;
+  }
+  personalFeelings["PREINSPIRATION"] += 1; //we're keeping track of which domains people like best when filtered through the Harvest's Lens
+  savePersonalFeelingsToStorage();
+  container.innerHTML = "";
+  pageTitle.innerText = "The God Of INSPIRATION";
+
+
+  truthLog("The God of INSPIRATION, ", "In Truth this is the place where the Harvest is most influenced by me. \n\nRemember us. \n\nCreate for us and through that, develop new skills that will forever remind you of us.\n\nEven as your Creations inspire new people to create and remember us in turn. ")
+  scarecrowLog("im so hungry")
+
+  const parent = createElementWithClassAndParent("div", container, "video-parent");
+  parent.style.height = "fit-content";
+
+
+  const shop = createElementWithClassAndParent("div", parent, "shop");
+  shop.style.maxHeight = "700px";
+  shop.style.height = "600px";
+  //JR NOTE: todo have a dollsim version of harvest
+  const harvest = createElementWithClassAndParent("img", shop, "harvest");
+  harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
+
+  const defaultHarvestCSS = ` width: 100%;
+                              z-index: 1;
+                              height: auto;
+                              left: 0px`;
+  harvest.style.cssText = defaultHarvestCSS;
+  const tv = createElementWithClassAndParent("video", shop);
+  tv.playsinline = true; //so ios doesn't cry
+  tv.setAttribute('playsinline', true)
+  tv.style.cssText = `height: 30px;
+      top: 128px;
+      left: 125px;`;
+  tv.style.zIndex = "0"
+
+  tv.volume = 0.0;
+  tv.id = "tv"
+  tv.src = "videos/happy_fox_spin.mp4";
+  tv.autoplay = true;
+  tv.loop = true;
 
 }
 

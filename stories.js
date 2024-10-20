@@ -431,3 +431,28 @@ The middleground between the flame of summer and the freezerburn of winter.
 It's lovely, really.
 
 There is a faint glow.`)  
+
+
+new Story("Drowned","The Herder's Lot",`Autumn is a time of joy for many. 
+
+The Herder is not exempt from this, despite his hesitancy to emerge from his dwelling. He can hear the festivities, the other Faithful milling about, and he thinks to himself that even in observation of the fun, enjoyment can be had. He is content with his lot, his alleyway, his home. His scenery has been much of the same corridors, the same feline companions. 
+
+He did go to church once. He returned home to find he was missed dearly.
+
+Drownedstar snores nearby. His messenger, his confidante. Is it silly to feel so connected to one cat? When he looks at the oddly expressive feline, all he feels is kinship. This is where he should be. These creatures are what he lives for.
+
+A puddle of purring, sleepy kitties lie on his legs, full of fresh kill. No doubt, their luck in recent hunts is thanks to The Harvest’s blessing. It’s more meat for her, in the end. The Herder can hear the music wafting around the winding brick walls. The town is changing. The Harvest is changing. He hasn’t ventured to her booth, but he can feel it anyways, a deep ache in his bones, a wanting.
+
+He knows better. There is still so much to do. If he becomes too invested in anything besides his dear kittens, they may struggle later down the line. Change is not kind to the most vulnerable of creatures, and while the air smells of dying leaves and cider now, it is but a harbinger for the chill of the leaf-bare season.
+
+The season of freezing kits and herb shortage. Frostbitten paws and meager hunts. Where a small conflict can become a harsh biting war, and good cats are lost in blizzards and freezes.
+
+If anyone knows and sympathizes with the fear of change, it is Lavinraca's cats when the leaves begin to fall.
+
+Perhaps, he thinks to himself, he's a change for them as much as they are for him. He can only hope he's a positive one. He leans back against the den of hay and concrete, and sleeps.
+
+She appears in his dreams, the glow of her screen warming his skin. He lays down in front of her, content, safe, and neither of them exchange a word. Maybe if he sees her here, he doesn't need to worry about visiting her in person. He offers her his dreams, and as he drifts further, she fills them with peace and purpose. Hope. 
+
+He purrs.
+
+<img src='http://lavinraca.eyedolgames.com/images/HarvestEyes/Offerings/Dolls/herdingShorthairs.png'>`)
