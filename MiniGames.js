@@ -1018,6 +1018,12 @@ GodOfInspirationReal = () => {
   dollContainer.style.position="relative"
 
   initRandomDoll(dollContainer);
+  //http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
+  const link = createElementWithClassAndParent("a", parent);
+  link.href = 'http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html';
+  link.innerText = "Make Your Own Doll Here!"
+  link.target="_blank"
+
 }
 
 
