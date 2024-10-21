@@ -1322,6 +1322,11 @@ button:active {
   img{
     max-width: 100%;
   }
+
+  p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 #pending {
