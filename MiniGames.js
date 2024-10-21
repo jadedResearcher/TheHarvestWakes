@@ -987,6 +987,7 @@ GodOfInspirationReal = () => {
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
   parent.style.height = "fit-content";
+  parent.style.background="#111111";
 
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -1018,12 +1019,36 @@ GodOfInspirationReal = () => {
   dollContainer.style.position="relative"
 
   initRandomDoll(dollContainer);
+
+
+  let limmerick = generateLimmerick();
+  console.log("JR NOTE: ", limmerick)
+
+  const limmerickContainer = createElementWithClassAndParent("div", parent);
+  limmerickContainer.style.cssText = `text-align: center;
+    line-height: 31px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    padding-bottom: 31px;`;
+  limmerickContainer.innerHTML = limmerick.replaceAll("\n", "<br>")
+  const button = createElementWithClassAndParent("button", parent);
+  button.style.display="block";
+  button.style.marginBottom="31px";
+  button.innerText ="More Inspiration Please!"
+  button.onclick = ()=>{
+    dollContainer.innerHTML = "";
+    initRandomDoll(dollContainer);
+    limmerick = generateLimmerick();
+    limmerickContainer.innerHTML = limmerick.replaceAll("\n", "<br>")
+  }
+
+  
   //http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
   const link = createElementWithClassAndParent("a", parent);
   link.href = 'http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html';
   link.innerText = "Make Your Own Doll Here!"
   link.target="_blank"
-
+  link.style.paddingBottom="31px";
 }
 
 

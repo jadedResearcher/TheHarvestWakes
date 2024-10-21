@@ -14,8 +14,6 @@ const initRandomDoll = (parent) => {
   randomDoll = makeDollFromDirectories(parent, layerURLs);
 }
 
-
-window.addEventListener("load", initRandomDoll)
 //https://archiveofourown.org/works/58111936
 class Doll {
   layers = [];
