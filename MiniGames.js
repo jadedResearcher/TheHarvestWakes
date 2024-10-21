@@ -1031,9 +1031,11 @@ GodOfInspirationReal = () => {
     margin-bottom: 31px;
     padding-bottom: 31px;`;
   limmerickContainer.innerHTML = limmerick.replaceAll("\n", "<br>")
-  const button = createElementWithClassAndParent("button", parent);
-  button.style.display="block";
-  button.style.marginBottom="31px";
+
+  const buttonHolder = createElementWithClassAndParent("div", parent);
+  buttonHolder.style.marginBottom="31px";
+
+  const button = createElementWithClassAndParent("button", buttonHolder);
   button.innerText ="More Inspiration Please!"
   button.onclick = ()=>{
     dollContainer.innerHTML = "";
@@ -1041,6 +1043,10 @@ GodOfInspirationReal = () => {
     limmerick = generateLimmerick();
     limmerickContainer.innerHTML = limmerick.replaceAll("\n", "<br>")
   }
+
+  const returnButton = createElementWithClassAndParent("button", buttonHolder);
+  returnButton.innerText = "Stop Experiment";
+  returnButton.onclick = theHarvestWakes;
 
   
   //http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
