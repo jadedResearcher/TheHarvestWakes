@@ -464,3 +464,9 @@ new Story("theafungtwins (bbq sauce mite)","Algae",`Hey, this is the daycare, ri
   new Story("Moon Moth","fakekiller",`I'll let you in on a little secret. It was me. I'm the one who killed the scarecrow. What, you heard that was someone else? Lies! Lies and slander, I say! Wha - no, that's not just a pumpkin I scribbled on in crayon! Wait, where are you going?
     <img src='images/HarvestEyes/Offerings/Dolls/fakekiller.png'>
     `)
+
+  new Story("Defensive_Lobster","Doll1",`
+    A friendly little hooded figure offers you a cup of OJ. It is DEFINITELY orange juice. 100%. For sure. Right?
+        <img src='images/HarvestEyes/Offerings/Dolls/doll1.png'>
+    `)
+
