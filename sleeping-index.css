@@ -1319,6 +1319,9 @@ button:active {
 .prayer-response {
   font-size: 10px;
   margin-top: 13px;
+  img{
+    max-width: 100%;
+  }
 }
 
 #pending {
