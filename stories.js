@@ -460,3 +460,7 @@ He purrs.
 new Story("theafungtwins (bbq sauce mite)","Algae",`Hey, this is the daycare, right? I have some business to attend to in the fields, and I can't take this little guy with me. Please take care of it until I get back, but please don't let it near the water.
   <img src='images/HarvestEyes/Offerings/Dolls/algae.png'>
   `)
+
+  new Story("Moon Moth","fakekiller",`I'll let you in on a little secret. It was me. I'm the one who killed the scarecrow. What, you heard that was someone else? Lies! Lies and slander, I say! Wha - no, that's not just a pumpkin I scribbled on in crayon! Wait, where are you going?
+    <img src='images/HarvestEyes/Offerings/Dolls/fakekiller.png'>
+    `)
