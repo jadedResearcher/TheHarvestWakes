@@ -465,8 +465,13 @@ const theHarvestWakes = async () => {
 
   const inspiration = createElementWithClassAndParent("button", buttonHolderDomains);
   inspiration.innerText = "Domain of Inspiration"
-  inspiration.onclick = GodOfInspiration;
+  inspiration.onclick = GodOfInspirationReal;
 
+  const buttonHolderDomains2 = createElementWithClassAndParent("div", domainEle, "domain-button-holder");
+
+  const library = createElementWithClassAndParent("button", buttonHolderDomains2);
+  library.innerText = "Final Domain"
+  library.onclick = GodOfInspiration;
 
   const pendingParent = createElementWithClassAndParent("div", container, "dialog-parent");
   pendingParent.id = "pending";
