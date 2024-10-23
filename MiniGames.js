@@ -118,6 +118,18 @@ GodOfInspiration = () => {
 
   }
 
+  const mediumHarvest = () => {
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/bymediumVideoReady.png";
+    tv.style.cssText = `    height: 55px;
+    top: 113px;
+    left: 263px;`;
+      harvest.style.cssText = `    width: 50%;
+    z-index: 1;
+    height: auto;
+    left: 157px;`;
+
+  }
+
   const hatHarvest = () => {
     harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/HarvestHatByCatalystVideoReady.png";
     harvest.style.cssText = `height: 75%;
@@ -162,8 +174,8 @@ GodOfInspiration = () => {
 
   }
 
-  const possibleHarvests = [hatHarvest, plushHarvest, libraryHarvest, tricksterHarvest, paintedHarvest];
-  //plushHarvest();
+  const possibleHarvests = [mediumHarvest,hatHarvest, plushHarvest, libraryHarvest, tricksterHarvest, paintedHarvest];
+  //mediumHarvest();
   pickFrom(possibleHarvests)();
 
 
