@@ -991,23 +991,26 @@ GodOfInspirationReal = () => {
 
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
-  shop.style.maxHeight = "700px";
-  shop.style.height = "fit-content";
+  shop.style.minHeight = "0px";
+  shop.style.height = "0px";
   //JR NOTE: todo have a dollsim version of harvest
   const harvest = createElementWithClassAndParent("img", shop, "harvest");
-  harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
+  harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/dollbyCatalystVideoReady.png";
 
-  const defaultHarvestCSS = ` width: 100%;
-                              z-index: 1;
-                              height: auto;
-                              left: 0px`;
+  const defaultHarvestCSS = ` width: 50%;
+    z-index: 1;
+    position: absolute;
+    left: -119px;
+    top: -22px;`;
   harvest.style.cssText = defaultHarvestCSS;
   const tv = createElementWithClassAndParent("video", shop);
   tv.playsinline = true; //so ios doesn't cry
   tv.setAttribute('playsinline', true)
-  tv.style.cssText = `height: 30px;
-      top: 128px;
-      left: 125px;`;
+  tv.style.cssText = `    height: 30px;
+    top: 136px;
+    left: 13px;
+    z-index: 0;
+}`;
   tv.style.zIndex = "0"
 
   tv.volume = 0.0;
