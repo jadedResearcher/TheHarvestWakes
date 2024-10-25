@@ -51,6 +51,8 @@ let harvestSpeaks;
 let breakMessage;
 let pageTitle;
 let container;
+//for when we stop syncing
+let cachedVideos = [];
 
 const bgMusic = new Audio();
 
@@ -90,6 +92,8 @@ window.onload = () => {
   //harvestPreRender("images/source_images/fox.png")
 }
 
+let harvestIsIn = true;
+
 const isHarvestIn = () => {
   console.log("JR NOTE: checkign if harvest in")
   //come on wastes, at LEAST manipulate the harvest into setting this herself, yeah?
@@ -112,17 +116,20 @@ const isHarvestIn = () => {
   } else if ((hour === 22 || hour === 3) && (minutes > 15 && minutes < 30)) {
     //breaks are at 10pm and 3am between x:15 and x:30 
     fifteenMinuteBreak();
-  } else if(harvest.style.display === "none") { //fix the infinite energy glitch personality found
+  } else if (harvest.style.display === "none") { //fix the infinite energy glitch personality found
     //for every break she gets to finish without interuption, she rests up
     truthLog("Rested", "The Truth is that the Harvest is Rested.")
     scarecrowLog("im so hungry...")
     personalFeelings[ENERGETIC] += 13; //enough to, if she was neutral before, let you interupt one break
+    syncTVToClipsInOrder(cachedVideos);
     workingTime();
   }
 }
 
 //https://www.tumblr.com/ignatiaflamen/761906243882319872/jadedresearcher-dies-first-salticid-youre?source=share
 const workingTime = () => {
+  harvestIsIn = true;
+
   harvest.style.display = "block";
   tv.style.display = "block";
   harvestSpeaks.style.display = "block";
@@ -132,6 +139,8 @@ const workingTime = () => {
 }
 
 const outsideHours = () => {
+  harvestIsIn = false;
+
   harvest.style.display = "none";
   tv.style.display = "none";
   booth.src = "images/source_images/harvestonbreaknowordsgameboy.png";
@@ -143,6 +152,8 @@ const outsideHours = () => {
 }
 
 const fifteenMinuteBreak = () => {
+  harvestIsIn = false;
+
   harvest.style.display = "none";
   tv.style.display = "none";
   booth.src = "images/source_images/harveston15nowordsgameboy.png";
@@ -164,6 +175,8 @@ plus
 ButlerBot was the SUBSTRATE of the sacrifice, you really think none of him made it in?
 */
 const lunchtimemmmmmmmmmmmmmmmm = () => {
+  harvestIsIn = false;
+
   harvest.style.display = "none";
   tv.style.display = "none";
   booth.src = "images/source_images/lunchtimemmm.png"
@@ -277,7 +290,11 @@ const scarecrowLog = (text) => {
 //ignores itself if some other command/response pair gets displayed
 //text already has its HIDE stuff hidden
 const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
-
+  console.log("JR NOTE: syncing videos")
+  if (!harvestIsIn) {
+    cachedVideos = videos;
+    return;
+  }
   //console.log("JR NOTE:syncTVToClipsInOrder ", videos)
   const playNextVideo = () => {
     //console.log("JR NOTE: play next video");
@@ -311,7 +328,7 @@ const syncTVToClipsInOrder = (videos, textEle, text, originalVideos) => {
 }
 
 const processOnePrayer = (commandEle, responseEle, command, response, autoresponder = false, prepend = false) => {
- // console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
+  // console.warn("JR NOTE: don't forget to handle special meta content like the harvest emoting or truth/scarecrow commenting")
   const videos = processFeelingsFromPrayer(command, response, false); //whether you view it or not she has feelings, because its her long term memory
   const container = createElementWithClass("li", "prayer");
   if (prepend) {
@@ -374,7 +391,7 @@ const handlePendingCommands = async (ele) => {
 const theHarvestWakes = async () => {
   bgMusic.pause();
   const body = document.querySelector("body");
-  container.innerHTML="";
+  container.innerHTML = "";
   const parent = createElementWithClassAndParent("div", container, "video-parent");
   pageTitle.innerText = "Pray To Her, Define Her";
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -472,7 +489,7 @@ const theHarvestWakes = async () => {
   const library = createElementWithClassAndParent("button", buttonHolderDomains2);
   library.innerText = "Final Domain"
   library.onclick = GodOfInspiration;
-  library.style.width="100%"
+  library.style.width = "100%"
 
   const pendingParent = createElementWithClassAndParent("div", container, "dialog-parent");
   pendingParent.id = "pending";
@@ -506,17 +523,17 @@ const theHarvestWakes = async () => {
 
     }
   }
-/*
-camellia hated being in the corn maze because she just trying to get back to her home universe (she hoped making a sacrifice would help with that)
-eustace hated being in the corn maze because he was just trying to get home after a long ass shift
-
-together they are the god of
-checks notes
-
-'....corn
-
-yeah no the harvest hates it
-*/
+  /*
+  camellia hated being in the corn maze because she just trying to get back to her home universe (she hoped making a sacrifice would help with that)
+  eustace hated being in the corn maze because he was just trying to get home after a long ass shift
+  
+  together they are the god of
+  checks notes
+  
+  '....corn
+  
+  yeah no the harvest hates it
+  */
 
 
   const commandParent = createElementWithClassAndParent("div", container, "dialog-parent");
@@ -544,7 +561,7 @@ yeah no the harvest hates it
   //if you're just vibing on the screen and a Proclamation from the Harvest goes out, you should attend it
   waitForResponse(recentPrayersEle, rant);
 
-  const story10 = createElementWithClassAndParent("div",body,"story");
+  const story10 = createElementWithClassAndParent("div", body, "story");
   story10.innerHTML = story10Text.text;
 
   const story9 = createElementWithClassAndParent("div", body, "story");
