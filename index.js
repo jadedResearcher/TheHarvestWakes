@@ -389,6 +389,8 @@ const handlePendingCommands = async (ele) => {
 }
 
 const theHarvestWakes = async () => {
+  harvestIsIn = true;
+
   bgMusic.pause();
   const body = document.querySelector("body");
   container.innerHTML = "";

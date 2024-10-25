@@ -59,6 +59,7 @@ and ask you what it inspires in you
 maybe give her the zampanio data set  for things she could suggest in inspiration mode
 */
 GodOfInspiration = () => {
+  harvestIsIn = false;
   document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
   if (!personalFeelings["INSPIRATION"]) {
     personalFeelings["INSPIRATION"] = 0;
@@ -464,6 +465,7 @@ looks like change won!
 explore last years corn maze but in a new form
 */
 GodOfChange = () => {
+  harvestIsIn = false;//don't play the video on the main screen
   if (!personalFeelings["CHANGE"]) {
     personalFeelings["CHANGE"] = 0;
   }
@@ -765,6 +767,7 @@ WILL get all pissy about it, no matter what domain she was practicing
 
 //yes its all a big dumb function, deal with it
 GodOfBeingServed = () => {
+  harvestIsIn = false;
   if (!personalFeelings["BEINGSERVED"]) {
     personalFeelings["BEINGSERVED"] = 0;
   }
@@ -984,6 +987,7 @@ this is the REAL inspiration domain, tightly focused
 //http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
 */
 GodOfInspirationReal = () => {
+  harvestIsIn = false;
   document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
   if (!personalFeelings["PREINSPIRATION"]) {
     personalFeelings["PREINSPIRATION"] = 0;
