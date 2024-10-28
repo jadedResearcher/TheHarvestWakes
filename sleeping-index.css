@@ -1491,7 +1491,8 @@ button:active {
   display: flex;
   border: 13px solid #677221;
   background-color: #212604;
-  width: 616px
+  width: 616px;
+  height: 180px;
 }
 
 .book {
