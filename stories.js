@@ -441,7 +441,7 @@ He did go to church once. He returned home to find he was missed dearly.
 
 Drownedstar snores nearby. His messenger, his confidante. Is it silly to feel so connected to one cat? When he looks at the oddly expressive feline, all he feels is kinship. This is where he should be. These creatures are what he lives for.
 
-A puddle of purring, sleepy kitties lie on his legs, full of fresh kill. No doubt, their luck in recent hunts is thanks to The Harvest’s blessing. It’s more meat for her, in the end. The Herder can hear the music wafting around the winding brick walls. The town is changing. The Harvest is changing. He hasn’t ventured to her booth, but he can feel it anyways, a deep ache in his bones, a wanting.
+A puddle of purring, sleepy kitties lie on his legs, full of fresh kill. No doubt, their luck in recent hunts is thanks to The Harvest's blessing. It's more meat for her, in the end. The Herder can hear the music wafting around the winding brick walls. The town is changing. The Harvest is changing. He hasn't ventured to her booth, but he can feel it anyways, a deep ache in his bones, a wanting.
 
 He knows better. There is still so much to do. If he becomes too invested in anything besides his dear kittens, they may struggle later down the line. Change is not kind to the most vulnerable of creatures, and while the air smells of dying leaves and cider now, it is but a harbinger for the chill of the leaf-bare season.
 
@@ -470,3 +470,52 @@ new Story("theafungtwins (bbq sauce mite)","Algae",`Hey, this is the daycare, ri
         <img src='images/HarvestEyes/Offerings/Dolls/doll1.png'>
     `)
 
+    new Story("existentialterror","GOD IS AT THE TABLE",`<a target='_blank' href='https://www.tumblr.com/existentialterror/765738657710833664/god-is-at-the-table?source=share'>a Harvest poem for Lavinraca</a>
+
+God is at the table and her entourage as well
+They're drinking wine that's pressed from grapes that are said to grow in hell.
+Like, Tantalus's grapes, whispers a server as I'm cooking.
+Devils cut them from the arbor when the poor guy isn't looking.
+The whole place is a garden. That's what the cleaner said.
+I don't believe a word. I've tried the wine. It tasted red.
+
+A lovely vintage, coos the spiral (on God's left.) They swirl their glass.
+On God's right, a grinning jester. I don't know. I do not ask.
+The party parties partly - all but one, the honored guest
+who licks her lips and patiently just waits to eat the rest.
+I'm told that God is young. That she's becoming. That she's sweet.
+She's hungry too. I understand a growing thing must eat.
+
+(I'm told she's born anew each year. Was she like this before?
+The servers say they're ravenous, are there any more hors d'ouevres?)
+
+God is at the table and I am in the kitchen
+I am chopping parsley while the serving staff are bitching.
+The weather's worse than last year, and the menu, dubious.
+Give me a chance, I mutter. I'm giving them my best.
+Really, they don't mean it. They've worked these feasts before.
+Meanwhile I garnish and baste the roast and shut the oven door -
+
+At least the harvest blessed us. I've got fresh chanterelles and corn.
+The God of Maize amazes with the ways and means she's bourne.
+I change what she has given: chanterelles to sauce, and corn to bread,
+change becomes ambition; inspiration, being fed.
+Life is full of beauty. I owe so many things
+that I've been given. The oven timer rings.
+
+God is at the table. I am myself the roast.
+My skin is darkly crackled with the glaze I like the most.
+I am stuffed with figs and oysters. I am transformed now.
+Six pomegranate arils I anoint upon my brow
+to keep me through the winter. Tradition paid its due.
+I ask that what has worked before works kindly for me too.
+
+Their steely knives, their floating hair, they gather for the feast,
+Drunk on wine from warmer climes, soon too to be deceased.
+I cart in the golden platter, the bread and sauce and meat,
+Thank you all for coming. Fare thee well. Bon appétit.
+I plate the choicest cuts of me, sliced fine as I am able
+For I am blessed with carving knife and God is at the table`)
+
+
+//http://knucklessux.com/InfoTokenReader/?mode=loop

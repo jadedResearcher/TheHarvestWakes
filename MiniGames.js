@@ -60,7 +60,7 @@ maybe give her the zampanio data set  for things she could suggest in inspiratio
 */
 GodOfInspiration = () => {
   harvestIsIn = false;
-  document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
+  document.querySelectorAll(".story").forEach((e) => e.style.display = "none");
   if (!personalFeelings["INSPIRATION"]) {
     personalFeelings["INSPIRATION"] = 0;
   }
@@ -110,6 +110,19 @@ GodOfInspiration = () => {
   tv.autoplay = true;
   tv.loop = true;
 
+
+  const terrariaHarvest = () => {
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/terrariaHarvestByCDVideoReady.png";
+    tv.style.cssText = `    height: 65px;
+    top: 152px;
+    left: 248px;`;
+    harvest.style.cssText = `    width: 60%;
+    z-index: 1;
+    height: auto;
+    left: 116px;`;
+
+  }
+
   const libraryHarvest = () => {
     harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/LibraryCardVideoReady.png";
     tv.style.cssText = `height: 30px;
@@ -124,7 +137,7 @@ GodOfInspiration = () => {
     tv.style.cssText = `    height: 55px;
     top: 113px;
     left: 263px;`;
-      harvest.style.cssText = `    width: 50%;
+    harvest.style.cssText = `    width: 50%;
     z-index: 1;
     height: auto;
     left: 157px;`;
@@ -175,8 +188,21 @@ GodOfInspiration = () => {
 
   }
 
-  const possibleHarvests = [mediumHarvest,hatHarvest, plushHarvest, libraryHarvest, tricksterHarvest, paintedHarvest];
-  //mediumHarvest();
+  const ansHarvest = () => {
+    harvest.src = "images/HarvestEyes/Offerings/InspiredHarvests/MOTH-HARVEST.ANS_video_ready.png";
+    tv.style.cssText = `       height: 53px;
+    top: 200px;
+    left: 273px;
+    transform: skew(3deg, -15deg);`;//shitty 3d effect
+    harvest.style.cssText = `    width: 40%;
+    z-index: 1;
+    height: auto;
+    left: 114px;`;
+
+  }
+
+  const possibleHarvests = [ansHarvest, terrariaHarvest, mediumHarvest, hatHarvest, plushHarvest, libraryHarvest, tricksterHarvest, paintedHarvest];
+  //ansHarvest();
   pickFrom(possibleHarvests)();
 
 
@@ -407,7 +433,7 @@ GodOfInspiration = () => {
 
   }
 
-  const displayAudio = async() => {
+  const displayAudio = async () => {
     title.innerText = "Audio"
     display.innerHTML = "";
     randomHolder.innerHTML = "";
@@ -988,7 +1014,7 @@ this is the REAL inspiration domain, tightly focused
 */
 GodOfInspirationReal = () => {
   harvestIsIn = false;
-  document.querySelectorAll(".story").forEach((e)=>e.style.display="none");
+  document.querySelectorAll(".story").forEach((e) => e.style.display = "none");
   if (!personalFeelings["PREINSPIRATION"]) {
     personalFeelings["PREINSPIRATION"] = 0;
   }
@@ -1003,7 +1029,7 @@ GodOfInspirationReal = () => {
 
   const parent = createElementWithClassAndParent("div", container, "video-parent");
   parent.style.height = "fit-content";
-  parent.style.background="#111111";
+  parent.style.background = "#111111";
 
 
   const shop = createElementWithClassAndParent("div", parent, "shop");
@@ -1035,7 +1061,7 @@ GodOfInspirationReal = () => {
   tv.autoplay = true;
   tv.loop = true;
   const dollContainer = createElementWithClassAndParent("div", parent);
-  dollContainer.style.position="relative"
+  dollContainer.style.position = "relative"
 
   initRandomDoll(dollContainer);
 
@@ -1052,11 +1078,11 @@ GodOfInspirationReal = () => {
   limmerickContainer.innerHTML = limmerick.replaceAll("\n", "<br>")
 
   const buttonHolder = createElementWithClassAndParent("div", parent);
-  buttonHolder.style.marginBottom="31px";
+  buttonHolder.style.marginBottom = "31px";
 
   const button = createElementWithClassAndParent("button", buttonHolder);
-  button.innerText ="More Inspiration Please!"
-  button.onclick = ()=>{
+  button.innerText = "More Inspiration Please!"
+  button.onclick = () => {
     dollContainer.innerHTML = "";
     initRandomDoll(dollContainer);
     limmerick = generateLimmerick();
@@ -1067,13 +1093,26 @@ GodOfInspirationReal = () => {
   returnButton.innerText = "Stop Experiment";
   returnButton.onclick = theHarvestWakes;
 
-  
+
   //http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html
   const link = createElementWithClassAndParent("a", parent);
   link.href = 'http://farragofiction.com/CatalystsBathroomSim/NORTH/EAST/EAST/SOUTH/NORTH/SOUTH/EAST/EAST/bathroom.html';
   link.innerText = "Make Your Own Doll Here!"
-  link.target="_blank"
-  link.style.paddingBottom="31px";
+  link.target = "_blank"
+  link.style.paddingBottom = "31px";
+}
+
+//she dreams of all the stories sacrificed to her, and draws new inspiration from changing them
+//she loves how everyone gives her so many things and to her self care is lots of books
+//in the library she was gifted as well
+//she is not afraid to go to sleep again this year, not anymore
+//she is loved and fed
+GodOfDreams = () => {
+  harvestIsIn = false;
+  document.querySelectorAll(".story").forEach((e) => e.style.display = "none");
+  /*
+
+  */
 }
 
 
@@ -1108,7 +1147,7 @@ i think its so funny that everyone (not just in zampanio)
  hates camellia on sight but the HARVEST is loved
 
 i think the key is that eustace's more passive demeneor
- is more palatable to people than cemellias desire to take charge and tell ppl what to do
+ is more palatable to people than camellias desire to take charge and tell ppl what to do
 
  plus camellias inner monologue wasn't really known while the Harvest's is
 
