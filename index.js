@@ -73,8 +73,10 @@ let scarecrowEle;
 //ffmpeg -i week1.mp4 -filter_complex "color=c=0x000000:r=1:s=8x16,format=rgb24[b];color=c=0xa1b234:r=1:s=8x16,format=rgb24[w];[b][w]hstack=2[bw];[0:V:0][bw]paletteuse" output.mp4
 //warning the above will make a much longer video than needed, it'll be still at the end
 window.onload = () => {
-  GodOfDreams();
-  return;
+  if (false) {
+    GodOfDreams();
+    return;
+  }
   pageTitle = document.querySelector("#page-title")
   container = document.querySelector("#container")
 

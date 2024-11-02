@@ -1489,6 +1489,7 @@ button:active {
 
 .sleeping-gurl{
   width: 310px;
+  height: 244px;
   background-color: black;
   border-radius: 10000px;
   opacity: 90%;
@@ -1502,11 +1503,13 @@ button:active {
   border-radius: 31px;
   padding: 31px;
   width: 100%;
+  overflow-y: auto;
 
 }
 
 .sleeping-holder{
   width: 90%;
+  height: 400px;
   position: fixed;
   top: 31%;
   left: 3%;

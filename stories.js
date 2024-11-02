@@ -8,6 +8,7 @@ class StorySource{
     this.title = title;
     this.stories = stories;
     this.text = `TODO COMBINE THE TEXTS OF ${stories.map((i)=>i.title).join(" and ")}`
+    this.text += fuckWithArrayOfParagraphs(stories.map((i)=>i.text));
 
   }
 }
@@ -529,5 +530,14 @@ Thank you all for coming. Fare thee well. Bon appétit.
 I plate the choicest cuts of me, sliced fine as I am able
 For I am blessed with carving knife and God is at the table`)
 
+
+new Story("Everyone","Harvest Bounty",`
+  @Citizens The Librarian would like to summon all of you on this foggy night: come and join in our creative endeavours! There is a blank canvas waiting to be filled by all of you, filled by offerings to the Harvest as well as this town. Don't be shy, all are welcome, no matter the skill or experience! :o)
+
+There will be a magma canvas online from today until the end of October. Anybody can join in and draw on a shared canvas, the theme for drawings is offerings to the Harvest and/or the community as a whole: it can be anything from pumpkins, candy, books to simple encouraging messages. Skill level doesn't matter, anybody can participate. To join, use this <a target="_blank" href='https://magma.com/d/vX964PqunF'>link.</a>
+
+<img src='images/HarvestEyes/Offerings/Harvest_bounty.png'>
+
+  `)
 
 //http://knucklessux.com/InfoTokenReader/?mode=loop
