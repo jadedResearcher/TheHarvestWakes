@@ -1489,14 +1489,29 @@ button:active {
 
 .sleeping-gurl{
   width: 310px;
-  position: fixed;
-  top: 31%;
-  left: 3%;
   background-color: black;
   border-radius: 10000px;
   opacity: 90%;
   animation: hover 13s ease-in-out infinite;
 
+}
+
+.sleeping-display{
+  background-color: black;
+  animation: hover 31s ease-in-out infinite;
+  border-radius: 31px;
+  padding: 31px;
+  width: 100%;
+
+}
+
+.sleeping-holder{
+  width: 90%;
+  position: fixed;
+  top: 31%;
+  left: 3%;
+  gap: 31px;
+  display: flex;
 }
 
 @keyframes glow {
@@ -1530,9 +1545,7 @@ button:active {
   60%,
   80%,
   100% {
-    transform: translate(1px, 3px) scaleX(-1);
-    -webkit-filter: drop-shadow(3px 3px 3px black);
-    filter: drop-shadow(3px 3px 3px black);
+    transform: translate(1px, 3px);
   }
 
   10%,
@@ -1540,9 +1553,7 @@ button:active {
   50%,
   70%,
   90% {
-    transform: translate(-1px, 0px) scaleX(-1);
-    -webkit-filter: drop-shadow(3px 3px 3px black);
-    filter: drop-shadow(3px 3px 3px black);
+    transform: translate(-1px, 0px);
   }
 
 }

@@ -1108,14 +1108,16 @@ GodOfInspirationReal = () => {
 //she is not afraid to go to sleep again this year, not anymore
 //she is loved and fed
 GodOfDreams = (parentBook) => {
-  console.log("JR NOTE: god of dreams")
+  document.title="Harvest of Dreams"
   harvestIsIn = false;
   const body = document.querySelector("body");
   body.innerHTML = "";
-  const display = createElementWithClassAndParent("div", body, "display");
+  const holder = createElementWithClassAndParent("div", body, "sleeping-holder");
+
   const shelves = createElementWithClassAndParent("div", body, "shelves");
-  const sleeping_gurl = createElementWithClassAndParent("img", body,"sleeping-gurl" );
+  const sleeping_gurl = createElementWithClassAndParent("img", holder,"sleeping-gurl" );
   sleeping_gurl.src="images/source_images/sleepingharvest.gif"
+  const display = createElementWithClassAndParent("div", holder, "sleeping-display");
 
 
   //items is EITHER a list of strings or a list of stories because i am sinning on purpose tonight
@@ -1167,7 +1169,11 @@ GodOfDreams = (parentBook) => {
   console.log("JR NOTE: content", content)
   
     const all_books = renderBookCase(content, (item) => {
-      display.innerHTML = `<h3>${item.title}</h3><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
+      display.innerHTML = `<h3>The Harvest Dreams of ${item.title}</h3><i style="font-size: 11px;
+    letter-spacing: 3px;
+    font-family: Courier New;
+    font-weight: lighter;
+    color: white;">Shifting, ebbing, flowing, always Changing but ever so indulgent, the Harvest dreams of the Inspiration you have Served her. Will you be inspired anew by the changed dreams she happily consumes?</i><br><br><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
     });
     pickFrom(all_books).click();
 }
