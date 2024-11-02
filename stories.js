@@ -1,5 +1,17 @@
 const all_stories = [];
 
+class StorySource{
+  title = "???";
+  stories=[]
+  text = "";
+  constructor(title, stories) {
+    this.title = title;
+    this.stories = stories;
+    this.text = `TODO COMBINE THE TEXTS OF ${stories.map((i)=>i.title).join(" and ")}`
+
+  }
+}
+
 class Story {
   author = "???";
   title = "???";

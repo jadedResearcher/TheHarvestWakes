@@ -1107,12 +1107,69 @@ GodOfInspirationReal = () => {
 //in the library she was gifted as well
 //she is not afraid to go to sleep again this year, not anymore
 //she is loved and fed
-GodOfDreams = () => {
+GodOfDreams = (parentBook) => {
+  console.log("JR NOTE: god of dreams")
   harvestIsIn = false;
-  document.querySelectorAll(".story").forEach((e) => e.style.display = "none");
-  /*
+  const body = document.querySelector("body");
+  body.innerHTML = "";
+  const display = createElementWithClassAndParent("div", body, "display");
+  const shelves = createElementWithClassAndParent("div", body, "shelves");
+  const sleeping_gurl = createElementWithClassAndParent("img", body,"sleeping-gurl" );
+  sleeping_gurl.src="images/source_images/sleepingharvest.gif"
 
-  */
+
+  //items is EITHER a list of strings or a list of stories because i am sinning on purpose tonight
+  const renderBookCase = (items, bookCallback) => {
+    const ret = []; //all books
+    shelves.innerHTML = "";
+
+    const chunkSize = 42;
+    for (let i = 0; i < items.length; i += chunkSize) {
+      const chunk = items.slice(i, i + chunkSize);
+      const shelf = createElementWithClassAndParent("div", shelves, "sleeping-shelf");
+      const allowedColors = ["#4c560d", "#677221", "#a1b234", "#d5f40a", "#7a843d", "#9db211"];
+      for (let item of chunk) {
+        const book = createElementWithClassAndParent("div", shelf, "book");
+        book.innerText = item.title ? item.title : item; //either string or object with author title text
+        if (item.isSubDirectory) {
+          book.innerText = "*" + book.innerText;
+        }
+        const padding = getRandomNumberBetween(3, 13);
+        book.style.cssText = `padding-left: ${padding}px;
+        padding-right: ${padding}px;
+        font-size: ${getRandomNumberBetween(10, 14)}px;
+        font-family: ${pickFrom(["Times New Roman", "Georgia", "Garamond", "serif"])};
+        background-color: ${pickFrom(allowedColors)};
+        height: ${getRandomNumberBetween(75, 150)}px`;
+        ret.push(book);
+        book.onclick = () => {
+          bookCallback(item);
+          personalFeelings[HAPPY] += 13; //she's so happy she's inspiring you
+          personalFeelings[PRIDEFUL] += 13; //she's so proud that theres so much art of her
+          savePersonalFeelingsToStorage();
+        }
+      }
+    }
+    return ret;
+  }
+
+  //list of title/source array pairs
+  //clicking one calls this with a parent book and all derived books have at least one source array in common
+  const content = [];
+
+  for (let i = 0; i < 4; i++) {
+    const book1 = pickFrom(all_stories);
+    for (let j = 0; j < 42; j++) {
+      const book2 = pickFrom(all_stories);
+      content.push(new StorySource(`Story ${i}, ${j}`, [book1, book2]));
+    }
+  }
+  console.log("JR NOTE: content", content)
+  
+    const all_books = renderBookCase(content, (item) => {
+      display.innerHTML = `<h3>${item.title}</h3><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
+    });
+    pickFrom(all_books).click();
 }
 
 
@@ -1121,22 +1178,22 @@ GodOfDreams = () => {
 /*
 do you remember last years rambles about identity, dear Guest?
 
-the Harvest is experimenting with her own. 
+the Harvest is experimenting with her own.
 
-what aspects of her self are useful to her? 
+what aspects of her self are useful to her?
 
 and how does one even define use?
 
-does she ENJOY being the god of being served? 
+does she ENJOY being the god of being served?
 
 does she GROW as it?
 
 or does she rot into place.
 
-the same is true for you, dear Guest. 
+the same is true for you, dear Guest.
 
 
-You can try on identities and roles and selves and keep what works for you and discard the rest like an illfitting suit. 
+You can try on identities and roles and selves and keep what works for you and discard the rest like an illfitting suit.
 
 "you" are a collection of decisions you've made about habits to build up
 */
@@ -1153,3 +1210,5 @@ i think the key is that eustace's more passive demeneor
 
 
 */
+
+//http://eyedolgames.com/GenderForLurker/
