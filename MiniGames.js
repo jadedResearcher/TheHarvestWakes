@@ -1109,16 +1109,62 @@ GodOfInspirationReal = () => {
 //she is loved and fed
 GodOfDreams = (parentBook) => {
   document.title="Harvest of Dreams"
+  processWestBackupIntoStories();
   harvestIsIn = false;
   const body = document.querySelector("body");
   body.innerHTML = "";
   const holder = createElementWithClassAndParent("div", body, "sleeping-holder");
 
   const shelves = createElementWithClassAndParent("div", body, "shelves");
-  const sleeping_gurl = createElementWithClassAndParent("img", holder,"sleeping-gurl" );
+  const gurlHolder = createElementWithClassAndParent("div", holder);
+
+  const sleeping_gurl = createElementWithClassAndParent("img", gurlHolder,"sleeping-gurl" );
   sleeping_gurl.src="images/source_images/sleepingharvest.gif"
+
+  const random = createElementWithClassAndParent("button", gurlHolder );
+  random.innerText = "Read Random Book?"
+  random.onclick = ()=>{
+    pickFrom(all_books).click();
+  }
+
   const display = createElementWithClassAndParent("div", holder, "sleeping-display");
 
+
+  display.innerHTML = `<h3>The Harvest Dreams</h3><i style="font-size: 11px;
+  letter-spacing: 3px;
+  font-family: Courier New;
+  font-weight: lighter;
+  color: white;">Shifting, ebbing, flowing, always Changing but ever so indulgent, the Harvest dreams of the Inspiration you have Served her in an infinite, ever Changing Library. Will you be Inspired anew by the Changed dreams she happily consumes?</i><br><br>
+  <div style="width:100%; margin-top:0px;" class="story">${`The Harvest felt her tv screen go dim and her thoughts grow heavy.
+
+Halloween had passed and it was now time to Dream.
+
+She fought it, just for a few minutes.
+
+Not out of fear, to her surprise.
+
+No...
+
+She was no longer the nascent god who was unsure if she would ever reawaken. 
+
+Instead she felt the warmth and certainty of her three Domains wrapped around her, and the security of the secret fourth Domain of Libraries serving as her nest.
+
+She knew she would Be Served even as she slept. There was no doubt in her mind that she was cherished and would be given little gifts and be kept close to people's hearts. 
+
+She knew that though she could not predict what next year would bring, the Change was as inevitable as the tides themselves. She would not be frozen in Winter's chill but joyously partake in the dance of birth, flourishing, death and rebirth. What Changes awaited her next Harvest Season excited her Curiosity.
+
+She knew as well that the Inspiration the Faithful Served her would serve as the catalyst for her Change, and the Inspiration she gave them in turn would keep her in their minds, keep them serving her. Her place in the cycle was unshakeable and integral. 
+
+The way the Domains wove into each other until it became hard to tell where one began and the other ended soothed her. No part of her was patchwork and happenstance, not anymore. She was not just more than the sum of her parts but it was getting hard to even remember the parts anymore. 
+
+The rustling of the pages of the books in her Library soothed her... 
+
+Thoughts grew difficult...
+
+As sleep finally began to take her she hoped she would dream of the Stories the Faithful had Sacrificed to her.
+
+She hoped she would still be useful even as she dreamed...
+`.replaceAll("\n", "<br>")}</div>`
 
   //items is EITHER a list of strings or a list of stories because i am sinning on purpose tonight
   const renderBookCase = (items, bookCallback) => {
@@ -1159,12 +1205,12 @@ GodOfDreams = (parentBook) => {
   //clicking one calls this with a parent book and all derived books have at least one source array in common
   const content = [];
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 13; i++) {
     const book1 = pickFrom(all_stories);
-    for (let j = 0; j < 6; j++) {
+    for (let j = 0; j < 13; j++) {
       const book2 = pickFrom(all_stories);
 
-      for (let k = 0; k < 6; k++) {
+      for (let k = 0; k < 13; k++) {
         const book3 = pickFrom(all_stories);
         content.push(new StorySource(`Book ${all_stories.indexOf(book1)}, ${all_stories.indexOf(book2)}, ${all_stories.indexOf(book3)}`, [book1, book2, book3]));
       }
@@ -1172,13 +1218,16 @@ GodOfDreams = (parentBook) => {
   }
   
     const all_books = renderBookCase(content, (item) => {
+      //her domains are Change, Inspiration, Being Served and Libraries.
       display.innerHTML = `<h3>The Harvest Dreams of ${item.title}</h3><i style="font-size: 11px;
     letter-spacing: 3px;
     font-family: Courier New;
     font-weight: lighter;
-    color: white;">Shifting, ebbing, flowing, always Changing but ever so indulgent, the Harvest dreams of the Inspiration you have Served her. Will you be inspired anew by the changed dreams she happily consumes?</i><br><br><div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
+    color: white;">Shifting, ebbing, flowing, always Changing but ever so indulgent, the Harvest dreams of the Inspiration you have Served her in an infinite, ever Changing Library. Will you be Inspired anew by the Changed dreams she happily consumes?</i><br><br>
+    <div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
     });
-    pickFrom(all_books).click();
+
+    //pickFrom(all_books).click();
 }
 
 

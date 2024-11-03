@@ -1319,11 +1319,12 @@ button:active {
 .prayer-response {
   font-size: 10px;
   margin-top: 13px;
-  img{
+
+  img {
     max-width: 100%;
   }
 
-  p{
+  p {
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -1487,9 +1488,9 @@ button:active {
   top: 61px;
 }
 
-.sleeping-gurl{
+.sleeping-gurl {
   width: 310px;
-  height: 244px;
+  height: 310px;
   background-color: black;
   border-radius: 10000px;
   opacity: 90%;
@@ -1497,7 +1498,7 @@ button:active {
 
 }
 
-.sleeping-display{
+.sleeping-display {
   background-color: black;
   animation: hover 31s ease-in-out infinite;
   border-radius: 31px;
@@ -1505,9 +1506,13 @@ button:active {
   width: 100%;
   overflow-y: auto;
 
+  p {
+    margin: 0px;
+  }
+
 }
 
-.sleeping-holder{
+.sleeping-holder {
   width: 90%;
   height: 400px;
   position: fixed;
@@ -1515,6 +1520,13 @@ button:active {
   left: 3%;
   gap: 31px;
   display: flex;
+  button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: black;
+    border-radius: 13px;
+  }
 }
 
 @keyframes glow {
@@ -1563,7 +1575,7 @@ button:active {
 
 
 
-.sleeping-shelf{
+.sleeping-shelf {
   display: flex;
   border: 13px solid #677221;
   background-color: #212604;
