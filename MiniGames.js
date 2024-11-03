@@ -1159,14 +1159,17 @@ GodOfDreams = (parentBook) => {
   //clicking one calls this with a parent book and all derived books have at least one source array in common
   const content = [];
 
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 6; i++) {
     const book1 = pickFrom(all_stories);
-    for (let j = 0; j < 42; j++) {
+    for (let j = 0; j < 6; j++) {
       const book2 = pickFrom(all_stories);
-      content.push(new StorySource(`Story ${i}, ${j}`, [book1, book2]));
+
+      for (let k = 0; k < 6; k++) {
+        const book3 = pickFrom(all_stories);
+        content.push(new StorySource(`Book ${all_stories.indexOf(book1)}, ${all_stories.indexOf(book2)}, ${all_stories.indexOf(book3)}`, [book1, book2, book3]));
+      }
     }
   }
-  console.log("JR NOTE: content", content)
   
     const all_books = renderBookCase(content, (item) => {
       display.innerHTML = `<h3>The Harvest Dreams of ${item.title}</h3><i style="font-size: 11px;

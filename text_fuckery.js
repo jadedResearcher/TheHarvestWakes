@@ -19,9 +19,7 @@ const splitSourcesIntoWords = (sources) => {
 //then call yourself again. if you have no words left in any sources, quit.
 const turnSplitSourcesToOutput = (splitSources, current_source_index = 0, tmp_output = "") => {
   //if you are empty, just remove yourself entirely.
-  console.log("JR NOTE: turnSplitSourcesToOutput",{splitSources, current_source_index, tmp_output})
-  if (splitSources.length === 0) {
-    console.log("JR NOTE: ending because no more sources");
+  if (splitSources.length === 0 || splitSources.length <= current_source_index) {
     return tmp_output;
   }
   //pick how many words to grab. 
@@ -51,10 +49,10 @@ const turnSplitSourcesToOutput = (splitSources, current_source_index = 0, tmp_ou
       }
     }
   } else {
-    console.log("JR NOTE: current source is empty, ", current_source_index, splitSources);
+    //console.log("JR NOTE: current source is empty, ", current_source_index, splitSources);
   }
   const new_chunk = splitSources[current_source_index].splice(0, padding_word_count).join(" ");
-  console.log("JR NOTE: DEBUG SPLIT:  new chunk is", new_chunk, "padding was ", padding_word_count);
+  //console.log("JR NOTE: DEBUG SPLIT:  new chunk is", new_chunk, "padding was ", padding_word_count);
 
   new_tmp_output = new_tmp_output + " " + new_chunk;
 
