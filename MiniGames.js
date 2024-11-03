@@ -1205,12 +1205,12 @@ She hoped she would still be useful even as she dreamed...
   //clicking one calls this with a parent book and all derived books have at least one source array in common
   const content = [];
 
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 10; i++) {
     const book1 = pickFrom(all_stories);
-    for (let j = 0; j < 13; j++) {
+    for (let j = 0; j < 10; j++) {
       const book2 = pickFrom(all_stories);
 
-      for (let k = 0; k < 13; k++) {
+      for (let k = 0; k < 10; k++) {
         const book3 = pickFrom(all_stories);
         content.push(new StorySource(`Book ${all_stories.indexOf(book1)}, ${all_stories.indexOf(book2)}, ${all_stories.indexOf(book3)}`, [book1, book2, book3]));
       }
