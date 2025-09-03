@@ -1108,7 +1108,7 @@ GodOfInspirationReal = () => {
 //she is not afraid to go to sleep again this year, not anymore
 //she is loved and fed
 GodOfDreams = (parentBook) => {
-  document.title="Harvest of Dreams"
+  document.title = "Harvest of Dreams"
   processWestBackupIntoStories();
   harvestIsIn = false;
   const body = document.querySelector("body");
@@ -1118,12 +1118,12 @@ GodOfDreams = (parentBook) => {
   const shelves = createElementWithClassAndParent("div", body, "shelves");
   const gurlHolder = createElementWithClassAndParent("div", holder);
 
-  const sleeping_gurl = createElementWithClassAndParent("img", gurlHolder,"sleeping-gurl" );
-  sleeping_gurl.src="images/source_images/sleepingharvest.gif"
+  const sleeping_gurl = createElementWithClassAndParent("img", gurlHolder, "sleeping-gurl");
+  sleeping_gurl.src = "images/source_images/sleepingharvest.gif"
 
-  const random = createElementWithClassAndParent("button", gurlHolder );
+  const random = createElementWithClassAndParent("button", gurlHolder);
   random.innerText = "Read Random Book?"
-  random.onclick = ()=>{
+  random.onclick = () => {
     pickFrom(all_books).click();
   }
 
@@ -1216,18 +1216,18 @@ She hoped she would still be useful even as she dreamed...
       }
     }
   }
-  
-    const all_books = renderBookCase(content, (item) => {
-      //her domains are Change, Inspiration, Being Served and Libraries.
-      display.innerHTML = `<h3>The Harvest Dreams of ${item.title}</h3><i style="font-size: 11px;
+
+  const all_books = renderBookCase(content, (item) => {
+    //her domains are Change, Inspiration, Being Served and Libraries.
+    display.innerHTML = `<h3>The Harvest Dreams of ${item.title}</h3><i style="font-size: 11px;
     letter-spacing: 3px;
     font-family: Courier New;
     font-weight: lighter;
     color: white;">Shifting, ebbing, flowing, always Changing but ever so indulgent, the Harvest dreams of the Inspiration you have Served her in an infinite, ever Changing Library. Will you be Inspired anew by the Changed dreams she happily consumes?</i><br><br>
     <div style="width:100%; margin-top:0px;" class="story">${item.text.replaceAll("\n", "<br>")}</div>`
-    });
+  });
 
-    //pickFrom(all_books).click();
+  //pickFrom(all_books).click();
 }
 
 

@@ -1522,6 +1522,7 @@ button:active {
   gap: 31px;
   display: flex;
   pointer-events: none;
+
   button {
     margin-left: auto;
     margin-right: auto;
